@@ -48,10 +48,14 @@ function showBookDetails(book) {
     document.addEventListener("click", (event) => {
         if (!popup.contains(event.target)) {
             document.body.removeChild(popup);
+
+        } else {
+            showBookDetails(book);
+            event.preventDefault(); // Prevent default click behavior
         }
     });
-}
 
+}
 
 
 // Function to display search results
@@ -61,15 +65,18 @@ function displayResults(results) {
 
     if (results.length === 0) {
         bookResultsDiv.innerHTML = "<p>No results found.</p>";
+        searchContainer.style.margin = "0";
+        searchContainer.style.padding = "0";
+        searchContainer.style.position = "relative";
+        searchContainer.style.zIndex = "1000"; // Adjust the z-index if needed    
         return;
     }
     
     //searchContainer.style.position = "fixed";
-    searchContainer.style.top = "0";
-    searchContainer.style.marginTop = "10%";
-    searchContainer.style.left = "0";
-    searchContainer.style.width = "100%";
+    searchContainer.style.bottom = "15%";
+    searchContainer.style.position = "relative";
     searchContainer.style.zIndex = "1000"; // Adjust the z-index if needed
+
 
     // Clear previous results
     bookResultsDiv.innerHTML = "";   
