@@ -5,6 +5,11 @@ const localBooks = [
     { title: "กฎหมายการปกครอง 2", code: "L204-52", shell:"200", local:"Shell 200 ตู้ที่ 4 ชั้น 5 ล๊อค 2", description: "กฎหมายปกครอง 2 เป็น กฎหมายมหาชน ที่วางหลักเกณฑ์เกี่ยวกับการจัดระเบียบบริหารของรัฐ" },
     { title: "ปลูกกัญชา", code: "P303-54", shell:"300", local:"Shell 300 ตู้ที่ 3 ชั้น 5 ล๊อค 4", description: "สิ่งสำคัญอย่างแรกเมื่ออยาก ปลูกกัญชา คือต้องรู้ก่อนว่า ต้องปลูกเพื่ออะไร เพื่อบริโภคในครัวเรือน หรือเพื่อทางการแพทย์ " },
     { title: "ปลูกผม", code: "P303-53", shell:"300", local:"Shell 300 ตู้ที่ 3 ชั้น 5 ล๊อค 3", description: "สิ่งสำคัญอย่างแรกเมื่ออยาก ปลูกผม คือต้องรู้ก่อนว่า ต้องปลูกเพื่ออะไร เพื่อบริโภคในครัวเรือน หรือเพื่อทางการแพทย์ " },
+    { title: "ปลูกผม", code: "P303-53", shell:"300", local:"Shell 300 ตู้ที่ 3 ชั้น 5 ล๊อค 3", description: "สิ่งสำคัญอย่างแรกเมื่ออยาก ปลูกผม คือต้องรู้ก่อนว่า ต้องปลูกเพื่ออะไร เพื่อบริโภคในครัวเรือน หรือเพื่อทางการแพทย์ " },
+    { title: "ปลูกผม", code: "P303-53", shell:"300", local:"Shell 300 ตู้ที่ 3 ชั้น 5 ล๊อค 3", description: "สิ่งสำคัญอย่างแรกเมื่ออยาก ปลูกผม คือต้องรู้ก่อนว่า ต้องปลูกเพื่ออะไร เพื่อบริโภคในครัวเรือน หรือเพื่อทางการแพทย์ " },
+    { title: "ปลูกผม", code: "P303-53", shell:"300", local:"Shell 300 ตู้ที่ 3 ชั้น 5 ล๊อค 3", description: "สิ่งสำคัญอย่างแรกเมื่ออยาก ปลูกผม คือต้องรู้ก่อนว่า ต้องปลูกเพื่ออะไร เพื่อบริโภคในครัวเรือน หรือเพื่อทางการแพทย์ " },
+    { title: "ปลูกผม", code: "P303-53", shell:"300", local:"Shell 300 ตู้ที่ 3 ชั้น 5 ล๊อค 3", description: "สิ่งสำคัญอย่างแรกเมื่ออยาก ปลูกผม คือต้องรู้ก่อนว่า ต้องปลูกเพื่ออะไร เพื่อบริโภคในครัวเรือน หรือเพื่อทางการแพทย์ " },
+    { title: "ปลูกผม", code: "P303-53", shell:"300", local:"Shell 300 ตู้ที่ 3 ชั้น 5 ล๊อค 3", description: "สิ่งสำคัญอย่างแรกเมื่ออยาก ปลูกผม คือต้องรู้ก่อนว่า ต้องปลูกเพื่ออะไร เพื่อบริโภคในครัวเรือน หรือเพื่อทางการแพทย์ " },
     // Add more books as needed.
 ];
 
@@ -25,6 +30,15 @@ function searchBooks() {
 
 // Function to show book details
 function showBookDetails(book) {
+    // Check if there is an existing popup
+    const existingPopup = document.querySelector(".book-popup");
+    
+    // If there is an existing popup, close it before creating a new one
+    if (existingPopup) {
+        document.body.removeChild(existingPopup);
+    }
+
+    // Create the new popup
     const popup = document.createElement("div");
     popup.classList.add("book-popup");
     popup.innerHTML = `
@@ -64,6 +78,7 @@ function showBookDetails(book) {
         event.stopPropagation();
     });
 }
+
 
 // Function to display search results
 function displayResults(results) {

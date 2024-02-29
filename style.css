@@ -1,3 +1,17 @@
+#headerBanner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001; /* Ensure the banner appears above other elements */
+    text-align: right;
+    padding: 10px;
+}
+
+#logo {
+    max-width: 100%; /* Ensure the logo does not exceed its container */
+    max-height: 50px; /* Set the maximum height of the logo */
+}
+
 body {
     font-family: 'Helvetica', 'Arial', sans-serif;
     background-color: #f5f5f5;
