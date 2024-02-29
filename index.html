@@ -2,24 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Librarian DEMO</title>
     <link rel="stylesheet" href="style.css">
     <!-- Add any additional CSS or library links here -->
 </head>
 <body>
     <div id="searchContainer">
-        <input type="text" id="searchInput" placeholder="Search by keyword, name, or code" onkeypress="handleKeyPress(event)">
-       <button onclick="searchBooks()">Search</button>
+        <input type="text" id="searchInput" placeholder="keyword, name, or code" onkeypress="handleKeyPress(event)">
+       <button onclick="[searchBooks(),myFunction()]">Search</button>
     </div>
 
 
     <div id="bookResults">
         <!-- Book search results will be displayed here -->
+       
     </div>
 
     <!-- Add any additional scripts or library links here -->
 
     <script src="app.js"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("bookResults");
+            if (window.innerWidth < 1000) {
+                    x.classList.add("responsive");
+                } else {
+                    if (x.classList.contains("responsive")) {
+                    x.classList.remove("responsive");
+                }
+            }
+        }
+    </script>
+    
+    
 </body>
 </html>

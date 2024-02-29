@@ -9,7 +9,30 @@ body {
     justify-content: center;
     height: 100vh; /* Make the body take up the full height of the viewport */
 }
+#searchWrapper {
+    display: flex;
+    align-items: center;
+}
 
+/* Adjust the styles for the searchInput */
+#searchInput {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    flex: 1; /* Allow the input to grow and take available space */
+}
+
+/* Adjust styles for the button */
+#searchButton {
+    padding: 10px;
+    background-color: #ffa032;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
 #searchContainer {
     text-align: center;
     width: auto;
@@ -19,14 +42,6 @@ body {
     padding: 0;
 }
 
-#searchInput {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%; /* Full width on all screen sizes */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
 
 button {
     margin-top: 10px; /* Adjust the margin as needed */
@@ -43,10 +58,36 @@ button {
     margin: 20px;
     top: 40%;
     width: auto;
+    min-width: 20%;
+    max-width: 100%;
     display: flex;
     flex-wrap: wrap; /* Allow multiple rows of book results */
-    justify-content: space-around; /* Center the book results horizontally */
+    justify-content: space-evenly; /* Center the book results horizontally */
 }
+
+
+#bookResults.responsive {
+    position: absolute;
+    margin: 20px;
+    top: 40%;
+    width: auto;
+    display: block;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/*
+#bookResults {
+    position: absolute;
+    margin: 20px;
+    top: 40%;
+    width: auto;
+    display: flexbox;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+}
+*/
+
 
 #bookResults div {
     background-color: #fff;
@@ -63,11 +104,13 @@ button {
     transform: scale(1.05); /* Add a scale effect on hover */
 }
 
+
 .book-popup {
-    position: absolute;
+    position: fixed;
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 20px;
+    max-width: 80%;
     border-radius: 5px;
     z-index: 1001; /* Ensure the popup appears above other elements */
     animation: fadeIn 0.5s ease-in-out; /* Add fade-in animation */
