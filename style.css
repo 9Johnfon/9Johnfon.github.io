@@ -1,0 +1,63 @@
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Make the body take up the full height of the viewport */
+}
+
+#searchContainer {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+#searchInput {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 12%;
+}
+
+button {
+    padding: 10px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#bookResults {
+    position: relative;
+    margin: 20px;
+    top: 10%;
+}
+
+#bookResults div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+
+.book-popup {
+    position: fixed; /* Change to fixed for better mobile compatibility */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1001;
+    animation: fadeIn 0.5s ease-in-out;
+}
