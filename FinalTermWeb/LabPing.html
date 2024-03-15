@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>Final Anatomy</title>
+</head>
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">เรียบเรียงโดยบีม ATM | Dev ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40" height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button" style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;" onclick="goBack()">Back</button>
+ </div>
+
+ <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./AnatomyLecture.html">Anatomy Lecture</a></li>
+            <li><a href="./LabPing.html">Anatomy Ping</a></li>
+            <li><a href="./IPEFinal.html">IPE</a></li>
+        </ul>
+    </div> 
+
+
+<script>
+    const questions = [
+        { question: "<B><img src='./images/1.PNG'><br/></B>",options: ["Right atrium","Left atrium","Ligamentum arteriosum","Superior vena cava","Ascending aorta"], correctAnswer: "Right atrium" },
+        { question: "<B><img src='./images/2.PNG'><br/></B>",options: ["Pectinate muscle","Crista terminalis","Chordae tendineae","Trabeculae carneae","Papillary muscle"], correctAnswer: "Pectinate muscle" },
+        { question: "<B><img src='./images/3.PNG'><br/></B>",options: ["Fossa ovalis","Crista terminalis","Trabeculae caneae","Opening of coronary sinus","Pectinate muscle"], correctAnswer: "Fossa ovalis" },
+        { question: "<B><img src='./images/4.PNG'><br/></B>",options: ["Arch of aorta","Ascending aorta","Superior vena cava","Pulmonary trunk"], correctAnswer: "Arch of aorta" },
+        { question: "<B><img src='./images/5.PNG'><br/></B>",options: ["Thoracic aorta","Abdominal aorta","Ascending aorta","Common iliac artery","Subclavian artery"], correctAnswer: "Thoracic aorta" },
+        { question: "<B><img src='./images/6.PNG'><br/></B>",options: ["Intercalated discs","Voluntary control","Central nucleus","Striations","Multiple nuclei"], correctAnswer: "Intercalated discs" },
+        { question: "<B><img src='./images/7.PNG'><br/></B>",options: ["Femoral a.","Radial a.","Common iliac a.","Anterior tibial a.","Thoracic aorta"], correctAnswer: "Femoral a." },
+        { question: "<B><img src='./images/8.PNG'><br/></B>",options: ["Basophil","Lymphocyte","Monocyte","Eosinophil","Neutrophil"], correctAnswer: "Basophil" },
+        { question: "<B><img src='./images/9.PNG'><br/></B>",options: ["Neutrophil","Monocyte","Eosinophil","Basophil","Lymphocyte"], correctAnswer: "Neutrophil" },
+        { question: "<B><img src='./images/10.PNG'><br/></B>",options: ["Tonsil","Lymph node","Thymus","Lymph vessels","Spleen"], correctAnswer: "Tonsil" },
+        { question: "<B><img src='./images/11.PNG'><br/></B>",options: ["Quadrate lobe","Caudate lobe","Gall bladder","Left lobe","Right lobe"], correctAnswer: "Quadrate lobe" },
+        { question: "<B><img src='./images/12.PNG'><br/></B>",options: ["Common bind duct","Cystic duct","Main pancreatic duct","Left Hepatic duct","Right Hepatic duct"], correctAnswer: "Common bind duct" },
+        { question: "<B><img src='./images/13.PNG'><br/></B>",options: ["Epiploic appendage","Haustrum","Taenia coli","Vermiform appendix","Colon"], correctAnswer: "Epiploic appendage" },
+        { question: "<B><img src='./images/14.PNG'><br/></B>",options: ["Pyloric sphincter","Cardia","Body","Antrum","Fundus"], correctAnswer: "Pyloric sphincter" },
+        { question: "<B><img src='./images/15.PNG'><br/></B>",options: ["Jejunum","Duodenum","Ilium","Colon","Cecum"], correctAnswer: "Jejunum" },
+        { question: "<B><img src='./images/16.PNG'><br/></B>",options: ["Gall bladder","Caudate lobe","Right lobe","Quadrate lobe","Left lobe"], correctAnswer: "Gall bladder" },
+        { question: "<B><img src='./images/17.PNG'><br/></B>",options: ["Falciform ligament","Coronary ligament","Round ligament of liver","Cardinal ligament","Triangular ligament"], correctAnswer: "Falciform ligament" },
+        { question: "<B><img src='./images/18.PNG'><br/></B>",options: ["Greater curvature","Body","Lesser curvature","Angular incisures","Fundus"], correctAnswer: "Greater curvature" },
+        { question: "<B><img src='./images/19.PNG'><br/></B>",options: ["Pancreas","Small intestine","Stomach","Spleen","Gall bladder"], correctAnswer: "Pancreas" },
+        { question: "<B><img src='./images/20.PNG'><br/></B>",options: ["Celiac trunk","Superior mesenteric artery","Splenic artery","Renal artery","Inferior mesenteric artery"], correctAnswer: "Celiac trunk" },
+        { question: "<B><img src='./images/21.PNG'><br/></B>",options: ["Renal cortex","Medullary ray","Renal column","Renal pyramid","Renal medulla"], correctAnswer: "Renal cortex" },
+        { question: "<B><img src='./images/22.PNG'><br/></B>",options: ["Ureter","Renal pelvis","Kidney","Urethra","Urinary bladder"], correctAnswer: "Ureter" },
+        { question: "<B><img src='./images/23.PNG'><br/></B>",options: ["Kidney","Ureter","Urinary bladder","Renal pelvis","Urethra"], correctAnswer: "Kidney" },
+        { question: "<B><img src='./images/24.PNG'><br/></B>",options: ["Ranal pyramid","Renal medulla","Renal cortex","Renal column","Medullary ray"], correctAnswer: "Ranal pyramid" },
+        { question: "<B><img src='./images/25.PNG'><br/></B>",options: ["Renal vein","Segmental vein","Arcuate vein","Interlobar vein","Interlobular vein"], correctAnswer: "Renal vein" },
+        { question: "<B><img src='./images/26.PNG'><br/></B>",options: ["Urinary bladder","Prostatic urethra","Kidney","Ureter","Penile urethra"], correctAnswer: "Urinary bladder" },
+        { question: "<B><img src='./images/27.PNG'><br/></B>",options: ["Renal pelvis","Ureter","Kidney","Urethra","Urinary bladder"], correctAnswer: "Renal pelvis" },
+        { question: "<B><img src='./images/28.PNG'><br/></B>",options: ["Penile urethra","Prostatic urethra","Urinary bladder","Membranous urethra","Ureter"], correctAnswer: "Penile urethra" },
+        { question: "<B><img src='./images/29.PNG'><br/></B>",options: ["Glomerulus","Renal column","Renal pyramid","Renal pelvis","Afferent arteriole"], correctAnswer: "Glomerulus" },
+        { question: "<B><img src='./images/30.PNG'><br/></B>",options: ["Abdominal aorta","Thoracic aorta","Inferior vana cava","Arch of aorta","Superior vana cava"], correctAnswer: "Abdominal aorta" },
+        { question: "<B><img src='./images/31.PNG'><br/></B>",options: ["Prostate gland","Epididymis","Vas deferens","Testis","Seminal vesicle"], correctAnswer: "Prostate gland" },
+        { question: "<B><img src='./images/32.PNG'><br/></B>",options: ["Testis","Ampulla of vas deferens","Prostate gland","Epididymis","Ejaculatory duct"], correctAnswer: "Testis" },
+        { question: "<B><img src='./images/33.PNG'><br/></B>",options: ["Ductus deferens","Bulbourethral gland","Epididymis","Efferent ductule","Seminal vesicle"], correctAnswer: "Ductus deferens" },
+        { question: "<B><img src='./images/34.PNG'><br/></B>",options: ["Elongated spermatids","Spermatocytes","Spermatozoon","Spermatogonia","Round spermatids"], correctAnswer: "Elongated spermatids" },
+        { question: "<B><img src='./images/35.PNG'><br/></B>",options: ["Corpus spongiosum","Gland penis","Penile urethra","Corpus carvernosum","Corona penis"], correctAnswer: "Corpus spongiosum" },
+        { question: "<B><img src='./images/36.PNG'><br/></B>",options: ["Sertoli cells","Peritubular myoid cells","Leydig cells","Capillaries","Spermatogonia"], correctAnswer: "Sertoli cells" },
+        { question: "<B><img src='./images/37.PNG'><br/></B>",options: ["Seminal vesicle","Vas deferens","Prostate gland","Ejaculatory duct","Ampulla of vas deferens"], correctAnswer: "Seminal vesicle" },
+        { question: "<B><img src='./images/38.PNG'><br/></B>",options: ["Leydig cells","Spermatids","Sertoli cells","Spermatogonia","Spermatocytes"], correctAnswer: "Leydig cells" },
+        { question: "<B><img src='./images/39.PNG'><br/></B>",options: ["Epididymis","Ductus deferens","Effect ductule","Testis","Ejaculatory duct"], correctAnswer: "Epididymis" },
+        { question: "<B><img src='./images/40.PNG'><br/></B>",options: ["Corpus carvernosum","Glands penis","Corpus spongisosum","Corona penis","Penile urethra"], correctAnswer: "Corpus carvernosum" },
+        { question: "<B><img src='./images/41.PNG'><br/></B>",options: ["Uterus","Ovary","Bladder","Rectum","Vagina"], correctAnswer: "Uterus" },
+        { question: "<B><img src='./images/42.PNG'><br/></B>",options: ["Ovary","Fallopian tube","Bladder","Uterus","Round ligament"], correctAnswer: "Ovary" },
+        { question: "<B><img src='./images/43.PNG'><br/></B>",options: ["Vagina","Cervix","Uterine tube","Fundus","Uterus"], correctAnswer: "Vagina" },
+        { question: "<B><img src='./images/44.PNG'><br/></B>",options: ["Mons pubis","Urethral orifice","Labium minus","Vestibule","Labium majus"], correctAnswer: "Mons pubis" },
+        { question: "<B><img src='./images/45.PNG'><br/></B>",options: ["Fallopian tube","Labium majus","Labium minus","Ovarian ligament","Uterus"], correctAnswer: "Fallopian tube" },
+        { question: "<B><img src='./images/46.PNG'><br/></B>",options: ["Primary follicle","Vesicular follicle","Secondary follicle","Graafian follicle","Primordial follocle"], correctAnswer: "Primary follicle" },
+        { question: "<B><img src='./images/47.PNG'><br/></B>",options: ["Secondary follicle","Primary folicle","Graafian follicle","Primordial follicle","Vesicular follicle"], correctAnswer: "Secondary follicle" },
+        { question: "<B><img src='./images/48.PNG'><br/></B>",options: ["Cervix","Body","Fundus","Labium minus","Vagina"], correctAnswer: "Cervix" },
+        { question: "<B><img src='./images/49.PNG'><br/></B>",options: ["Imperforate hymen","Labium majus","Labium minus","Cervix","Vestibule"], correctAnswer: "Imperforate hymen" },
+        { question: "<B><img src='./images/50.PNG'><br/></B>",options: ["Secretory phase of uterus","Mense strul phase of uterus","Proliferative phase of uterus","Follicular phase of ovary","Ovalation phase of ovary"], correctAnswer: "Secretory phase of uterus" },
+        { question: "<B><img src='./images/51.PNG'><br/></B>",options: ["Hypothalamus","Thalamus","Pineal","Parathyroid gland","Pituitary"], correctAnswer: "Hypothalamus" },
+        { question: "<B><img src='./images/52.PNG'><br/></B>",options: ["Pineal gland","Adrenal gland","Pituitary gland","Parathyroid gland","Thalamus"], correctAnswer: "Pineal gland" },
+        { question: "<B><img src='./images/53.PNG'><br/></B>",options: ["Zona glomerulosa","Zona reticularis","Adrenal medulla","Zona fasciculata","Renal capsule"], correctAnswer: "Zona glomerulosa" },
+        { question: "<B><img src='./images/54.PNG'><br/></B>",options: ["Thymus","Liver","Spleen","Lymph node","Tonsil"], correctAnswer: "Thymus" },
+        { question: "<B><img src='./images/55.PNG'><br/></B>",options: ["Thymus","Parathyroid gland","Thyroid gland","Pancreases","Adrenal gland"], correctAnswer: "Thymus" },
+        { question: "<B><img src='./images/56.PNG'><br/></B>",options: ["Parathyroid gland","Adrenal gland","Thymus","Pancreases","Thyroid gland"], correctAnswer: "Parathyroid gland" },
+        { question: "<B><img src='./images/57.PNG'><br/></B>",options: ["Adrenal gland","Thyroid gland","Thymus","Parathyroid gland","Pancreases"], correctAnswer: "Adrenal gland" },
+        { question: "<B><img src='./images/58.PNG'><br/></B>",options: ["Pineal gland","Thalamus","Pituitary gland","Adrenal gland","Parathyroid gland"], correctAnswer: "Pineal gland" },
+        { question: "<B><img src='./images/59.PNG'><br/></B>",options: ["Thyroid gland","Pancreases","Adrenal gland","Parathyroid gland","Thymus"], correctAnswer: "Pancreases" },
+        { question: "<B><img src='./images/60.PNG'><br/></B>",options: ["Pineal gland","Thalamus","Pituitary gland","Adrenal gland","Parathyroid gland"], correctAnswer: "Pituitary gland" },
+];
+ 
+</script>
+
+<script src="./core/login.js"></script>
+<script src="./core/script.js"></script>
+
+</body>
+</html>
