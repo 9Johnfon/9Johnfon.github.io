@@ -17,7 +17,7 @@ function login() {
 
     // Replace 'paramed' with your actual username and password
     const correctUsername = decodedEND;
-    const correctPassword = decodedEND + "1848";
+    const correctPassword = decodedEND + "18";
 
     if ((enteredUsername) === correctUsername && enteredPassword === correctPassword) {
         // Successful login, you can store JWT or perform other actions
