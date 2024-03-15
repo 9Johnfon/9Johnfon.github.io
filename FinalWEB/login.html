@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,13 +22,19 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="button" onclick="login()">Login</button>
+            <label for="otp">Code:</label>
+            <input type="text" id="otp" name="code">
+
+            <button id="button" type="button" onclick="login()">Login</button>
+            <button id="otp" type="submit" onclick="SendOTP()">SendOTP</button>
         </form>
     </div>
 
 
     <script src="./core/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </body>
 
 </html>
