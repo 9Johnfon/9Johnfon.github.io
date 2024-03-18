@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>Midterm IPE</title>
+</head>
+
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">เรียบเรียงโดยชายฉกรรจ์ทั้ง
+        7 | Dev ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a
+            href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40"
+                height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button"
+            style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;"
+            onclick="goBack()">Back</button>
+    </div>
+
+    <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./AnatomyLecture.html">AnatomyLecture</a></li>
+            <li><a href="./LabPing.html">AnatomyPing</a></li>
+            <li><a href="./EMS.html">EMS</a></li>
+            <li><a href="./IPEFinal.html">IPE</a></li>
+        </ul>
+    </div>
+
+    <!-- ... (HTML และ CSS เดิม) ... -->
+    <script>
+        const questions = [
+            /////////////////// โฉ 1-5
+            { question: "<B>หน่วยปฏิบัติการมีกี่ประเภท อะไรบ้าง*</B>", options: ["มี 4 ประเภทคือ หน่วยปฏิบัติการ FR, BLS, ILS และ ALS", "มี 2 ประเภทคือ หน่วยปฏิบัติการชั้นพื้นฐานและหน่วยปฏิบัติการขั้นสูง", "มี 3 ประเภทคือ หน่วยปฏิบัติการรับแจ้งเหตุ หน่วยปฏิบัติการแพทย์ และหน่วยปฏิบัติการอำนวยการ", "มี 2 ประเภทคือ หน่วยปฏิบัติการแพทย์และหน่วยปฏิบัติการอำนวยการ", "มี 3 ประเภทคือ หน่วยปฏิบัติการรับแจ้งเหตุ หน่วยปฏิบัติการจ่ายงาน และหน่วยปฏิบัติการอำนวยการ"], correctAnswer: "มี 4 ประเภทคือ หน่วยปฏิบัติการ FR, BLS, ILS และ ALS" },
+            { question: "<B>Paramedic เป็นผู้ปฏิบัติการฉุกเฉินที่ทำหน้าที่เป็นหัวหน้าชุดปฏิบัติการฉุกเฉินระดับใด*</B>", options: ["FR", "BLS", "ILS", "ALS", "ได้ทุกชุดปฏิบัติการ"], correctAnswer: "ALS" },
+            { question: "<B>Paramedic ปฏิบัติหน้าที่ใดในศูนย์รับแจ้งเหตุและสั่งการ *</B>", options: ["ผู้รับแจ้งการเจ็บป่วยฉุกเฉิน", "ผู้จ่ายงานปฏิบัติการฉุกเฉิน", "ผู้ประสานปฏิบัติการฉุกเฉิน", "ผู้กำกับการปฏิบัติการฉุกเฉิน", "ผู้อำนวยการปฏิบัติการฉุกเฉิน"], correctAnswer: "ผู้จ่ายงานปฏิบัติการฉุกเฉิน" },
+            { question: "<B>ข้อใดต่อไปนี้ ไม่ใช่สมรรถนะของชุดปฏิบัติการฉุกเฉินเบื้องต้น(FR)*</B>", options: ["การห้ามเลือด", "การใส่ Oropharyngeal airway", "การบริหารยาสามัญประจำบ้าน", "การใช้เครื่องกระตุกหัวใจอันโนมัติ(AED)", "การช่วยพื้นคืนชีพชั้นพื้นฐาน"], correctAnswer: "การใส่ Oropharyngeal airway" },
+            { question: "<B>ข้อใดคือคู่มือที่ใช้ในศูนย์รับแจ้งเหตุและสั่งการ *</B>", options: ["คู่มือ Call Taker", "คู่มือ Criteria Based Dispatch", "คู่มือ Emergency Triage", "คู่มือ Referral System", "คู่มือ Treatment Protocol"], correctAnswer: "คู่มือ Criteria Based Dispatch" },
+            { question: "<B>บุคคลใดเป็นผู้ให้คำสั่งทางการแพทย์และการอำนวยการ *</B>", options: ["แพทย์เวชปฏิบัติฉุกเฉิน", "แพทย์อำนวยการปฏิบัติการฉุกเฉิน", "แพทย์เวชศาสตร์ฉุกเฉิน", "แพทย์อำนวยการ", "แพทย์เวรห้องอุบัติเหตุจุกเฉิน"], correctAnswer: "แพทย์อำนวยการปฏิบัติการฉุกเฉิน" },
+            /////////////////// ดิว 6-10
+            { question: "<b></b>", options: [""], correctAnswer: "" },
+            /////////////////// จอน 11
+            { question: "<B>การให้สาน้ำ (Intravascular fluid) สำหรับชุดปฏิบัติการฉุกเฉินระดับกลาง (ILS) เป็นสมรรถนะ ระดับใดตามประกาศของคณะกรรมการการแพทย์ฉุกเฉิน *</B>", options: ["ระดับ ก.", "ระดับ ข.", "ระดับ ค.", "ระดับ ง.", "ระดับ จ."], correctAnswer: "ระดับ ค." },
+            { question: "<B>ชุดปฏิบัติการฉุกเฉินระดับใดต่อไปนี้ ที่สามารถใช้เครื่อง AED ได้โดยไม่ผิดกฎหมาย *</B>", options: ["ชุดปฏิบัติการฉุกเฉินเบื้องต้น(FR)", "ชุดปฏิบัติการฉุกเฉินระดับต้น(BLS)", "ชุดปฏิบัติการฉุกเฉินระดับกลาง(ILS)", "ชุดปฏิบัติการฉุกเฉินระดับสูง(ALS)", "ถูกทุกข้อ"], correctAnswer: "ถูกทุกข้อ" },
+            { question: "<B>มาตราแห่งประมวลกฎหมายอาญาในข้อใดต่อไปนี้ ที่ช่วยสนับสนุน ผู้อาจช่วยได้ ว่าไม่ควรกลัวอันตรายแก่ตนเอง หรือผู้อื่นหากมีเจตนาในการช่วยชีวิต โดยการทำ CPR*</B>", options: ["291", "425", "300", "374", "420"], correctAnswer: "374" },
+            { question: "<B>ตามพรบ.จราจรทางบก พ.ศ.2522 มาตรา 76 หากมีรถบริการการแพทย์กึ่งวิ่งร่วมเส้นทาง ข้อใดไม่ถูกต้อง *</B>", options: ["หากขับรถตามหลังรถฉุกเฉิน สามารถทำได้ในระยะไม่ต่ำกว่า 50 เมตร", "ผู้ขับขี่ต้องหยุดรถให้อยู่ชิดขอบทางด้านซ้าย", "ผู้ขับขี่ต้องจอดรถในทางร่วมทางแยก", "ผู้ควบคุมสัตว์ต้องบังคับสัตว์ให้หยุดชิดขอบทาง", "คนเดินเท้าต้องหยุดและหลบให้ชิตขอบทาง"], correctAnswer: "ผู้ขับขี่ต้องจอดรถในทางร่วมทางแยก" },
+            { question: "<B>หากนำส่งผู้ป่วยฉุกเฉินรหัส 1 จำเป็นต้องขับย้อนศร ผู้ขับขี่ควรใช้ความเร็วไม่เกินเท่าใด *</B>", options: ["40 กม./ชม.", "20 กม./ชม.", "60 กม./ชม.", "30 กม./ชม.", "50 กม./ชม."], correctAnswer: "30 กม./ชม." },
+            { question: "<B>ข้อใดเป็นแหล่งงบประมาณหลักที่ใช้ในงาน EMS*</B>", options: ["งบประมาณองค์กรปกครองส่วนท้องถิ่น", "กองทุนผู้ประสบภัย", "รายรับจากผู้ป่วยฉุกเฉิน", "งบประมาณสำนักงานหลักประกันสุขภาพแห่งชาติ", "กองทุนการแพทย์ฉุกเฉิน"], correctAnswer: "กองทุนผู้ประสบภัย" },
+
+
+
+        ];
+    </script>
+
+    <script src="./core/login.js"></script>
+    <script src="./core/script.js"></script>
+
+
+</body>
+
+</html>
