@@ -29,7 +29,7 @@ function SendOTP() {
     // ถ้าผ่านเงื่อนไขการ Cooldown ให้ส่ง OTP
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzZoIrhymoTwaBgbRp9XUmQ4JDjuTe9b7B-b_7WeX3YiCQKpNyVrc6ycQQUpJC66Ddm/exec';
     const form = document.forms['login-form'];
-    const enteredPassword = document.getElementById('password').value.toLowerCase();
+    const enteredPassword = document.getElementById('password').value;
     var pass = "WWxkV2EySllUakU9";
     var decoded1 = atob(pass);
     var decoded2 = atob(decoded1);

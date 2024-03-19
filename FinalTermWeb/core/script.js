@@ -40,6 +40,7 @@ function toggleMenu() {
     const totalQuestions = questions.length;
 
     function displayQuestion() {
+
         if (backButtonClicked) {
             currentQuestionIndex = (currentQuestionIndex - 1 + totalQuestions) % totalQuestions;
             correctAnswersCount--;

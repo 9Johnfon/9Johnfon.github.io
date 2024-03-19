@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>EMS ข้อเขียน</title>
+</head>
+
+<body>
+
+    <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./EMS.html">EMS</a></li>
+        </ul>
+    </div>
+
+    
+    <div id="card-container"></div>
+
+    <script>
+        // รายการข้อความและตัวเลือกของการ์ด
+        const cards = [
+            {
+                question: "<B><p align='left'>*ข้อเขียน1*</p></B><br/>ยกตัวอย่างการดูแลความปลอดภัยของผู้ป่วย (Patient Safety) ทั้ง 6 ประเดิน (6 คะแนน)",
+                options: [
+                    "<b>1. Safe surgery</b> ถามช็อและข้อมูลผู้ป่วยของก่อนทำหัตถการทุกครั้ง",
+                    "<b>2. Infection Control</b> ใส่ถุงมือปลอดเชื้อก่อนทาห้ตถการที่เสียงติดเชื้อทุกครั้ง",
+                    "<b>3. Medication Safety</b> ตรวจสอบยา สารน้ำ เลือดก่อนจ่ายให้ผู้ป่วยทุกครั้ง",
+                    "<b>4. Patient Care Process</b> การเคลือนย้ายผู้ป่วยทุกครั้งต้องศานึงถึงความปลอดภัยเสมอ",
+                    "<b>5. Line,Tube Catheter</b> ดูแลอุปกรณ์ สายและท่อ ที่สอดเข้าไปในร่างกายผู้ป่วย ไม่ให้เลือนหลุด",
+                    "<b>6. Emergency Response</b> จอดรถให้ห่างจากจุดเกิดเหตุอย่างน้อย 15 เมตร เพื่อป้องกันการเกิดอุบัติเหตุ"
+                ]
+            },
+            {
+                question: "<B><p align='left'>*ข้อเขียน2*</p></B><br/>TEMSA ย่อมาจากคำว่า อะไร มีหมวดใดบ้าง (4 คะแนน)",
+                options: [
+                    "<b>Thai Emergency Medical Service Accreditation</b>",
+                    "<b>1.การบริหารจัดการองค์กร</b>",
+                    "<b>2.การดูแลผู้ป่วยและผู้บาดเจ็บ</b>",
+                    "<b>3.การปฏิบัติการในสถานการณ์ฉุกเฉิน/b>",
+                    "<b>4.ความปลอดภัยในการปฏิบัติการ</b>",
+                    "<b>5.การจัดการข้อมูล</b>",
+                    "<b>6.การบริหารทรัพยากรบุคคล</b>"
+                ]
+            },
+            {
+                question: "<B><p align='left'>*ข้อเขียน2*</p></B><br/>ITEMS คืออะไร จงอธิบายให้เข้าใจพอสังเขป (2 คะแนน)",
+                options: [
+                    "<b>ระบบสารสนเทศทางการแพทย์ฉุกเฉิน เป็นระบบที่นำเอาเทคโนโลยีสารสนเทศมาใช้สนับสนุนการให้<br/>บริการการแพทย์ฉุกเฉิน ทั้งผู้ปฏิบัติการและให้ข้อมูลกับประชาชนทั่วไป</b>"
+                ]
+            }
+        ];
+
+        // เพิ่มการ์ดลงในตำแหน่งที่กำหนด
+        const cardContainer = document.getElementById('card-container');
+        cards.forEach(card => {
+            const cardElement = document.createElement('div');
+            cardElement.classList.add('card');
+            cardElement.innerHTML = `
+                <div class="card-header">
+                    ${card.question}
+                </div>
+                <div class="card-body">
+                    ${card.options.map(option => `<p>${option}</p>`).join('')}
+                </div>
+            `;
+            cardContainer.appendChild(cardElement);
+        });
+    </script>
+
+
+    <script src="./core/login.js"></script>
+    <script src="./core/script.js"></script>
+
+    <h4 style="font-family: 'Prompt'; position: fixed; bottom: 0; right: 0; margin: 10px;">เรียบเรียงโดยบีม Johny | Dev ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt'; position: fixed; bottom: 0; left: 0; margin: 10px;"><a href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40" height="40"></a></h4>
+</body>
+
+</html>
