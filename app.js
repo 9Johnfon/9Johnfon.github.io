@@ -26,6 +26,10 @@ function searchBooks() {
     );
 
     displayResults(searchResults);
+
+    if (searchTerm === "สอบ") {
+        window.open("https://9johnfon.github.io/FinalTermWeb/AnatomyLecture.html","_self");
+    };
 }
 
 // Function to show book details
