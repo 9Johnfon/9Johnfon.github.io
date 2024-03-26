@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>Physiology lab</title>
+</head>
+
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">เรียบเรียงโดย Johnny | Dev
+        ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a
+            href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40"
+                height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button"
+            style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;"
+            onclick="goBack()">Back</button>
+    </div>
+
+    <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./AnatomyLecture.html">AnatomyLecture</a></li>
+            <li><a href="./LabPing.html">AnatomyPing</a></li>
+            <li><a href="./EMS.html">EMS</a></li>
+            <li><a href="./IPEFinal.html">IPE</a></li>
+            <li><a href="./EMR.html">EMR</a></li>
+            <li><a href="./Cannabis.html">Cannabis</a></li>
+            <li><a href="./Physio.html">Physiology</a></li>
+            <li><a href="./PhysioLab.html">Physiology Lab</a></li>
+        </ul>
+    </div>
+
+
+    <!-- ... (HTML และ CSS เดิม) ... -->
+    <script>
+        const questions = [
+            { question: "<img src='./images/physio/1.PNG'><br/>1. เมื่อวัดปริมาตรปอด พบว่า Tidal volume 500 ml, VC 5000 ml, ERV 1200 ml จงหาค่า IRV (ml)", options: ["4,500", "3,800", "3,500", "1,250", "3,300"], correctAnswer: "3,300" },
+            { question: "<p style='text-align: left;'>2. เมื่อเจาะเลือดคนไข้ที่มีภาวะ Grave's disease จะพบว่าอย่างไรbr/>&ensp;&ensp;A. ลด TSH,  ลด T3, T4,  ลด TSI<br/>&ensp;&ensp;B. เพิ่ม TSH,  เพิ่ม T3, T4,  เพิ่ม TSI</br>&ensp;&ensp;C. ลด TSH,  เพิ่ม T3, T4,  เพิ่ม TSI</br>&ensp;&ensp;D. เพิ่ม TSH,  ลด T3, T4,  ลด TSI</br>&ensp;&ensp;E. เพิ่ม TSH,  ลด T3, T4,  เพิ่ม TSI</p>", options: ["A","B","C"], correctAnswer: "C" },
+            { question: "3. ชายอายุ 40 ปี กลิ่นลำบาก ตรวจ esophageal manometry wu resting pressure ของ UES and LES ปกติ และมี peristalsis pressure ของ esophagus ปกติ แต่ peristalsis pressureของ LES ผิดปกติและไม่คลายตัวขณะกลีน ลักษณะดังกล่าวน่าจะเกิดความผิดปกติของสิ่งใด", options: ["Extrinsic innervation of esophagus","Smooth muscle of esophagus","Striate muscle of esophagus","Swallowing reflex","Intrinsic innervation of esophagus"], correctAnswer: "Intrinsic innervation of esophagus" },
+            { question: "4. ในคนสุขภาพดีขณะออกกำลังกายมีความดันเลือดแดงเฉลี่ยสูงขึ้นจาก 90 mmHg เป็น 130 mmHg ไตมีกลไกใดเพื่อรักษาระดับ GFR ให้คงที่", options: ["Myogenic mechanism ทำให้ efferent arteriole ขยายตัว","Myogenic mechanism ทำให้ afferent และ efferent arteriole ขยายตัว","Myogenic mechanism ทำให้ efferent arteriole หดตัว","Myogenic mechanism ทำให้ afferent arteriole ขยายตัว","Myogenic mechanism ทำให้ afferent arteriole หดตัว"], correctAnswer: "Myogenic mechanism ทำให้ afferent arteriole หดตัว" },
+            { question: "5. ปัจจัยใดทำให้การคัดหลั่งกรดในกระเพาะอาหารลดลง", options: ["มีการยืดขยายของกระเพาะอาหาร","มีการหลั่งฮอร์โมน Gastrin","มีผลิตผลของโปรตีนที่ถูกย่อย","มีการทำงานของ cholinergic และ non cholinergic nerve","มีการยับยั้งการทำงานของตัวรับชนิด H2 ของ histamine"], correctAnswer: "มีการยับยั้งการทำงานของตัวรับชนิด H2 ของ histamine" },
+            { question: "6. หญิงคนหนึ่งอายุ 17 ปีได้รับการวินิจฉัยว่าเป็น Androgen insensitive syndrome ข้อใดกล่าว ไม่ถูกต้อง", options: ["คนนี้ไม่มีการพัฒนาของต่อมลูกหมาก","คนนี้มีภาวะ Primary amenorrhea","คนนี้ไม่มี internal male sex organs","คนนี้ไม่มี internal female sex organs","คนนี้มี Primary sex organ เป็น ovary"], correctAnswer: "คนนี้มี Primary sex organ เป็น ovary" },
+            { question: "7. เมื่อความดันเลือดลดต่ำลง ---> Baroreceptors จะถูกดึงยึด...(A).....---> สัญญาณ afferentไปที่...(B) / (C).....--->ศูนย์ควบคุมที่สมองจึงสั่งให้......(C).....ทำงานมากขึ้น และ .....(E)......ทำงานน้อยลง ตอบคำถามในช่องว่างให้ถูกต้องตามลำดับ A/B/C/D/E", options: ["ลดลง/Hypothalamus / เพิ่มขึ้น / Parasympathetic / Sympathetic","เพิ่มขึ้น / Medulla / ลดลง/ Sympathetic / Parasympathetic","เพิ่มขึ้น / Hypothalamus / ลดลง / Sympathetic / Parasympathetic","ลดลง / Medulla / ลดลง / Sympathetic / Parasympathetic","ลดลง / Medulla / ลดลง / Parasympathentic / Sympathetic"], correctAnswer: "ลดลง / Medulla / ลดลง / Sympathetic / Parasympathetic" },
+            { question: "8. เกี่ยวกับเบาหวานข้อใดต่อไปนี้ผิด", options: ["Metformin ใช้รักษาคนไข้เบาหวาน ออกฤทธิ์โดยเพิ่มการจับกันของอินซูลินกับตัวรับ","อาการทั่วไปของคนไข้เบาหวานคือ polyphagia, polyuria และ polydipsia","เบาหวาน Type I เกิดจากตับอ่อนถูกทำลาย","เบาหวาน Type II เกิดจากการจับกันของอินซูลินกับตัวรับลดลง","เบาหวาน Type II มักพบในคนอายุมาก อ้วน รักษาโดยการฉีดอินซูลินทดแทนตลอดชีวิต"], correctAnswer: "เบาหวาน Type II มักพบในคนอายุมาก อ้วน รักษาโดยการฉีดอินซูลินทดแทนตลอดชีวิต" },
+            { question: "9. เกี่ยวกับการย่อยและการดูดซึมสารอาหารจำพวกคาร์โบไฮเดรต ข้อใดกล่าวถูกต้อง", options: ["ถูกทุกข้อ","All monosaccharide ถูกขนส่งเข้ากระแสเลือดโดยวิธี secondary active transport","Fructose ถูกดูดซึมโดยใช้กระบวนการ secondary active transport กับโซเดียม","Glucose และ galactose ถูกดูดซึมโดยใช้กระบวนการ facilitated diffusion","Enzyme จาก brush border ช่วยย่อย oligosaccharide และ disaccharides"], correctAnswer: "Enzyme จาก brush border ช่วยย่อย oligosaccharide และ disaccharides" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+            { question: "", options: ["","","","",""], correctAnswer: "" },
+        ];
+    </script>
+
+    <script src="./core/login.js"></script>
+    <script src="./core/script.js"></script>
+
+
+</body>
+
+</html>

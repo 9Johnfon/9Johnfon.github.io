@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>Physiology lecture</title>
+</head>
+
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">เรียบเรียงโดย Johnny | Dev
+        ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a
+            href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40"
+                height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button"
+            style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;"
+            onclick="goBack()">Back</button>
+    </div>
+
+    <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./AnatomyLecture.html">AnatomyLecture</a></li>
+            <li><a href="./LabPing.html">AnatomyPing</a></li>
+            <li><a href="./EMS.html">EMS</a></li>
+            <li><a href="./IPEFinal.html">IPE</a></li>
+            <li><a href="./EMR.html">EMR</a></li>
+            <li><a href="./Cannabis.html">Cannabis</a></li>
+            <li><a href="./Physio.html">Physiology</a></li>
+            <li><a href="./PhysioLab.html">Physiology Lab</a></li>
+        </ul>
+    </div>
+
+
+    <!-- ... (HTML และ CSS เดิม) ... -->
+    <script>
+        const questions = [
+            { question: "1. ข้อใด<b>ผิด</b>เกี่ยวกับเซลล์เม็ดเลือดแดง", options: ["ไม่มีนิวเคลียส", "Biconcave", "อายุ 120 วัน", "เริ่มสร้างจาก proerythroblast", "กระบวนการสร้างเรียกว่า hemostasis"], correctAnswer: "กระบวนการสร้างเรียกว่า hemostasis" },
+            { question: "2. นาย ก ได้รับอุบัติเหตุทำให้เสียเลือดจำนวนมาก นาย ข จึงบริจาคเลือดให้ นาย ข จึงบริจาคเลือดให้ นาย ก เวลาต่อมาพบว่าเลือด นาย ก ตกตะกอน อยากทราบว่า นาย ก และ นาย ข มีเลือดหมู่ใด", options: ["นาย ข = หมู่ B, นาย ก = หมู่ A", "นาย ข = หมู่ O, นาย ก = หมู่ B", "นาย ข = หมู่ O, นาย ก = หมู่ A", "นาย ข = หมู่ B, นาย ก = หมู่ AB", "นาย ข = หมู่ A, นาย ก = หมู่ AB"], correctAnswer: "นาย ข = หมู่ B, นาย ก = หมู่ A" },
+            { question: "<p style='text-align: left;'>3. ลำดับการห้ามเลือดข้อใด<b>ถูกต้อง</b><br/>&ensp;&ensp;1. เปลี่ยน fibrinogen เป็น fibrin<br/>&ensp;&ensp;2. เปลี่ยน prothrombin เป็น thrombin</br>&ensp;&ensp;3. เกิดการเกาะกลุ่มของเกล็ดเลือด</br>&ensp;&ensp;4. เกิดการสลาย fibrin</br>&ensp;&ensp;5. เกิดการหดตัวของหลอดเลือด</p>", options: ["5, 3, 2, 1, 4", "1, 2, 3, 4, 5", "3, 5, 4, 1, 2", "3, 5, 4, 2, 1", "5, 3, 2, 4, 1"], correctAnswer: "5, 3, 2, 1, 4" },
+            { question: "4. ข้อใด<b>ไม่ใช่</b>สาเหตุของภาวะ Edema", options: ["การที่มี Valve กั้นเป็นช่วงๆ ใน vein", "เพิ่ม Respiratory pump", "เพิ่ม Blood volume", "เพิ่ม Pressure in right atrium", "เพิ่ม Muscle pump"], correctAnswer: "การที่มี Valve กั้นเป็นช่วงๆ ใน vein" },
+            { question: "5. ปัยจัยใดต่อไปนี้ส่งผลให้ venous return กลับหัวใจห้องบนขวาได้น้อยลง", options: ["การที่มี Valve กั้นเป็นช่วงๆ ใน vein", "เพิ่ม Respiratory pump", "เพิ่ม Blood volume", "เพิ่ม Pressure in right atrium", "เพิ่ม Muscle pump"], correctAnswer: "เพิ่ม Pressure in right atrium" },
+            { question: "6. ข้อใดต่อไปนี้ช่วยลด Blood pressure", options: ["เพิ่ม Vascular diameter", "เพิ่ม Blood viscosity", "เพิ่ม CO", "เพิ่ม TPR", "เพิ่ม Blood volume"], correctAnswer: "เพิ่ม Vascular diameter" },
+            { question: "7. ข้อใดต่อไปนี้ผิดเมื่อความดันเลือดในร่างกายลดลง", options: ["Angiotensin II ทำให้เกิด vasodilation", "Renin เปลี่ยน Angiotensinogen จากตับ เป็น Angiotensin I", "Angiotensin II กระตุ้นการหลั่ง Aldosterone จากต่อมหมวกไตชั้นนอก", "Angiotensis I เปลี่ยนเป็น Angiotensin II โดย converting enzyme จาก ปอด", "กระตุ้น JG cell ที่ไต ให้หลั่ง renin"], correctAnswer: "Angiotensin II ทำให้เกิด vasodilation" },
+            { question: "8. เมื่อความดันเลือดในร่างกายลดลงจะมีการหลั่งฮอร์โมนต่อไปนี้ยกเว้นข้อใด", options: ["ANP", "ADH", "Aldosterone", "Angiotensin II", "Renin"], correctAnswer: "ANP" },
+            { question: "9. ปัจจัยใดต่อไปนี้ส่งผลให้อัตราการไหล (Flow) ของเลือดเพิ่มขึ้น", options: ["ลดความหนืด (Viscosity)", "ลดรัศมีของหลอดเลือด", "เพิ่มความต้านทานการไหล (Resistance)", "เพิ่มความยาวของหลอดเลือด (Vessel length)", "ลดความแตกต่างของความดันทั้ง 2 ด้าน (P)"], correctAnswer: "ลดความหนืด (Viscosity)" },
+            { question: "10. ลุงสมหวัง อายุ 60 ปี ต้องการเปลี่ยนอิริยาบถหลังจากที่นอนนานๆจึงลุกขึ้นยืนทันทีเหตุการณ์ต่อไปนี้จะเกิดขึ้นยกเว้นข้อใด", options: ["Venous return เพิ่มขึ้น", "เลือดไหลไปรวมอยู่ที่ส่วนล่างของร่างกาย", "Stroke volume และ Cardiac output ลดลง", "เพิ่ม Pc ที่ขาทำให้ขาบวม", "ความดันเลือดลดลง"], correctAnswer: "Venous return เพิ่มขึ้น" },
+            { question: "<p style='text-align: left;'>11. ข้อใดต่อไปนี้อธิบายเกี่ยวกับสรีรวิทยาการหายใจ <b>ไม่ถูกต้อง</b><br/>&ensp;&ensp;A. เมื่อ ∆P เท่ากับศูนย์ไม่มีการไหลของอากาศ<br/>&ensp;&ensp;B. ก๊าซ CO₂ มีสัมประสิทธิ์การแพร่มากกว่า O₂ 20 เท่า</br>&ensp;&ensp;C. Alveolar ventilation เพิ่มขึ้นเมื่ออัตราการหายใจเพิ่มขึ้น</br>&ensp;&ensp;C. Alveolar ventilation เพิ่มขึ้นเมื่ออัตราการหายใจเพิ่มขึ้น</br>&ensp;&ensp;E. เมื่อปอดมีค่า Compliance มาก มักพบ elastic recoil pressure ลดลง</p>", options: ["A", "B", "C", "D", "E"], correctAnswer: "C" },
+            { question: "12. ในผู้ป่วยที่ปัญหาแรงต้านจากการหายใจเพิ่มขึ้น ปัจจัยในข้อใดที่เพิ่มแรงต้านการไหลของอากาศมากที่สุด", options: ["Surface tension", "Respiratory rate", "Lung compliance", "Force inspiration", "Diameter of airway"], correctAnswer: "Surface tension" },
+            { question: "13. ในผู้ป่วยโรค chronic obstructive lung diseases เมื่อหายใจออกแรงๆ แรงต้านเพิ่มขึ้น", options: ["พบ dynamic compression", "เพิ่ม surface tension", "Alveolar pressure ลดลง", "ลด Lung compliance", "Elastic recoil pressure ลดลง"], correctAnswer: "พบ dynamic compression" },
+            { question: "14. วัดค่า Tidal volume ได้ 600 mI มีอัตราการหายใจ 12 ครั้งต่อนาที่ จงหาค่า alveolarventilation (ml)", options: ["5,400", "7,200", "6,000", "4,800", "4,400"], correctAnswer: "5,400" },
+            { question: "15. เมื่อ abdominal muscle หดตัว ข้อใดต่อไปนี้มีค่าเพิ่มขึ้น", options: ["Transpulmonary pressure", "Intrapulmonary pressure", "Lung compliance", "All are correct", "Thoracic cavity"], correctAnswer: "Intrapulmonary pressure" },
+            { question: "16. ข้อใดต่อไปนี้มีผลเพิ่ม alveolar dead space", options: ["มีสารน้ำในถุงลมปอด", "Obstruction of airway", "Increase of respiratory rate", "Decrease of alveolar ventilation", "Obstruction of pulmonary vessels"], correctAnswer: "Obstruction of pulmonary vessels" },
+            { question: "17. ผู้ป่วยโรคลิ้นไมตรัลตีบรายหนึ่งพบมีน้ำในถุงลมปอด กลไกใดต่อไปนี้ที่ส่งผลทำให้มีน้ำในถุงลมปอดในผู้ป่วยรายนี้", options: ["Alveolar ventilation ลดลง", "Pulmonary blood flow ลดลง", "Pulmonary capillary permeability เพิ่มขึ้น", "Pulmonary capillary oncotic pressure ลดลง", "Pulmonary capillary hydrostatic pressure เพิ่มชึ้น"], correctAnswer: "Pulmonary capillary hydrostatic pressure เพิ่มขึ้น" },
+            { question: "18. ข้อใดมีผลลด affinity ของ O₂ กับ hemoglobin", options: ["Hydrogen ion", "Anemia", "Alkalosis", "Hypocapnia", "Bicarbonate ion"], correctAnswer: "Hydrogen ion" },
+            { question: "19. ข้อใดเป็นค่าที่บ่งบอกว่าการแลกเปลี่ยนก๊าซลดลง", options: ["ค่า Diffusing Lungs capacity of CO aดลง", "ค่าสัมประสิทธิ์การแพร่ของก๊าซสดลง", "ความหนาการแลกเปลี่ยนก๊ซเพิ่มขึ้น", "พื้นที่ผิวการแลกเปลี่ยนก๊ซลดลง", "Alveolar ventilation ลดลง"], correctAnswer: "ค่า Diffusing Lungs capacity of CO aดลง" },
+            { question: "20. การเปลี่ยนแปลงใดในเลือด ที่มีความไวต่อการกระตุ้น chemoreceptor ได้ดีและมีผลเพิ่มอัตราการหายใจชัดเจน โดยมีผลกระตุ้นทั้ง peripheral chemoreceptor และ Medullary chemoreceptor", options: ["PO2 ลดลง", "H+ ลดลง", "H+ เพิ่มขึ้น", "H+ เพิ่มขึ้น", "PCO2 เพิ่มขึ้น"], correctAnswer: "PCO2 เพิ่มขึ้น" },
+            { question: "21. ฮอร์โมนใดมีผลกระตุ้นการหลั่ง gastrin", options: ["GRP", "GIP", "VIP", "Glucagon", "Somatostatin"], correctAnswer: "GRP" },
+            { question: "22. ข้อใดกล่าวถูกต้องที่สุด", options: ["GIP increase gastrin release", "VIP increase the contraction of sphincters", "NE stimulate the contraction of sphincters", "Ach decrease the motility and secretion of gastrointestinal tract", "NO stimulate the contraction of smooth muscle of gastrointestinal tract"], correctAnswer: "NE stimulate the contraction of sphincters" },
+            { question: "23. เกี่ยวกับ smooth muscle electrophysiology ข้อใดกล่าวถูกต้อง", options: ["Slow wave สัมพันธ์กับการเปลี่ยนแปลงศักย์ไฟฟ้าที่เยื่อหุ้มเซลล์ของ interstitial of CaJal", "การเพิ่มขึ้นของความถี่ของ Spike potential ทำให้เกิด Slow wave มากขึ้น", "Slow wave เกี่ยวข้องกับการเกิดการเปิดของช่องโซเดียมและแมกนีเซียม", "Spike potential จะเพิ่มความถี่มากขึ้น เมื่อมีสารจำพวก NO และ NE", "Slow wave ของส่วนกระเพาะอาหารมีความถี่มากที่สุด (ต่อนาที)"], correctAnswer: "Slow wave สัมพันธ์กับการเปลี่ยนแปลงศักย์ไฟฟ้าที่เยื่อหุ้มเซลล์ของ interstitial of CaJal" },
+            { question: "24. ฮอร์โมนใดเป็นฮอร์โมนควบคุมหลักในการเกิด migrating motor complex ที่ควบคุมการเคลื่อนไหวของทางเดินอาหารระหว่างมื้ออาหาร", options: ["Motilin", "CCK", "Gastrin", "Secretin", "Glucagon"], correctAnswer: "Motilin" },
+            { question: "25. เกี่ยวกับการหลั่งสารของตับอ่อน สิ่งใดกระตุ้นการคัดหลั่งเอนไซม์ของตับอ่อน", options: ["Secretin", "Gastrin", "bile salts", "Gastric distention", "Fatty and peptides chyme in duodenum"], correctAnswer: "Secretin" },
+            { question: "26. ฮอร์โมนใดกระตุ้นการหลั่งไบคาร์บอเนตของตับอ่อน", options: ["VIP", "Gastrin", "Motilin", "Somatostatin", "Secretin"], correctAnswer: "Secretin" },
+            { question: "27. เมื่อระบบประสาทพาราซิมพาเธติกในทางเดินอาหารทำงาน ข้อใดกล่าวถูกต้อง", options: ["Motility ลดลง", "Secretion ลดลง", "Sphincters ต่างๆ หดตัว", "ฮอร์โมน gastrin ทำให้การคัดหลั่งน้ำย่อยต่างๆ ลดลง", "ฮอร์โมน VIP ทำให้การหดตัวของ Sphincters ต่างๆ ลดลง"], correctAnswer: "ฮอร์โมน VIP ทำให้การหดตัวของ Sphincters ต่างๆ ลดลง" },
+            { question: "28. หลังรับประทานอาหารเช้า mass movement เพิ่มขึ้น เกิดจาก reflex ใด", options: ["Gastrocolic reflex", "Ileogastric reflex", "Anogastric reflex", "Enterogastric reflex", "Gastroenteric reflex"], correctAnswer: "Gastrocolic reflex" },
+            { question: "29. สิ่งใดมีผลทำให้มีการหลั่งน้ำลายเพิ่มขึ้น", options: ["ภาวะร่างกายขาดน้ำ (Dehydration)", "ภาวะอ่อนเพลีย (Fatigue)", "การนอนหลับ (Sleep)", "ความกลัว (Fear)", "การกระตุ้น CN X (Vagus nerve)"], correctAnswer: "การกระตุ้น CN X (Vagus nerve)" },
+            { question: "30. ข้อใดเป็นปัจจัยที่ทำให้การดูดซึมแคลเซียมที่ทางเดินอาหารมากขึ้น", options: ["Ascorbic acid", "High fat diet", "Oxalic acid foods", "Vitamin D deficiency", "High phosphorus intake"], correctAnswer: "Ascorbic acid" },
+            { question: "31. ข้อใดต่อไปนี้ไม่ใช่หน้าที่ของไต (Renal functions)", options: ["สร้างฮอร์โมนอัลโดสเตอโรน", "เปลี่ยนวิตามินดีให้อยู่ในรูปที่ทำงานได้ (active form of vitamin D)", "กำจัดของเสียที่เกิดจากการเมแทบอลิซึม", "รักษาสมดุลน้ำในร่างกาย", "ควบคุมดุลกรด-ด่าง"], correctAnswer: "สร้างฮอร์โมนอัลโดสเตอโรน" },
+            { question: "32. เซลล์ใดทำหน้าที่เป็น Chemoreceptor ต่อระดับ NaCI ในน้ำกรอง", options: ["Podocyte cell", "Juxtaglomerular cell", "Intraglomerular mesangial cell", "Extraglomerular mesangial cell", "Macula densa cell"], correctAnswer: "Macula densa cell" },
+            { question: "33. ปัจจัยใดต่อไปนี้มีผลเพิ่ม renal blood flow (RBF)", options: ["Renal artery pressure เพิ่มขึ้น", "Renal vascular resistance เพิ่มขึ้น", "Renal venous pressure เพิ่มขึ้น", "Renal artery pressure ลดลง", "Mean arterial pressure ลดลง"], correctAnswer: "Renal artery pressure เพิ่มขึ้น" },
+            { question: "34. ในคนสุขภาพดีหลังบริจาคเลือดแล้วความดันเลือดแดงลดลง ไตมีกลไกใดเพื่อรักษาระดับ GFR ให้คงที่", options: ["Tubuloglomerular feedback กระตุ้นการหลั่ง renin ทำให้ efferent arteriole คลายตัว", "Tubuloglomerular feedback กระตุ้นการหลั่ง renin ทำให้ afferent arteriole หดตัว", "Tubuloglomerular feedback ยับยั้งการหลั่ง renin ทำให้ efferent arteriole หดตัว", "Tubuloglomerular feedback ยังการหลั่ง renin ทำให้ efferent arteriole คลายตัว", "Tubuloglomerular feedback กระตุ้นการหลั่ง renin ทำให้ efferent arteriole หดตัว"], correctAnswer: "Tubuloglomerular feedback กระตุ้นการหลั่ง renin ทำให้ efferent arteriole หดตั" },
+            { question: "<p style='text-align: left;'>35. ถ้าจะใช้ Clearance ของสาร X เพื่อหาค่า GFR สาร X ต้องมีคุณสมบัติต่อไปนี้<br/>&ensp;&ensp;1. ไม่เกาะติดกับโปรตีนในพลาสมา<br/>&ensp;&ensp;2. ถูกกรองจากพลาสมาได้อย่างอิสระ</br>&ensp;&ensp;3. ไม่ทำให้อัตราการกรองเปลี่ยนไป</br>&ensp;&ensp;4. มีการดูดกลับหมดที่ท่อไต</br>&ensp;&ensp;5. มีการดูดกลับบางส่วนที่ท่อไต</br>&ensp;&ensp;6. ไม่ถูกดูดกลับหรือขับออกโดยท่อไต</p>", options: ["1, 2, 3, และ 6", "1, 2, 3, และ 4", "1, 2, 4, และ 6", "1, 2, 3, 4, และ 5", "2, 3, 5, และ 6"], correctAnswer: "1, 2, 3, และ 6" },
+            { question: "36. จงคำนวณหาค่า GFR เมื่อกำหนดให้ ความเข้มข้นของ Inulin ในพลาสมาเท่ากับ 0.2 mg/ml ความเข้มข้นของ Inulin ในปัสสาวะเท่ากับ 25 mg/mI และ Urine flow rate เท่ากับ 1 ml/min", options: ["125 ml/min", "100 ml/min", "150 ml/min", "125 mg/ml", "150 mg/ml"], correctAnswer: "125 ml/min" },
+            { question: "37. ในภาวะร่างกายขาดน้ำ ท่อไตส่วนใดมีการดูดกลับน้ำมากที่สุด", options: ["Proximal tubule", "Descending limb loop of Henle", "Ascending limb loop of Henle", "Collecting duct", "Distal tubule"], correctAnswer: "Proximal tubule" },
+            { question: "38. เหตุใดผู้ป่วยโรคเบาหวานจึงมักตรวจพบน้ำตาลกลูโคสในปัสสาวะ", options: ["Renal blood flow สูงเกินค่า tubular transport maximum (TM)", "Glomerular filtration rate สูงเกินค่า tubular transport maximum (TM)", "ปริมาณกลูโคสในน้ำกรองต่ำกว่คำ tubular transport maximum (TM)", "ปริมาณกลูโคสในน้ำกรองเท่ากับ tubular transport maximum (TM)", "ปริมาณกลูโคสในน้ำกรองสูงเกินค่า tubular transport maximum (TM)"], correctAnswer: "ปริมาณกลูโคสในน้ำกรองสูงเกินค่า tubular transport maximum (TM)" },
+            { question: "39. ปัจจัยใดไม่มีผลต่อการสร้างน้ำปัสสาวะให้เข้มข้น (concentrated urine)", options: ["Plasma ADH concentrations", "Countercurrent multiplier", "Countercurrent exchange", "Recirculation of Urea", "Countercurrent heat exchange"], correctAnswer: "Countercurrent heat exchange" },
+            { question: "40. เหตุการณ์ใดเกิดขึ้นในระยะ voiding phase ของการขับถ่ายปัสสาวะ (Micturition)", options: ["เพิ่ม parasympathetic action และ detrusor muscle หดตัว", "เพิ่ม sympathetic action และ detrusor muscle คลายตัว", "เพิ่ม sympathetic action และ detrusor muscle หดตัว", " เพิ่ม parasympathetic action และ detrusor muscle คลายตัว", "ลด parasympathetic action และ detrusor muscle หดตัว"], correctAnswer: "เพิ่ม parasympathetic action และ detrusor muscle หดตัว" },
+            { question: "41. ปัจจัยใดต่อไปนี้มีผลกระตุ้น Thirst center", options: ["Gastric distension เพิ่ม", "Angiotensin II ลด", "Blood volume เพิ่ม", "Blood pressure เพิ่ม", "Plasma osmolarity เพิ่ม"], correctAnswer: "Plasma osmolarity เพิ่ม" },
+            { question: "42. ข้อใดไม่ใช่การตอบสนองของร่างกายต่อภาวะขาดน้ำ (Dehydration)", options: ["กระตุ้นการสร้าง Angiotensin II", "กระตุ้นการหลั่ง Renin", "กระตุ้นการหลั่ง ADH", "กระตุ้น Thirst center", "กระตุ้นการหลั่ง atrial natriuretic peptide (ANP)"], correctAnswer: "กระตุ้นการหลั่ง atrial natriuretic peptide (ANP)" },
+            { question: "43. ข้อใดต่อไปนี้เป็นสาเหตุของภาวะ Iso-osmotic volume contraction", options: ["Syndrome of inappropriate antidiuretic hormone secretion (SIADH)", "Infusion of isotonic saline", "Adrenocortical insufficiency", "Diabetes insipidus", "Secretory diarrhea"], correctAnswer: "Secretory diarrhea" },
+            { question: "44. ในคนปกติเมื่อได้รับโซเดียมเข้าสู่ร่างกายในปริมาณที่มาก แล้วเกิดภาวะ hypernatremiaร่างกายจะมีกลไกการชดเชยอย่างไร", options: ["กระตุ้น Thirst center", "ลดการหลั่ง NAP", "ลดการหลั่ง ADH", "ลดการหลั่ง Angiotensin Il", "ลดการหลั่ง aldosterone"], correctAnswer: "กระตุ้น Thirst center" },
+            { question: "45. ข้อต่อไปนี้อาจเป็นสาเหตุของการเกิดภาวะ Hypernatremia", options: ["Syndrome of inappropriate antidiuretic hormone secretion (SIADH)", "Vomiting", "Adrenal insufficiency", "Heavy exercise", "Diabetes insipidus"], correctAnswer: "Diabetes insipidus" },
+            { question: "46. ปัจจัยใดมีผลทำให้โพแทสเยมเคลื่อนที่จากในเซลล์ออกนอกเซลล์ (Shift K+ out of cells)", options: ["Beta-adrenergic stimulation", "Alkalosis", "Aldosterone", "Insulin", "Acidosis"], correctAnswer: "Acidosis" },
+            { question: "47. คนสุขภาพดีเมื่อได้รับอาหารที่มีโพแทสเซียม (K+ intake) มากเกินไป ทำให้ความเข้มข้นของโพแทสเชียมที่ของเหลวนอกเซลล์เพิ่มขึ้น ร่างกายจะมีกลไกในการรักษาสมดุลโพแทสเซียมอย่างไร", options: ["ยับยั้งการหลั่ง Aldosterone และลด K+ excretion", "ยับยั้งการหลั่ง Aldosterone และลด K+ secretion", "กระตุ้นการหลั่ง Aldosterone และลด K+ secretion", "กระตุ้นการหลั่ง Aldosterone และลด K+ excretion", "กระตุ้นการหลั่ง Aldosterone และเพิ่ม K+ secretion"], correctAnswer: "กระตุ้นการหลั่ง Aldosterone และเพิ่ม K+ secretion" },
+            { question: "48. สมชายถ่ายอุจจาระเหลว 6 ครั้ง ในเวลา 12 ชั่วโมง มาพบแพทย์ด้วยอาการอ่อนเพลียผลตรวจร่างกายพบว่าค่า pH ในเลือดเท่ากับ 7.30 ค่า PaCO2 ต่ำว่าปกติ และค่า HCO3- ต่ำกว่าปกติเช่นกัน ข้อใดวินิจฉัยภาวะความผิดปกติของสมดุลกรด-ด่างของสมชายได้ถูกต้อง", options: ["Metabolic alkalosis with respiratory compensation", "Respiratory acidosis", "Metabolic acidosis", "Respiratory acidosis with renal compensation", "Metabolic acidosis with respiratory compensation"], correctAnswer: "Metabolic acidosis with respiratory compensation" },
+            { question: "49. ข้อใดถูกต้องเกี่ยวกลไกการชดเชย (compensate) ต่อภาวะ metabolic acidosis", options: ["Renal H+ secretion ลดลง", "Renal HCO3+ reabsorption ลดลง", "อัตราการหายใจคงที่", "อัตราการหายใจลดลง", "อัตราการหายใจเพิ่มขึ้น"], correctAnswer: "อัตราการหายใจเพิ่มขึ้น" },
+            { question: "50. ผู้ป่วยชายไทย อายุ 45 ปี อาเจียนอย่างรุนแรง 8 ครั้ง ในเวลา 12 ชั่วโมง ผลตรวจร่างกายพบว่า ค่า pH ในเลือดเท่ากับ 7.50 ค่า PaCO2 สูงว่าปกติ และค่า HCO3- สูงกว่าปกติ ข้อใดคือกลไกการชดเชย(compensate) ต่อภาวะดังกล่าว", options: ["เพิ่มอัตราการหายใจ", "เพิ่มการขับ H+ ในรูป Phosphate buffer", "เพิ่มการขับ H+ ในรูป Ammonia buffer", "เพิ่มการสร้าง HCO3-", "เพิ่ม renal HCO3- excretion"], correctAnswer: "เพิ่ม renal HCO3- excretion" },
+            { question: "51. ข้อใดผิดเกี่ยวกับการควบคุมการหลั่งฮอร์โมน", options: ["CRH จากสมองส่วนฮโพทาลามัสกระตุ้นให้มีการหลั่ง ACTH จากต่อใต้สมองส่วนหน้า เรียกว่า Hormonal stimuli", "การควบคุมการหลั่งฮอร์โมน ในร่างกายส่วนมากเป็นแบบ Negative feedback control", "ระบบประสาทชิมพาเทติกกระตุ้นการหลั่ง Catecholamine เรียกว่า neural stimuli", "แคลเซียมในกระแสเลือดเพิ่มขึ้นจะยับยั้งการหลั่ง PTH เรียกว่า Humoral stimuli", "น้ำตาลในกระแสเลือดลดต่ำลงจะกระตุ้นการหลั่งอินซูลิน เรียกว่า Hormonal stimuli"], correctAnswer: "น้ำตาลในกระแสเลือดลดต่ำลงจะกระตุ้นการหลั่งอินซูลิน เรียกว่า Hormonal stimuli" },
+            { question: "52. ฮอร์โมนคู่ใดต่อไปนี้ที่ทำงานร่วมกันแบบ Synergism (Agonist)", options: ["Calcitriol and Calcitonin", "ADH and ANP", "PTH and Calcitonin", "Insulin and Glucagon", "GH and Glucagon"], correctAnswer: "GH and Glucagon" },
+            { question: "53. ชายอายุ 39-ปี มาพบแพทย์ด้วยอาการเต้านมขยาย ลักษณะภายนอกที่พบ คือ หน้า มือ และเท้า มีขนาดใหญ่ ขากรรไกรยืดขยายออก จากการตรวจวินิจฉัยผู้ป่วยรายนี้น่าจะมีเนื้องอกที่ตำแหน่งใดและมีความผิดของการสร้างฮอร์โมนชนิดใด", options: ["Hypothalamus/Oxytocin", "Anterior pituitary/Growth hormone", "Posterior pituitary/Oxytocin", "Adrenal cortex/Cortisol", "Anterior pituitary/Prolactin"], correctAnswer: "Anterior pituitary/Growth hormone" },
+            { question: "54. เกี่ยวกับฮอร์โมนจากต่อมไทรอยด์ข้อใดผิด", options: ["Calcitonin ทำหน้าที่ลดระดับแคลเชียมในเลือด", "ในกระแสเลือดมี T4 มากกว่า T3 ประมาณ 20 เท่า", "Thyroid hormone ขนส่งในกระแสเลือดโดยจับกับ Thyroid-binding protein", "Follicular cell ใu thyroid gland ทำหน้าที่หลั่ง thyroid hormone", "Parafollicular cell ใน thyroid gland ทำหน้าที่หลั่ง parathyroid hormone"], correctAnswer: "Parafollicular cell ใน thyroid gland ทำหน้าที่หลั่ง parathyroid hormone" },
+            { question: "55. ตัด organ ชนิดใดต่อไปนี้ออกสามารถทำให้เกิด hypocalcemia ได้", options: ["Parathyroid gland", "Adrenal gland", "Pituitary gland", "Pineal gland", "Pancreas"], correctAnswer: "Parathyroid gland" },
+            { question: "56. ข้อใดไม่ใช่บทบาทในการเพิ่มน้ำตาลในเลือดของ Glucagon", options: ["เพิ่ม Lipolysis", "เพิ่ม gluconeogenesis", "เพิ่ม glycogenolysis", "ถูกทุกข้อ", "เพิ่ม Protein synthesis"], correctAnswer: "เพิ่ม Protein synthesis" },
+            { question: "57. ข้อใดต่อไปนี้เพิ่มการคัดหลั่ง Aldosterone", options: ["ฉีด Atrial natriuretic peptide", "ฉีด Losartan (angiotensin II antagonist)", "Hypertension", "ฉีด Captopril (angiotensin converting enzyme inhibitor)", "รับประทานอาหารที่มี K+ สูง"], correctAnswer: "รับประทานอาหารที่มี K+ สูง" },
+            { question: "58. หญิงอายุ 50 ปีเดินทางจากกรุงเทพไปนิวยอร์ก เมื่อไปถึงมีอาการอ่อนเพลีย นอนไม่หลับระบบทางเดินอาหารแปรปรวน อาการดังกล่าวจะดีขึ้นเมื่อได้รับฮอร์โมนใด/จากอวัยวะใด", options: ["Cortisol/Adrenal gland", "Thyroid releasing hormone/Hypothalamus", "Oxytocin/Posterior pituitary", "Growth hormone/Anterior pituitary", "Melatonin/Pineal gland"], correctAnswer: "Melatonin/Pineal gland" },
+            { question: "59. ข้อใดผิดเกี่ยวกับฮอร์โมน oxytocin", options: ["สร้างโดย paraventricular nuclei", "ขนส่งในกระแสเลือด โดยจับกับ neurophysin I", "มีเซลล์เป้าหมายอยู่ที่เต้านมและมดลูก", "สร้างจาก Hypothalamus แล้วส่งมาเก็บที่ posterior pituitary", "เป็นฮอร์โมนในกลุ่ม steroid hormone"], correctAnswer: "เป็นฮอร์โมนในกลุ่ม steroid hormone" },
+            { question: "60. ฮอร์โมนใดจากรกที่ช่วยในการขยายของเชิงกรานเพื่อให้การคลอดง่ายขึ้น", options: ["Oxytocin", "HCG", "HPL", "Estrogen", "Relaxin"], correctAnswer: "Relaxin" },
+            { question: "61. เมื่อ ovum and Y chromosome of sperm เกิดการปฏิสนธิแล้ว ข้อใดกล่าวถูกต้อง", options: ["Wolffian ducts ไม่เจริญ", "Sertoli cells คัดหลั่ง androgens", "Leydig cells คัดหลั่ง Mullerian duct inhibiting hormone", "Mullerian duct จะถูกพัฒนาเป็น seminal vesicle, penis and scrotum", "Indifferent gonad พัฒนาเป็น testes"], correctAnswer: "Indifferent gonad พัฒนาเป็น testes" },
+            { question: "62. ฮอร์โมนใดมีความสำคัญต่อการพัฒนาของ external genitalia development ของฟิตัสเพศชาย", options: ["Dihydrotestosterone", "Gonadotropin", "Estrogen", "Progesterone", "Testosterone"], correctAnswer: "Dihydrotestosterone" },
+            { question: "63. เกี่ยวกับการเปลี่ยนแปลงในการเข้าสู่วัยรุ่น ข้อใดกล่าวไม่ถูกต้อง", options: ["Sleep augment gonadotropins", "Pulsatile secretion of gonadotropins", "Brain maturation increases GnRH secretion", "Decreased sensitivity of gonadotropins to negative feedback", "High level of gonadotropins in prepuberty"], correctAnswer: "High level of gonadotropins in prepuberty" },
+            { question: "64. เกี่ยวกับปัจจัยที่มีผลต่อกระบวนการสร้างอสุจิ ข้อใดกล่าวถูกต้อง", options: ["ภาวะขาดวิตามินเอมีผลทำให้การสร้างอสุจิเพิ่มขึ้น", "ภาวะได้รับสารโลหะหนักทำให้การสร้างเซลล์อสุจิเพิ่มขึ้น", "ภาวะอดอยากมีผลทำให้การหลั่ง Gns เพิ่มขึ้น การสร้างอสุจิจะเพิ่มขึ้น", "ภาวะขาดวิตามินชีมีผลทำให้การสร้างฮอร์โมน testosterone เพิ่มขึ้น", "เชื้อโรคคางทูมทำลาย seminiferous tubules ทำให้การสร้างอสุจิลดลง"], correctAnswer: "เชื้อโรคคางทูมทำลาย seminiferous tubules ทำให้การสร้างอสุจิลดลง" },
+            { question: "65. ข้อใดไม่ใช่หน้าที่ของ Sertoli Cell", options: ["ผลิตของเหลวที่ใช้ในการเคลื่อนที่ของอสุจิ", "สร้าง androgen binding protein", "เป็น blood testes barrier", "สร้าง MIF ในระยะ embryo", "สร้างฮอร์โมนเพศ androgens"], correctAnswer: "สร้างฮอร์โมนเพศ androgens" },
+            { question: "66. ลักษณะใดบ่งบอกถึงภาวะที่มีฮอร์โมนเพศชายในระดับที่สูง", options: ["Increased risk of erectile dysfunction", "Increased risk of osteoporesis", "Increased fat tissue", "Memory loss", "Aggressiveness"], correctAnswer: "Aggressiveness" },
+            { question: "67. เกี่ยวกับผลของเอสโตรเจนต่ออวัยวะที่อยู่นอกมดลูกในวัยรุ่น-วัยเจริญพันธุ์ ข้อใดกล่าวผิด", options: ["ลดระดับ LDL cholesterol", "เพิ่มการคั่งของโซเดียมและน้ำ", "เพิ่มระดับ HDL cholesterol", "ทำให้มีการปิดของ Epiphyseal plate ในช่วงวัยรุ่น", "Skin dehydration"], correctAnswer: "Skin dehydration" },
+            { question: "68. ขณะใกล้คลอด เอสโตรเจนส่งผลอย่างไร", options: ["เพิ่ม lung maturation", "ลดการหลั่ง prostaglandin ที่มดลูก", "ลดการเกิด gap junction ที่ Myometrium", "ลดการหลั่ง Oxytocin ที่ hypothalamus", "เพิ่มการสร้างตัวรับ oxytocin ที่ myometrium"], correctAnswer: "เพิ่มการสร้างตัวรับ oxytocin ที่ myometrium" },
+            { question: "69. ผลของการเกิดภาวะ menopause ข้อใดกล่าวผิด", options: ["Hot flush", "Weight gain", "Night sweats", "Vaginal dryness", "High HDL level"], correctAnswer: "High HDL level" },
+            { question: "70. ผลของการเกิด LH surge ทำให้เกิดการเปลี่ยนแปลงที่ follicle อย่างไร", options: ["การหลั่ง prostaglandin ลดลง", "ทำให้ follicle เริ่มมีการสร้างเอสโตรเจน", "Luteal cells เปลี่ยนเป็น Follicular cells", "กระตุ้นการทำงานของ luteinizing inhibiting factor", "primary oocyte แบ่งตัวแบบ meiosis เป็น secondary oocyte"], correctAnswer: "primary oocyte แบ่งตัวแบบ meiosis เป็น secondary oocyte" },
+        ];
+    </script>
+
+    <script src="./core/login.js"></script>
+    <script src="./core/script.js"></script>
+
+
+</body>
+
+</html>
