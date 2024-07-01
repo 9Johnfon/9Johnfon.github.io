@@ -120,12 +120,6 @@ function displayResults(results) {
         // Append book element to the results div
         bookResultsDiv.appendChild(bookElement);
     });
-
-    functions initializePage() {
-        displayResults(localBooks);
-    }
-
-    window.onload = initializePage;
     
 }
 
@@ -143,3 +137,9 @@ document.addEventListener("touchstart", (event) => {
         searchBooks();
     }
 });
+
+functions initializePage() {
+    displayResults(localBooks);
+}
+
+window.onload = initializePage;
