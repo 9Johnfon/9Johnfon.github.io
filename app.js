@@ -138,8 +138,4 @@ document.addEventListener("touchstart", (event) => {
     }
 });
 
-functions initializePage() {
-    displayResults(localBooks);
-}
 
-window.onload = initializePage;
