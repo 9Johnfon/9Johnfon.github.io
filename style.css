@@ -23,6 +23,19 @@ body {
     justify-content: center;
     height: 100vh; /* Make the body take up the full height of the viewport */
 }
+
+
+#searchContainer {
+    text-align: center;
+    width: auto;
+    position: fixed;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
 #searchWrapper {
     display: flex;
     align-items: center;
@@ -47,14 +60,8 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
-#searchContainer {
-    text-align: center;
-    width: auto;
-    position: fixed;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+
+
 
 
 button {
@@ -140,3 +147,40 @@ button {
 }
 
 
+.orange-button {
+    display: inline-block;
+    background-color: #ffa032;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.orange-button:hover {
+    background-color: darkorange;
+}
+
+
+
+@media (max-width: 820px) {
+    #bookResults {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    #bookResults {
+        position: absolute;
+        margin: 20px;
+        top: 40%;
+        width: auto;
+        min-width: 20%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* Allow multiple rows of book results */
+        justify-content: space-evenly; /* Center the book results horizontally */
+    }
+}
