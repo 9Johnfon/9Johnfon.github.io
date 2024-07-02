@@ -5,7 +5,7 @@ const localBooks = [
     // { title: "", lecturer: "", description: "",video: "", url: "" },
     { title: "ตรวจร่างกาย(1) ทางจักษุวิทยา", lecturer: "ผศ.นพ.ภัคพล สุวรรณชาติ", description: "26/6/2567 เป็นบทแรกของวิชาการตรวจสุขภาพในเรื่องของตา การวัดระกับสายตา",video: "https://youtu.be/ZfhKYfA6Fxo", url: "https://drive.google.com/file/d/17u2y0d6HRSlNmsR6oMcT_R6THT79JEuc/view" },
     { title: "พยาธิวิทยา(1) Intro Patho", lecturer: "อ.ดร.จงกลณี ธนาไสย์", description: "บทนำพยาธิวิทยา",video: "https://youtu.be/bG3Suu_nfpw", url: "https://drive.google.com/file/d/1tQWKaWDUKNAQySp1zB0quNyJj_MvgCij/view?usp=drive_link" },
-    { title: "หัตถการทางการแพทย์ฉุกเฉิน(2) เรื่อง ยา", lecturer: "อ.นฉพ.จันทนา ศรีพราว", description: "Medication Administration",video: "https://www.youtube.com/watch?v=PXtrkAWK25Q", url: "https://drive.google.com/file/d/1soVKz_4t-B4-ZZCu8oIygeB9FegyUUxE/view?usp=drive_link" },
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน(2) เรื่อง ยา", lecturer: "อ.นฉพ.จันทนา ศรีพราว", description: "Medication Administration การบริหารยา การอ่านฉลากยา หลัก 10R",video: "https://www.youtube.com/watch?v=PXtrkAWK25Q", url: "https://drive.google.com/file/d/1soVKz_4t-B4-ZZCu8oIygeB9FegyUUxE/view?usp=drive_link" },
     { title: "อาการวิทยา(2) กระดูก", lecturer: "อ.นพ.กิตติธัส", description: "อาการวิทยาทางกระดูก การปวดของข้อกระดูก",video: "https://youtu.be/0Jj7jkW_wzg?si=N6VpHFphzLfrp-rK", url: "https://drive.google.com/file/d/1RPD1vHyguN6ynav3uz5HrFB8loZ-tCwE/view?usp=drive_link" },
 ];
 
