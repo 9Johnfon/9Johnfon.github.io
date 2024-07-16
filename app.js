@@ -14,6 +14,8 @@ const localBooks = [
     { title: "พยาธิวิทยา(3) Hemodynamic", lecturer: "อาจารย์", description: "phato hemodynamics, ภาวะซ๊อค, ภาวะขาดเลือด",video: "https://youtu.be/mSOATkP9o-4?si=Nej5umk_NUG4-TG_", url: "" },
     { title: "เวชจริยศาสตร์(1) หลักการและทฤษฎีทางเวชจริยศาสตร์", lecturer: "อาจารย์", description: "หลักการและทฤษฎีทางเวชจริยศาสตร์",video: "https://youtu.be/C24YlsiNDHs?si=-BZtkt0vO0sByxIy", url: "" },
     { title: "Biochem(1) buffer", lecturer: "อาจารย์", description: "buffer",video: "https://youtu.be/lqXpNIEbDI8?si=YZKjsirEdPWXU2Jw", url: "" },
+    { title: "อาการวิทยา(3) หู คอ จมูก", lecturer: "อาจารย์", description: "การดูแลผู้ป่วยด้าน โสต ศอ นาสิก หู คอ จมูก",video: "https://youtu.be/MWUgNzJ5Jns?si=dgtdL0tP_rP_oyDa", url: "" },
+    { title: "ตรวจร่างกาย(3) หู คอ จมูก", lecturer: "อาจารย์", description: "การตรวจร่างกาย ระบบ หู คอ จมูก",video: "https://youtu.be/Y8vezLyONm4?si=7AKEgwxQrsyFqgxV", url: "" },
 ];
 
 // Function to search books
