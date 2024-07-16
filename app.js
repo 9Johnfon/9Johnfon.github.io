@@ -4,9 +4,16 @@ const localBooks = [
     // Add more books as needed.
     // { title: "", lecturer: "", description: "",video: "", url: "" },
     { title: "ตรวจร่างกาย(1) ทางจักษุวิทยา", lecturer: "ผศ.นพ.ภัคพล สุวรรณชาติ", description: "26/6/2567 เป็นบทแรกของวิชาการตรวจสุขภาพในเรื่องของตา การวัดระกับสายตา",video: "https://youtu.be/ZfhKYfA6Fxo", url: "https://drive.google.com/file/d/17u2y0d6HRSlNmsR6oMcT_R6THT79JEuc/view" },
-    { title: "พยาธิวิทยา(1) Intro Patho", lecturer: "อ.ดร.จงกลณี ธนาไสย์", description: "บทนำพยาธิวิทยา",video: "https://youtu.be/bG3Suu_nfpw", url: "https://drive.google.com/file/d/1tQWKaWDUKNAQySp1zB0quNyJj_MvgCij/view?usp=drive_link" },
+    { title: "พยาธิวิทยา(1) Intro Patho", lecturer: "อ.ดร.จงกลณี ธนาไสย์", description: "บทนำพยาธิวิทยา phato",video: "https://youtu.be/bG3Suu_nfpw", url: "https://drive.google.com/file/d/1tQWKaWDUKNAQySp1zB0quNyJj_MvgCij/view?usp=drive_link" },
     { title: "หัตถการทางการแพทย์ฉุกเฉิน(2) เรื่อง ยา", lecturer: "อ.นฉพ.จันทนา ศรีพราว", description: "Medication Administration การบริหารยา การอ่านฉลากยา หลัก 10R",video: "https://www.youtube.com/watch?v=PXtrkAWK25Q", url: "https://drive.google.com/file/d/1soVKz_4t-B4-ZZCu8oIygeB9FegyUUxE/view?usp=drive_link" },
     { title: "อาการวิทยา(2) กระดูก", lecturer: "อ.นพ.กิตติธัส", description: "อาการวิทยาทางกระดูก การปวดของข้อกระดูก",video: "https://youtu.be/0Jj7jkW_wzg?si=N6VpHFphzLfrp-rK", url: "https://drive.google.com/file/d/1RPD1vHyguN6ynav3uz5HrFB8loZ-tCwE/view?usp=drive_link" },
+    { title: "พยาธิวิทยา(2) ภาวะติดเชื้อ", lecturer: "อ.ดร.จงกลณี ธนาไสย์", description: "Phathology of Infection หลักการ ชนิด โรค อุบัติใหม่",video: "https://youtu.be/vnJzCj8cbdk?si=npmMDERPCkZoeXVI", url: "" },
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน(3) เรื่อง การให้สารนํ้าในหลอดเลือดดำ (IV)", lecturer: "อ.ตั๋ว", description: "การให้สารนํ้าทางหลอดเลือดดำ IV",video: "https://youtu.be/boziUt6yRpQ?si=_7JfUTMOXS2t-RBv", url: "" },
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน(4) เรื่อง suction", lecturer: "อาจารย์", description: "การดูดเสมหะ suction",video: "https://youtu.be/Ie90Nwn8Yhg?si=udM8bFmsAYIA-b4_", url: "" },
+    { title: "ตรวจร่างกาย(2) เรื่อง กระดูก", lecturer: "อาจารย์", description: "การตรวจโรจ วินิจฉัยข้อกระดูก",video: "https://youtu.be/8PbsmlDmsV8?si=rWIMZpP68zvo4OeP", url: "" },
+    { title: "พยาธิวิทยา(3) Hemodynamic", lecturer: "อาจารย์", description: "phato hemodynamics, ภาวะซ๊อค, ภาวะขาดเลือด",video: "https://youtu.be/mSOATkP9o-4?si=Nej5umk_NUG4-TG_", url: "" },
+    { title: "เวชจริยศาสตร์(1) หลักการและทฤษฎีทางเวชจริยศาสตร์", lecturer: "อาจารย์", description: "หลักการและทฤษฎีทางเวชจริยศาสตร์",video: "https://youtu.be/C24YlsiNDHs?si=-BZtkt0vO0sByxIy", url: "" },
+    { title: "Biochem(1) buffer", lecturer: "อาจารย์", description: "buffer",video: "https://youtu.be/lqXpNIEbDI8?si=YZKjsirEdPWXU2Jw", url: "" },
 ];
 
 // Function to search books
