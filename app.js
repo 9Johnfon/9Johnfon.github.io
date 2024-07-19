@@ -15,7 +15,11 @@ const localBooks = [
     { title: "เวชจริยศาสตร์(1) หลักการและทฤษฎีทางเวชจริยศาสตร์", lecturer: "อาจารย์", description: "หลักการและทฤษฎีทางเวชจริยศาสตร์",video: "https://youtu.be/C24YlsiNDHs?si=-BZtkt0vO0sByxIy", url: "" },
     { title: "Biochem(1) buffer", lecturer: "อาจารย์", description: "buffer",video: "https://youtu.be/lqXpNIEbDI8?si=YZKjsirEdPWXU2Jw", url: "" },
     { title: "อาการวิทยา(3) หู คอ จมูก", lecturer: "อาจารย์", description: "การดูแลผู้ป่วยด้าน โสต ศอ นาสิก หู คอ จมูก",video: "https://youtu.be/MWUgNzJ5Jns?si=dgtdL0tP_rP_oyDa", url: "" },
-    { title: "ตรวจร่างกาย(3) หู คอ จมูก", lecturer: "อาจารย์", description: "การตรวจร่างกาย ระบบ หู คอ จมูก",video: "https://youtu.be/Y8vezLyONm4?si=7AKEgwxQrsyFqgxV", url: "" },
+    { title: "ตรวจร่างกาย(4) ทางเดินอาหาร IG", lecturer: "อาจารย์", description: "การตรวจร่างกาย ระบบทางเดินอาหาร GI",video: "https://youtu.be/8cIlyNW-9NM", url: "" },
+    { title: "พยาธิวิทยา(4) Temp BT โรคจากสิ่งแวดล้อม", lecturer: "อาจารย์", description: "Phato อุณหภูมิ โรคที่เกี่ยวกับสิ่งแวดล้อม แมลงสาบกัดต่อย",video: "https://youtu.be/NFTsKGXnpes?si=WJ4KBXfVVH6lSaUo ", url: "" },
+    { title: "เวชจริยศาสตร์(2) ความเที่ยงธรรม", lecturer: "อาจารย์", description: "ความเที่ยงธรรม และ เสมอภาค",video: "https://youtu.be/ge2N7n_SML4?si=7ajiKdntvY1R0DCK", url: "" },
+   { title: "Biochem(2) คา์โบไฮเดรท", lecturer: "อาจารย์", description: "การจำแนกคาร์โบไฮเดรท",video: "https://youtu.be/T09jWOd1ISg?si=XYgFxO815xe3bl1x", url: "" },
+   { title: "หัตถการทางการแพทย์ฉุกเฉิน(5) เรื่อง การให้เลือดและสารประกอบทางหลอดเลือดดำ IV", lecturer: "อาจารย์", description: "การให้เลือดและสารประกอบทางหลอดเลือดดำ IV",video: "https://youtu.be/VOoH4H4WvCE?si=KP5xIVzPoKAl16uX", url: "" },
 ];
 
 // Function to search books
