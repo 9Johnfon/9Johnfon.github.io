@@ -20,7 +20,6 @@ const localBooks = [
      { title: "เวชจริยศาสตร์(2) ความเที่ยงธรรม", lecturer: "อาจารย์", description: "ความเที่ยงธรรม และ เสมอภาค",video: "https://youtu.be/ge2N7n_SML4?si=7ajiKdntvY1R0DCK", url: "" },
     { title: "Biochem(2) คา์โบไฮเดรท", lecturer: "อาจารย์", description: "การจำแนกคาร์โบไฮเดรท",video: "https://youtu.be/T09jWOd1ISg?si=XYgFxO815xe3bl1x", url: "" },
     { title: "หัตถการทางการแพทย์ฉุกเฉิน(5) เรื่อง การให้เลือดและสารประกอบทางหลอดเลือดดำ IV", lecturer: "อาจารย์", description: "การให้เลือดและสารประกอบทางหลอดเลือดดำ IV",video: "https://youtu.be/VOoH4H4WvCE?si=KP5xIVzPoKAl16uX", url: "" },
- 
     { title: "เวชจริยศาสตร์(3) เจริญพันธุ์ HIV", lecturer: "อาจารย์", description: "อนามัยเจริญพันธุ์ เจริญพันธุ์ HIV",video: "https://youtu.be/WEDuFklmrhs", url: "" },
     { title: "Biochem(3) วิตามินและเกลือแร่", lecturer: "อาจารย์", description: "วิตามินและเกลือแร่",video: "https://youtu.be/DDFNE2sSukA", url: "" },
     { title: "หัตถการทางการแพทย์ฉุกเฉิน(6) เรื่อง NG", lecturer: "อาจารย์", description: "NG",video: "https://youtu.be/rpjLp2x7i2I", url: "" },
