@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" />
+    <style>
+        :root {
+            --size: 1.4;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2b2b2b; /* macOS Terminal background color */
+            color: #00ff00; /* macOS Terminal text color (green) */
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .menu-bar {
+            background-color: #2b2b2b; /* macOS Terminal menu bar background color */
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+        }
+
+        .menu-item {
+            color: #bebebe; /* macOS Terminal menu item text color (green) */
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .terminal {
+            flex: 1;
+            font-family: 'Menlo', monospace; /* macOS Terminal font (Monospace) */
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 10px;
+            white-space: pre-wrap; /* Allow wrapping of long lines */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-bar">
+        <span class="menu-item">Shell</span>
+        <span class="menu-item">Edit</span>
+        <span class="menu-item">View</span>
+        <!-- Add more menu items as needed -->
+    </div>
+    <div class="terminal"></div>
+
+    <script>
+        $(function () {
+            var terminal = $('.terminal').terminal({
+                hello: function (what) {
+                    this.echo('Hello, ' + what +
+                        '. Welcome to this terminal.');
+                },
+                login: function () {
+                    var self = this;
+
+                    this.push(function (username) {
+
+                        self.push(function (password) {
+                            // Handle authentication here
+                            var pass = "V1Zkc2FrOUVTWGc9";
+                            var decoded1 = atob(pass);
+                            var decoded2 = atob(decoded1);
+                            var decodedEND = atob(decoded2);
+
+                            const correctUsername = decodedEND;
+                            const correctPassword = decodedEND;
+
+                            if (username === correctUsername && password === correctPassword) {
+                                localStorage.setItem("pssw", "42392734892789fy8678326478t21tqwesgwhbhvc73y47ty1284g12u3g3uh12g3ugff9");
+                                self.echo('Login successful!');
+                                self.set_prompt('paramed@msu:~$ ');
+                                window.location.replace('./index.html');
+                            } else {
+                                self.error('Login failed. Invalid username or password.');
+                                self.pop();
+                                self.pop();
+                            }
+                        }, {
+                            prompt: 'Enter your password: ',
+                            name: 'password',
+                            echo: '*'
+                        });
+                    }, {
+                        prompt: 'Enter your username: ',
+                        name: 'username'
+                    });
+                },
+                help: function () {
+                    this.echo('Available commands:');
+                    this.echo('  - hello [name]: Greet the user');
+                    this.echo('  - login: Login to the system');
+                    this.echo('  - help: Display this help message');
+                    this.echo('  - clear: Clear the terminal screen');
+                    this.echo('  - date: Display the current date and time');
+                    this.echo('  - echo [message]: Display a message');
+                },
+                clear: function () {
+                   this.clear();
+                },
+                date: function () {
+                    var currentDate = new Date().toLocaleString();
+                    this.echo(currentDate);
+                },
+                echo: function (message) {
+                    this.echo(message);
+                }
+            }, {
+                greetings: "Welcome to the deep web",
+                prompt: 'User/win32:~$ '
+            });
+        });
+    </script>
+</body>
+
+</html>
