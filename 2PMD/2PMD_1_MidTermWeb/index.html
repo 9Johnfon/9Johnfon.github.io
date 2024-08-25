@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>Final Anatomy</title>
+</head>
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">Dev ByTherdtoon</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40" height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button" style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;" onclick="goBack()">Back</button>
+ </div>
+
+ <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./index.html" style="color: #4CAF50;">Patho</a></li>
+            <li><a href="#">Biochem</a></li>
+            <li><a href="#">จำหัตถการ</a></li>
+        </ul>
+    </div> 
+
+<script>
+    const questions = [
+        { question: "<b>ผู้ป่วยในสถานบำบัดแห่งหนึ่งมีประวัติว่าเป็น HIV Positive ที่ต้องรักษาอาการของโรคในระยะเริ่มต้น เชื้อ active tuberculosis ตรวจสอบได้โดยการทำ tuberculin skin test ซึ่งแสดงผลเป็น induration ขนาด 7.0 มม. หลังจาก 48 ชั่วโมง การตอบสนองของภูมิคุ้มกันนี้เกิดจาก</b>", options: ["Basophils and IgE","Plasma cells and IgM","B cells and antibodies","T cells and macrophages","Immune complexes and complement"], correctAnswer: "Immune complexes and complement" },
+        { question: "<b>พลังจากสถานการณ์นี้เกิดขึ้นไม่ถึงนาที เด็กชายอายุ 15 ปีมีอาการหายใจลำบาก รวมถึงมีอาการบวมที่ใบหน้าและลำคอ ทำให้ได้รับความรักและความเป็นห่วงจากผู้ที่อยู่รอบข้างมาก การรักษาที่เหมาะสมที่สุดคือ</b>", options: ["Methotrexate","Glucocorticoids","Cyclosporine","Penicillin","Epinephrine"], correctAnswer: "Epinephrine" },
+        { question: "<b>ข้อใดต่อไปนี้ไม่ใช่โรคที่มีการถ่ายทอดทางพันธุกรรมแบบ Autosomal Dominant</b>", options: ["Von Willebrand disease","Osteogenesis Imperfecta","Neurofibromatosis","Marfan syndrome","Thalassemia"], correctAnswer: "Thalassemia" },
+        { question: "<b>ลักษณะทางพันธุกรรมที่สามารถถ่ายทอดไปยังชนรุ่นถัดไปและมักแสดงออกอย่างชัดเจนในผู้ที่ได้รับการถ่ายทอดลักษณะนี้ มักจะเกี่ยวข้องกับลักษณะการถ่ายทอดแบบใด</b>", options: ["Non-Mendelian","X-linked Recessive","X-linked Dominant","Autosomal Dominant","Autosomal Recessive"], correctAnswer: "Autosomal Recessive" },
+        { question: "<b>โรคที่ทำให้กล้ามเนื้ออ่อนแรงและพัฒนาการช้าลง เกิดจากความผิดปกติในโปรตีนที่ชื่อ dystrophin ซึ่งส่งผลให้กล้ามเนื้อไม่สามารถทำงานได้อย่างปกติ เริ่มมีอาการตั้งแต่เด็กและมักจะเสียชีวิตก่อนวัยรุ่น โรคนี้มีลักษณะการถ่ายทอดทางพันธุกรรมแบบใด</b>", options: ["Autosomal Dominant","Autosomal Recessive","X-linked Dominant","Non-Mendelian","X-linked Recessive"], correctAnswer: "X-linked Recessive" },
+        { question: "<b>Down syndrome เป็นความผิดปกติทางพันธุกรรมที่เกิดจากการมีโครโมโซมที่ 21 เกินมา 1 แท่ง (Trisomy 21) อะไรคือต้นเหตุสำคัญของการเกิด Trisomy นี้</b>", options: ["Mitotic nondisjunction","Reciprocal translocation","Robertsonian translocation","Diploid sperm","Meiotic nondisjunction"], correctAnswer: "Meiotic nondisjunction" },
+        { question: "<b>การกลายพันธุ์ของยีนใดนำไปสู่ Single gene disorders ที่พบบ่อยที่สุดในโลก</b>", options: ["Neurofibromin gene","Collagen Type 1 A1 gene","Dystrophin gene","Globin gene","Factor VII gene"], correctAnswer: "Factor VII gene" },
+        { question: "<b>Karyotypes เหล่านี้พบได้ในทารกที่แท้งออกมาเเอง แต่ Karyotype ใดจะไม่พบในเด็กที่รอดชีวิตเลย</b>", options: ["47, XX, +13","47, XX, +21","46, XY","45, X","69, XXX"], correctAnswer: "69, XXX" },
+        { question: "<b>Monosomy แบบใดที่พบในคนที่ยังมีชีวิตอยู่</b>", options: ["Monosomy 18","Monosomy 13","Monosomy Y","Monosomy 21","Monosomy X"], correctAnswer: "Monosomy X" },
+        { question: "<b>โรคชนิดหนึ่ง ถ่ายทอดจากแม่สู่ลูกทุกคน ลูกสาวทุกคนของแม่รายนี้ ถ่ายทอดโรคสู่ลูกทุกคน (หลานยาย) แต่ลูกชายของแม่ร้ายนี้ ไม่มีลูก (หลานย่า) โรคนี้มีการถ่ายทอดแบบใด</b>", options: ["Mitochondrial inheritance","X-linked Dominant","X-linked Recessive","Multifactorial disorders","Mendelian disorder with atypical pattern"], correctAnswer: "Mitochondrial inheritance" },
+        { question: "<b>หญิงอายุ 25 ปี มาพบแพทย์ด้วยอาการไม่เคยมีประจำเดือน ผลตรวจร่างกาย ส่วนสูง 145 ซม. คอเป็นแผง หน้าอกกว้าง หัวนมอยู่ห่างกัน ผลการตรวจ MRI ช่องท้อง พบรังไข่ขนาดเล็กมากผิดปกติ ผลการตรวจโครโมโซมใดที่ตรงกับผู้ป่วยนี้</b>", options: ["46, XX (fra)","47, XXX","47, XXY","47, XX, +16","45, X / 46, XX"], correctAnswer: "45, X / 46, XX" },
+        { question: "<b>เด็กแรกเกิดมีลักษณะตัวอ่อน ปากเป็นรูปกาง ศีรษะแบน จมูกมน รอยหยัก ทาทช้าง และเท้าที่แบน ใบหูลักษณะรูปบาก ปิดไล่สมมาตร มีจุกปาก เช่น ง่ายคือขอ ที่เท้ามีช่องกว้างระหว่างน้ำหัวแม่เท้าและนิ้วที่สอง เด็กรายนี้น่าจะมีอาการของโรคใด</b>", options: ["Trisomy 21","Trisomy 13","Trisomy 18","Cat cry syndrome","Angelman syndrome"], correctAnswer: "Trisomy 21" },
+        { question: "<b>Klinefelter's syndrome คือโรคพันธุกรรมที่มีความผิดปกติ คือ มีโครโมโซมเพศ 3 ตัว ข้อใดอธิบายลักษณะของผู้ป่วยโรคนี้ได้ถูกต้องที่สุด</b>", options: ["XXY (patient appears to be male)","XXX (patient is female)","XXY (patient is male)","Marfan syndrome","XXY patient is a hermaphroditism - has both male and female sex organs)"], correctAnswer: "XXY patient is a hermaphroditism - has both male and female sex organs)" },
+        { question: "<b>หญิงอายุ 19 ปี O3P2 ให้กำเนิดทารกเพศชาย ผลตรวจร่างกายหลังคลอดพบความผัดปกติอย่างเดี๋ยว คือ ปากแห่ง สอบถามประวัติครอบครัวจากแม่ปฏิเสธประวัติดวามผิดปกติ แต่กำเนิดในครอบครัว ลูกสาว 2 คนแรก ก็ไม่มีความผิดปกติแต่กำเนิด ข้อใดใดต่อไปนี้น่าจะอธิบายสาเหตุของความผิดปกติแต่กำเนิดของทารกรายนี้</b>", options: ["Single gene defect","Maternal malnutrition","Early amnion disruption","Multifactorial inheritance","Chromosomal anomaly"], correctAnswer: "Chromosomal anomaly" },
+        { question: "<b>เด็กชายอายุ 3 ปี มารดานำมาพบแพทย์เนื่องจากมีปัญหาการเจริญเติบโตช้า การเรียนรู้ช้ากว่าปกติ มีอาการชัก การเดินเซ และหัวเราะบ่อยผิดปกติ ผลการตรวจคาริโอไทป์รายงานว่า 46,XY การตรวจระดับ DNA พบว่าโครโมโซม 15 ทั้ง 2 ตัว มาจากฝั่งพ่อเท่านั้น ผู็ป่วยรายนี้เข้าได้กับภาวะใดที่สุด</b>", options: ["Mutation of mitochondrial DNA","Trinucleotide repeat expansion","Genomic imprinting","Maternal inheritance pattern","X-linked inheritance pattern"], correctAnswer: "Genomic imprinting" },
+        { question: "<b>ด่านป้องกันขึ้นแรกของการติดเชื่อ Mycobactorium tiberculosis คือ</b>", options: ["Mucosal surface of nose","Alveolar macrophage","Lung epithelium cells","Sweat","Skin"], correctAnswer: "Skin" },
+        { question: "<b>โรคติดเชื้อที่อาจถ่ายของทางการสัมผัสเลือดที่มีเชื้อก่อโรคของผู้ป่วยให้ยกเว้นข้อใด</b>", options: ["Malaria","HIV infection","HPV infection","Hepatitis C virus infection","Hepatitis B virus infection"], correctAnswer: "Hepatitis B virus infection" },
+        { question: "<b>ข้อใดไม่ใช่ sexcally transmitted diseases</b>", options: ["Trichomonzs vaginalis infection","Herpes simplex virus infection","Bubell infection","Human immunadeficiency virus infection","Human papilloma virus infection"], correctAnswer: "Human papilloma virus infection" },
+        { question: "<b>ผู้ป่วยมีอาการกล้ามเนื้อกระตุกแข็งเกร่ง มีประวัติถูกสังกะสีบาดเท้าเมื่อ 3 วัน ก่อน เชื้อตัวใดน่าจะเป็นสาเหตุ</b>", options: ["Mycobacteriam tuberculosis","Clostridium botalinum","Clostridium perfringens","Neisseria meningitidis","Clostridium tetani"], correctAnswer: "Clostridium tetani" },
+        { question: "<b>เชื้อตัวใดเป็นสาเหตุของ Nosocomial infection ได้บ่อยที่สุด</b>", options: ["Mycobacterium tuberculosis","Staphylococcus epidermids","Psudomonas auruginosa","Steptococcus pyogenes","Staphylococcus aurens"], correctAnswer: "Staphylococcus aurens" },
+        { question: "<b>เกี่ยวกับเชื้ออก่อโรคและมะเร็งที่อาจเกิดขึ้นจากเชื้อเหล่านี้ ข้อใดไม่สัมพันธ์กัน</b>", options: ["Opisthorchis viverrini liver fluke : Cholanyiocarcinoma","Human papillorno virus type 6,ll : Cervical cancer","Hepstitis B virus : Hepotocelluler corcinoms","Helicobacter pylori : Gastric cacer","Epstenin-Barr virus : Burkitt's lymphoms"], correctAnswer: "Epstenin-Barr virus : Burkitt's lymphoms" },
+        { question: "<b>ไข้เลือดออกเกิดจากเชื้อก่อโรคใดและมีพานะ คือสัตร์ใด</b>", options: ["เชื้อก่อโรด Plasmodum spp มีพาหะ คือ ยุง Aedes aegypti","เชื้อก่อโรด Plasmodium spp มีพาหะ คือ ยุง Anopheles","เชื้อก่อโรด Dengue vinur มีพาหะ คือ ยุง Aedes aegypti","เชื้อก่อโรด Leptospira interrons มีพาหะ คือ หนู rat","เชื้อก่อโรด Dengas virus มีพาหะ คือ ยุง Anopheles"], correctAnswer: "เชื้อก่อโรด Dengas virus มีพาหะ คือ ยุง Anopheles" },
+        { question: "<b>เชื้อก่อโรคใดที่ไม่จัดอยู่ในกลุ่มอันตรายที่สุดของการเป็นอาวุธชีวภาพ (Category A Diseases /Agents of Bioterrorism by WHO)</b>", options: ["Ebola","Antrax","Botulism","Small pox","Melioidosis"], correctAnswer: "Melioidosis" },
+        { question: "<b>โรคติดเชื้อที่ถ่ายทอดทางรกจากแม่สู่ลูก ยกเว้น</b>", options: ["Roseola","Syphilis","HIV infection","Toxoplasmosis","Herpes infection"], correctAnswer: "Roseola" },
+        { question: "<b>เชื้อก่อโรคติดเชื้อฉวยโอกาส (Opportunistic infection) ที่มักทำให้ผู้ป่วย immunocompromised host มีอากรเยื้อหุ่มสมองอักเสบ เกิดจากการติดเชื้อใด</b>", options: ["Streptococcus pheumonia","Heamophilus influenzae","Neisseria meningitids","Rabies virus","Cryptococcus neoformans"], correctAnswer: "Cryptococcus neoformans" },
+        { question: "<b>เชื้อแบคทีเรีย Burlholderia pseudomallei ก่อโรคใดที่พบมากที่สุดในภาคอีสาน</b>", options: ["Glander","Melliodosis","Leptospirosis","Gastric cancer","Liver cancer"], correctAnswer: "Liver cancer" },
+        { question: "<b>การติดเชื้อปรสิตตัวใดเสี่ยงต่อการเป็นโรคมะเร็งท่อนํ้าดี (Cholangiocarcinoma) ซึ่งมีอุบัติการสูงสุดในประเทศไทย</b>", options: ["Taenia saginata","Helicobacter pylori","Opsithorchis viverrini","Trichomanas vaginalis","Entamoeba histolytica"], correctAnswer: "Taenia saginata" },
+        { question: "<b>โรคติดเชื้อข้อใด ที่ผู็ช่วยฟื้นคืนชีพมีโอกาศติดเชื้อจากการผายปอดคนไข้</b>", options: ["Lymphoma","Diarrhea","Meliodosis","Condyloma acuminate","Mehingococcal meningitis"], correctAnswer: "Lymphoma" },
+        { question: "<b>เกี่ยวกับเชื้อก่อโรคและโรคระบาดใหม่ (New and emerging infectious disease)</b>", options: ["เชื้อ SARS virus ก่อโรค Severe acute resoiratory syndrome","เชื้อ Influenza virus (HsN1) ก่อโรคไข้หวัดนก","เชื้อ Zike virus ก่อโรค microcephaly","เชื้อ SARS-Cov-1 ก่อโรค COVID-19","เชื้อ Ebola virus ก่อโรค hemorrhagic fever"], correctAnswer: "เชื้อ Ebola virus ก่อโรค hemorrhagic fever" },
+        { question: "<b>Malaria เกิดจากเชื้อก่อโรคใด และมีพาหะ คือสัตว์ใด</b>", options: ["เชื้อก่อโรค Dengue virus พาหะคือ ยุง Anopheles","เชื้อก่อโรค Dengue virus พาหะคือ Aedes aegypti","เชื้อก่อโรค Burkholderia pseudomallei พาหะคือ หนู","เชื้อก่อโรค Plasmodium spp พาหะคือ ยุง Aedes aegypti","เชื้อก่อโรค Plasmodium ssp พาหะคือ ยุง Anopheles"], correctAnswer: "เชื้อก่อโรค Plasmodium ssp พาหะคือ ยุง Anopheles" },
+        { question: "<b>การศึกษาเกี่ยวกับกลไกการก่อโรค</b>", options: ["Pathology"], correctAnswer: "Pathology" },
+        { question: "<b>การตรวจคัดกรองมะเร็งปากมดลูกโดยการขูดเซลล์เยื่อบุมดลูกเป็นการเก็บแบบใด</b>", options: ["Exfoliative cytology"], correctAnswer: "Exfoliative cytology" },
+        { question: "<b>เซลล์สมองตายเนื่องจากผู้ป่วยเสียเลือดจนระบบหัวใจล้มเหลวเป็นอันตรายต่อเซลล์ลักษณะใด</b>", options: ["ischema"], correctAnswer: "ischema" },
+        { question: "<b>นักเพาะกายยกนํ้าหนักทำให้ muscle ขยายตัวกับตัวแบบใด</b>", options: ["Hypertrophy"], correctAnswer: "Hypertrophy" },
+        { question: "<b>หญิงวัยเจริญพันธู์มีเต้านมใหญ่เป็นผลของการเปลี่ยนแปลงเซลล์ใด</b>", options: ["Hypertrophy"], correctAnswer: "Hypertrophy" },
+        { question: "<b>สมองฝ่อในผู้ป่วยสูงอายุเป็นผลจากการเปลี่ยนแปลงเซลล์แบบใด</b>", options: ["Arophy"], correctAnswer: "Arophy" },
+        { question: "<b>การเกิดหินปูนบริเวณลิ้นหัวใจมีการติดเชื้อแบคทีเรียเรียกว่าอะไร</b>", options: ["Dytropic calcification"], correctAnswer: "Dytropic calcification" },
+        { question: "<b>การเปลี่ยนแปลงเซลล์จนไม่สามารถกลับคืนได้</b>", options: ["Necrosis"], correctAnswer: "Necrosis" },
+        { question: "<b>ข้อใดคือลักษณะของการตาย Cogulative necrosis</b>", options: ["หัวใจตายจากภาวะขาดเลือด"], correctAnswer: "หัวใจตายจากภาวะขาดเลือด" },
+        { question: "<b>จำแนกเนื้อตาย Caseous necrosis เป็นแบบใด</b>", options: ["ปอดอักเสบจากการติดเชื้อ TB หนอง"], correctAnswer: "ปอดอักเสบจากการติดเชื้อ TB หนอง" },
+        { question: "<b>T-lymphocyte มีลัญณะอย่างไร</b>", options: ["สร้าง lymphokines"], correctAnswer: "สร้าง lymphokines" },
+        { question: "<b>ลักษณะการเกิด T cell mediated ในเนื้อเยื่อเป็นอย่างไร</b>", options: ["มี lymphocyte แทรกอยู่ขอมนํ้า"], correctAnswer: "มี lymphocyte แทรกอยู่ขอมนํ้า" },
+        { question: "<b>ในกลุ่มผู้ป่วย atopic allergy อาการคัดจมูกนํ้ามูกไหล</b>", options: ["IGE"], correctAnswer: "IGE" },
+        { question: "<b>ข้อใดคือการอักเสบของเนื้อเยื่อที่พัดจาก Cirulating immune</b>", options: ["SLE"], correctAnswer: "SLE" },
+        { question: "<b>ชายไทยอายุ 27 ปี ได้รับ tetanus anlysin</b>", options: ["Systemic anaphylasis"], correctAnswer: "Systemic anaphylasis" },
+        { question: "<b>หญิงอายุ 35 ปี หนังตาตก</b>", options: ["Myasthenia gravis"], correctAnswer: "Myasthenia gravis" },
+        { question: "<b>อาการที่ถูกต้องเกี่ยวกับเนื้องอกและมะเร็งคือ</b>", options: ["alenoma เนื้องอกไม่ร้ายแรง"], correctAnswer: "alenoma เนื้องอกไม่ร้ายแรง" },
+        { question: "<b>ข้อใดคือเนื้องอกชนิดไม่ร้ายแรง</b>", options: ["lotema"], correctAnswer: "lotema" },
+        { question: "<b>การตรวจหาระยะมะเร็งใช้หลักการใด</b>", options: ["Differentiatiation"], correctAnswer: "Differentiatiation" },
+        { question: "<b>Seeding ของมะเร็งพบใน</b>", options: ["Ovary"], correctAnswer: "Ovary" },
+        { question: "<b>คุณสมบัติที่สำคัญของเนื้องอกธรรมดา</b>", options: ["Expasive and slow growth"], correctAnswer: "Expasive and slow growth" },
+        { question: "<b>Teraloma คือ</b>", options: ["เนื้องอกที่เกิดจากหลาย tissua"], correctAnswer: "เนื้องอกที่เกิดจากหลาย tissua" },
+        { question: "<b>Teratoma คือ</b>", options: ["Benign ovarian tumor compassed"], correctAnswer: "Benign ovarian tumor compassed" },
+        { question: "<b>ในผู้ป่วย Hyperreflexia อาการ Babinski syn พบ dorsiflexion lesion ของผู้ป่วยมาด้วยอาการล้มในห้องนํ้าหมดสติ เมื่อตรวจร่างกายพบว่ามีเลือดออกที่สมองด้ายซ้ายผู้ป่วยมีอาการอย่างไร</b>", options: ["อัมพาตซีกขวา"], correctAnswer: "อัมพาตซีกขวา" },
+        { question: "<b>ข้อใดทำให้ hexniation ของสมอง</b>", options: ["Hydrocephalus"], correctAnswer: "Hydrocephalus" },
+        { question: "<b>ข้อใดไม่ใช่กลุ่มอาการ Peripheral neuropathies</b>", options: ["Loss of DTR"], correctAnswer: "Loss of DTR" },
+        { question: "<b>อาการที่แสดงออกถึงภาวะ Lower motor neuton</b>", options: ["Clinical eritant atrophy"], correctAnswer: "Clinical eritant atrophy" },
+        { question: "<b>Upper motor และ neuron lesion</b>", options: ["Hyperreflexia"], correctAnswer: "Hyperreflexia" },
+        { question: "<b>ข้อบ่งชี้ของการอักเสบเรื้อรัง</b>", options: ["lymphycyte"], correctAnswer: "lymphycyte" },
+        { question: "<b>Cylekines ช่วยสร้าง collagen fiber กระบวนการเกิดพังผืด ยกเว้น</b>", options: ["IGF"], correctAnswer: "IGF" },
+        { question: "<b>คุณสมบัติของ immunoglobin M</b>", options: ["ทำลายแบคทีเรียแกรมลบ"], correctAnswer: "ทำลายแบคทีเรียแกรมลบ" },
+        { question: "<b>สารใดไม่ก่อให้เกิดโรคมะเร็งผิวหนัง</b>", options: ["arsenic"], correctAnswer: "arsenic" },
+        { question: "<b>ความผิดปกติของขบวนการ synnapes น่าจะเป็นสาเหตุของโรค</b>", options: ["ADHD"], correctAnswer: "ADHD" },
+        { question: "<b>โรคใดเกิด degeneration ของ dopaminagic</b>", options: ["pakinson"], correctAnswer: "pakinson" },
+        { question: "<b>การเกิด stroke ทำให้เกิด</b>", options: ["การตายของเนื้อสมอง สมองขาดเลือด อัมพาตครึ่งซีก"], correctAnswer: "การตายของเนื้อสมอง สมองขาดเลือด อัมพาตครึ่งซีก" },
+        { question: "<b>ติดเชื้อในสมอง</b>", options: ["encephalitis"], correctAnswer: "encephalitis" },
+        { question: "<b>เชื้อในข้อใด เป็นสาเหตุให้เกิด Encephalitis</b>", options: ["Nisseria DVB"], correctAnswer: "Nisseria DVB" },
+        { question: "<b>จำแนกเนื้อตายแบบ caseous necrosis เป็นแบบใด</b>", options: ["ปอดอักเสบจาก IB หนอง"], correctAnswer: "ปอดอักเสบจาก IB หนอง" },
+        { question: "<b>การแสดงของโรค จาก gongrenous necrosis</b>", options: ["ลำไส้เน้าจากการขาดเลือด"], correctAnswer: "ลำไส้เน้าจากการขาดเลือด" },
+        { question: "<b>สิ่งที่สามารถปกป้องร่างกายในด่านแรก คือ</b>", options: ["Epithelial cell"], correctAnswer: "Epithelial cell" },
+        { question: "<b>Cell injury มีสาเหตุจาก</b>", options: ["Chemical agent / low temerature / drug"], correctAnswer: "Chemical agent / low temerature / drug" },
+        { question: "<b>Acute inflammation สามารถตรวจพบ</b>", options: ["Neutrophil"], correctAnswer: "Neutrophil" },
+        { question: "<b>ข้อใดไม่ใช่สาเหตุของ Apoptosis</b>", options: ["ปอดอักเสบ"], correctAnswer: "ปอดอักเสบ" },
+        { question: "<b>Epithelial cell ของมดลูกก่อนมีประจำเดือน</b>", options: ["Hyperplasia"], correctAnswer: "Hyperplasia" },
+        { question: "<b>Angiogensis</b>", options: ["กระบวนการสร้างเส้นเลือดมาเลี้ยง cell มะเร็งโดยไม่ต้องอาศัย cell ข้างต้น"], correctAnswer: "กระบวนการสร้างเส้นเลือดมาเลี้ยง cell มะเร็งโดยไม่ต้องอาศัย cell ข้างต้น" },
+        { question: "<b>Stable cell จะพบใน cell</b>", options: ["Heppatocyte"], correctAnswer: "Heppatocyte" },
+        { question: "<b>สารใดเพิ่มในเซลล์ แล้วจะกระตุ้นการทำงานผนัง cell</b>", options: ["Ca2+"], correctAnswer: "Ca2+" },
+        { question: "<b>ตัวที่ทำหน้าที่ตึง WBC กับ Blood ressel</b>", options: ["Integrin cheek cell"], correctAnswer: "Integrin cheek cell" },
+        { question: "<b>การอักเสบเรื้อรังของปากมดลูกทำให้ Columnar epithelium --> squamous epi</b>", options: ["Metaphasia"], correctAnswer: "Metaphasia" },
+        { question: "<b>อาจพบใน benign tumor ยกเว้น</b>", options: ["Metastasia"], correctAnswer: "Metastasia" },
+        { question: "<b>โรคใดที่เกิดจากสารปรอท</b>", options: ["โรค minamata"], correctAnswer: "โรค minamata" },
+        { question: "<b>Sudden infant deat ข้อใดกล่าวถูกต้อง พบในทารกเพศชายแรกคลอดที่นํ้าหนักน้อยถ่ายทอดทางพันธุกรรม</b>", options: ["การหลับไม่ตื่นในเด็กอายุตํ่ากว่า 1 ปี สาเหตุจากความผิดปกติของระบบประสาทส่วนกลาง + การอุดกั้นทางเดินหายใจ"], correctAnswer: "การหลับไม่ตื่นในเด็กอายุตํ่ากว่า 1 ปี สาเหตุจากความผิดปกติของระบบประสาทส่วนกลาง + การอุดกั้นทางเดินหายใจ" },
+        { question: "<b>Atheosoclerosis มีสาเหตุเริ่มต้นจากข้อใด</b>", options: ["Fatty streak"], correctAnswer: "Fatty streak" },
+        { question: "<b>กลไกของการเกิดอาการบวมที่สัมพันธ์ Oncotic presure</b>", options: ["Protien losing"], correctAnswer: "Protien losing" },
+        { question: "<b>ผู้ป่วยปวดท้องหลังรับประทานอาหารตรวจพบแผลมีรอยในกระเพาะอาหาร และ Urease</b>", options: ["Peptic ulcer จาก H.pylori"], correctAnswer: "Peptic ulcer จาก H.pylori" },
+        { question: "<b>การตายระยะใดที่เลือดจะตกลงมาจุดตํ่าที่สุด</b>", options: ["Liver mortis"], correctAnswer: "Liver mortis" },
+        { question: "<b>กลไกใดที่ทำให้เพิ่มการดูดกลับของนํ้าสู่กระแสเลือด</b>", options: ["Vasoconstriction"], correctAnswer: "Vasoconstriction" },
+        { question: "<b>ข้อใดผิดเกี่ยวกับ Congestion</b>", options: ["เป็น active process --> เป็น passive hyperemi"], correctAnswer: "เป็น active process --> เป็น passive hyperemi" },
+        { question: "<b>DVT ทำให้เกิดโรคใดมากที่สุด</b>", options: ["Pulmonary embolism"], correctAnswer: "Pulmonary embolism" },
+        { question: "<b>การบอกระยะของมะเร็งใช้หลักการใด</b>", options: ["ตรวจทางคลีนิกเพื่อดูขนาดและการแพร่กระจาย"], correctAnswer: "ตรวจทางคลีนิกเพื่อดูขนาดและการแพร่กระจาย" },
+        { question: "<b>หวัดใหญ่สำคัญกับโรคยกเว้นโรค</b>", options: ["Fasciitis --> การเน่าของเนื้อเยื่อพังผืดอักเสบ"], correctAnswer: "Fasciitis --> การเน่าของเนื้อเยื่อพังผืดอักเสบ" },
+        { question: "<b>B-hemolytic streptococcus มีความสัมพันธ์กับโรคใด</b>", options: ["Pharyngitis / acute Pheumatic / fever impetigo"], correctAnswer: "Pharyngitis / acute Pheumatic / fever impetigo" },
+        { question: "<b>ผู้ป่วยในกลุ่มมีอาการคัดจมูกนํ้ามูกไหล ไอ จาม อิมมูโนโกลบูลินชนิดใด</b>", options: ["IgE"], correctAnswer: "IgE" },
+        { question: "<b>ข้อใดกล่าวผิดเกี่ยวกับ hydrops fetalis (ทารกบวมนํ้า/ท้องบาตร)</b>", options: ["พบในทารกที่พบธาลัสซีเมียทุกชนิด"], correctAnswer: "พบในทารกที่พบธาลัสซีเมียทุกชนิด" },
+        { question: "<b>ข้อใดมีความสัมพันธ์น้อยที่สุดกับการควบคุมการแข็งตัวของเลือด</b>", options: ["Vascullar permeability"], correctAnswer: "Vascullar permeability" },
+        { question: "<b>ผู้ป่วยหญิงไทยอายุ 50 ปี มีอาการบวมแล้ว 1 อาทิตย์ที่บริเวณหน้าเปลือกตาแขนขาทั้งสองข้างสาเหตุการบวม</b>", options: ["ไตวาย"], correctAnswer: "ไตวาย" },
+        { question: "<b>Group A Streptococus สัมพันธ์กับโรคใดยกเว้น</b>", options: ["Sotitis media"], correctAnswer: "Sotitis media" },
+        { question: "<b>ข้อใดกล่าวถูกต้องเกี่ยวกับการวินิจฉัยผู้ติดเชื้อโรควัณโรคปอด</b>", options: ["เก็บเสมหะเพื่อย้อม 2iehl nielson stian"], correctAnswer: "เก็บเสมหะเพื่อย้อม 2iehl nielson stian" },
+        { question: "<b>ผู้ป่วยชายอายุ 40 ปี มีอาการปวดหลังและกินยาแก้ปวดแอสไพรินเป็นประจำทำให้เสียงต่อการเกิดความผิดปกติ จากกลไกใด (ยา aspirin ยับยั้งกลไก Platelets aggregation)</b>", options: ["มีจำนวนเกล็ดเลือดปกติ แต่เกล็ดเลือดที่มีทำงานไม่ได้"], correctAnswer: "มีจำนวนเกล็ดเลือดปกติ แต่เกล็ดเลือดที่มีทำงานไม่ได้" },
+        { question: "<b>ผู้ป่วยเด็กชาย อายุ 5 ปีมีไข้มาโรงพยาบาลตรวจพบจุดเลิือดออกขนาด 1-2 mm ที่ผิวหนังและเยื่อบุช่องท้องข้อใด</b>", options: ["Trauma"], correctAnswer: "Trauma" },
+        { question: "<b>เด็กอายุ 9 ปี ตกต้นไม้แขนหักแพทย์เข้าเฝือกให้แต่เมื่อหายไปแล้วไม่เหมือนเดิม</b>", options: ["เข้าเฝือกนานๆ กล้ามเนื้อเกิดการลับ"], correctAnswer: "เข้าเฝือกนานๆ กล้ามเนื้อเกิดการลับ" },
+        { question: "<b>แม่อายุ 37 ปี อายุครรภ์ 35 week คลอดก่อนกำหนดทารกมีหน้าเล็กและตาเล็กหูตํ่า มืองอกำแน่นตายได้เมื่ออายุ 4 วัน จีโนไทป์เป็นอย่างไร</b>", options: ["-47, XX (or XY), +18"], correctAnswer: "-47, XX (or XY), +18" },
+        { question: "<b>โรคชนิดหนึ่งมีประวัติคนในครอบครัวเป็นผู้ป่วยมีปานสีกาแฟผสมนมมากกว่าาผิดตำแหน่งมีก้อนเนื้อ ตามผิวหนังกระจายทั่วไปมีความผิดปกติของกระดูกผู้ป่วยโรคนี้เป็นโรคใดและมีการถ่ายถอดแบบใด</b>", options: ["Autosomal Dominant , Purpuro --> ปานเต็มตัว"], correctAnswer: "Autosomal Dominant , Purpuro --> ปานเต็มตัว" },
+        { question: "<b>เซลล์ชนิดใดจัดเป็น เซลล์ป้องกันสิ่งแปลกปลอมและตอบสนองอย่างรวดเร็ว ยกเว้น</b>", options: ["Fibroblate"], correctAnswer: "Fibroblate" },
+        { question: "<b>หญฺงไทยอายุ 23 ปี ไม่มีประจำเดือนผลการตรวจร่างกาย 145 cm คอมีผังผืดอกว้าง นมอยู่ห่างหัวนมเล็กมาก ผู้ป่วยน่าจะมี argoayres แบบใด</b>", options: ["-47, XXX"], correctAnswer: "-47, XXX" },
+        { question: "<b>หญิงไทยทำงานล้างจานที่ร้านอาหารพบนิ้วเป็นดังรูปจงวินิจฉัย</b>", options: ["Tinea corporis กลากที่ลำตัว"], correctAnswer: "Tinea corporis กลากที่ลำตัว" },
+        { question: "<b>ลักษณะต่อไปนี้เกิด hernorhage ยกเว้นข้อใด</b>", options: ["Vasoulcer engorged"], correctAnswer: "Vasoulcer engorged" },
+        { question: "<b>ผู้ป่วยตกต้นไม้มีอาการบวมแดงเมื่อลงนํ้าหนักที่ข้อเท้า เจ็บข้อเท้ามีสีม่วงซํ้า เรียกอาการอะไร</b>", options: ["Hematoma"], correctAnswer: "Hematoma" },
+        { question: "<b>กินยารักษาสิว 13-retinoic acid จะส่งผลให้ทารกเป็นอย่างไร</b>", options: ["Clelf lip ปากแหว่ง"], correctAnswer: "Clelf lip ปากแหว่ง" },
+        { question: "<b>Teratoma คืออะไร</b>", options: ["Benign ovarian tumor compased"], correctAnswer: "Benign ovarian tumor compased" },
+        { question: "<b>T-lymphokinase มีลักษณะอย่างไร</b>", options: ["สร้าง lymphokinase"], correctAnswer: "สร้าง lymphokinase" },
+        { question: "<b>หญิงอายุ 35 ปีพบว่ามีตาตกกล้ามเนื้ออ่อนแรง และเหนื่อยง่าย ตรวจตบมีแอนติบอดี้ต่อ thyl choline recepter ผู้ป่วยรายนี้จะป่วยเป็นโรคใด</b>", options: ["Myasithenia gravis"], correctAnswer: "Myasithenia gravis" },
+        { question: "<b>ข้อใดไม่สัมพันธ์กับการเกิน Fibrofatty plague</b>", options: ["Tunica"], correctAnswer: "Tunica" },
+        { question: "<b>ลักษณะการเกิด T-cell mediated reaction ในเนื้อเยื่อเป็นอย่างไร</b>", options: ["มี lymphocyte แทรกอยู่บวมนํ้า"], correctAnswer: "มี lymphocyte แทรกอยู่บวมนํ้า" },
+        { question: "<b>คำจำกัดความของมะเร็งและเนื้องอก</b>", options: ["เนื้องอกคือเซลล์ที่ค่อยๆ เจริญลามไปสู่เนื้อเยื่ออื่นๆ"], correctAnswer: "เนื้องอกคือเซลล์ที่ค่อยๆ เจริญลามไปสู่เนื้อเยื่ออื่นๆ" },
+        { question: "<b>หญิงไทยอายุ 55 ปีมาพบแพทย์เนื่องจากนิ้วมือเกร็งขยับไม่ได้ปวดเฉพาะตอนเช้าปวดร่างกายว่า rheu matoid factor ให้ผลบวกผู้ป่วยได้รับการวินิจฉัยว่าเป็น rheumatoid arhritis พยาธิสภาพเกิดขึ้นในผู้ป่วยรายนี้น่าจะมีสาเตุจาก</b>", options: ["Both cell mediated and humoral immunity"], correctAnswer: "Both cell mediated and humoral immunity" },
+        { question: "<b>คุณสมบัติที่สำคัญของเนื้องอกธรรมชาติ</b>", options: ["Expensive and growth slow"], correctAnswer: "Expensive and growth slow" },
+        { question: "<b>organell ใดทำหน้าที่ในการทำลายเซลล์ตัวเองหลังจากตายแล้ว autolysis</b>", options: ["lysosome"], correctAnswer: "lysosome" },
+        { question: "<b>เนื้องอกชนิดไม่ร้ายแรง</b>", options: ["Lipoma"], correctAnswer: "Lipoma" }
+    ];
+</script>
+
+<script src="./core/login.js"></script>
+<script src="./core/script.js"></script>
+
+
+</body>
+</html>
