@@ -136,7 +136,7 @@ function login() {
                 showConfirmButton: false,
                 timer: 1500,
                 willClose: () => {
-                    window.location.replace('AnatomyLecture.html');
+                    window.location.replace('index.html');
                 }
             });
         } else {
