@@ -41,3 +41,11 @@
         { question: "<b></b>", options: ["","","","",""], correctAnswer: "" },
         { question: "<b></b>", options: ["","","","",""], correctAnswer: "" },
         { question: "<b></b>", options: ["","","","",""], correctAnswer: "" },
+
+
+        
+
+
+
+
+<br/><br/>&ensp;&ensp;ก. <br/>&ensp;&ensp;ข. <br/>&ensp;&ensp;ค. <br/>&ensp;&ensp;ง. <br/>&ensp;&ensp;จ. </p>

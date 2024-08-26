@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>Mid-Biochem</title>
+</head>
+
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">Dev ByTherdtoon</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a
+            href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40"
+                height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button"
+            style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;"
+            onclick="goBack()">Back</button>
+    </div>
+
+    <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./index.html">Patho</a></li>
+            <li><a href="./biochem.html" style="color: #4CAF50;">Biochem</a></li>
+            <li><a href="./non.html">จำหัตถการ</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "<b>ข้อใดไม่ตรงกับสมบัติของเซลล์?</b>", options: ["มีสารพันธุกรรมเป็น RNA หรือ DNA", "สามารถถ่ายทอดพันธุกรรมไปสู่ลูกหลานได้", "สามารถสังเคราะห์สารที่จำเป็นต่อเซลล์เอง เช่น โปรตีน หรือกรดนิวคลิอิก", "สามารถเปลี่ยนแปลงสารพิษและสารอาหารได้โดยปฏิกิริยาที่เรียกว่า 'เมแทบอลิซึม'", "สามารถนำสารที่ให้พลังงานจากสิ่งแวดล้อมมาสังเคราะห์เป็นพลังงาน"], correctAnswer: "มีสารพันธุกรรมเป็น RNA หรือ DNA" },
+            { question: "<b>ออร์แกเนลใดที่ไม่พบในเซลล์ยูแครีโอต?</b>", options: ["mesosome", "cell wall", "Peroxisome", "ribosome", "lysosome"], correctAnswer: "mesosome" },
+            { question: "<b>ยาเพนนิซิลิน (penicillin) เป็นตัวยับยั้ง (inhibitor) ของเอนไซม์ transpeptidase ซึ่งเป็นเอนไซม์ที่เซลล์โพรแครีโอตใช้ในกระบวนการใด?</b>", options: ["สังเคราะห์ผนังเซลล์", "สังเคราะห์เยื่อหุ้มเซลล์", "สังเคราะห์ดีเอ็นเอ", "สลายโปรตีนเป็นกรดอะมิโน", "สังเคราะห์โปรตีน"], correctAnswer: "สังเคราะห์ผนังเซลล์" },
+            { question: "<b>ในผู้ป่วยโรคปอดบวม (pneumonia) เนื่องจากการติดเชื้อโรค Mycoplasma pneumoniae และได้รับยาปฏิชีวนะรักษาจนอาการหายเป็นปกติแล้วจึงหยุดยาแต่ภายหลังพบว่าเชื้อโรค M. pneumoniae กลับเจริญขึ้นมาได้ใหม่เนื่องจากสาเหตุใด</b>", options: ["เซลล์ของแบคทีเรียสร้างชั้น s-layer ขึ้นมาเพื่อกันยาปฏิชีวนะแทรกเข้าสู่เซลล์", "เซลล์ของแบคทีเรียซ่อนตัวอยู่ในภาวะที่ไม่มีผนังเซลล์ที่เรียกว่า spheroplast", "เซลล์ของแบคทีเรียสังเคราะห์เอนไซม์ β-lactamase มาใช้ย่อยยาปฏิชีวนะ", "เซลล์ของแบคทีเรียสามารถส่งต่อยีนของเอนไซม์ β-lactamase ให้กับแบคทีเรียที่อยู่ใกล้กันจึงทำให้แบคทีเรียทั้งหมดต้านยาปฏิชีวนะ", "เซลล์ของแบคทีเรียมีผนังเซลล์ 1 ชั้นซึ่งสามารถป้องกันยาปฏิชีวนะไม่ให้สามารถเข้าสู่เซลล์ได้"], correctAnswer: "เซลล์ของแบคทีเรียซ่อนตัวอยู่ในภาวะที่ไม่มีผนังเซลล์ที่เรียกว่า spheroplast" },
+            { question: "<b>เพราะเหตุใดโมเลกุลของน้ำตาลกลูโคสจึงสามารถแพร่เข้าออกเซลล์ได้น้อยมาก?</b>", options: ["เนื่องจากน้ำตาลกลูโคสเป็นสารที่มีโมเลกุลใหญ่ มีความไม่มีขั้วและแตกตัวเป็นประจุบวก", "เนื่องจากน้ำตาลกลูโคสเป็นสารที่มีโมเลกุลใหญ่ มีความไม่มีขั้วแต่ไม่แตกตัวเป็นประจบวกหรือประจุลบ", "เนื่องจากน้ำตาลกลูโคสเป็นสารที่มีโมเลกุลใหญ่ มีความไม่มีขั้วและแตกตัวเป็นประจุลบ", "เนื่องจากน้ำตาลกลูโคสเป็นสารที่มีโมเลกุลใหญ่ มีความมีขั้วและแตกตัวเป็นประจุลบ", "เนื่องจากน้ำตาลกลูโคสเป็นสารที่มีโมเลกุลใหญ่ มีความมีขั้วแต่ไม่แตกตัวเป็นประจบวกหรือประจุลบ"], correctAnswer: "เนื่องจากน้ำตาลกลูโคสเป็นสารที่มีโมเลกุลใหญ่ มีความไม่มีขั้วแต่ไม่แตกตัวเป็นประจบวกหรือประจุลบ" },
+            { question: "<b>สมบัติของเยื่อหุ้มไมโทคอนเดรียด้านนอก (outer mitochondrial membrane) มีความแตกต่างจากสมบัติไมโทคอนเดรียด้านในอย่างไร?</b>", options: ["เยื่อหุ้มไมโทคอนเดรียด้านนอกประกอบด้วย cardiolipin ซึ่งเป็นลิพิดที่มีคุณสมบัติไม่ยอมให้สารใดแพร่ผ่านเข้าออกเยื่อหุ้มไมโทคอนเดรียด้านนอกได้เลย", "เยื่อหุ้มไมโทคอนเดรียด้านในมีโปรตีน 'porin' ซึ่งเป็นโปรตีนขนส่งสารเคมีผ่านเยื่อหุ้มไมโทคอนเดรียด้านใน", "เยื่อหุ้มไมโทคอนเดรียด้านในไม่ยอมให้สารเคมีชนิดใดๆ สามารถแพร่ผ่านเข้าออกได้อย่างอิสระ", "เยื่อหุ้มไมโทคอนเดรียด้านนอกมีพื้นที่ผิวมากกว่าเยื่อหุ้มไมโทคอนเดรียด้านใน", "เยื่อหุ้มไมโทคอนเดรียด้านนอกมีโปรตีนที่เกี่ยวข้องกับวิถีการขนส่งอิเล็กตรอน (electron transport chain)"], correctAnswer: "เยื่อหุ้มไมโทคอนเดรียด้านในมีโปรตีน 'porin' ซึ่งเป็นโปรตีนขนส่งสารเคมีผ่านเยื่อหุ้มไมโทคอนเดรียด้านใน" },
+            { question: "<b>กระบวนการ translation จะต้องเริ่มต้นด้วยลำดับโคดอน AUG ของกรดอะมิโนเมไทโอนีนเสมอ ดังนั้นกรดอะมิโนเมไทโอนีนตัวแรกจะอยู่บริเวณใดของสายโปรตีนเสมอ?</b>", options: ["บริเวณที่ต่อกับน้ำตาลแบบ N-linkage", "ปลาย N ของสายโปรตีน", "บริเวณที่เติมหมู่ฟอสเฟต", "บริเวณที่ต่อกับน้ำตาลแบบ O-linkage", "ปลาย C ของสายโปรตีน"], correctAnswer: "ปลาย N ของสายโปรตีน" },
+            { question: "<b>เอนไซม์ A เป็นไกลโคโปรตีนชนิดหนึ่งที่พบในเมล็ดพืช เมื่อตัดต่อยีนของเอนไซม์ A ลงในแบคทีเรียพบว่าได้เอนไซม์ที่ไม่สามารถเร่งปฏิกิริยาได้เนื่องจากสาเหตุใด?</b>", options: ["แบคทีเรียไม่มีเอนโดพลาสมิกเรติคูลัม", "แบคทีเรียไม่มีไซโทสเกเลตัน", "แบคทีเรียไม่มีไมโทคอนเดรีย", "แบคทีเรียไม่มีไลโซโซม", "แบคทีเรียไม่มีไรโบโซม"], correctAnswer: "แบคทีเรียไม่มีเอนโดพลาสมิกเรติคูลัม" },
+            { question: "<b>ระบบไบคาร์บอเนตบัฟเฟอร์เป็นระบบบัฟเฟอร์ที่สำคัญ โดยบัฟเฟอร์ระบบดังกล่าวประกอบด้วย________ทำหน้าที่เป็นกรดอ่อนและ________ทำหน้าที่เป็นเกลือของกรดอ่อน</b>", options: ["NaHCO3 และ H2CO3", "H2CO3 และ NaHCO3", "H2CO3 และ Na2CO3", "NaHCO3 และ Na2CO3", "Na2CO3 และ H2CO3"], correctAnswer: "H2CO3 และ NaHCO3" },
+            { question: "<b>หญิงผู้หนึ่งมีอาการ Bulimia nervosa โดยหลังจากการกินอาหารทุกมื้อจะลงมือล้วงคอเพื่ออาเจียนเอาอาหารออกให้หมดเนื่องจากกลัวว่าตัวเองจะอ้วนขึ้น หญิงคนดังกล่าวมีความเสี่ยงต่อภาวะใดอันมีสาเหตุ</b>", options: ["Acidosis เนื่องจากร่างกายได้รับ H+ เพิ่มจนผิดปกติ", "Alkalosis เนื่องจากร่างกายสูญเสีย H+", "Acidosis เนื่องจากร่างกายสูญเสีย HCO3-", "Alkalosis เนื่องจากร่างกายได้รับ HCO3- เพิ่มจนผิดปกติ", "Acidosis"], correctAnswer: "Alkalosis เนื่องจากร่างกายสูญเสีย H+" },
+            { question: "<b>เนื่องจากร่างกายไม่สามารถระบายคาร์บอนไดออกไซด์ออกไปได้หมด เมื่อเซลล์ขาดแคลนพลังงานจะทำให้เกิดการสังเคราะห์สารใดซึ่งมีหน้าที่เป็น energy sensor เพื่อกระตุ้นให้เกิดการสังเคราะห์พลังงาน ATP ในเซลล์มากขึ้น?</b>", options: ["GDP", "cAMP", "ADP", "AMP", "cGMP"], correctAnswer: "AMP" },
+            { question: "<b>เอนไซม์ adenylate kinase มีหน้าที่สังเคราะห์สารใด?</b>", options: ["cAMP", "cGMP", "GDP", "ADP", "AMP"], correctAnswer: "AMP" },
+            { question: "<b>เมื่อตัดหมู่ฟอสเฟตจากสารใดจะให้พลังงานอิสระสูงที่สุด?</b>", options: ["ATP", "Phosphocreatine", "Phosphoenolpyruvate", "Glucose-6-phosphate", "Glycerol-3-phosphate"], correctAnswer: "ATP" },
+            { question: "<b>เอนไซม์ adenylate cyclase สังเคราะห์ cAMP จากสารใด?</b>", options: ["cAMP", "ATP", "AMP", "GDP", "cGMP"], correctAnswer: "ATP" },
+            { question: "<b>ขั้นตอนใดถูกต้องเกี่ยวกับการสังเคราะห์ ATP</b>", options: ["การส่งอิเล็กตรอนจาก complex III ไปยัง complex IV มีค่า ∆G เป็นลบ", "การส่ง H+ ออกนอกเยื่อหุ้มไมโทคอนเดรียด้านในมีค่า ∆G เป็นบวก", "ปฏิกิริยาการสังเคราะห์ ATP มีค่า ∆G เป็นลบ", "ปฏิกิริยาการสลาย ATP มีค่า ∆G เป็นบวก", "การส่ง H+ ออกนอกเยื่อหุ้มไมโทคอนเดรียด้านในใช้พลังงานจากการสลาย ATP มีค่า ∆G เป็นลบ"], correctAnswer: "การส่ง H+ ออกนอกเยื่อหุ้มไมโทคอนเดรียด้านในใช้พลังงานจากการสลาย ATP มีค่า ∆G เป็นลบ" },
+            { question: "<b>Complex ในวิถี electron transport chain เมื่อรับอิเล็กตรอนแล้วไม่เกิดการส่ง H+ ออกไปนอกเยื่อหุ้มไมโทคอนเดรียด้านใน</b>", options: ["Complex III", "Complex IV", "Complex V", "Complex II", "Complex I"], correctAnswer: "Complex II" },
+            { question: "<b>เมื่อสลาย ATP 1 โมล ได้เป็น ADP 1 โมล จะให้พลังงานใด?</b>", options: ["+ 14 kJ", "+ 10 kJ", "- 31 kJ", "- 15 kJ", "- 17 kJ"], correctAnswer: "- 31 kJ" },
+            { question: "<b>ในวิถีการถ่ายทอดอิเล็กตรอน (electron transport chain) นั้น complex ที่ 1 รับอิเล็กตรอนจากสารใด?</b>", options: ["cAMP", "ATP", "ADP", "NAD", "FAD"], correctAnswer: "NAD" },
+            { question: "<b>เอนไซม์ Nucleotide diphosphate kinase (NuDiKi) เร่งปฏิกิริยาใด?</b>", options: ["ADP + Pi → ATP", "AMP + AMP → ADP", "ATP → cAMP", "ATP → ADP + Pi", "ATP → AMP + PPi"], correctAnswer: "ATP → ADP + Pi" },
+            { question: "<b>ข้อใดคือปัจจัยที่ถูกต้องที่ทำให้พันธะฟอสโฟแอนไฮไดรด์ (phosphoanhydride) มีพลังงาน?</b>", options: ["เนื่องจากอิเล็กตรอนในพันธะฟอสโฟแอนไฮไดรด์อยู่ในออร์บิทัลที่มีพลังงานสูง", "เนื่องจากพันธะฟอสโฟแอนไฮไดรด์มีออกซิเจนซึ่งมีอิเล็กตรอนคู่โดดเดี่ยวอยู่มาก", "เนื่องจากพันธะฟอสโฟแอนไฮไดรด์อยู่ในสภาวะเร้า (excited state)", "เนื่องจากอิเล็กตรอนในพันธะฟอสโฟแอนไฮไดรด์เกิดเรโซแนนซ์", "เนื่องจากการสลายพันธะฟอสโฟแอนไฮไดรด์จะให้พลังงานอิสระเป็นบวก"], correctAnswer: "เนื่องจากอิเล็กตรอนในพันธะฟอสโฟแอนไฮไดรด์เกิดเรโซแนนซ์" },
+            { question: "<b><img src='./images/1.PNG'></b>", options: ["จุดสมมูล 1", "จุด pH = pKa1", "จุดสมมูล 2", "จุด pH = pKa2", "จุดยุติ 1"], correctAnswer: "จุดสมมูล 1" },
+            { question: "<b>ข้อใดคือการแตกตัวของกรดอะมิโนไกลซีนเป็น Zwitterion ได้อย่างถูกต้องที่สุด?</b>", options: ["NH2 -- CH2 -- COOH", "NH3+ -- CH2 -- COO-", "NH3+ -- CH2 -- COOH", "NH2 -- CH2 -- COO-", "NH4 2+ -- CH2 -- COOH"], correctAnswer: "NH3+ -- CH2 -- COO-" },
+            { question: "<b>เด็กคนหนึ่งเป็นโรคขาดสารอาหารชนิด Kwashiorkor เด็กคนนี้จะขาดกรดอะมิโนชนิดใดตามไปด้วย?</b>", options: ["Proline และ Tyrosine", "Glutamic acid และ Glutamine", "Valine และ Lysine", "Asparagine และ Aspartic acid", "Cysteine และ Serine"], correctAnswer: "Valine และ Lysine" },
+            { question: "<b>เมื่อหยดสารละลาย ninhydrin ลงสารละลายกรดอะมิโนสามัญทั้ง 19 ชนิดจะทำให้สารละลายเปลี่ยนเป็นสีม่วงยกเว้นกรดอะมิโนโพรลีน (proline) เพราะเหตุใด?</b>", options: ["เพราะกรดอะมิโนโพรลีนมีค่า pKa น้อยกว่า 9", "เพราะกรดอะมิโนโพรลีนไม่แตกตัวเป็นประจุ + หรือ -", "เพราะกรดอะมิโนโพรลีนไม่ละลายน้ำ", "เพราะกรดอะมิโนโพรลีนมีหมู่ R เป็นหมู่ -NH2", "เพราะกรดอะมิโนมีหมู่ 5-amino group เป็น secondary amino group"], correctAnswer: "เพราะกรดอะมิโนมีหมู่ 5-amino group เป็น secondary amino group" },
+            { question: "<b>อันตรกิริยาใดมีบทบาทต่อการเกิดโครงสร้างของโปรตีนระดับปฐมภูมิ?</b>", options: ["Disulfide bond", "Hydrophobic interaction", "Ionic interaction", "Hydrogen bond", "Covalent bond"], correctAnswer: "Covalent bond" },
+            { question: "<b>อันตรกิริยาใดมีบทบาทต่อการเกิดโครงสร้างของโปรตีนระดับทุติยภูมิ?</b>", options: ["Disulfide bond", "Covalent bond", "Ionic interaction", "Hydrogen bond", "Hydrophobic interaction"], correctAnswer: "Hydrogen bond" },
+            { question: "<b>บริเวณเร่งของเอนไซม์ที่เรียกว่า 'catalytic domain' เกิดจากโครงสร้างของโปรตีนระดับใด?</b>", options: ["Tertiary structure", "Quaternary structure", "Secondary structure", "Amino acid sequence", "Primary structure"], correctAnswer: "Tertiary structure" },
+            { question: "<b><img src='./images/2.PNG'></b>", options: ["ก", "ข", "ค", "จ", "ง"], correctAnswer: "ง" },
+            { question: "<b>ทารกคนหนึ่งมีความผิดปกติของเอนไซม์ branch chain α-keto acid dehydrogenase ซึ่งทำให้เกิดอาการปัสสาวะมีกลิ่นเมเปิลไซรับ (Maple syrup urine disease) เอนไซม์นี้เป็นเอนไซม์สำคัญในการสลายกรดอะมิโนที่มีโซ่กิ่งในอวัยวะใดเป็นหลัก?</b>", options: ["กล้ามเนื้อ", "ไขกระดูก", "ไต", "สมอง", "ตับ"], correctAnswer: "กล้ามเนื้อ" },
+            { question: "<b>เอนไซม์ branch chain α-keto acid dehydrogenase ทํางานที่ออร์แกเนลใด?</b>", options: ["ไลโซโซม", "ไมโทคอนเดรีย", "กอลจิคอมเพล็กซ์", "เอนโดพลาสมิกเรติคูลัม", "ไซโทพลาสซึม"], correctAnswer: "ไมโทคอนเดรีย" },
+            { question: "<b>เมื่อร่างกายเกิดการตอบสนองต่อการแพ้ (allergy) จะเกิดการสังเคราะห์ Histamine จากกรดอะมิโน Histidine ที่เซลล์ชนิดใด?</b>", options: ["Eosinophil", "Monocyte", "Neutrophil", "Mast cell", "Basophil"], correctAnswer: "Mast cell" },
+            { question: "<b>ข้อใดไม่ใช่บทบาทของกรดอะมิโนอาร์จีนีน?</b>", options: ["เป็นสารสำคัญในการสังเคราะห์เม็ดสีเมลานิน (melanin)", "เป็นสารสำคัญในการสังเคราะห์ Nitric oxide", "เป็นสารสำคัญในการสังเคราะห์ Spermidine", "เป็นสารสำคัญในการสังเคราะห์ครีอาติน (creatine)", "เป็นสารสำคัญในการสังเคราะห์กรดอะมิโนโพรลีน (proline)"], correctAnswer: "เป็นสารสำคัญในการสังเคราะห์เม็ดสีเมลานิน (melanin)" },
+            { question: "<b>ผู้ป่วยโรค Alkaptonuria ซึ่งมีปัสสาวะเป็นสีดำหลังจากน้ำปัสสาวะสัมผัสกับอากาศจากสาร Homogentisic acid ที่สะสมในร่างกายซึ่งผู้ป่วยโรคนี้จะมีความบกพร่องของเอนไซม์ Homogentisate dioxygenase ซึ่งอยู่ในวิถีเมแทบอลิซึมของการสลายกรดอะมิโนชนิดใดให้ได้?</b>", options: ["Cysteine", "Phenylalanine", "Tryptophan", "Methionine", "Alanine"], correctAnswer: "Phenylalanine" },
+            { question: "<b>ขณะที่ร่างกายอดอาหารจะเกิดการสลายโปรตีนเป็นกรดอะมิโนและสลายกรดอะมิโนเหล่านั้นที่กล้ามเนื้อให้เป็นพลังงานแก่เซลล์กล้ามเนื้อเองโดยเซลล์กล้ามเนื้อจะกำจัดหมู่อะมิโนออกจากเซลล์กล้ามเนื้อในรูปแบบของสารใด?</b>", options: ["น้ำตาลกลูโคส", "แอมโมเนีย", "ยูเรีย", "สารสื่อประสาทกลุ่มเอมีน", "กรดอะมิโนอะลานีน"], correctAnswer: "ยูเรีย" },
+            { question: "<b>วัฏจักรออร์นิทีนนั้นจะเริ่มต้นจากการสังเคราะห์สารใดที่ออร์แกเนลใด?</b>", options: ["เริ่มจากการสังเคราะห์ carbamoyl phosphate ที่ไมโทคอนเดรีย", "เริ่มจากการสังเคราะห์ citruline ที่ไซโทพลาซึม", "เริ่มจากการสังเคราะห์ carbamoyl phosphate ornithine ที่ไซโทพลาซึม", "เริ่มจากการสังเคราะห์ ornithine ที่ไมโทคอนเดรีย", "เริ่มจากการสังเคราะห์ citruline ที่ไมโทคอนเดรีย"], correctAnswer: "เริ่มจากการสังเคราะห์ citruline ที่ไมโทคอนเดรีย" },
+            { question: "<b>ที่ใดมีเอนไซม์ในวัฏจักรออร์นีทีนไม่ครบโดยขาดเอนไซม์ Arginase ทำให้ไม่สามารถสังเคราะห์สารใดได้?</b>", options: ["Citruline", "Ornithine", "Carbamoyl phosphate", "Arginine", "Urea"], correctAnswer: "Arginine" },
+            { question: "<b>กรดอะมิโนที่ถือว่าเป็นผู้ให้หมู่อะมิโนที่ 2 ในโครงสร้างของยูเรียคือกรดอะมิโนชนิดใด?</b>", options: ["Glutamine", "Glutamate", "Alanine", "Aspartate", "Arginine"], correctAnswer: "Aspartate" },
+            { question: "<b>วัฏจักร glucose-alanine cycle เกิดขึ้นเมื่อใดและจะส่งผลต่อร่างกายอย่างไร?</b>", options: ["เกิดขึ้นหลังจากกินอาหารเพื่อให้ร่างกายสามารถเก็บกรดอะมิโนสะสมเป็นแหล่งพลังงานสำรอง", "เกิดขึ้นขณะอดอาหารเพื่อรักษาระดับน้ำตาลกลูโคสในเลือด", "เกิดขึ้นขณะที่ร่างกายออกกำลังกายเพื่อให้กล้ามเนื้อสามารถใช้น้ำตาลกลูโคสเป็นแหล่งพลังงานได้ดีขึ้น", "เกิดขึ้นขณะที่ร่างกายออกกำลังกายเพื่อรักษาระดับน้ำตาลกลูโคสในเลือด", "เกิดขึ้นขณะอดอาหารเพื่อให้กล้ามเนื้อสามารถใช้น้ำตาลกลูโคสเป็นแหล่งพลังงานได้ดีขึ้น"], correctAnswer: "เกิดขึ้นขณะอดอาหารเพื่อรักษาระดับน้ำตาลกลูโคสในเลือด" },
+            { question: "<b>เมื่อร่างกายเพิ่มอัตราการเกิดวัฏจักร glucose-alanine cycle มากขึ้นจะส่งผลอย่างไรต่อร่างกาย?</b>", options: ["เกิดการสร้างไขมันเพิ่มขึ้น", "เกิดการสลายน้ำตาลกลูโคสเพิ่มขึ้น", "เกิดการสลายไขมันเพิ่มขึ้น", "เกิดการสลายกล้ามเนื้อเพิ่มขึ้น", "เกิดการสร้างกล้ามเนื้อเพิ่มขึ้น"], correctAnswer: "เกิดการสลายกล้ามเนื้อเพิ่มขึ้น" },
+            { question: "<b>เอนไซม์ Pyruvate decarboxylase (E.C. 4.1.1.1) เป็นเอนไซม์ในคลาส (class) ใด?</b>", options: ["Lyase", "Transferase", "Ligase", "Hydrolase", "Oxido-reductase"], correctAnswer: "Lyase" },
+            { question: "<b>เอนไซม์ใดที่เร่งปฏิกิริยาการเปลี่ยนสารจาก D-glucose เป็น L-glucose?</b>", options: ["Isomerase", "Synthetase", "Transaminase", "Reductase", "Epimerase"], correctAnswer: "Isomerase" },
+            { question: "<b>เอนไซม์ชนิดใดใช้ประกอบการวินิจฉัยโรค prostate carcinoma?</b>", options: ["Alanine transaminase", "Aspartate transaminase", "Alkaline phosphatase", "Acid phosphatase", "Creatine kinase"], correctAnswer: "Acid phosphatase" },
+            { question: "<b>ลักษณะความสัมพันธ์รูปกราฟในลักษณะ asymptote เกิดขึ้นเมื่อใด?</b>", options: ["เมื่อปฏิกิริยาหยุดลง", "เมื่อเอนไซม์ครึ่งหนึ่งจับกับสารตั้งต้นในระบบ", "เมื่อเอนไซม์อิ่มตัวไปด้วยสารตั้งต้น", "เมื่อปฏิกิริยาเข้าสู่ 1 order reaction", "เมื่อระบบมีเอนไซม์เพิ่มขึ้น"], correctAnswer: "เมื่อเอนไซม์อิ่มตัวไปด้วยสารตั้งต้น" },
+            { question: "<b>วิตามินชนิดใดเป็นโคเอนไซม์ของเอนไซม์ที่เร่งปฏิกิริยา transamination?</b>", options: ["Biotin", "Riboflavin", "Thiamin", "Cobalamin", "Pyridoxine"], correctAnswer: "Pyridoxine" },
+            { question: "<b><img src='./images/3.PNG'></b>", options: ["Suicide inhibition", "Noncompetitive inhibition", "Competitive inhibition", "Mixed inhibition", "Uncompetitive inhibition"], correctAnswer: "Uncompetitive inhibition" },
+            { question: "<b><img src='./images/4.PNG'></b>", options: ["ค่า Km เพิ่มขึ้น เอนไซม์ชอบจับกับสารตั้งต้นเพิ่มขึ้น", "ค่า Km เพิ่มขึ้นเอนไซม์ชอบจับกับสารตั้งต้นลดลดลง", "ค่า Km แปรผันตามค่า Vmax โดยเพิ่มเพิ่นตามอัดราส่วน", "ค่า Km ลดลง เอนไซม์ชอบจับกับสารตั้งต้นลดลง", "ค่า Km ลดลง เอนไซม์ชอบจับกับสารตั้งต้นเพิ่มขึ้น"], correctAnswer: "ค่า Km ลดลง เอนไซม์ชอบจับกับสารตั้งต้นเพิ่มขึ้น" },
+            { question: "<b><img src='./images/5.PNG'></b>", options: ["1", "2", "3", "4", "5"], correctAnswer: "1" },
+            { question: "<b><img src='./images/6.PNG'></b>", options: ["1", "2", "3", "4", "5"], correctAnswer: "2" },
+            { question: "<b>Allosteric activator จะจับกับเอนไซม์ที่บริเวณใด-ด้วยพันธะใด?</b>", options: ["จับที่บริเวณอัลโลสเตอริก - ด้วยพันธะโคเวเลนต์", "จับที่บริเวณจับ - ด้วยพันธะไฮโดรเจน", "จับที่บริเวณอัลโลสเตอริก - ด้วยพันธะไฮโดรเจน", "จับที่บริเวณเร่ง - ด้วยพันธะโคเวเลนต์", "จับที่บริเวณเร่ง - ด้วยพันธะไอออนิก"], correctAnswer: "จับที่บริเวณอัลโลสเตอริก - ด้วยพันธะไฮโดรเจน" },
+            { question: "<b>ผู้ป่วยรายหนึ่งได้รับไอปรอทเข้าไปทำให้เอนไซม์ในร่างกายมีค่า Vmax ลดลง แต่ค่า Km คงที่ เป็นการยับยั้งการทำงานของเอนไซม์แบบใด?</b>", options: ["Uncompetitive inhibition", "Suicide inhibition", "Mixed inhibition", "Noncompetitive inhibition", "Competitive inhibition"], correctAnswer: "Noncompetitive inhibition" },
+            { question: "<b>ข้อใดถูกต้องที่สุดเกี่ยวกับ anomeric carbon ของน้ำตาล monosaccharide</b>", options: ["Anomeric carbon เป็นคาร์บอนต่างกันตามภาพกระจกเงา", "Anomeric carbon เมื่ออยู่เหน็อระนาบวงแหวนน้ำตาลจะเรียกว่าแอลฟาอะนอเมอร์", "Anomeric carbon อาจเป็นตำแหน่งคาร์บอนที่มีหมู่แอลดีไฮด์หรือดีโทน", "Anomeric carbon เป็นคาร์บอนที่ใช้สร้างพันธะไกลโคซิดิก", "Anomeric carbon อาจเป็นตำแหน่งคาร์บอนที่มีหมู่ไฮดรอกซิล"], correctAnswer: "Anomeric carbon เมื่ออยู่เหน็อระนาบวงแหวนน้ำตาลจะเรียกว่าแอลฟาอะนอเมอร์" },
+            { question: "<b>น้ำตาลมอนอแซกคาไรดในข้อใดดังต่อไปนี้เป็น epimer กัน</b>", options: ["Glucose-Gulose", "Ribose-Ribulose", "Glucose-Galactose", "Ribose-Arabinose", "Fructose-Glucose"], correctAnswer: "Ribose-Arabinose" },
+            { question: "<b>ไดแซกคาไรดในข้อใดไม่มีสมบัติเป็นน้ำตาลรีดิวซ์</b>", options: ["Maltose (Glucose α-(1→4) Glucose)", "Trehalose (Glucose α-(1→1) Glucose)", "Lactose (Galactose β-(1→4) Glucose)", "Lactulose (Galactose β-(1→4) Fructose)", "Cellobiose (Glucose β-(1→4) Glucose)"], correctAnswer: "Trehalose (Glucose α-(1→1) Glucose)" },
+            { question: "<b>น้ำตาล D-ribulose มี anomeric carbon ที่คาร์บอนดำแหน่งใด</b>", options: ["1", "2", "3", "4", "5"], correctAnswer: "2" },
+            { question: "<b>เมื่อผู้ถูกทดสอบ oral glucose tolerance test มีค่าระดับน้ำตาล = 90 mg/dL หลังจากกลืน น้ำตาลไปแล้ว 2 ชั่วโมงแสดงว่าผู้ถูกทดสอบมีภาวะใด</b>", options: ["ปกติ", "เป็นโรคเบาหวาน", "ไม่ทนต่อน้ำตาลกลูโคส", "Hyperthyroidism", "Hypertension"], correctAnswer: "ปกติ" },
+            { question: "<b>เมื่อผู้ถูกทดสอบ oral glucose tolerance test มีค่าระดับน้ำตาล = 150 mg/dL หลังจากกลืน น้ำตาลไปแล้ว 2 ชั่วโมงแสดงว่าผู้ถูกทดสอบมีภาวะใด</b>", options: ["Hypertension", "ไม่ทนต่อน้ำตาลกลูโคส", "เป็นโรคเบาหวาน", "Hyperthyroidism", "ปกติ"], correctAnswer: "ไม่ทนต่อน้ำตาลกลูโคส" },
+            { question: "<b>ข้อใดตรงกับสารผลิตผลของ oxidative pentose phosphate pathway</b>", options: ["FADH2", "NADPH+H+", "FMN", "ATP", "CAMP"], correctAnswer: "NADPH+H+" },
+            { question: "<b>เมื่อวิถี pentose phosphate pathway ถูกยับยั้งจะมีสารใดในเซลล์ลดลง</b>", options: ["ATP", "Pyridoxine", "Cobalamin", "Reduced glutathione", "Carnitine"], correctAnswer: "Reduced glutathione" },
+            { question: "<b>เอนไซม์ hexokinase มีการควบคุมการทำงานแบบใด</b>", options: ["Feedback inhibition", "Allosteric activation", "Allosteric inhibition", "Competitive inhibition", "Uncompetitive inhibition"], correctAnswer: "Allosteric activation" },
+            { question: "<b>ข้อใดถูกต้องเกี่ยวกับเอนไซม์ hexokinase และเอนไซม์ glucokinase</b>", options: ["เอนไซม์ hexokinase พบที่ตับเท่านั้นและมีค่า Km ต่อต่อน้ำตาลกลูโคสสูงกว่า glucokinase", "เอนไซม์ glucokinase พบที่ตับเท่านั้นและมีค่า Km ต่อต่อน้ำตาลกลูโคสสูงกว่า hexokinase", "เอนไซม์ glucokinase พบที่ตับเท่านั้นและมีค่า Km ต่อต่อน้ำตาลกลูโคสต่ำกว่า hexokinase", "เอนไซม์ hexokinase พบที่ตับเท่านั้นและมีค่า Km ต่อต่อน้ำตาลกลูโคสต่ำกว่า glucokinase", "เอนไซม์ hexokinase พบที่ตับเท่านั้นและมีค่า Km เท่ากับเอนไซม์ glucokinase"], correctAnswer: "เอนไซม์ glucokinase พบที่ตับเท่านั้นและมีค่า Km ต่อต่อน้ำตาลกลูโคสสูงกว่า hexokinase" },
+            { question: "<b>เมื่อในเซลล์มีระดับ AMP สูงขึ้นจะทำให้เซลล์เพิ่มอัตราการเกิดวิถีไกลโคไลซิสโดยสาร AMP มีผลกระตุ้นการทำงานของเอนไซม์ใด</b>", options: ["Triose phosphate isomerase", "Pyruvate kinase", "Phosphoglucoisomerase", "Phosphofructokinase"], correctAnswer: "Phosphofructokinase" },
+            { question: "<b>ในระหว่างที่เรานอนหลับระดับน้ำตาลในเลือดจะต่ำลงและร่างกายจะหลั่งฮอร์โมนกลูคากอนซึ่งมีฤทธิ์ยับยั้งวิถีไกลโคไลซิสผ่านเอนไซม์ใด</b>", options: ["Phosphoglucoisomerase", "Pyruvate kinase", "Phosphofructokinase", "Triose phosphate isomerase"], correctAnswer: "Pyruvate kinase" },
+            { question: "<b>ในขั้นตอน splitting stage ของวิถีไกลโคไลซิสนั้นเอนไซม์ใดจะเปลี่ยน dihydroxyacetone phosphate เป็น 3-phosphoglycerate</b>", options: ["Phosphofructokinase", "Pyruvate kinase", "Phosphoglucoisomerase", "Triose phosphate isomerase"], correctAnswer: "Triose phosphate isomerase" },
+            { question: "<b>สารใดไม่สามารถใช้สังเคราะห์เป็นน้ำตาลกลูโคสได้</b>", options: ["กรดอะมิโนพวกกลูโคเจนิก", "Propionyl CoA", "กรดไพรูวิก", "กรดแลกติก", "Acetyl CoA"], correctAnswer: "Propionyl CoA" },
+            { question: "<b>วัฏจักรโคริ (Cori cycle) เกิดขึ้นหลังจากร่างกายเข้าสู่ภาวะใด</b>", options: ["อดอาหารเป็นเวลานาน", "ออกกำลังกาย", "เครียด", "ให้นมบุตร", "ตั้งครรภ์"], correctAnswer: "ออกกำลังกาย" },
+            { question: "<b>การสังเคราะห์น้ำตาลกลูโคสจากกรดไพรวิกจะใช้พลังงาน ATP ทั้งหมดกี่ ATP</b>", options: ["3", "4", "5", "6", "7"], correctAnswer: "6" },
+            { question: "<b>เอนไซม์ใดไม่มีบทบาทควบคุมอัตราการเกิดวิถี gluconeogenesis</b>", options: ["Fructose 1,6-bisphosphatase", "ถูกทุกข้อ", "Pyruvate carboxylase", "Phosphoenolpyruvate carboxykinase", "Phosphofructokinase"], correctAnswer: "Phosphofructokinase" },
+            { question: "<b>เมื่อเอนไซม์ protein kinase A ถูกกระตุ้นจะส่งผลต่อเซลล์อย่างไร</b>", options: ["เกิดการกระตุ้นการสังเคราะห์ CAMP ในเซลล์มากขึ้นทำให้เกิดการสลายไกลโคเจนมากขึ้น", "เกิดการกระตุ้นการทำงานของเอนไซม์ Glycogen synthase ทำให้เกิดการสลายไกลโคเจนมากขึ้น", "เกิดการกระตุ้นการทำงานของเอนไซม์ Glycogen phosphorylase ทำให้เกิดการสังเคราะห์ไกลโคเจนมากขึ้น", "เกิดการกระตุ้นการทำงานของเอนไซม์ Glycogen phosphorylase ทำให้เกิดการสลายไกลโคเจนมากขึ้น", "เกิดการกระตุ้นการทำงานของเอนไซม์ Glycogen synthase ทำให้เกิดการสังเคราะห์ไกลโคเจนมากขึ้น"], correctAnswer: "เกิดการกระตุ้นการทำงานของเอนไซม์ Glycogen phosphorylase ทำให้เกิดการสลายไกลโคเจนมากขึ้น" },
+            { question: "<b>เมื่อจะเกิดการสังเคราะห์ไกลโคเจนโดยวิถี glycogenesis สาร glucose-6-phosphate จะถูกเปลี่ยนเป็น glucose-1-phosphate โดยเอนไซม์ใด</b>", options: ["Glycogen phosphorylase", "Phosphoglucomutase", "Triose phosphate isomerase", "Phosphoglucoisomerase", "Phosphofructokinase"], correctAnswer: "Phosphoglucomutase" }
+        ];
+    </script>
+
+    <script src="./core/login.js"></script>
+    <script src="./core/script.js"></script>
+
+
+</body>
+
+</html>
