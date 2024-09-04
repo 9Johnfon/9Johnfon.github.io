@@ -30,7 +30,12 @@ const localBooks = [
     { title: "ตรวจร่างกาย(6) สัญญานชีพ", lecturer: "อาจารย์", description: "การตรวจสัญญานชีพ",video: "https://youtu.be/-A3EOBg0yQw", url: "" },
     { title: "พยาธิวิทยา(5) โรคสืบเนื่องมาจากระบบภูมิคุ้มกัน", lecturer: "อาจารย์", description: "โรคสืบเนื่องมาจากระบบภูมิคุ้มกัน Disease",video: "https://youtu.be/bco7rApKhs0", url: "" },
     { title: "Biochem(4) Chemistry of Lipid", lecturer: "อาจารย์", description: "Chemistry of Lipid",video: "https://youtu.be/GC26jWpjTdw", url: "" },
-    { title: "ตรวจร่างกาย(7) การตรวจทางห้องปฏิบัติการ", lecturer: "อาจารย์", description: "การการอ่านผลตรวจทางห้องปฏิบัติการ",video: "https://youtu.be/4gclWqYIcHo", url: "" }
+    { title: "ตรวจร่างกาย(7) การตรวจทางห้องปฏิบัติการ", lecturer: "อาจารย์", description: "การการอ่านผลตรวจทางห้องปฏิบัติการ",video: "https://youtu.be/4gclWqYIcHo", url: "" },
+    
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน(8) เรื่อง ใส่สายสวนปัสสาวะ", lecturer: "อาจารย์", description: "ใส่สายสวนปัสสาวะ Foley Catheter",video: "https://youtu.be/ogBYTkDf974", url: "" },
+    { title: "เวชจริยศาสตร์(5) บ้า", lecturer: "อาจารย์", description: "บ้า",video: "https://youtu.be/XFczmMcbPMQ", url: "" },
+    { title: "อาการวิทยา(4) การบวม", lecturer: "อาจารย์ผู้หญิงสอนตอนเช้า", description: "การบวม",video: "https://youtu.be/Z-VxCqfIr8o", url: "" },
+    { title: "อาการวิทยา(5) ระบบประสาท", lecturer: "อาจารย์", description: "ระบบประสาท",video: "https://youtu.be/7relNaZpD64", url: "" }
  ];
  
  // Function to search books
