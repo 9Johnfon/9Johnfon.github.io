@@ -35,7 +35,9 @@ const localBooks = [
     { title: "หัตถการทางการแพทย์ฉุกเฉิน(8) เรื่อง ใส่สายสวนปัสสาวะ", lecturer: "อาจารย์", description: "ใส่สายสวนปัสสาวะ Foley Catheter",video: "https://youtu.be/ogBYTkDf974", url: "" },
     { title: "เวชจริยศาสตร์(5) บ้า", lecturer: "อาจารย์", description: "บ้า",video: "https://youtu.be/XFczmMcbPMQ", url: "" },
     { title: "อาการวิทยา(4) การบวม", lecturer: "อาจารย์ผู้หญิงสอนตอนเช้า", description: "การบวม",video: "https://youtu.be/Z-VxCqfIr8o", url: "" },
-    { title: "อาการวิทยา(5) ระบบประสาท", lecturer: "อาจารย์", description: "ระบบประสาท",video: "https://youtu.be/7relNaZpD64", url: "" }
+    { title: "อาการวิทยา(5) ระบบประสาท", lecturer: "อาจารย์", description: "ระบบประสาท",video: "https://youtu.be/7relNaZpD64", url: "" },
+    { title: "Biochem(5) Metabolism Lipid", lecturer: "อาจารย์", description: "เมแทบอลิซึม Lipid Metabolism Lipid",video: "https://youtu.be/7lPlrIdM9Uk", url: "" },
+    { title: "เวชจริยศาสตร์(6) การเปิดเผยความจริง", lecturer: "อาจารย์", description: "การเปิดเผยความจริง",video: "https://youtu.be/PxQaGxjmtyg", url: "" }
  ];
  
  // Function to search books
