@@ -37,7 +37,13 @@ const localBooks = [
     { title: "อาการวิทยา(4) การบวม", lecturer: "อาจารย์ผู้หญิงสอนตอนเช้า", description: "การบวม",video: "https://youtu.be/Z-VxCqfIr8o", url: "" },
     { title: "อาการวิทยา(5) ระบบประสาท", lecturer: "อาจารย์", description: "ระบบประสาท",video: "https://youtu.be/7relNaZpD64", url: "" },
     { title: "Biochem(5) Metabolism Lipid", lecturer: "อาจารย์", description: "เมแทบอลิซึม Lipid Metabolism Lipid",video: "https://youtu.be/7lPlrIdM9Uk", url: "" },
-    { title: "เวชจริยศาสตร์(6) การเปิดเผยความจริง", lecturer: "อาจารย์", description: "การเปิดเผยความจริง",video: "https://youtu.be/PxQaGxjmtyg", url: "" }
+    { title: "เวชจริยศาสตร์(6) การเปิดเผยความจริง", lecturer: "อาจารย์", description: "การเปิดเผยความจริง",video: "https://youtu.be/PxQaGxjmtyg", url: "" },
+    
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน(9) เรื่อง การนำสิ่งแปลกปลอมออกจากร่างกาย", lecturer: "อาจารย์", description: "การนำสิ่งแปลกปลอมออกจากร่างกาย",video: "https://youtu.be/VmovaSdGHeo?si=miXg8miuseaHt6Mo", url: "" },
+    { title: "เวชจริยศาสตร์(7) พัฒนาการมนุษย์ตามช่วงวัย (วัยเด็กและวัยรุ่น)", lecturer: "อาจารย์", description: "พัฒนาการมนุษย์ตามช่วงวัย (วัยเด็กและวัยรุ่น)",video: "https://youtu.be/630HZB8X9wY?si=FkSxWVZjWwZs8Alg", url: "" },
+    { title: "เวชจริยศาสตร์(8) พัฒนาการมนุษย์ตามช่วงวัย (วัยทำงานและวัยชรา)", lecturer: "อาจารย์", description: "พัฒนาการมนุษย์ตามช่วงวัย (วัยทำงานและวัยชรา)",video: "https://youtu.be/3TYRMUp40ug?si=iJSuTsavRt0EwmOU", url: "" },
+    { title: "ตรวจร่างกาย(8) การสัมภาษณ์และซักประวัติผู้ป่วย", lecturer: "อาจารย์", description: "การสัมภาษณ์และซักประวัติผู้ป่วย",video: "https://youtu.be/UwqO265XviU?si=e1v9tzXA85-Ixvxg", url: "" },
+    { title: "Biochem(6) Biochem(6) กรดนิวคลีอิก", lecturer: "อาจารย์", description: "กรดนิวคลีอิก",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" }
  ];
  
  // Function to search books
