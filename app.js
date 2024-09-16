@@ -43,7 +43,7 @@ const localBooks = [
     { title: "เวชจริยศาสตร์(7) พัฒนาการมนุษย์ตามช่วงวัย (วัยเด็กและวัยรุ่น)", lecturer: "อาจารย์", description: "พัฒนาการมนุษย์ตามช่วงวัย (วัยเด็กและวัยรุ่น)",video: "https://youtu.be/630HZB8X9wY?si=FkSxWVZjWwZs8Alg", url: "" },
     { title: "เวชจริยศาสตร์(8) พัฒนาการมนุษย์ตามช่วงวัย (วัยทำงานและวัยชรา)", lecturer: "อาจารย์", description: "พัฒนาการมนุษย์ตามช่วงวัย (วัยทำงานและวัยชรา)",video: "https://youtu.be/3TYRMUp40ug?si=iJSuTsavRt0EwmOU", url: "" },
     { title: "ตรวจร่างกาย(8) การสัมภาษณ์และซักประวัติผู้ป่วย", lecturer: "อาจารย์", description: "การสัมภาษณ์และซักประวัติผู้ป่วย",video: "https://youtu.be/UwqO265XviU?si=e1v9tzXA85-Ixvxg", url: "" },
-    { title: "Biochem(6) Biochem(6) กรดนิวคลีอิก", lecturer: "อาจารย์", description: "กรดนิวคลีอิก",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" }
+    { title: "Biochem(6) กรดนิวคลีอิก", lecturer: "อาจารย์", description: "กรดนิวคลีอิก",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" }
  ];
  
  // Function to search books
