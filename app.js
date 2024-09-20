@@ -45,7 +45,7 @@ const localBooks = [
     { title: "ตรวจร่างกาย(8) การสัมภาษณ์และซักประวัติผู้ป่วย", lecturer: "อาจารย์", description: "การสัมภาษณ์และซักประวัติผู้ป่วย",video: "https://youtu.be/UwqO265XviU?si=e1v9tzXA85-Ixvxg", url: "" },
     { title: "Biochem(6) กรดนิวคลีอิก", lecturer: "อาจารย์", description: "กรดนิวคลีอิก",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
     
-     { title: "Biochem(6) Nucleic acids", lecturer: "อาจารย์", description: "Nucleic acids lecture 11-13",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
+     { title: "Biochem(7) Nucleic acids", lecturer: "อาจารย์", description: "Nucleic acids lecture 11-13",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
 { title: "ปฏิบัติการนอกโรงบาล (1) การใช้วิทยุสื่อสาร", lecturer: "อาจารย์", description: “การใช้วิทยุสื่อสาร",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
 { title: "อาการวิทยา(5) Immunology ระบบภูมิคุ้มกัน", lecturer: "อาจารย์", description: ”Immunology ระบบภูมิคุ้มกัน”,video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
 { title: "อาการวิทยา(7) โรคที่เกี่ยวกับ เลือด", lecturer: "อาจารย์", description: “โรคที่เกี่ยวกับ เลือด”,video: "https://youtu.be/zj9RZaneQCs?si=pL72uSivED7wHnvR", url: "" },
