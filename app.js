@@ -50,7 +50,7 @@ const localBooks = [
 { title: "อาการวิทยา(6) Immunology ระบบภูมิคุ้มกัน", lecturer: "อาจารย์", description: ”Immunology ระบบภูมิคุ้มกัน”,video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
 { title: "อาการวิทยา(7) โรคที่เกี่ยวกับ เลือด", lecturer: "อาจารย์", description: “โรคที่เกี่ยวกับ เลือด”,video: "https://youtu.be/zj9RZaneQCs?si=pL72uSivED7wHnvR", url: "" },
 { title: "หัตถการทางการแพทย์ฉุกเฉิน (10) การล้างตา", lecturer: "อาจารย์", description:”การล้างตา”,video: "https://youtu.be/oXa6coaWWCw?si=kLSXWSZYzIaVh3Wf", url: "" },
-{ title: "พยาธิวิทยา(6) Head and neck โรคระบบทางเดินอาหาร", lecturer: "อาจารย์", description:“Head and neck โรคระบบทางเดินอาหาร”,video: "https://youtu.be/ZRKqk5c_bCo?si=Q2wl8ovz5T_YV49F", url: "" },
+{ title: "พยาธิวิทยา(7) Head and neck โรคระบบทางเดินอาหาร", lecturer: "อาจารย์", description:“Head and neck โรคระบบทางเดินอาหาร”,video: "https://youtu.be/ZRKqk5c_bCo?si=Q2wl8ovz5T_YV49F", url: "" },
 { title: "พยาธิวิทยา(8) Skin", lecturer: "อาจารย์", description:“Skin”,video: "https://youtu.be/H8G3SUgu2_c?si=4mL3FJzFRQnslZB1", url: "" }
  ];
  
