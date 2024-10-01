@@ -51,7 +51,19 @@ const localBooks = [
 { title: "อาการวิทยา(7) โรคที่เกี่ยวกับ เลือด", lecturer: "อาจารย์", description: "โรคที่เกี่ยวกับ เลือด",video: "https://youtu.be/zj9RZaneQCs?si=pL72uSivED7wHnvR", url: "" },
 { title: "หัตถการทางการแพทย์ฉุกเฉิน (10) การล้างตา", lecturer: "อาจารย์", description:"การล้างตา",video: "https://youtu.be/oXa6coaWWCw?si=kLSXWSZYzIaVh3Wf", url: "" },
 { title: "พยาธิวิทยา(7) Head and neck โรคระบบทางเดินอาหาร", lecturer: "อาจารย์", description:"Head and neck โรคระบบทางเดินอาหาร",video: "https://youtu.be/ZRKqk5c_bCo?si=Q2wl8ovz5T_YV49F", url: "" },
-{ title: "พยาธิวิทยา(8) Skin", lecturer: "อาจารย์", description:"Skin",video: "https://youtu.be/H8G3SUgu2_c?si=4mL3FJzFRQnslZB1", url: "" }
+{ title: "พยาธิวิทยา(8) Skin", lecturer: "อาจารย์", description:"Skin",video: "https://youtu.be/H8G3SUgu2_c?si=4mL3FJzFRQnslZB1", url: "" },
+
+
+    { title: "ตรวจร่างกาย(9) ระบบประสาท", lecturer: "อาจารย์", description: "ระบบประสาท",video: "https://www.youtube.com/watch?v=m6WjOl7SD5o", url: "" },
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน (11) การดามและการพันผ้า", lecturer: "อาจารย์", description: "การดามและการพันผ้า",video: "https://www.youtube.com/watch?v=IPiUIsXKPag", url: "" },
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน (12.1) การดูแลบาดแผลการห้ามเลือดและการตกแต่งแผล", lecturer: "อาจารย์", description: "การดูแลบาดแผลการห้ามเลือดและการตกแต่งแผล",video: "https://www.youtube.com/watch?v=BUitblyb-Hw", url: "" },
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน (12.2) การดูแลบาดแผลการห้ามเลือดและการตกแต่งแผล", lecturer: "อาจารย์", description: "การดูแลบาดแผลการห้ามเลือดและการตกแต่งแผล",video: "https://youtu.be/1HvTjZpdLAM", url: "" },
+    { title: "อาการวิทยา(8) ระบบทางเดินหายใจ", lecturer: "อาจารย์", description: "ระบบทางเดินหายใจ",video: "https://www.youtube.com/watch?v=b3g6SJSsVB8", url: "" },
+    { title: "อาการวิทยา(9) ระบบหัวใจ", lecturer: "อาจารย์", description: "ระบบหัวใจ",video: "https://www.youtube.com/watch?v=lWx7EvVKDA0", url: "" },
+    { title: "พยาธิวิทยา(10) Heart", lecturer: "อาจารย์", description:"Heart หัวใจ",video: "https://www.youtube.com/watch?v=ryZBCKp1-o0", url: "" },
+    { title: "ตรวจร่างกาย(10) ระบบทางเดินหายใจ", lecturer: "อาจารย์", description: "ระบบทางเดินหายใจ",video: "https://youtu.be/EtfMc-TKAp8?si=VtXnoJM-343LhViP", url: "" },
+    { title: "Biochem(8) Gene Expression lecture 11-13", lecturer: "อาจารย์", description: "Gene Expression lecture 11-13",video: "https://www.youtube.com/watch?v=JHz5YKkE_gw", url: "" },
+    { title: "Biochem(9) Gene Expression lecture 14", lecturer: "อาจารย์", description: "Gene Expression lecture 14",video: "https://www.youtube.com/watch?v=cGMwmpzShTA", url: "" }
  ];
  
  // Function to search books
