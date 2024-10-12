@@ -45,16 +45,16 @@ const localBooks = [
     { title: "ตรวจร่างกาย(8) การสัมภาษณ์และซักประวัติผู้ป่วย", lecturer: "อาจารย์", description: "การสัมภาษณ์และซักประวัติผู้ป่วย",video: "https://youtu.be/UwqO265XviU?si=e1v9tzXA85-Ixvxg", url: "" },
     { title: "Biochem(6) กรดนิวคลีอิก", lecturer: "อาจารย์", description: "กรดนิวคลีอิก",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
     
-     { title: "Biochem(7) Nucleic acids", lecturer: "อาจารย์", description: "Nucleic acids lecture 11-13",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
-{ title: "ปฏิบัติการนอกโรงบาล (1) การใช้วิทยุสื่อสาร", lecturer: "อาจารย์", description: "การใช้วิทยุสื่อสาร",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
-{ title: "อาการวิทยา(6) Immunology ระบบภูมิคุ้มกัน", lecturer: "อาจารย์", description: "Immunology ระบบภูมิคุ้มกัน",video: "https://youtu.be/o8UxrJXOGbE", url: "" },
-{ title: "อาการวิทยา(7) โรคที่เกี่ยวกับ เลือด", lecturer: "อาจารย์", description: "โรคที่เกี่ยวกับ เลือด",video: "https://youtu.be/zj9RZaneQCs?si=pL72uSivED7wHnvR", url: "" },
-{ title: "หัตถการทางการแพทย์ฉุกเฉิน (10) การล้างตา", lecturer: "อาจารย์", description:"การล้างตา",video: "https://youtu.be/oXa6coaWWCw?si=kLSXWSZYzIaVh3Wf", url: "" },
-{ title: "พยาธิวิทยา(7) Head and neck โรคระบบทางเดินอาหาร", lecturer: "อาจารย์", description:"Head and neck โรคระบบทางเดินอาหาร",video: "https://youtu.be/ZRKqk5c_bCo?si=Q2wl8ovz5T_YV49F", url: "" },
-{ title: "พยาธิวิทยา(8) Skin", lecturer: "อาจารย์", description:"Skin",video: "https://youtu.be/H8G3SUgu2_c?si=4mL3FJzFRQnslZB1", url: "" },
+    { title: "Biochem(7) Nucleic acids", lecturer: "อาจารย์", description: "Nucleic acids lecture 11-13",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
+    { title: "ปฏิบัติการนอกโรงบาล (1) การใช้วิทยุสื่อสาร", lecturer: "อาจารย์", description: "การใช้วิทยุสื่อสาร",video: "https://youtu.be/tuzcD2IlaKg?si=1Fk3Q1SIK8UhyGSH", url: "" },
+    { title: "อาการวิทยา(6) Immunology ระบบภูมิคุ้มกัน", lecturer: "อาจารย์", description: "Immunology ระบบภูมิคุ้มกัน",video: "https://youtu.be/o8UxrJXOGbE", url: "" },
+    { title: "อาการวิทยา(7) โรคที่เกี่ยวกับ เลือด", lecturer: "อาจารย์", description: "โรคที่เกี่ยวกับ เลือด",video: "https://youtu.be/zj9RZaneQCs?si=pL72uSivED7wHnvR", url: "" },
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน (10) การล้างตา", lecturer: "อาจารย์", description:"การล้างตา",video: "https://youtu.be/oXa6coaWWCw?si=kLSXWSZYzIaVh3Wf", url: "" },
+    { title: "พยาธิวิทยา(7) Head and neck โรคระบบทางเดินอาหาร", lecturer: "อาจารย์", description:"Head and neck โรคระบบทางเดินอาหาร",video: "https://youtu.be/ZRKqk5c_bCo?si=Q2wl8ovz5T_YV49F", url: "" },
+    { title: "พยาธิวิทยา(8) Skin", lecturer: "อาจารย์", description:"Skin",video: "https://youtu.be/H8G3SUgu2_c?si=4mL3FJzFRQnslZB1", url: "" },
 
 
-    { title: "ตรวจร่างกาย(9) ระบบประสาท", lecturer: "อาจารย์", description: "ระบบประสาท",video: "https://www.youtube.com/watch?v=m6WjOl7SD5o", url: "" },
+    { title: "ตรวจร่างกาย(9.1) ระบบประสาท", lecturer: "อาจารย์", description: "ระบบประสาท part 1",video: "https://www.youtube.com/watch?v=m6WjOl7SD5o", url: "" },
     { title: "หัตถการทางการแพทย์ฉุกเฉิน (11) การดามและการพันผ้า", lecturer: "อาจารย์", description: "การดามและการพันผ้า",video: "https://www.youtube.com/watch?v=IPiUIsXKPag", url: "" },
     { title: "หัตถการทางการแพทย์ฉุกเฉิน (12.1) การดูแลบาดแผลการห้ามเลือดและการตกแต่งแผล", lecturer: "อาจารย์", description: "การดูแลบาดแผลการห้ามเลือดและการตกแต่งแผล",video: "https://www.youtube.com/watch?v=BUitblyb-Hw", url: "" },
     { title: "หัตถการทางการแพทย์ฉุกเฉิน (12.2) การดูแลบาดแผลการห้ามเลือดและการตกแต่งแผล", lecturer: "อาจารย์", description: "การดูแลบาดแผลการห้ามเลือดและการตกแต่งแผล",video: "https://youtu.be/1HvTjZpdLAM", url: "" },
@@ -64,10 +64,19 @@ const localBooks = [
     { title: "อาการวิทยา(10) ระบบทางเดินหายใจ", lecturer: "อาจารย์", description: "ระบบทางเดินหายใจ",video: "https://youtu.be/EtfMc-TKAp8?si=VtXnoJM-343LhViP", url: "" },
     { title: "Biochem(8) Gene Expression lecture 11-13", lecturer: "อาจารย์", description: "Gene Expression lecture 11-13",video: "https://www.youtube.com/watch?v=JHz5YKkE_gw", url: "" },
     { title: "Biochem(9) Gene Expression lecture 14", lecturer: "อาจารย์", description: "Gene Expression lecture 14",video: "https://www.youtube.com/watch?v=cGMwmpzShTA", url: "" },
-{ title: "ตรวจร่างกาย(10) ระบบหายใจ", lecturer: "อาจารย์ ", description: "ระบบทางเดิน",video: "https://youtu.be/-D3VXOSv_Xc?si=W1F9qAIB3MqC8X5Z", url: "" },
-{ title: "แนวข้อสอบอาการ", lecturer: "อาจารย์", description: "แนวข้อสอบอาการ",video: "https://m.youtube.com/watch?feature=shared&v=fbilgo25xkk", url: "" }, 
-{ title: "อาการวิทยา(11) ผิวหนัง", lecturer: "อาจารย์", description: "ผิวหนัง",video: "https://m.youtube.com/watch?v=ad-F54AHg_Y", url: "" }, 
-{ title: "พยาธิวิทยา(11) ไต", lecturer: "อาจารย์", description: "ไต",video: "https://m.youtube.com/watch?v=-AcHQ8E9sY4", url: "" }
+    
+    { title: "ตรวจร่างกาย(9.2) ระบบประสาท", lecturer: "อาจารย์", description: "ระบบประสาท part 2",video: "https://www.youtube.com/watch?v=CxKvpHd2Da8", url: "" },
+    { title: "แนวข้อสอบอาการ", lecturer: "อาจารย์", description: "แนวข้อสอบอาการ",video: "https://m.youtube.com/watch?feature=shared&v=fbilgo25xkk", url: "" }, 
+    { title: "อาการวิทยา(11) ผิวหนัง", lecturer: "อาจารย์", description: "ผิวหนัง",video: "https://m.youtube.com/watch?v=ad-F54AHg_Y", url: "" }, 
+    { title: "พยาธิวิทยา(11) ไต", lecturer: "อาจารย์", description: "ไต",video: "https://m.youtube.com/watch?v=-AcHQ8E9sY4", url: "" },
+
+    { title: "ตรวจร่างกาย(10) ระบบหายใจ", lecturer: "อาจารย์ ", description: "ระบบทางเดิน",video: "https://www.youtube.com/watch?v=CxKvpHd2Da8", url: "" },
+    { title: "แนวข้อสอบอาการ", lecturer: "อาจารย์", description: "แนวข้อสอบอาการ",video: "https://m.youtube.com/watch?feature=shared&v=fbilgo25xkk", url: "" }, 
+    { title: "อาการวิทยา(11) ผิวหนัง", lecturer: "อาจารย์", description: "ผิวหนัง",video: "https://m.youtube.com/watch?v=ad-F54AHg_Y", url: "" }, 
+    { title: "พยาธิวิทยา(11) ไต", lecturer: "อาจารย์", description: "ไต",video: "https://m.youtube.com/watch?v=-AcHQ8E9sY4", url: "" },
+     //{ title: "", lecturer: "อาจารย์", description: "",video: "", url: "" },  
+    { title: "หัตถการทางการแพทย์ฉุกเฉิน (13) การดาม", lecturer: "อาจารย์", description: "การดาม",video: "https://www.youtube.com/watch?v=DrEh5SzIK28", url: "" },  
+    { title: "เวชจริยศาสตร์(9) ด้านสาธารณสุข", lecturer: "อาจารย์", description: "ด้านสาธารณสุข",video: "https://www.youtube.com/watch?v=t0ut0JzuuPs", url: "" }
  ];
  
  // Function to search books
