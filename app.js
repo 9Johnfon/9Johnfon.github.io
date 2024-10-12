@@ -70,7 +70,7 @@ const localBooks = [
     { title: "อาการวิทยา(11) ผิวหนัง", lecturer: "อาจารย์", description: "ผิวหนัง",video: "https://m.youtube.com/watch?v=ad-F54AHg_Y", url: "" }, 
     { title: "พยาธิวิทยา(11) ไต", lecturer: "อาจารย์", description: "ไต",video: "https://m.youtube.com/watch?v=-AcHQ8E9sY4", url: "" },
 
-    { title: "ตรวจร่างกาย(10) ระบบหายใจ", lecturer: "อาจารย์ ", description: "ระบบทางเดิน",video: "https://www.youtube.com/watch?v=CxKvpHd2Da8", url: "" },
+    { title: "ตรวจร่างกาย(10) ระบบหายใจ", lecturer: "อาจารย์ ", description: "ระบบทางเดิน",video: "https://www.youtube.com/watch?v=-D3VXOSv_Xc", url: "" },
     { title: "แนวข้อสอบอาการ", lecturer: "อาจารย์", description: "แนวข้อสอบอาการ",video: "https://m.youtube.com/watch?feature=shared&v=fbilgo25xkk", url: "" }, 
     { title: "อาการวิทยา(11) ผิวหนัง", lecturer: "อาจารย์", description: "ผิวหนัง",video: "https://m.youtube.com/watch?v=ad-F54AHg_Y", url: "" }, 
     { title: "พยาธิวิทยา(11) ไต", lecturer: "อาจารย์", description: "ไต",video: "https://m.youtube.com/watch?v=-AcHQ8E9sY4", url: "" },
