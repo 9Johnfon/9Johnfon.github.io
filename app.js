@@ -61,10 +61,10 @@ const localBooks = [
     { title: "อาการวิทยา(8) ระบบทางเดินหายใจ", lecturer: "อาจารย์", description: "ระบบทางเดินหายใจ",video: "https://www.youtube.com/watch?v=b3g6SJSsVB8", url: "" },
     { title: "อาการวิทยา(9) ระบบหัวใจ", lecturer: "อาจารย์", description: "ระบบหัวใจ",video: "https://www.youtube.com/watch?v=lWx7EvVKDA0", url: "" },
     { title: "พยาธิวิทยา(10) Heart", lecturer: "อาจารย์", description:"Heart หัวใจ",video: "https://www.youtube.com/watch?v=ryZBCKp1-o0", url: "" },
-    { title: "ตรวจร่างกาย(10) ระบบทางเดินหายใจ", lecturer: "อาจารย์", description: "ระบบทางเดินหายใจ",video: "https://youtu.be/EtfMc-TKAp8?si=VtXnoJM-343LhViP", url: "" },
+    { title: "อาการวิทยา(10) ระบบทางเดินหายใจ", lecturer: "อาจารย์", description: "ระบบทางเดินหายใจ",video: "https://youtu.be/EtfMc-TKAp8?si=VtXnoJM-343LhViP", url: "" },
     { title: "Biochem(8) Gene Expression lecture 11-13", lecturer: "อาจารย์", description: "Gene Expression lecture 11-13",video: "https://www.youtube.com/watch?v=JHz5YKkE_gw", url: "" },
     { title: "Biochem(9) Gene Expression lecture 14", lecturer: "อาจารย์", description: "Gene Expression lecture 14",video: "https://www.youtube.com/watch?v=cGMwmpzShTA", url: "" },
-{ title: "อาการวิทยา(10) ระบบหายใจ", lecturer: "อาจารย์", description: "ระบบทางเดิน",video: "https://youtu.be/EtfMc-TKAp8?si=VtXnoJM-343LhViP", url: "" },
+{ title: "ตรวจร่างกาย(11) ระบบหายใจ", lecturer: "อาจารย์", description: "ระบบทางเดิน",video: "https://youtu.be/EtfMc-TKAp8?si=VtXnoJM-343LhViP", url: "" },
 { title: "แนวข้อสอบอาการ", lecturer: "อาจารย์", description: "แนวข้อสอบอาการ",video: "https://m.youtube.com/watch?feature=shared&v=fbilgo25xkk", url: "" }, 
 { title: "อาการวิทยา(11) ผิวหนัง", lecturer: "อาจารย์", description: "ผิวหนัง",video: "https://m.youtube.com/watch?v=ad-F54AHg_Y", url: "" }, 
 { title: "พยาธิวิทยา(11) ไต", lecturer: "อาจารย์", description: "ไต",video: "https://m.youtube.com/watch?v=-AcHQ8E9sY4", url: "" }
