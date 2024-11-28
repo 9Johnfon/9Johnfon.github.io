@@ -108,7 +108,6 @@ function SendOTP() {
 function login() {
     const enteredUsername = document.getElementById('username').value;
     const enteredPassword = document.getElementById('password').value.toLowerCase();
-    const enteredOTP = document.getElementById('otp').value;
 
     var pass = "WWxkV2EySllUakU9";
     var decoded1 = atob(pass);
@@ -127,7 +126,7 @@ function login() {
 
     if (enteredUsername !== null && enteredPassword === correctPassword) {
         // Check OTP
-        if (enteredOTP === correctOTP) {
+        if (document.getElementById('otp').value === correctOTP) {
             localStorage.setItem("jwt", "42392734892789fy8678326478t21tqwesgwhbhvc73y47ty1284g12u3g3uh12g3ugff9");
             Swal.fire({
                 title: 'เข้าสู่ระบบสําเร็จ',
@@ -156,4 +155,3 @@ function login() {
     localStorage.removeItem("code");
     return false; // Prevents the form from submitting
 }
-
