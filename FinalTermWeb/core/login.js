@@ -1,3 +1,4 @@
+/*
 var jwt = localStorage.getItem("jwt");
 var currentPage = window.location.href;
 if (jwt == null && !(currentPage.includes("login.html"))) {
