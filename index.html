@@ -39,7 +39,28 @@
             }
         }
     </script>
-    
+
+<!-- Scroll-to-Top Button -->
+<button id="scrollButton" onclick="scrollToTop()">↑</button>
+
+<script>
+    // Scroll Button Functionality
+    const scrollButton = document.getElementById('scrollButton');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            scrollButton.classList.add('show');
+            scrollButton.classList.remove('hide');
+        } else {
+            scrollButton.classList.add('hide');
+            scrollButton.classList.remove('show');
+        }
+    });
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
     
 </body>
 </html>
