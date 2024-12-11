@@ -21,7 +21,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Make the body take up the full height of the viewport */
+    height: 30vh; /* Make the body take up the full height of the viewport */
 }
 
 
@@ -32,6 +32,7 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    
 }
 
 
@@ -39,6 +40,7 @@ body {
 #searchWrapper {
     display: flex;
     align-items: center;
+    
 }
 
 /* Adjust the styles for the searchInput */
@@ -72,12 +74,13 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    
 }
 
 #bookResults {
     position: absolute;
     margin: 20px;
-    top: 40%;
+    top: 15%;
     width: auto;
     min-width: 20%;
     max-width: 100%;
@@ -169,9 +172,41 @@ button {
     #bookResults {
         display: block;
     }
+    #searchContainer {
+        text-align: center;
+        width: auto;
+        position: fixed;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        
+    }
 }
 
 @media (min-width: 1024px) {
+    #bookResults {
+        position: absolute;
+        margin: 20px;
+        top: 15%;
+        width: auto;
+        min-width: 20%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* Allow multiple rows of book results */
+        justify-content: space-evenly; /* Center the book results horizontally */
+    }
+    #searchContainer {
+        text-align: center;
+        width: auto;
+        position: fixed;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        
+    }
+}
+
+@media (min-width: 1280px) {
     #bookResults {
         position: absolute;
         margin: 20px;
@@ -182,6 +217,15 @@ button {
         display: flex;
         flex-wrap: wrap; /* Allow multiple rows of book results */
         justify-content: space-evenly; /* Center the book results horizontally */
+    }
+    #searchContainer {
+        text-align: center;
+        width: auto;
+        position: fixed;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        top: 20%;
     }
 }
 
