@@ -93,7 +93,7 @@ button {
 #bookResults.responsive {
     position: absolute;
     margin: 20px;
-    top: 40%;
+    top: 15%;
     width: auto;
     display: block;
     flex-wrap: wrap;
