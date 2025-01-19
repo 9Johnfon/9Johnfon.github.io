@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>EMR</title>
+</head>
+
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">เรียบเรียงโดย Johnny | Dev ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a
+            href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40"
+                height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button"
+            style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;"
+            onclick="goBack()">Back</button>
+    </div>
+
+    <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./Basic_phamaco.html">Basic Phamaco</a></li>
+        </ul>
+    </div>
+
+
+    <!-- ... (HTML และ CSS เดิม) ... -->
+    <script>
+        const questions = [
+        {
+  question: "ยาใดหากใช้ในเด็กอายุต่ำกว่า 18 ปี เนื่องจากรบกวนการสร้างกระดูกและกระดูกอ่อน",
+  options: ["Tetracycline", "Neomycin", "Ceftriaxone", "Ofloxacin", "Vancomycin"],
+  correctAnswer: "Ofloxacin"
+},
+{
+  question: "ข้อใดคือกลไกการทำงานของยา Itraconazole",
+  options: [
+    "ยับยั้งการทำงานของ Fungal Cytochrome P450 enzyme",
+    "เพิ่ม membrane permeability ของเชื้อรา",
+    "ยับยั้งการสังเคราะห์ ergosterol ผ่าน lanosterol 14-a-demethylase",
+    "ยับยั้งการสังเคราะห์ ergosterol ผ่าน Squalene epoxide",
+    "ยับยั้ง fungal RNA synthesis"
+  ],
+  correctAnswer: "ยับยั้งการสังเคราะห์ ergosterol ผ่าน lanosterol 14-a-demethylase"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ฆ่าแบคทีเรียของยากลุ่ม Macrolides",
+  options: [
+    "ยับยั้งเอนไซม์ beta-lactamase ของแบคทีเรีย",
+    "จับกับไรโบโซม 50s",
+    "จับกับ transpeptidase",
+    "จับกับไรโบโซม 30s",
+    "จับกับ pentapeptide"
+  ],
+  correctAnswer: "จับกับไรโบโซม 50s"
+},
+{
+  question: "แตงกวากินยารักษาสิวมาเป็นระยะเวลา 2 เดือน เมื่อ 2 วันที่แล้วมีอาการปวดท้อง ท้องเสียอย่างรุนแรง บางครั้งมีมูกเลือดปนด้วย อาการดังกล่าวคาดว่าเกิดจากสาเหตุใด",
+  options: [
+    "Pseudomembranous colitis จากยารักษาสิว clindamycin",
+    "Steven-Johnson syndrome จากการใช้ยารักษาสิวกลุ่ม sulfamethoxazole",
+    "แพ้ยากลุ่ม penicillin แบบ delay-type",
+    "Red man syndrome จากการใช้ยากลุ่ม tetracycline รักษาสิว",
+    "การเกิด auto immune จากยา Norfloxacin"
+  ],
+  correctAnswer: "Pseudomembranous colitis จากยารักษาสิว clindamycin"
+},
+{
+  question: "เป้าหมายของการรักษาโรคเรื้อนที่ถูกต้องที่สุดคือ",
+  options: [
+    "ควบคุมอาการของผู้ป่วยได้ อาการคันลดลง",
+    "ผู้ป่วยรับประทานยาตามแพทย์สั่งจนครบ",
+    "ผู้ป่วยหายจากการติดเชื้อ และตรวจไม่พบเชื้อ",
+    "รักษาโดยใช้ค่าใช้จ่ายน้อยที่สุด",
+    "รอยโรคของผู้ป่วยลดลง สามารถอยู่ในสังคมร่วมกับผู้อื่นได้"
+  ],
+  correctAnswer: "ผู้ป่วยหายจากการติดเชื้อ และตรวจไม่พบเชื้อ"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยาต้านไวรัส Zidovudine",
+  options: [
+    "DNA polymerase inhibition",
+    "Un-coating inhibition",
+    "Reverse transcriptase inhibition",
+    "Protease inhibition",
+    "Neuraminidase inhibition"
+  ],
+  correctAnswer: "Reverse transcriptase inhibition"
+},
+{
+  question: "หากยา A เป็นยาที่เรียกว่า 'inducer' เหตุการณ์ใดจะเกิดขึ้น หากรับประทานยา A ร่วมกับยา B",
+  options: [
+    "ผลการรักษาด้วยยา B อาจจะล้มเหลว",
+    "ยา B อยู่ในร่างกายได้นานขึ้น",
+    "ยา A ในกระแสเลือดลดระดับลงอย่างรวดเร็ว",
+    "ยา B เกิดอาการข้างเคียงได้มากกว่าปกติ",
+    "แพทย์จะสั่งลดขนาดยา B ลงในผู้ป่วยที่จำเป็นต้องใช้ยาร่วมกัน"
+  ],
+  correctAnswer: "ผลการรักษาด้วยยา B อาจจะล้มเหลว"
+},
+{
+  question: "ปัจจัยใดไม่เกี่ยวข้องกับกระบวนการขับออก (excretion) ของยา",
+  options: [
+    "Molecular weight ของยา",
+    "ค่า pH ในกระเพาะอาหาร",
+    "ความมีขั้วของยา",
+    "การรับประทานยาร่วมกับยาอื่น เช่น ยาขับปัสสาวะ",
+    "การจับกับโปรตีนในหลอดเลือด"
+  ],
+  correctAnswer: "ค่า pH ในกระเพาะอาหาร"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ฆ่าแบคทีเรียของยา Vancomycin",
+  options: [
+    "ยับยั้งกระบวนการสร้าง RNA",
+    "ยับยั้งการสร้าง Folic acid",
+    "ยับยั้งการสร้างร่างแห peptidoglycan",
+    "ยับยั้งเอนไซม์ RNA polymerase",
+    "ยับยั้งการสร้างโปรตีนที่ไรโบโซม 50s"
+  ],
+  correctAnswer: "ยับยั้งการสร้างร่างแห peptidoglycan"
+},
+{
+  question: "ข้อใดคือกลไกการทำงานของยา Amphotericin B",
+  options: [
+    "ยับยั้งการสังเคราะห์ ergosterol ผ่าน Squalene epoxide",
+    "เพิ่ม membrane permeability ของเชื้อรา",
+    "ยับยั้ง fungal RNA synthesis",
+    "ยับยั้งการทำงานของ Fungal Cytochrome P450 enzyme",
+    "ยับยั้งการสังเคราะห์ ergosterol ผ่าน lanosterol 14-a-demethylase"
+  ],
+  correctAnswer: "เพิ่ม membrane permeability ของเชื้อรา"
+},
+{
+  question: "ยาเกี่ยวข้องกับภาวะที่เรียกว่า 'Grey baby syndrome' มากที่สุด",
+  options: [
+    "Norfloxacin",
+    "Ceftriaxone",
+    "Chloramphenicol",
+    "Penicillin",
+    "Sulfamethoxazole"
+  ],
+  correctAnswer: "Chloramphenicol"
+},
+{
+  question: "ข้อใดอธิบายความหมายของ First pass effect ดีที่สุด",
+  options: [
+    "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่กระเพาะอาหาร",
+    "ยาไม่ทนกรด",
+    "ยาผ่านกระบวนการ metabolism และมีการดูดซึมกลับที่ลำไส้",
+    "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่ตับ",
+    "ยาที่ต้องให้ในรูปแบบรับประทาน"
+  ],
+  correctAnswer: "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่ตับ"
+},
+{
+  question: "ข้อใดคือการใช้ประโยชน์จาก drug interaction",
+  options: [
+    "การใช้ยาแก้ปวดกลุ่ม opioid รวมกับ NSAID เพื่อลดอาการติดยา",
+    "ยาลดกรดช่วยลดการดูดซึมยากลุ่มยาต้านเชื้อรา (ketoconazole)",
+    "ใช้ alcohol ร่วมกับยานอนหลับเพื่อเสริมฤทธิ์การนอนหลับ",
+    "การใช้ยาต้านแบคทีเรียร่วมกันหลายชนิด เพื่อกำจัดเชื้อให้ได้รวดเร็วที่สุด",
+    "ใช้ยาเบาหวานซึ่งออกฤทธิ์ต่างกลไกร่วมกันในการเสริมฤทธิ์ลดระดับน้ำตาลในเลือด"
+  ],
+  correctAnswer: "ใช้ยาเบาหวานซึ่งออกฤทธิ์ต่างกลไกร่วมกันในการเสริมฤทธิ์ลดระดับน้ำตาลในเลือด"
+},
+{
+  question: "ค่าการกระจายตัวของยา พิจารณาได้จากค่าใด",
+  options: [
+    "Half-life",
+    "Glomerulus filtration rate",
+    "Protein binding",
+    "Volume of distribution (Vd)",
+    "Bioavailability"
+  ],
+  correctAnswer: "Volume of distribution (Vd)"
+},
+{
+  question: "ข้อใดอธิบายความหมายของกระบวนการดูดซึม (absorption) ได้ดีที่สุด",
+  options: [
+    "ยาจับกับโปรตีนในหลอดเลือด",
+    "ยาถูกเปลี่ยนแปลงโครงสร้างทางเคมี",
+    "ยาเคลื่อนที่จากระบบไหลเวียนเลือดเข้าสู่ไต",
+    "ยาเคลื่อนที่ผ่านเซลล์เมมเบรนเข้าสู่ระบบไหลเวียนเลือด",
+    "ยาผ่านจากหลอดเลือดเข้าสู่ระบบประสาทส่วนกลาง"
+  ],
+  correctAnswer: "ยาเคลื่อนที่ผ่านเซลล์เมมเบรนเข้าสู่ระบบไหลเวียนเลือด"
+},
+{
+  question: "ยาต้านแบคทีเรียที่ทำให้เกิดการสะสมของแคลเซียมผิดปกติ โดยเฉพาะที่กระดูกและฟัน ยาใดต่อไปนี้มีคุณสมบัติใกล้เคียงที่สุด",
+  options: [
+    "Penicillins",
+    "Aminoglycosides",
+    "Fluoroquinolones",
+    "Tetracyclines",
+    "Cephalosporins"
+  ],
+  correctAnswer: "Tetracyclines"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ฆ่าแบคทีเรียของยากลุ่ม Penicillins",
+  options: [
+    "ยับยั้งการสร้าง Folic acid",
+    "ยับยั้งกระบวนการสร้าง RNA",
+    "ยับยั้งการสร้างโปรตีนที่ไรโบโซม 50s",
+    "ยับยั้งเอนไซม์ transpeptidase"
+  ],
+  correctAnswer: "ยับยั้งเอนไซม์ transpeptidase"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงที่สำคัญของยา Ketoconazole",
+  options: [
+    "Bleeding",
+    "พิษต่อหูและไต",
+    "เต้านมโตในเพศชาย",
+    "ปัสสาวะมีสีส้ม",
+    "ผื่นคัน"
+  ],
+  correctAnswer: "เต้านมโตในเพศชาย"
+},
+{
+  question: "ข้อใดคือการใช้ประโยชน์จาก Antagonist",
+  options: [
+    "Heroin ทำให้ติดยา",
+    "การรับประทานสารสกัดใบแปะก๊วยร่วมกับ Warfarin",
+    "การใช้ Aspirin และ Warfarin รวมกัน",
+    "การรับประทานยาแก้แพ้ร่วมกันหลายชนิด",
+    "Naloxone เป็นยาต้านพิษของเฮโรอีน"
+  ],
+  correctAnswer: "Naloxone เป็นยาต้านพิษของเฮโรอีน"
+},
+{
+  question: "ข้อใดคือวัตถุประสงค์ของการให้ Loading dose",
+  options: [
+    "ให้ระดับยาในเลือดถึงระดับการรักษาอย่างรวดเร็ว",
+    "ให้ระดับยาในเลือดไม่เกินระดับ MTC",
+    "ให้ระดับยาในเลือดกระจายไปยังอวัยวะต่างๆ ได้มาก",
+    "ป้องกันการดื้อยา",
+    "ให้ระดับยาในเลือดถูกขับออกเร็วที่สุด"
+  ],
+  correctAnswer: "ให้ระดับยาในเลือดถึงระดับการรักษาอย่างรวดเร็ว"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Warfarin",
+  options: [
+    "ยับยั้งเอนไซม์ cyclooxygenase",
+    "ยับยั้งเอนไซม์ phosphodiesterase (PDE)",
+    "กระตุ้น Antithrombin III",
+    "ยับยั้งเอนไซม์ CYP2C9",
+    "ยับยั้งเอนไซม์ vitamin K epoxide reductase (VKOR1)"
+  ],
+  correctAnswer: "ยับยั้งเอนไซม์ vitamin K epoxide reductase (VKOR1)"
+},
+{
+  question: "คนไข้มีอาการ anaphylactic shock มีภาวะความดันโลหิตต่ำและมีหลอดลมตีบแคบ ยาใดต่อไปนี้ถือเป็น first line drug ในการรักษา",
+  options: [
+    "Phenylephrine",
+    "Albuterol",
+    "Amphetamine",
+    "Epinephrine",
+    "Dobutamine"
+  ],
+  correctAnswer: "Epinephrine"
+},
+{
+  question: "ยารักษาพยาธิใบไม้ตับคือ",
+  options: [
+    "TMP-SMZ",
+    "Praziquantel",
+    "Pyrantel",
+    "Chloroquine",
+    "Pentamidine"
+  ],
+  correctAnswer: "Praziquantel"
+},
+{
+  question: "เด็กอายุ 5 ปี มีฝ้าขาวที่ลิ้นจากการใช้ยารักษาหอบหืดเป็นระยะเวลานาน ควรเลือกการรักษาโดย",
+  options: [
+    "Oral Terbinafine",
+    "Oral Itraconazole",
+    "Oral Ketoconazole",
+    "Amphotericin B Suspension",
+    "Nystatin Suspension"
+  ],
+  correctAnswer: "Nystatin Suspension"
+},
+{
+  question: "ยาในข้อใดจัดเป็น Drug of Choice สำหรับรักษา Strongyloidiasis",
+  options: [
+    "Niclosamide",
+    "Metrifonate",
+    "Benznidazole",
+    "Praziquantel",
+    "Ivermectin"
+  ],
+  correctAnswer: "Ivermectin"
+},
+{
+  question: "ยาในข้อใดมีฤทธิ์เป็น Fungicidal โดยยับยั้ง Squalene epoxidase",
+  options: [
+    "Terbinafine",
+    "Amphotericin B",
+    "Fluconazole",
+    "Itraconazole",
+    "Clotrimazole"
+  ],
+  correctAnswer: "Terbinafine"
+},
+{
+  question: "คนไข้หญิงอายุ 35 ปี มีอาการตกขาวจากการติดเชื้อราในช่องคลอด ควรเลือกการรักษาโดย",
+  options: [
+    "Oral Ketoconazole",
+    "Terbinafine Vaginal Suppository",
+    "Clotrimazole Vaginal Suppository",
+    "Nystatin Suspension",
+    "Co-trimoxazole Vaginal Suppository"
+  ],
+  correctAnswer: "Clotrimazole Vaginal Suppository"
+},
+{
+  question: "ข้อใดอธิบายความหมายของ 'ยาที่มีช่วงการรักษาแคบ' ได้ดีที่สุด",
+  options: [
+    "ยาที่ดูดซึมได้ดีหากรับประทานร่วมกับไขมัน",
+    "ยาที่มีความปลอดภัยในการใช้มาก ควรเลือกใช้เป็นอันดับแรก",
+    "ยาที่หากเกินขนาดการรักษาเพียงเล็กน้อยจะเกิดอันตรายที่รุนแรง",
+    "ยาที่ใช้ในขนาดต่ำแต่ออกฤทธิ์ได้ดี",
+    "ยาที่ชอบอยู่ในหลอดเลือด ไม่กระจายไปยังอวัยวะต่างๆ"
+  ],
+  correctAnswer: "ยาที่หากเกินขนาดการรักษาเพียงเล็กน้อยจะเกิดอันตรายที่รุนแรง"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์หลักของยากลุ่ม Class I Antiarrhythmic Drugs",
+  options: [
+    "Inhibit Na+ channel",
+    "Inhibit Ca2+ channel",
+    "Inhibit Cl- channel",
+    "Inhibit K+ channel",
+    "Inhibit beta receptor"
+  ],
+  correctAnswer: "Inhibit Na+ channel"
+},
+{
+  question: "ยาในข้อใดต่อไปนี้มีผลลดระดับ LDL เด่น",
+  options: [
+    "Simvastatin",
+    "Gemfibrozil",
+    "Amiodarone",
+    "Lidocaine"
+  ],
+  correctAnswer: "Simvastatin"
+},
+{
+  question: "ข้อใดต่อไปนี้คือกลไกการออกฤทธิ์ของยา Hydrochlorothiazide (HCTZ)",
+  options: [
+    "Osmotic diuretic, ที่ Proximal tubule",
+    "ยับยั้ง Na+/K+/2Cl- cotransporter, ที่ Loop of Henle",
+    "ยับยั้ง Antidiuretic hormone, ที่ Collecting duct",
+    "ยับยั้ง Na+/Cl- cotransporter, ที่ Distal tubule",
+    "ยับยั้ง Na+ transporter, ที่ Collecting duct"
+  ],
+  correctAnswer: "ยับยั้ง Na+/Cl- cotransporter, ที่ Distal tubule"
+},
+{
+  question: "คนไข้มีอาการท้องเสียจากการติดเชื้อแบคทีเรียและมีอาการถ่ายอุจจาระเป็นสีดำ ยาใดต่อไปนี้เหมาะสมที่สุด",
+  options: [
+    "Activated Charcoal",
+    "Cholestyramine",
+    "Bismuth Subsalicylate",
+    "Loperamide",
+    "Metronidazole"
+  ],
+  correctAnswer: "Bismuth Subsalicylate"
+},
+{
+  question: "คนไข้แพ้ยา Penicillin และมีการติดเชื้อแบคทีเรียที่ปอด ควรเลือกใช้ยาใด",
+  options: [
+    "Bactrim",
+    "Neomycin",
+    "Cefalexin",
+    "Roxithromycin",
+    "Norfloxacin"
+  ],
+  correctAnswer: "Roxithromycin"
+},
+{
+  question: "ยาในข้อใดถือว่าเป็นยาทางเลือกแรกในการป้องกัน Cytomegalovirus",
+  options: [
+    "Oseltamivir",
+    "Acyclovir",
+    "Zidovudine",
+    "Ganciclovir",
+    "Amantadine"
+  ],
+  correctAnswer: "Ganciclovir"
+},
+{
+  question: "ข้อใดต่อไปนี้คือกลไกการออกฤทธิ์ของยา Oseltamivir",
+  options: [
+    "DNA polymerase inhibition",
+    "Reverse transcriptase inhibition",
+    "Un-coating inhibition",
+    "Protease inhibition",
+    "Neuraminidase inhibition"
+  ],
+  correctAnswer: "Neuraminidase inhibition"
+},
+{
+  question: "ข้อใดคือเป้าหมายของการรักษาโรคเรื้อนที่ถูกต้องที่สุด",
+  options: [
+    "ควบคุมอาการของผู้ป่วยได้ อาการคันลดลง",
+    "ผู้ป่วยรับประทานยาตามแพทย์สั่งจนครบ",
+    "ผู้ป่วยหายจากการติดเชื้อ และตรวจไม่พบเชื้อ",
+    "รักษาโดยใช้ค่าใช้จ่ายน้อยที่สุด",
+    "รอยโรคของผู้ป่วยลดลง สามารถอยู่ในสังคมร่วมกับผู้อื่นได้"
+  ],
+  correctAnswer: "ผู้ป่วยหายจากการติดเชื้อ และตรวจไม่พบเชื้อ"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Zidovudine",
+  options: [
+    "DNA polymerase inhibition",
+    "Un-coating inhibition",
+    "Reverse transcriptase inhibition",
+    "Protease inhibition",
+    "Neuraminidase inhibition"
+  ],
+  correctAnswer: "Reverse transcriptase inhibition"
+},
+{
+  question: "ยาในข้อใดจัดเป็น Drug of Choice สำหรับรักษาโรคเท้าช้าง",
+  options: [
+    "Diethylcarbamazine",
+    "Bithionol",
+    "Praziquantel",
+    "Ivermectin",
+    "Mebendazole"
+  ],
+  correctAnswer: "Diethylcarbamazine"
+},
+{
+  question: "ข้อใดคือกลไกการทำงานของยา Isoniazid ในการรักษาวัณโรค",
+  options: [
+    "ยับยั้งการสร้าง Folic acid",
+    "ยับยั้งการสร้าง Mycolic acid",
+    "ยับยั้งการสร้าง RNA",
+    "ยับยั้งการสร้าง Peptidoglycan",
+    "ยับยั้งโปรตีนในเชื้อวัณโรค"
+  ],
+  correctAnswer: "ยับยั้งการสร้าง Mycolic acid"
+},
+{
+  question: "ข้อใดต่อไปนี้อธิบายความหมายของ Full Agonist ได้ดีที่สุด",
+  options: [
+    "ยาที่สามารถยับยั้งการทำงานของตัวรับได้ 100%",
+    "ตัวรับและลิแกนด์สร้าง Second Messenger ได้",
+    "ยาที่สามารถกระตุ้นการทำงานของตัวรับให้เกิดการทำงานได้ 100%",
+    "Metabotropic Receptor",
+    "ยาที่สามารถกระตุ้นการทำงานของตัวรับได้ไม่ถึง 100%"
+  ],
+  correctAnswer: "ยาที่สามารถกระตุ้นการทำงานของตัวรับให้เกิดการทำงานได้ 100%"
+},
+{
+  question: "ข้อใดคือความหมายของอาการข้างเคียง (Side Effect)",
+  options: [
+    "ผู้ป่วยรับประทานยานอนหลับอย่างต่อเนื่อง เมื่อขาดยาเกินอาการกระสับกระส่าย",
+    "ยาต้านแบคทีเรียไม่สามารถฆ่าเชื้อได้ แม้จะเพิ่มขนาดยา",
+    "การได้รับยาเกินขนาด",
+    "ผู้ที่ได้รับยาชนิดเดียวกันจะตอบสนองต่อยาเท่ากันเสมอ",
+    "นอกเหนือจากผลการรักษา ยาสามารถให้ผลอื่นที่เป็นอันตรายแก่ร่างกาย"
+  ],
+  correctAnswer: "นอกเหนือจากผลการรักษา ยาสามารถให้ผลอื่นที่เป็นอันตรายแก่ร่างกาย"
+},
+{
+  question: "ข้อใดอธิบายความหมายของ Duration of Action ได้ดีที่สุด",
+  options: [
+    "ระยะเวลาที่ยาออกฤทธิ์ได้หลังเริ่มรับประทานยา",
+    "ระยะเวลาที่ยาคงอยู่ในร่างกาย",
+    "ระยะเวลาที่ระดับยาในเลือดถึงระดับสูงสุด",
+    "ระยะเวลาที่ระดับยาในเลือดสูงกว่าค่า MEC",
+    "ระยะเวลาที่ระดับยาในเลือดต่ำกว่าค่า MTC"
+  ],
+  correctAnswer: "ระยะเวลาที่ระดับยาในเลือดสูงกว่าค่า MEC"
+},
+{
+  question: "Enzyme ใดมีหน้าที่หลักในกระบวนการ Metabolism Phase 1",
+  options: [
+    "Oxidase",
+    "Cytochrome P450",
+    "Glutathione Transferase",
+    "Glucuronidase",
+    "Esterase"
+  ],
+  correctAnswer: "Cytochrome P450"
+},
+{
+  question: "ยาที่เกี่ยวข้องกับภาวะ 'Red Man Syndrome' มากที่สุดคือ",
+  options: [
+    "Clindamycin",
+    "Tetracycline",
+    "Vancomycin",
+    "Amphotericin B",
+    "Gentamicin"
+  ],
+  correctAnswer: "Vancomycin"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Amphotericin B",
+  options: [
+    "ยับยั้งการสังเคราะห์ ergosterol ผ่าน Squalene epoxide",
+    "เพิ่ม membrane permeability ของเชื้อรา",
+    "ยับยั้ง fungal RNA synthesis",
+    "ยับยั้งการทำงานของ Fungal Cytochrome P450 enzyme",
+    "ยับยั้งการสังเคราะห์ ergosterol ผ่าน lanosterol 14-a-demethylase"
+  ],
+  correctAnswer: "เพิ่ม membrane permeability ของเชื้อรา"
+},
+{
+  question: "ยาในข้อใดที่ห้ามใช้ในเด็กอายุต่ำกว่า 18 ปี เนื่องจากรบกวนการสร้างกระดูกและกระดูกอ่อน",
+  options: [
+    "Tetracycline",
+    "Neomycin",
+    "Ceftriaxone",
+    "Ofloxacin",
+    "Vancomycin"
+  ],
+  correctAnswer: "Ofloxacin"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Macrolides",
+  options: [
+    "ยับยั้งเอนไซม์ beta-lactamase ของแบคทีเรีย",
+    "จับกับไรโบโซม 50s",
+    "จับกับ transpeptidase",
+    "จับกับไรโบโซม 30s",
+    "จับกับ pentapeptide"
+  ],
+  correctAnswer: "จับกับไรโบโซม 50s"
+},
+{
+  question: "ยาต้านแบคทีเรียใดมีพิษต่อหูและไต",
+  options: [
+    "Fluoroquinolones",
+    "Aminoglycosides",
+    "Cephalosporins",
+    "Tetracyclines",
+    "Penicillins"
+  ],
+  correctAnswer: "Aminoglycosides"
+},
+{
+  question: "ยาใดเกี่ยวข้องกับภาวะที่เรียกว่า 'Grey Baby Syndrome'",
+  options: [
+    "Norfloxacin",
+    "Ceftriaxone",
+    "Chloramphenicol",
+    "Penicillin",
+    "Sulfamethoxazole"
+  ],
+  correctAnswer: "Chloramphenicol"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงที่พบบ่อยของยา Ketoconazole",
+  options: [
+    "เลือดออก",
+    "พิษต่อไต",
+    "เต้านมโตในผู้ชาย",
+    "ปัสสาวะมีสีส้ม",
+    "ผื่นคัน"
+  ],
+  correctAnswer: "เต้านมโตในผู้ชาย"
+},
+{
+  question: "ยาในข้อใดเป็น Drug of Choice สำหรับรักษา Herpes Simplex Virus และ Varicella-Zoster Virus",
+  options: [
+    "Oseltamivir",
+    "Ganciclovir",
+    "Valganciclovir",
+    "Acyclovir",
+    "Valacyclovir"
+  ],
+  correctAnswer: "Acyclovir"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Vancomycin",
+  options: [
+    "ยับยั้งกระบวนการสร้าง RNA",
+    "ยับยั้งการสร้าง Folic acid",
+    "ยับยั้งการสร้างร่างแห peptidoglycan",
+    "ยับยั้งเอนไซม์ RNA polymerase",
+    "ยับยั้งการสร้างโปรตีนที่ไรโบโซม 50s"
+  ],
+  correctAnswer: "ยับยั้งการสร้างร่างแห peptidoglycan"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงสำคัญของยา Starvudine",
+  options: [
+    "ปัสสาวะเป็นสีส้ม",
+    "ต้อหิน",
+    "การสลายไขมัน",
+    "วิงเวียนศีรษะ",
+    "อาการคล้ายไข้หวัด"
+  ],
+  correctAnswer: "การสลายไขมัน"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Penicillin",
+  options: [
+    "ยับยั้งการสร้าง Folic acid",
+    "ยับยั้งการสร้าง RNA",
+    "ยับยั้งการสร้างโปรตีนที่ไรโบโซม 50s",
+    "ยับยั้งเอนไซม์ transpeptidase",
+    "ยับยั้งการทำงานของ DNA gyrase"
+  ],
+  correctAnswer: "ยับยั้งเอนไซม์ transpeptidase"
+},
+{
+  question: "ยาใดมีผลข้างเคียงทำให้น้ำลายและปัสสาวะมีสีส้ม",
+  options: [
+    "Dapsone",
+    "Clofazimine",
+    "Pyrazinamide",
+    "Isoniazid",
+    "Rifampicin"
+  ],
+  correctAnswer: "Rifampicin"
+},
+{
+  question: "ข้อใดคือเป้าหมายของการให้ Loading Dose",
+  options: [
+    "ให้ระดับยาในเลือดถึงระดับการรักษาอย่างรวดเร็ว",
+    "ให้ระดับยาในเลือดไม่เกิน MTC",
+    "ให้ระดับยาในเลือดกระจายไปยังอวัยวะต่าง ๆ ได้มาก",
+    "ป้องกันการดื้อยา",
+    "ให้ระดับยาในเลือดถูกขับออกเร็วที่สุด"
+  ],
+  correctAnswer: "ให้ระดับยาในเลือดถึงระดับการรักษาอย่างรวดเร็ว"
+},
+{
+  question: "ข้อใดต่อไปนี้อธิบายความหมายของ First Pass Effect ได้ดีที่สุด",
+  options: [
+    "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่กระเพาะอาหาร",
+    "ยาไม่ทนกรด",
+    "ยาผ่านกระบวนการ Metabolism และดูดซึมกลับที่ลำไส้",
+    "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่ตับ",
+    "ยาที่ต้องให้ในรูปแบบรับประทาน"
+  ],
+  correctAnswer: "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่ตับ"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Oseltamivir",
+  options: [
+    "DNA polymerase inhibition",
+    "Reverse transcriptase inhibition",
+    "Un-coating inhibition",
+    "Protease inhibition",
+    "Neuraminidase inhibition"
+  ],
+  correctAnswer: "Neuraminidase inhibition"
+},
+{
+  question: "ยาในข้อใดเกี่ยวข้องกับการรักษาภาวะ 'Grey Baby Syndrome'",
+  options: [
+    "Norfloxacin",
+    "Ceftriaxone",
+    "Chloramphenicol",
+    "Penicillin",
+    "Sulfamethoxazole"
+  ],
+  correctAnswer: "Chloramphenicol"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงสำคัญของยา Amphotericin B",
+  options: [
+    "การบีบตัวของหัวใจลดลง",
+    "ไข้และหนาวสั่น",
+    "ปัสสาวะเป็นสีส้ม",
+    "เกิดผื่นแดง",
+    "ระบบทางเดินหายใจล้มเหลว"
+  ],
+  correctAnswer: "ไข้และหนาวสั่น"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Zidovudine",
+  options: [
+    "DNA polymerase inhibition",
+    "Un-coating inhibition",
+    "Reverse transcriptase inhibition",
+    "Protease inhibition",
+    "Neuraminidase inhibition"
+  ],
+  correctAnswer: "Reverse transcriptase inhibition"
+},
+{
+  question: "ยาในข้อใดใช้รักษาพยาธิตัวกลม ตัวแบน และไม่ต้องเคี้ยวก่อนกลืน",
+  options: [
+    "Nystatin",
+    "Albendazole",
+    "Pyrantel",
+    "Praziquantel",
+    "Mebendazole"
+  ],
+  correctAnswer: "Albendazole"
+},
+{
+  question: "ข้อใดคือกลไกการทำงานของยา Ethambutol",
+  options: [
+    "ยับยั้งการสร้าง Mycolic acid",
+    "ยับยั้งการสร้าง RNA",
+    "ยับยั้งการสร้าง Peptidoglycan",
+    "ยับยั้งการทำงานของ RNA polymerase",
+    "ยับยั้งการทำงานของ DNA gyrase"
+  ],
+  correctAnswer: "ยับยั้งการสร้าง RNA"
+},
+{
+  question: "ยาที่เกี่ยวข้องกับการรักษาฝ้าขาวที่ลิ้นในเด็กจากการใช้ยารักษาหอบหืดคือ",
+  options: [
+    "Oral Terbinafine",
+    "Oral Itraconazole",
+    "Oral Ketoconazole",
+    "Amphotericin B Suspension",
+    "Nystatin Suspension"
+  ],
+  correctAnswer: "Nystatin Suspension"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงสำคัญของยา Digoxin",
+  options: [
+    "Gynecomastia",
+    "Cardiac arrhythmia",
+    "Orthostatic hypotension",
+    "Diarrhea",
+    "Blurred vision"
+  ],
+  correctAnswer: "Cardiac arrhythmia"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงที่พบบ่อยของยากลุ่ม Calcium Channel Blockers",
+  options: [
+    "Peptic ulcer",
+    "Constipation",
+    "Reflex tachycardia",
+    "Rash",
+    "Gastroesophageal reflux"
+  ],
+  correctAnswer: "Constipation"
+},
+{
+  question: "ข้อใดคือการใช้ประโยชน์จาก Antagonist",
+  options: [
+    "Heroin ทำให้ติดยา",
+    "การรับประทานสารสกัดใบแปะก๊วยร่วมกับ Warfarin",
+    "การใช้ Aspirin และ Warfarin รวมกัน",
+    "การรับประทานยาแก้แพ้ร่วมกันหลายชนิด",
+    "Naloxone เป็นยาต้านพิษของเฮโรอีน"
+  ],
+  correctAnswer: "Naloxone เป็นยาต้านพิษของเฮโรอีน"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงของยา Heparin และควรใช้ Antidote ใดเมื่อเกิดอาการดังกล่าว",
+  options: [
+    "Bleeding - Protamine sulfate",
+    "Thrombocytopenia - Vitamin K",
+    "Allergy - Deferoxamine",
+    "Osteoporosis - N-acetylcysteine",
+    "Anaphylactic shock - Aspirin"
+  ],
+  correctAnswer: "Bleeding - Protamine sulfate"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Rifampicin ในการรักษาวัณโรค",
+  options: [
+    "ยับยั้งการสร้าง Folic acid",
+    "ยับยั้งการสร้าง Mycolic acid",
+    "ยับยั้งการสร้าง RNA",
+    "ยับยั้งการสร้าง Peptidoglycan",
+    "ยับยั้งโปรตีนในเชื้อวัณโรค"
+  ],
+  correctAnswer: "ยับยั้งการสร้าง RNA"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Warfarin",
+  options: [
+    "ยับยั้งเอนไซม์ Cyclooxygenase",
+    "ยับยั้งเอนไซม์ Phosphodiesterase (PDE)",
+    "กระตุ้น Antithrombin III",
+    "ยับยั้งเอนไซม์ CYP2C9",
+    "ยับยั้งเอนไซม์ Vitamin K Epoxide Reductase (VKOR1)"
+  ],
+  correctAnswer: "ยับยั้งเอนไซม์ Vitamin K Epoxide Reductase (VKOR1)"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงที่สำคัญของยากลุ่ม Anticoagulant Drugs",
+  options: [
+    "Allergy",
+    "Bleeding",
+    "Thrombocytopenia",
+    "Osteoporosis",
+    "Anaphylactic shock"
+  ],
+  correctAnswer: "Bleeding"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Ketoconazole",
+  options: [
+    "ยับยั้งการหลั่งสารจาก Mast Cells",
+    "ลดการสร้าง Mucus",
+    "ยับยั้งเอนไซม์ Squalene Epoxidase",
+    "ยับยั้งการสร้าง Ergosterol ผ่าน Lanosterol 14-a-demethylase",
+    "เพิ่ม Permeability ของเยื่อหุ้มเซลล์"
+  ],
+  correctAnswer: "ยับยั้งการสร้าง Ergosterol ผ่าน Lanosterol 14-a-demethylase"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Oseltamivir",
+  options: [
+    "DNA Polymerase Inhibition",
+    "Reverse Transcriptase Inhibition",
+    "Un-coating Inhibition",
+    "Protease Inhibition",
+    "Neuraminidase Inhibition"
+  ],
+  correctAnswer: "Neuraminidase Inhibition"
+},
+{
+  question: "ข้อใดต่อไปนี้เกี่ยวข้องกับผลข้างเคียง 'Red Man Syndrome'",
+  options: [
+    "Vancomycin",
+    "Clindamycin",
+    "Tetracycline",
+    "Amphotericin B",
+    "Ciprofloxacin"
+  ],
+  correctAnswer: "Vancomycin"
+},
+{
+  question: "ยารักษาโรค Strongyloidiasis คือยาใด",
+  options: [
+    "Niclosamide",
+    "Metrifonate",
+    "Benznidazole",
+    "Praziquantel",
+    "Ivermectin"
+  ],
+  correctAnswer: "Ivermectin"
+},
+{
+  question: "ยาที่เป็น Drug of Choice ในการรักษาโรคเท้าช้างคือยาใด",
+  options: [
+    "Diethylcarbamazine",
+    "Bithionol",
+    "Praziquantel",
+    "Ivermectin",
+    "Mebendazole"
+  ],
+  correctAnswer: "Diethylcarbamazine"
+},
+{
+  question: "ข้อใดอธิบายความหมายของ 'ยาที่มีช่วงการรักษาแคบ' ได้ดีที่สุด",
+  options: [
+    "ยาที่ดูดซึมได้ดีหากรับประทานร่วมกับไขมัน",
+    "ยาที่มีความปลอดภัยในการใช้มาก ควรเลือกใช้เป็นอันดับแรก",
+    "ยาที่หากเกินขนาดการรักษาเพียงเล็กน้อยจะเกิดอันตรายรุนแรง",
+    "ยาที่ใช้ในขนาดต่ำแต่ออกฤทธิ์ได้ดี",
+    "ยาที่ชอบอยู่ในหลอดเลือด ไม่กระจายไปยังอวัยวะต่างๆ"
+  ],
+  correctAnswer: "ยาที่หากเกินขนาดการรักษาเพียงเล็กน้อยจะเกิดอันตรายรุนแรง"
+},
+{
+  question: "ข้อใดคือเป้าหมายที่ถูกต้องที่สุดของการรักษาโรคเรื้อน",
+  options: [
+    "ควบคุมอาการของผู้ป่วยได้ อาการคันลดลง",
+    "ผู้ป่วยรับประทานยาตามแพทย์สั่งจนครบ",
+    "ผู้ป่วยหายจากการติดเชื้อ และตรวจไม่พบเชื้อ",
+    "รักษาโดยใช้ค่าใช้จ่ายน้อยที่สุด",
+    "รอยโรคของผู้ป่วยลดลง สามารถอยู่ในสังคมร่วมกับผู้อื่นได้"
+  ],
+  correctAnswer: "ผู้ป่วยหายจากการติดเชื้อ และตรวจไม่พบเชื้อ"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Amphotericin B",
+  options: [
+    "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Squalene Epoxide",
+    "เพิ่ม Membrane Permeability ของเชื้อรา",
+    "ยับยั้ง Fungal RNA Synthesis",
+    "ยับยั้งการทำงานของ Fungal Cytochrome P450 enzyme",
+    "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Lanosterol 14-a-Demethylase"
+  ],
+  correctAnswer: "เพิ่ม Membrane Permeability ของเชื้อรา"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Macrolides",
+  options: [
+    "ยับยั้งเอนไซม์ Beta-Lactamase ของแบคทีเรีย",
+    "จับกับไรโบโซม 50s",
+    "จับกับ Transpeptidase",
+    "จับกับไรโบโซม 30s",
+    "จับกับ Pentapeptide"
+  ],
+  correctAnswer: "จับกับไรโบโซม 50s"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงสำคัญของยา Ketoconazole",
+  options: [
+    "เลือดออก",
+    "พิษต่อไต",
+    "เต้านมโตในเพศชาย",
+    "ปัสสาวะเป็นสีส้ม",
+    "ผื่นคัน"
+  ],
+  correctAnswer: "เต้านมโตในเพศชาย"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงของยา Heparin และวิธีแก้ไขเมื่อเกิดปัญหา",
+  options: [
+    "Bleeding - ใช้ Protamine Sulfate",
+    "Thrombocytopenia - ใช้ Vitamin K",
+    "Allergy - ใช้ Deferoxamine",
+    "Osteoporosis - ใช้ N-Acetylcysteine",
+    "Anaphylactic Shock - ใช้ Aspirin"
+  ],
+  correctAnswer: "Bleeding - ใช้ Protamine Sulfate"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Zidovudine",
+  options: [
+    "DNA Polymerase Inhibition",
+    "Un-coating Inhibition",
+    "Reverse Transcriptase Inhibition",
+    "Protease Inhibition",
+    "Neuraminidase Inhibition"
+  ],
+  correctAnswer: "Reverse Transcriptase Inhibition"
+},
+{
+  question: "ข้อใดคือกลไกการทำงานของยา Vancomycin",
+  options: [
+    "ยับยั้งกระบวนการสร้าง RNA",
+    "ยับยั้งการสร้าง Folic Acid",
+    "ยับยั้งการสร้างร่างแห Peptidoglycan",
+    "ยับยั้งเอนไซม์ RNA Polymerase",
+    "ยับยั้งการสร้างโปรตีนที่ไรโบโซม 50s"
+  ],
+  correctAnswer: "ยับยั้งการสร้างร่างแห Peptidoglycan"
+},
+{
+  question: "ยาในข้อใดใช้รักษาพยาธิใบไม้ตับ",
+  options: [
+    "TMP-SMZ",
+    "Praziquantel",
+    "Pyrantel",
+    "Chloroquine",
+    "Pentamidine"
+  ],
+  correctAnswer: "Praziquantel"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Itraconazole",
+  options: [
+    "ยับยั้งการทำงานของ Fungal Cytochrome P450 enzyme",
+    "เพิ่ม Membrane Permeability ของเชื้อรา",
+    "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Lanosterol 14-a-Demethylase",
+    "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Squalene Epoxide",
+    "ยับยั้ง Fungal RNA Synthesis"
+  ],
+  correctAnswer: "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Lanosterol 14-a-Demethylase"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงสำคัญของยา Digoxin",
+  options: [
+    "Gynecomastia",
+    "Cardiac arrhythmia",
+    "Orthostatic hypotension",
+    "Diarrhea",
+    "Blurred vision"
+  ],
+  correctAnswer: "Cardiac arrhythmia"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Ethambutol ในการรักษาวัณโรค",
+  options: [
+    "ยับยั้งการสร้าง Mycolic Acid",
+    "ยับยั้งการสร้าง RNA",
+    "ยับยั้งการสร้าง Peptidoglycan",
+    "ยับยั้งการทำงานของ RNA Polymerase",
+    "ยับยั้งการทำงานของ DNA Gyrase"
+  ],
+  correctAnswer: "ยับยั้งการสร้าง RNA"
+},
+{
+  question: "ยาใดที่อาจทำให้เกิดการสะสมแคลเซียมผิดปกติ โดยเฉพาะที่กระดูกและฟัน",
+  options: [
+    "Penicillins",
+    "Aminoglycosides",
+    "Fluoroquinolones",
+    "Tetracyclines",
+    "Cephalosporins"
+  ],
+  correctAnswer: "Tetracyclines"
+},
+{
+  question: "ยารักษาภาวะ Strongyloidiasis คือ",
+  options: [
+    "Niclosamide",
+    "Metrifonate",
+    "Benznidazole",
+    "Praziquantel",
+    "Ivermectin"
+  ],
+  correctAnswer: "Ivermectin"
+},
+{
+  question: "ยาในข้อใดจัดเป็น Drug of Choice ในการรักษา Cytomegalovirus",
+  options: [
+    "Oseltamivir",
+    "Acyclovir",
+    "Zidovudine",
+    "Ganciclovir",
+    "Amantadine"
+  ],
+  correctAnswer: "Ganciclovir"
+},
+{
+  question: "ข้อใดต่อไปนี้เกี่ยวข้องกับการเกิด 'Grey Baby Syndrome'",
+  options: [
+    "Norfloxacin",
+    "Ceftriaxone",
+    "Chloramphenicol",
+    "Penicillin",
+    "Sulfamethoxazole"
+  ],
+  correctAnswer: "Chloramphenicol"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Amphotericin B",
+  options: [
+    "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Squalene Epoxide",
+    "เพิ่ม Membrane Permeability ของเชื้อรา",
+    "ยับยั้ง Fungal RNA Synthesis",
+    "ยับยั้งการทำงานของ Fungal Cytochrome P450 enzyme",
+    "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Lanosterol 14-a-Demethylase"
+  ],
+  correctAnswer: "เพิ่ม Membrane Permeability ของเชื้อรา"
+},
+{
+  question: "ยาในข้อใดที่ห้ามใช้ในเด็กอายุต่ำกว่า 18 ปี เนื่องจากรบกวนการสร้างกระดูกและกระดูกอ่อน",
+  options: [
+    "Tetracycline",
+    "Neomycin",
+    "Ceftriaxone",
+    "Ofloxacin",
+    "Vancomycin"
+  ],
+  correctAnswer: "Ofloxacin"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Macrolides",
+  options: [
+    "ยับยั้งเอนไซม์ Beta-Lactamase ของแบคทีเรีย",
+    "จับกับไรโบโซม 50s",
+    "จับกับ Transpeptidase",
+    "จับกับไรโบโซม 30s",
+    "จับกับ Pentapeptide"
+  ],
+  correctAnswer: "จับกับไรโบโซม 50s"
+},
+{
+  question: "ข้อใดคือเป้าหมายที่ถูกต้องที่สุดของการรักษาโรคเรื้อน",
+  options: [
+    "ควบคุมอาการของผู้ป่วยได้ อาการคันลดลง",
+    "ผู้ป่วยรับประทานยาตามแพทย์สั่งจนครบ",
+    "ผู้ป่วยหายจากการติดเชื้อ และตรวจไม่พบเชื้อ",
+    "รักษาโดยใช้ค่าใช้จ่ายน้อยที่สุด",
+    "รอยโรคของผู้ป่วยลดลง สามารถอยู่ในสังคมร่วมกับผู้อื่นได้"
+  ],
+  correctAnswer: "ผู้ป่วยหายจากการติดเชื้อ และตรวจไม่พบเชื้อ"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงของยา Ketoconazole",
+  options: [
+    "Bleeding",
+    "พิษต่อไต",
+    "เต้านมโตในเพศชาย",
+    "ปัสสาวะเป็นสีส้ม",
+    "ผื่นคัน"
+  ],
+  correctAnswer: "เต้านมโตในเพศชาย"
+},
+{
+  question: "ข้อใดคือกลไกการทำงานของยา Zidovudine",
+  options: [
+    "DNA Polymerase Inhibition",
+    "Un-coating Inhibition",
+    "Reverse Transcriptase Inhibition",
+    "Protease Inhibition",
+    "Neuraminidase Inhibition"
+  ],
+  correctAnswer: "Reverse Transcriptase Inhibition"
+},
+{
+  question: "ข้อใดต่อไปนี้เกี่ยวข้องกับการเกิด 'Red Man Syndrome'",
+  options: [
+    "Vancomycin",
+    "Clindamycin",
+    "Tetracycline",
+    "Amphotericin B",
+    "Ciprofloxacin"
+  ],
+  correctAnswer: "Vancomycin"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงสำคัญของยา Heparin และการรักษาเมื่อเกิดอาการดังกล่าว",
+  options: [
+    "Bleeding - ใช้ Protamine Sulfate",
+    "Thrombocytopenia - ใช้ Vitamin K",
+    "Allergy - ใช้ Deferoxamine",
+    "Osteoporosis - ใช้ N-Acetylcysteine",
+    "Anaphylactic Shock - ใช้ Aspirin"
+  ],
+  correctAnswer: "Bleeding - ใช้ Protamine Sulfate"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Rifampicin",
+  options: [
+    "ยับยั้งการสร้าง Folic Acid",
+    "ยับยั้งการสร้าง Mycolic Acid",
+    "ยับยั้งการสร้าง RNA",
+    "ยับยั้งการสร้าง Peptidoglycan",
+    "ยับยั้งโปรตีนในเชื้อวัณโรค"
+  ],
+  correctAnswer: "ยับยั้งการสร้าง RNA"
+},
+{
+  question: "ยาในข้อใดถือว่าเป็น Drug of Choice ในการรักษา Herpes Simplex Virus และ Varicella-Zoster Virus",
+  options: [
+    "Oseltamivir",
+    "Ganciclovir",
+    "Valganciclovir",
+    "Acyclovir",
+    "Valacyclovir"
+  ],
+  correctAnswer: "Acyclovir"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Warfarin",
+  options: [
+    "ยับยั้งเอนไซม์ Cyclooxygenase",
+    "ยับยั้งเอนไซม์ Phosphodiesterase (PDE)",
+    "กระตุ้น Antithrombin III",
+    "ยับยั้งเอนไซม์ CYP2C9",
+    "ยับยั้งเอนไซม์ Vitamin K Epoxide Reductase (VKOR1)"
+  ],
+  correctAnswer: "ยับยั้งเอนไซม์ Vitamin K Epoxide Reductase (VKOR1)"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงของยา Digoxin",
+  options: [
+    "Gynecomastia",
+    "Cardiac arrhythmia",
+    "Orthostatic hypotension",
+    "Diarrhea",
+    "Blurred vision"
+  ],
+  correctAnswer: "Cardiac arrhythmia"
+},
+{
+  question: "ยาในข้อใดใช้สำหรับรักษาพยาธิใบไม้ตับ",
+  options: [
+    "TMP-SMZ",
+    "Praziquantel",
+    "Pyrantel",
+    "Chloroquine",
+    "Pentamidine"
+  ],
+  correctAnswer: "Praziquantel"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงที่สำคัญของยา Amphotericin B",
+  options: [
+    "การบีบตัวของหัวใจลดลง",
+    "ไข้และหนาวสั่น",
+    "ปัสสาวะเป็นสีส้ม",
+    "เกิดผื่นแดง",
+    "ระบบทางเดินหายใจล้มเหลว"
+  ],
+  correctAnswer: "ไข้และหนาวสั่น"
+},
+{
+  question: "ข้อใดคือเป้าหมายของการให้ Loading Dose",
+  options: [
+    "ให้ระดับยาในเลือดถึงระดับการรักษาอย่างรวดเร็ว",
+    "ให้ระดับยาในเลือดไม่เกิน MTC",
+    "ให้ระดับยาในเลือดกระจายไปยังอวัยวะต่าง ๆ ได้มาก",
+    "ป้องกันการดื้อยา",
+    "ให้ระดับยาในเลือดถูกขับออกเร็วที่สุด"
+  ],
+  correctAnswer: "ให้ระดับยาในเลือดถึงระดับการรักษาอย่างรวดเร็ว"
+},
+{
+  question: "ข้อใดอธิบายความหมายของ First Pass Effect ได้ดีที่สุด",
+  options: [
+    "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่กระเพาะอาหาร",
+    "ยาไม่ทนกรด",
+    "ยาผ่านกระบวนการ Metabolism และมีการดูดซึมกลับที่ลำไส้",
+    "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่ตับ",
+    "ยาที่ต้องให้ในรูปแบบรับประทาน"
+  ],
+  correctAnswer: "ยาถูกทำลายครั้งแรกเป็นจำนวนมากที่ตับ"
+},
+{
+  question: "ข้อใดคืออาการข้างเคียงที่สำคัญของยา Furosemide",
+  options: [
+    "Hyperkalemia",
+    "Hypocalcemia",
+    "Ototoxicity",
+    "Hyperglycemia",
+    "Hypotension"
+  ],
+  correctAnswer: "Ototoxicity"
+},
+{
+  question: "ข้อใดต่อไปนี้ไม่ใช่กลไกของ Oral Glucocorticoid ที่ใช้ในการรักษา COPD",
+  options: [
+    "ลดการหลั่งสารจาก Mast Cells",
+    "ลดการสร้าง Mucus",
+    "ลดการสร้าง Cytokine จาก T Lymphocyte",
+    "ลดการกระตุ้น T Lymphocyte",
+    "ลดการตอบสนองของยา Beta-2 Agonist"
+  ],
+  correctAnswer: "ลดการตอบสนองของยา Beta-2 Agonist"
+},
+{
+  question: "ข้อใดต่อไปนี้คือเป้าหมายของการรักษาโรค Strongyloidiasis",
+  options: [
+    "Niclosamide",
+    "Metrifonate",
+    "Benznidazole",
+    "Praziquantel",
+    "Ivermectin"
+  ],
+  correctAnswer: "Ivermectin"
+},
+{
+  question: "ข้อใดอธิบายความหมายของ Full Agonist ได้ดีที่สุด",
+  options: [
+    "ยาที่ยับยั้งการทำงานของตัวรับได้ 100%",
+    "ตัวรับและลิแกนด์สร้าง Second Messenger ได้",
+    "ยาที่กระตุ้นการทำงานของตัวรับได้ 100%",
+    "Metabotropic Receptor",
+    "ยาที่กระตุ้นการทำงานของตัวรับได้ไม่ถึง 100%"
+  ],
+  correctAnswer: "ยาที่กระตุ้นการทำงานของตัวรับได้ 100%"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Class I Antiarrhythmic Drugs",
+  options: [
+    "Inhibit Na+ channel",
+    "Inhibit Ca2+ channel",
+    "Inhibit Cl- channel",
+    "Inhibit K+ channel",
+    "Inhibit Beta receptor"
+  ],
+  correctAnswer: "Inhibit Na+ channel"
+},
+{
+  question: "ข้อใดอธิบายความหมายของกระบวนการดูดซึม (Absorption) ได้ดีที่สุด",
+  options: [
+    "ยาจับกับโปรตีนในหลอดเลือด",
+    "ยาถูกเปลี่ยนแปลงโครงสร้างทางเคมี",
+    "ยาเคลื่อนที่จากระบบไหลเวียนเลือดเข้าสู่ไต",
+    "ยาเคลื่อนที่ผ่านเซลล์เมมเบรนเข้าสู่ระบบไหลเวียนเลือด",
+    "ยาผ่านจากหลอดเลือดเข้าสู่ระบบประสาทส่วนกลาง"
+  ],
+  correctAnswer: "ยาเคลื่อนที่ผ่านเซลล์เมมเบรนเข้าสู่ระบบไหลเวียนเลือด"
+},
+{
+  question: "ข้อใดคือกลไกการทำงานของยา Zidovudine",
+  options: [
+    "DNA Polymerase Inhibition",
+    "Reverse Transcriptase Inhibition",
+    "Un-coating Inhibition",
+    "Protease Inhibition",
+    "Neuraminidase Inhibition"
+  ],
+  correctAnswer: "Reverse Transcriptase Inhibition"
+},
+{
+  question: "ข้อใดคือกลไกการออกฤทธิ์ของยา Itraconazole",
+  options: [
+    "ยับยั้งการทำงานของ Fungal Cytochrome P450 enzyme",
+    "เพิ่ม Membrane Permeability ของเชื้อรา",
+    "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Lanosterol 14-a-Demethylase",
+    "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Squalene Epoxide",
+    "ยับยั้ง Fungal RNA Synthesis"
+  ],
+  correctAnswer: "ยับยั้งการสังเคราะห์ Ergosterol ผ่าน Lanosterol 14-a-Demethylase"
+},
+        ];
+    </script>
+
+    <script src="./core/login.js"></script>
+    <script src="./core/script.js"></script>
+
+
+</body>
+
+</html>
