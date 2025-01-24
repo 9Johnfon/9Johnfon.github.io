@@ -71,7 +71,7 @@ function updateDisplay() {
         detailElement.classList.add('detail');
         detailElement.innerHTML = `
         <img src="${bottleMapping[bottle].icon}" alt="${bottleMapping[bottle].color}" width='70' height='auto'>
-        <strong>${bottleMapping[bottle].label}</strong><br>${bottleMapping[bottle].description}<br><t color="#f54242">ใช้ตรวจ : </t>`;
+        <strong>${bottleMapping[bottle].label}</strong><br>${bottleMapping[bottle].description}<br><t style="color:'#f54242'">ใช้ตรวจ : </t>`;
 
         const testsInGroup = testGroupDetails[bottle].map(test => {
             return selectedTests.some(t => t.name === test)
