@@ -18,7 +18,7 @@ const testGroupDetails = {
     Biggray: ['Hemoculture'],
     blue: ['PT', 'INR', 'PTT', 'Thrombin time'],
     yellow: ['Coagulation factor'],
-    red: ['Tumor marker', 'TFT', 'Viral load'],
+    red: ['Blood group', 'Tumor marker', 'TFT', 'Viral load'],
     green: ['Lipid profiled', 'Liver function test', 'BUN', 'Creatinine', 'Electrolyte (Na, Cl, K, HCO3)'],
     purple: ['CBC', 'HbA1C'],
     gray: ['FBS', 'Blood alcohol']
