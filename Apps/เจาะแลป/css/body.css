@@ -38,6 +38,7 @@ body {
     cursor: pointer;
     background-color: #ddd;
     transition: background-color 0.3s;
+    color: black;
 }
 .test.selected {
     background-color: #3498db;
