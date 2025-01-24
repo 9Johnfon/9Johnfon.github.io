@@ -11,7 +11,7 @@ const bottleMapping = {
     red: { color: 'แดง', label: 'Clotted blood', icon: './imgs/red.png', description: 'ไม่มีสารใดๆ เหมาะสำหรับการส่งตรวจทาง ภูมิคุ้มกันวิทยา, เคมีคลินิก<br>ปริมาณที่ใช้ : 3 - 4 ml<br>   * เด็กแรกเกิดเจาะเลือดได้น้อย ใช้ Micro clotted blood tube<br>ปริมาณที่ใช้ : 0.5 ml' },
     green: { color: 'เขียว', label: 'Lithium heparin', icon: './imgs/green.png', description: 'Heparin เป็นสารป้องกันการแข็งตัวของเลือด เหมาะสำหรับตรวจทางเคมีบำบัด<br>ปริมาณที่ใช้ : 3 - 4 ml<br>   * เด็กแรกเกิดเจาะเลือดได้น้อย ใช้ Micro lithium heparin tube<br>ปริมาณที่ใช้ : 0.5 ml' },
     purple: { color: 'ม่วง', label: 'EDTA', icon: './imgs/purple.png', description: 'เป็นสารป้องกันการแข็งตัวของเลือด เหมาะสำหรับตรวจโลหิตวิทยา<br>ปริมาณที่ใช้ : 3 - 4 ml<br>   * เด็กแรกเกิดเจาะเลือดได้น้อย ใช้ Micro EDTA tube<br>ปริมาณที่ใช้ : 0.5 ml' },
-    gray: { color: 'เทา', label: 'NaF', icon: './imgs/gray.png', description: 'เป็นสารป้องกันการใช้นํ้าตาลในเลือด<br>ปริมาณที่ใช้ : 2 - 3 ml<br>' }
+    gray: { color: 'เทา', label: 'NaF', icon: './imgs/gray.png', description: 'เป็นสารป้องกันการใช้นํ้าตาลในเลือด<br>ปริมาณที่ใช้ : 2 - 3 ml' }
 };
 
 const testGroupDetails = {
