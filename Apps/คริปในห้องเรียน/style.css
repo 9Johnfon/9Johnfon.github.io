@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Prompt', 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh; /* Make the body take up the full height of the viewport */
+}
+
+
+#headerBanner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001; /* Ensure the banner appears above other elements */
+    text-align: right;
+    padding: 10px;
+}
+
+#logo {
+    max-width: 100%; /* Ensure the logo does not exceed its container */
+    max-height: 50px; /* Set the maximum height of the logo */
+}
+
+#searchContainer {
+    text-align: center;
+    width: auto;
+    position: fixed;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+
+#searchWrapper {
+    display: flex;
+    align-items: center;
+    
+}
+
+/* Adjust the styles for the searchInput */
+#searchInput {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    flex: 1; /* Allow the input to grow and take available space */
+}
+
+/* Adjust styles for the button */
+#searchButton {
+    padding: 10px;
+    background-color: #ffa032;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+
+button {
+    margin-top: 10px; /* Adjust the margin as needed */
+    padding: 10px;
+    background-color: #ffa032; /* Choose your desired color */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+#bookResults {
+    position: absolute;
+    margin: 20px;
+    top: 15%;
+    width: auto;
+    min-width: 20%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Allow multiple rows of book results */
+    justify-content: space-evenly; /* Center the book results horizontally */
+}
+
+
+#bookResults.responsive {
+    position: absolute;
+    margin: 20px;
+    top: 15%;
+    width: auto;
+    display: block;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/*
+#bookResults {
+    position: absolute;
+    margin: 20px;
+    top: 40%;
+    width: auto;
+    display: flexbox;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+}
+*/
+
+
+#bookResults div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    flex: 0 1 calc(30% - 20px); /* Set the width of each book result to occupy about 30% of the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: transform 0.3s ease-in-out; /* Add animation to the book results */
+}
+
+#bookResults div:hover {
+    transform: scale(1.05); /* Add a scale effect on hover */
+}
+
+
+.book-popup {
+    position: fixed;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 80%;
+    border-radius: 5px;
+    z-index: 1001; /* Ensure the popup appears above other elements */
+    animation: fadeIn 0.5s ease-in-out; /* Add fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.orange-button {
+    display: inline-block;
+    background-color: #ffa032;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.orange-button:hover {
+    background-color: darkorange;
+}
+
+
+
+@media (max-width: 1024px) {
+    #bookResults {
+        display: block;
+    }
+    #searchContainer {
+        text-align: center;
+        width: auto;
+        position: fixed;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        
+    }
+}
+
+
+@media (min-width: 1280px) {
+    #bookResults {
+        position: absolute;
+        margin: 20px;
+        top: 40%;
+        width: auto;
+        min-width: 20%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* Allow multiple rows of book results */
+        justify-content: space-evenly; /* Center the book results horizontally */
+    }
+    #searchContainer {
+        text-align: center;
+        width: auto;
+        position: fixed;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        top: 20%;
+    }
+}
+
+    /* Scroll Button */
+    #scrollButton {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #ffa032;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 45px;  /* Reduced size */
+        height: 45px; /* Reduced size */
+        text-align: center;
+        font-size: 20px;  /* Smaller font */
+        display: none;
+        cursor: pointer;
+        z-index: 1002;
+        opacity: 0;  /* Initially hidden */
+        transform: scale(0.8);  /* Initially small */
+        transition: opacity 0.5s ease, transform 0.5s ease;  /* Added smooth transition */
+        -webkit-appearance: none;  /* Disable default button styling on iOS */
+    }
+
+    #scrollButton.show {
+        display: block;
+        opacity: 1;
+        transform: scale(1);  /* Full size when shown */
+    }
+
+    #scrollButton.hide {
+        opacity: 0;
+        transform: scale(0.8);  /* Small size when hidden */
+    }
+
+    #scrollButton:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #scrollButton:focus {
+        outline: none;  /* Remove the blue focus outline */
+    }
+
+
+/* Menu toggle button */
+#menuToggleButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1002;
+    background-color: #ffa032;
+    color: white;
+    border: none;
+    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#menuToggleButton:hover {
+    background-color: darkorange;
+}
+
+/* Slide-in menu */
+#slideMenu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Hide menu offscreen initially */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s; /* Slide-in effect */
+    padding-top: 60px; /* Padding for the menu items */
+    z-index: 1001;
+}
+
+#slideMenu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+#slideMenu a:hover {
+    background-color: #575757;
+}
+
+/* Show the slide menu when active */
+#slideMenu.open {
+    right: 0; /* Slide into view */
+}

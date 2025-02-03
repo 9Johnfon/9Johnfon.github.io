@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เจาะแลป | ParamedEd</title>
+    <link rel="stylesheet" href="./css/body.css">
+    <link rel="icon" type="image/x-icon" href="../../imgs/icon_ParaEd.png">
+</head>
+<body>
+    <div id="headerBanner">
+        <a href="../../index.html"><img src="../../imgs/ParamedEd.png" alt="Logo" id="logo"></a>
+    </div>
+
+    <div id="selection">
+        <button class="test" data-bottle="Biggray">Hemoculture</button>
+        <button class="test" data-bottle="blue">PT</button>
+        <button class="test" data-bottle="blue">INR</button>
+        <button class="test" data-bottle="blue">Thrombin time</button>
+        <button class="test" data-bottle="blue">PTT</button>
+        <button class="test" data-bottle="yellow">Coagulation factor</button>
+        <button class="test" data-bottle="red">TFT</button>
+        <button class="test" data-bottle="red">Tumor marker</button>
+        <button class="test" data-bottle="red">Viral load</button>
+        <button class="test" data-bottle="green">Lipid profiled</button>
+        <button class="test" data-bottle="green">Liver function test</button>
+        <button class="test" data-bottle="green">BUN</button>
+        <button class="test" data-bottle="green">Creatinine</button>
+        <button class="test" data-bottle="green">Electrolyte (Na, Cl, K, HCO3)</button>
+        <button class="test" data-bottle="purple">CBC</button>
+        <button class="test" data-bottle="purple">HbA1C</button>
+        <button class="test" data-bottle="gray">FBS</button>
+        <button class="test" data-bottle="gray">Blood alcohol</button>
+        <button class="test" data-bottle="red">Blood group</button>
+
+        <button id="reset">Reset</button>
+    </div>
+
+    <div id="bottles"></div>
+    <div id="details"></div>
+
+    <button id="scrollButton" onclick="scrollToTop()">↑</button>
+
+    <script src="./js/app.js"></script>
+    <script>
+                // Scroll Button Functionality
+        const scrollButton = document.getElementById('scrollButton');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                scrollButton.classList.add('show');
+                scrollButton.classList.remove('hide');
+            } else {
+                scrollButton.classList.add('hide');
+                scrollButton.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <footer></footer>
+
+</body>
+</html>

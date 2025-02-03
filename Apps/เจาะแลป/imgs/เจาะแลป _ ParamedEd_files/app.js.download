@@ -1,0 +1,90 @@
+const tests = document.querySelectorAll('.test');
+const bottlesDiv = document.getElementById('bottles');
+const detailsDiv = document.getElementById('details');
+const resetBtn = document.getElementById('reset');
+let selectedTests = [];
+
+const bottleMapping = {
+    Biggray: { label: 'Hemoculture', icon: './imgs/Biggray.png' },
+    blue: { label: 'Sodium citrate', icon: './imgs/blue.png' },
+    yellow: { label: 'Gel & Clot activator', icon: './imgs/yellow.png' },
+    red: { label: 'ขวดสีแดง', icon: './imgs/red.png' },
+    green: { label: 'ขวดสีเขียว', icon: './imgs/green.png' },
+    purple: { label: 'ขวดสีม่วง', icon: './imgs/purple.png' },
+    gray: { label: 'ขวดสีเทา', icon: './imgs/gray.png' }
+};
+
+const testGroupDetails = {
+    Biggray: ['Hemoculture'],
+    blue: ['PT', 'INR', 'PTT', 'Thrombin time'],
+    yellow: ['Coagulation factor'],
+    red: ['Tumor marker', 'TFT', 'Viral load'],
+    green: ['Lipid profiled', 'Liver function test', 'BUN', 'Creatinine', 'Electrolyte (Na, Cl, K, HCO3)'],
+    purple: ['CBC', 'HbA1C'],
+    gray: ['FBS', 'Blood alcohol']
+};
+
+// Predefined order of bottles
+const bottleOrder = ['Biggray', 'blue', 'yellow', 'red', 'green', 'purple', 'gray'];
+
+tests.forEach(button => {
+    button.addEventListener('click', () => {
+        const testName = button.textContent;
+        const bottle = button.getAttribute('data-bottle');
+        if (!selectedTests.find(t => t.name === testName)) {
+            button.classList.add('selected');
+            selectedTests.push({ name: testName, bottle: bottle });
+        } else {
+            button.classList.remove('selected');
+            selectedTests = selectedTests.filter(t => t.name !== testName);
+        }
+        updateDisplay();
+    });
+});
+
+resetBtn.addEventListener('click', () => {
+    selectedTests = [];
+    tests.forEach(button => button.classList.remove('selected'));
+    updateDisplay();
+});
+
+function updateDisplay() {
+    bottlesDiv.innerHTML = '';
+    detailsDiv.innerHTML = '';
+
+    // Collect used bottles and sort them according to the predefined order
+    const usedBottles = Array.from(new Set(selectedTests.map(test => test.bottle)))
+        .sort((a, b) => bottleOrder.indexOf(a) - bottleOrder.indexOf(b));
+
+    usedBottles.forEach(bottle => {
+        // Create bottle element
+        const bottleElement = document.createElement('div');
+        bottleElement.classList.add('bottle');
+        bottleElement.innerHTML = `
+            <img src="${bottleMapping[bottle].icon}" alt="${bottleMapping[bottle].label}">
+            <p>${bottleMapping[bottle].label}</p>
+        `;
+        bottlesDiv.appendChild(bottleElement);
+
+        // Create detail element
+        const detailElement = document.createElement('div');
+        detailElement.classList.add('detail');
+        detailElement.innerHTML = `
+        <strong>${bottleMapping[bottle].label}</strong><br>ใช้ตรวจ: `;
+
+        const testsInGroup = testGroupDetails[bottle].map(test => {
+            return selectedTests.some(t => t.name === test)
+                ? `<span class="highlight">${test}</span>`
+                : test;
+        });
+
+        detailElement.innerHTML += testsInGroup.join(', ');
+        detailsDiv.appendChild(detailElement);
+    });
+
+    // Show or hide the reset button based on selection
+    resetBtn.style.display = selectedTests.length >= 1 ? 'inline-block' : 'none';
+}
+
+// Initialize reset button visibility
+resetBtn.style.display = 'none';
