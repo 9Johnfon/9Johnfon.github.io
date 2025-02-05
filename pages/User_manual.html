@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParamedEd | คู่มือการใช้เว็บ</title>
+
+    <link rel="icon" type="image/x-icon" href="../imgs/icon_ParaEd.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://9johnfon.github.io/style.css"> <!-- ใช้ธีมจากเว็บ -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * { font-family: 'Prompt', 'Arial', sans-serif; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">คู่มือการใช้เว็บ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">คู่มือการใช้เว็บ</h1>
+        
+        <!-- Section: วิธีใช้งาน -->
+        <h2 class="mt-4">🔹 วิธีใช้งาน</h2>
+        <ul class="list-group">
+            <li class="list-group-item">🔍 <b>ค้นหาข้อมูล:</b> ใช้ช่องค้นหาในหน้า "รวมคริปการสอน" เพื่อหาข้อมูลที่ต้องการแล้วกด search</li>
+            <li class="list-group-item">📂 <b>เข้าถึงเนื้อหา:</b> คลิกที่เมนู <Enter> เพื่อไปยังหัวข้อต่างๆ</li>
+            <li class="list-group-item">📝 <b>การติดต่อ / แจ้งปัญหา:</b> กดปุ่ม "Contact" ด้านขวาบน ในหน้า Home</li>
+        </ul>
+        
+        <!-- Section: FAQ -->
+        <h2 class="mt-5" id="faq">❓ คำถามที่พบบ่อย (FAQ)</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        📺 ฉันสามารถเข้าถึงคลิปการสอนย้อนหลังได้ที่ไหน?
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        คุณสามารถเข้าถึงคลิปการสอนย้อนหลังได้โดยไปที่เมนู 📚 <b>"รวมคลิปการสอน"</b> แล้วเลือกวิดีโอที่ต้องการรับชม
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                        📂 ฉันสามารถดาวน์โหลดเอกสารประกอบการสอนได้จากที่ไหน?
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        ไปที่เมนู 📄 <b>"Lecture Upload"</b> แล้วเลือกหัวข้อที่ต้องการดาวน์โหลดเอกสารประกอบการสอน
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                        📱 เว็บไซต์นี้สามารถใช้งานบนมือถือได้หรือไม่?
+                    </button>
+                </h2>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        ✅ ใช่! เว็บไซต์ของเราได้รับการออกแบบให้รองรับการใช้งานทั้งบนมือถือ แท็บเล็ต และคอมพิวเตอร์
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                        ⚠️ หากพบปัญหาการใช้งาน ต้องติดต่อที่ไหน?
+                    </button>
+                </h2>
+                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        คุณสามารถแจ้งปัญหาได้ผ่านเมนู 📩 <b>"Contact"</b> บนหน้าแรก หรือส่งอีเมลมาที่ <i>it.parameded@gmail.com</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
