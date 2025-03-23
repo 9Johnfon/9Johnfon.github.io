@@ -1,0 +1,115 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>Phamaco Post-test</title>
+</head>
+
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">เรียบเรียงโดย Johnny | Dev ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a
+            href="https://tipme.in.th/hyorick" target="_blank"><img src='../../imgs/icon_ParaEd.png' width="40"
+                height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button"
+            style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;"
+            onclick="goBack()">Back</button>
+    </div>
+
+    <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./Phamaco.html">Phamaco Post-test</a></li>
+        </ul>
+    </div>
+
+
+    <!-- ... (HTML และ CSS เดิม) ... -->
+    <script>
+        const questions = [
+            { question: "<b>ยาลดกรดใด เกด drug interaction บ่อยที่สุด</b>", options: ["Ranitidine", "Sodium bicarbonate", "Omeprazole", "Cimetidine"], correctAnswer: "Cimetidine" },
+            { question: "<b>ข้อใด คือ กลไก ของยา Hyoscine</b>", options: ["Anti-alpha 1 and 2 receptor", "Anti-dopaminergic receptor", "Anti-beta1 and 2 receptor", "Anti-muscarinic receptor"], correctAnswer: "Anti-muscarinic receptor" },
+            { question: "<b>ยาลดกรดใด ออกฤทธิ์ได้ยาวนานที่สุด</b>", options: ["Ranitidine", "Misoprostol", "Sodium bicarbonate", "Omeprazole"], correctAnswer: "Omeprazole" },
+            { question: "<b>ยาระบายใด ปลอดภัยในเด็กและหญิงตั้งครรภ์</b>", options: ["Bisacodyl", "Mineral oil", "PEG", "Lactulose"], correctAnswer: "Lactulose" },
+            { question: "<b>ยารักษาแผลในกระเพาะอาหารที่เป็นข้อห้ามใช้ (Contraindicated) ในหญิงตั้งครรภ์คือข้อใด</b>", options: ["Sucralfate", "Famotidine", "Omerprazole", "Misoprostrol"], correctAnswer: "Misoprostrol" },
+            { question: "<b>ยาต้านอาดจียนใด มักเป็นสาเหตุการเกิด Extrapyramiodal effects</b>", options: ["Dimenhydrinate", "Ondansetron", "Domperidone", "Metoclopramide"], correctAnswer: "Metoclopramide" },
+            { question: "<b>ข้อใด คือยาระบายกลุ่ม Stimulant laxative</b>", options: ["Glycerin suppo.", "Lactulose", "เม็ดแมงลัก", "Senna"], correctAnswer: "Senna" },
+            { question: "<b>เด็กอายุ 5 ขวบท้องเสียเฉียบพลัน ยังไม่ทราบสาเหตุ ควรนได้รับยาใด</b>", options: ["Diphenoxylate", "ORS", "Zinc sulfate", "Activated charcol", "ORS + Zinc sulfate"], correctAnswer: "ORS + Zinc sulfate" },
+            { question: "<b>ยาลดกรดใน ควรระวังในผู้ป่วยโรคไต และความดันโลหิตสูง</b>", options: ["Ranitidine", "Misoprostol", "Omeprazole", "Sodium bicarbonate"], correctAnswer: "Sodium bicarbonate" },
+            { question: "<b>ผู้ป่วยท้องเสีย ยังไม่ทราบสาเหตุ ไม่ควรได้รับยาใด</b>", options: ["Activated charcoal", "Bismuth", "ORS", "Diphenoxylate"], correctAnswer: "Diphenoxylate" },
+
+            { question: "<b>ข้อใดคือสารสื่อประสาทชนิดใด อยู่ในกลุ่ม Monoamines</b>", options: ["Endorphin", "Glutamate", "GABA", "Serotonin"], correctAnswer: "Serotonin" },
+            { question: "<b>ยากลุ่มใด มีกลไกการออกฤทธิ์ โดยจับก ับ GABA A receptor</b>", options: ["SNSIs", "TCAs", "SSRIs", "Benzodiazepines"], correctAnswer: "Benzodiazepines" },
+            { question: "<b>ข้อใดต่อไปนี้ไม่ใช่ สาเหตุของการนอนไม่หลับ</b>", options: ["เดินทางไปต่างประเทศ", "ดื่มสุรา", "ความเครียด", "ตื่นนอนในช่วงเวลาเช้ามืด"], correctAnswer: "ตื่นนอนในช่วงเวลาเช้ามืด" },
+            { question: "<b>ยาชนิดใดช่วยลดอาการใจสั่น หรือชีพจรเต้นเร็วได้ เมื่อเกิดอาการตื่นเวที</b>", options: ["Zolpidem", "Melatonin", "Antihistamines", "Beta blockers"], correctAnswer: "Beta blockers" },
+            { question: "<b>ข้อใดคือกลุ่มยา ที่ถือเป็น First line drug สำหรับการักษาโรคลมชัก</b>", options: ["4th generation drugs", "3rd generation drugs", "2nd generation drugs", "1st generation drugs"], correctAnswer: "1st generation drugs" },
+            { question: "<b>อาการชักต่อเนื่องกันมากกว่า 30 นาทีเรียกว่าอะไร</b>", options: ["Tonic-clonic seizure", "Continuous seizure", "Single seizure", "Status epilepticus"], correctAnswer: "Status epilepticus" },
+            { question: "<b>ข้อใดต่อไปนี้คือ สารเสพติดประเภท CNS stimulant</b>", options: ["LSD", "Alcohol", "Cannabis", "Amphetamine"], correctAnswer: "Amphetamine" },
+            { question: "<b>ข้อใดต่อไปนี้คือ สารเสพติดประเภท CNS depressant</b>", options: ["LSD", "Alcohol", "Cannabis", "Amphetamine"], correctAnswer: "Alcohol" },
+            { question: "<b>ข้อใดคือ Receptor ที่สำคัญที่สุดในการออกฤทธิ์ของยา Opioids</b>", options: ["δ receptors", "κ receptors", "β receptors", "μ receptors"], correctAnswer: "μ receptors" },
+            { question: "<b>ข้อใดต่อไปนี้คือ สาระสำคัญในกัญชาที่ทำให้เกิดอาการหลอน</b>", options: ["CBN", "CBC", "CBD", "THC"], correctAnswer: "THC" },
+
+            { question: "<b>เหตุผลที่ทำให้ยากลุ่ม opioids ลดอาการเจ็บปวด เนื่องจากยาไปเพิ่มการหลั่งสารสื่อประสาทชนิดใด</b>", options: ["Glutamate", "Serotonin", "GABA", "Dopamine"], correctAnswer: "Dopamine" },
+            { question: "<b>ยากลุ่ม opioids ชนิดใด ถูกจัดอยู่ในกลุ่มออกฤทธิ์เป็น full agonist</b>", options: ["Nalbuphine", "Naloxone", "Buprenprphine", "Morphine"], correctAnswer: "Morphine" },
+            { question: "<b>ยากลุ่ม opioids ชนิดใด ที่มักมีการนำไปใช้ในทางที่ผิด โดยมักนำมาเป็นยานอนหลับ</b>", options: ["Methadone", "Codeine", "Morphine", "Tramadol"], correctAnswer: "Tramadol" },
+            { question: "<b>ยาชาเฉพาะที่กลุ่มใดที่นิยมใช้มากที่สุด</b>", options: ["ยากลุ่ม Ester linked", "ยากลุ่ม Amide linked"], correctAnswer: "ยากลุ่ม Amide linked" },
+            { question: "<b>ข้อใดคือกลไกการออกฤทธิ์ของยาชาเฉพาะที่</b>", options: ["Chloride channel blocker", "Potassium channel blocker", "Calcium channel blocker", "Sodium channel blocker"], correctAnswer: "Sodium channel blocker" },
+            { question: "<b>ระยะสลบระยะใดที่เหมาะสมในการผ่าตัด</b>", options: ["Stage 1", "Stage 2", "Stage 4", "Stage 3"], correctAnswer: "Stage 3" },
+            { question: "<b>ข้อใดคือยาสลบชนิดฉีด ที่อยู่ในกลุ่ม Ultra-short acting</b>", options: ["Benzodiazepines", "Barbiturates"], correctAnswer: "Barbiturates" },
+            { question: "<b>ข้อใดคือ First line drug ในภาวะฉุกเฉิน กรณีผู้ป่วย Schizophrenia ก้สวร้าว ทำร้ายร่างกายผู้อื่น</b>", options: ["Olanzapine", "Chlorpromazine", "Fluphenazine", "Haloperidol"], correctAnswer: "Haloperidol" },
+            { question: "<b>ข้อใดคือการไม่พึงประสงค์ที่สำคัญของยากลุ่ม first generation</b>", options: ["Weight gain", "Hyperglycemia", "Hyperlipidemia", "Extrapyramidal syndrome (EPS)"], correctAnswer: "Extrapyramidal syndrome (EPS)" },
+
+            { question: "<b>ยารักษาเบาหวานชนิดใด ปัจจุบันถือเป็น First line drug ในผู้ป่วยเบาหวานชนิดที่ 2 ทุกราย</b>", options: ["Sulfonylurea", "DDP-4 inhibitors", "Thiazolidinedione (TZD)", "Metformin"], correctAnswer: "Metformin" },
+            { question: "<b>ยารักษาเบาหวานชนิดใด พบอาการข้างเคียง Hypoglycemia มากที่สุด</b>", options: ["Sulfonylurea", "DDP-4 inhibitors", "Thiazolidinedione (TZD)", "Metformin"], correctAnswer: "Sulfonylurea" },
+            { question: "<b>Insulin ชนิดใด ที่มักใช้ในกรณีฉุกเฉิน เช่น diabetic ketoacidosis</b>", options: ["Long acting insulin", "Intermediate acting insulin", "Rapid acting insulin", "Short acting insulin"], correctAnswer: "Short acting insulin" },
+            { question: "<b>Thyroid hormone ชนิดใด ที่ถือเป็น Drug of choice ในการให้ Thyroid hormone ทดแทน</b>", options: ["Natural thyroid hormone extract", "Liotrix", "Liothyronine", "Levothyroxine"], correctAnswer: "Levothyroxine" },
+            { question: "<b>ข้อใดคือกลุ่มอาการที่เกิดจากการที่ผู้ป่วยได้รับยากลุ่ม Steroids มากเกินไป</b>", options: ["Addison's disease", "Giantism", "Sheehan's syndrome", "Cushing's syndrome"], correctAnswer: "Cushing's syndrome" },
+
+            { question: "<b>คสรรับประทานยาเม็ดคุมกำเนิดช่วงวันใดของการมีประจำเดือน</b>", options: ["วันที่ 5 ของการมีประจำเดือนเท่านั้น", "วันที่ 2 ของการมีประจำเดือนเท่านั้น", "วันที่ 1 ของการมีประจำเดือนเท่านั้น", "วันที่ 1-5 ของการมีประจำเดือน"], correctAnswer: "วันที่ 1-5 ของการมีประจำเดือน" },
+            { question: "<b>การคุมกำเนิดแบบใดมีประสิทธิภาพตํ่าที่สุด</b>", options: ["ยาฝังคุมกำเนิด", "ยาฉีดคุมกำเนิด", "ยาเม็ดคุมกำเนิด", "ยาคุมฉุกเฉิน"], correctAnswer: "ยาคุมฉุกเฉิน" },
+            { question: "<b>ยาคุมกำเนิดฉุกเฉินชนิดใด ที่นิยมใช้มากที่สุด</b>", options: ["แบบ Progesterone อย่างเดียว", "แบบ Estrogen อย่างเดียว", "แบบฮอร์โมนรวม", "แบบ Estrogen ขนาดตํ่า"], correctAnswer: "แบบ Estrogen ขนาดตํ่า" },
+            { question: "<b>Pregnancy Risk Category ใด ที่ห้ามใช้ในหญิงตั้งครรภ์</b>", options: ["Category D", "Category C", "Category B", "Category A"], correctAnswer: "Category X" },
+            { question: "<b>ยาในกลุ่ม Tocolytics ชนิดใดจัดอยู่ในบัญชียาหลักแห่งชาติ</b>", options: ["Indomethacin", "Magnesium sulfate", "Ritodrine", "Turbutaline"], correctAnswer: "Turbutaline" },
+
+            { question: "<b>การใช้ยาในหญิงตั้งครรภ์ อาจก่อให้เกิดอันตรายต่อตัวอ่อน อายุครรภ์ช่วงใดอาจเกิดอันตรายมากและรุนแรงที่สุด</b>", options: ["ทุกช่วงอันตรายเท่ากัน", "ไตรมาสที่ 4", "ไตรมาสที่ 3", "ไตรมาสที่ 2", "2-8 สัปดาห์"], correctAnswer: "2-8 สัปดาห์" },
+            { question: "<b>ข้อใด <u>ไม่เกี่ยวข้อง</u> กับผลของยาต่อการพัฒนาของทารกในครรภ์</b>", options: ["ชนิดของยาที่ใช้", "ปริมาณยาที่ได้รับ", "ความสามารถในการผ่านรกของยา", "ช่วงเวลาที่ใช้ยาในระหว่างการตั้งครรภ์", "ทุกข้อเกี่ยวข้องกับผลของยาต่อทารกในครรภ์"], correctAnswer: "ทุกข้อเกี่ยวข้องกับผลของยาต่อทารกในครรภ์" },
+            { question: "<b>Pregnancy category ใด <u>ห้ามใช้</u>ในผู้หญิงตั้งครรภ์</b>", options: ["D", "C", "B", "A", "X"], correctAnswer: "X" },
+            { question: "<b>ยาบรรเทาปวดลดไข้ใด <u>ควรเลืกใช้</u>ในหญิงตั้งครรภ์</b>", options: ["celecoxib", "diclofenac", "ibuprofen", "aspirin", "paracetamol"], correctAnswer: "paracetamol" },
+            { question: "<b>ยาต้านฮีสตามีน ใดอาจทำให้มดลูกบีบตัวหากใช้ในขนาดสูง</b>", options: ["fexofenadine", "diphenhydramine", "cetirizine", "chlorpheniramine", "loratadine"], correctAnswer: "diphenhydramine" },
+            { question: "<b>ยาในข้อใด<u>ปลอดภัยมากที่สุด</u> ในการต้านอาเจียนในหญิงตั้งครรภ์</b>", options: ["cannabis", "diphenhydramine", "domperidone", "vitamin B1", "vitamin B6"], correctAnswer: "vitamin B6" },
+            { question: "<b>ยาต้านแบคทีเรียใด <u>ห้ามใช้</u>ในหญิงตั้งครรภ์</b>", options: ["cefdinir", "azithromycin", "cephalexin", "amoxicillin", "ciprofloxacin"], correctAnswer: "ciprofloxacin" },
+            { question: "<b>นาวิตามินใดควรหลีกเลี่ยงในหญิงตั้งครรภ์</b>", options: ["folic acid", "A", "B12", "B6", "C"], correctAnswer: "A" },
+            { question: "<b>การเลือกใช้ยาในหญิงให้นมบุตร ข้อใดเหมาะสมที่สุด</b>", options: ["เลือกใช้ยาขนาดสูง เพื่อลดจำนวนครั้งการใช้ยา", "สามารถให้ลูกดูดนม 1 ชั่วโมงหลังรับประทานยา", "เลือกใช้ยาสูตรผสมเพื่อให้หายเร็วขึ้น", "เลือกใช้ยาฉีดเป็นอันดับแรก", "เลือกรูปแบบยาเฉพาะที่ หรือยาใช้ภายนอก"], correctAnswer: "เลือกรูปแบบยาเฉพาะที่ หรือยาใช้ภายนอก" },
+            { question: "<b>ยาบรรเทาอาการท้องผูกใด ควรเลือกใช้ในหญิงจั้งครรภ์</b>", options: ["Mineral oil", "Activated charcoal", "Senna", "Bisacodyl", "Lactulose"], correctAnswer: "Lactulose" }
+        ];
+    </script>
+
+    <!--<script src="./core/login.js"></script> -->    
+    <script src="./core/script.js"></script>
+
+
+</body>
+
+</html>
