@@ -4,9 +4,9 @@ const questions = [
         id: 1,
         category: "emc",
         number: "3",
-        question: "Crash Airway Algorithm เกี่ยวข้องกับอะไร?",
-        answer: "ขั้นตอนจัดการ airway ในภาวะ crash/ cardiac arrest",
-        explanation: "ใช้ในภาวะฉุกเฉินที่ต้องเปิด airway อย่างเร็ว",
+        question: "Crash Airway Algorithm เกี่ยวข้องกับ airway management ในภาวะอะไร?",
+        answer: "Crash Airway Algorithm",
+        explanation: "ใช้ในภาวะ crash / cardiac arrest ต้องเปิด airway อย่างเร็ว",
         options: [
             "A. Oral then Nasal",
             "B. Awake then Asleep",
@@ -19,8 +19,8 @@ const questions = [
         category: "emc",
         number: "4",
         question: "Ramped Position ใช้ในกรณีใด?",
-        answer: "ผู้ป่วยอ้วน / difficult airway / aspiration risk",
-        explanation: "ปรับให้หูระดับกับ sternal notch เพื่อ intubation ง่ายขึ้น",
+        answer: "Ramped Position",
+        explanation: "ผู้ป่วยอ้วน / difficult airway / aspiration risk — หูระดับกับ sternal notch",
         options: [
             "A. Trendelenburg",
             "B. Ramped Position",
@@ -47,7 +47,7 @@ const questions = [
         category: "emc",
         number: "16",
         question: "INITIAL → FIRST → DETAILED → REFINE THE DIFFERENTIAL DIAGNOSIS → ONGOING (I F D R O) เกี่ยวข้องกับอะไร?",
-        answer: "Clinical Reasoning / Diagnostic Process",
+        answer: "Clinical Reasoning Process (I F D R O)",
         explanation: "กระบวนการวินิจฉัย differential อย่างเป็นระบบ",
         options: [
             "A. Primary Survey",
@@ -123,7 +123,7 @@ const questions = [
         options: [
             "A. ดูแลต่อ",
             "B. ส่งต่อ รพ ใกล้",
-            "C. стволаเอง",
+            "C. ствolaเอง",
             "D. รอญาติ",
             "E. ส่งต่อ รพ จี้"
         ]
@@ -207,7 +207,7 @@ const questions = [
         category: "etc",
         number: "14",
         question: "SCBA ถึงอุโมงค์ — ผู้ป่วยหายใจตื้น ควรทำอันดับแรก?",
-        answer: "Assess airway + give O2",
+        answer: "Assess airway give O2",
         explanation: "ก่อนอื่น assess airway และให้ O2",
         options: [
             "A. Evacuate immediately",
