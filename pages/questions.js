@@ -4,9 +4,9 @@ const questions = [
         id: 1,
         category: "emc",
         number: "3",
-        question: "Crash Airway Algorithm คืออะไร?",
-        answer: "ขั้นตอนจัดการทางเดินหายใจในภาวะ crash/ arrest",
-        explanation: "ใช้ในภาวะฉุกเฉินที่ควรรู้ sequence การเปิดทางหายใจ",
+        question: "Crash Airway Algorithm เกี่ยวข้องกับอะไร?",
+        answer: "ขั้นตอนจัดการ airway ในภาวะ crash/ cardiac arrest",
+        explanation: "ใช้ในภาวะฉุกเฉินที่ต้องเปิด airway อย่างเร็ว",
         options: [
             "A. Oral then Nasal",
             "B. Awake then Asleep",
@@ -19,8 +19,8 @@ const questions = [
         category: "emc",
         number: "4",
         question: "Ramped Position ใช้ในกรณีใด?",
-        answer: " patient obese / difficult airway / aspiration risk",
-        explanation: " ear to sternal notch alignment เพื่อ intubation ง่ายขึ้น",
+        answer: "ผู้ป่วยอ้วน / difficult airway / aspiration risk",
+        explanation: "ปรับให้หูระดับกับ sternal notch เพื่อ intubation ง่ายขึ้น",
         options: [
             "A. Trendelenburg",
             "B. Ramped Position",
@@ -32,9 +32,9 @@ const questions = [
         id: 3,
         category: "emc",
         number: "6",
-        question: "ข้อใดไม่สามารถแพร่กระจายผ่านด็อตเลท?",
+        question: "ข้อใดไม่สามารถแพร่กระจายผ่านด็อตเลท (droplet)?",
         answer: "Hepatitis (ไขerditis)",
-        explanation: "Hepatitis เป็นเชื้อไวรัสที่แพร่ผ่านทางเลือด/น้ำลาย ไม่ใช่ลม",
+        explanation: "Hepatitis เป็นเชื้อไวรัสที่แพร่ผ่านทางเลือด/น้ำลาย ไม่ใช่ละออง分 drops",
         options: [
             "A. Influenza",
             "B. COVID-19",
@@ -46,7 +46,7 @@ const questions = [
         id: 4,
         category: "emc",
         number: "16",
-        question: "INITIAL → FIRST → DETAILED → REFINE THE DIFFERENTIAL DIAGNOSIS → ONGOING (I F D R O) คือขั้นตอนอะไร?",
+        question: "INITIAL → FIRST → DETAILED → REFINE THE DIFFERENTIAL DIAGNOSIS → ONGOING (I F D R O) เกี่ยวข้องกับอะไร?",
         answer: "Clinical Reasoning / Diagnostic Process",
         explanation: "กระบวนการวินิจฉัย differential อย่างเป็นระบบ",
         options: [
@@ -60,9 +60,9 @@ const questions = [
         id: 5,
         category: "emc",
         number: "26",
-        question: "ชาย 35 ปี อาการอะไร? (เลือกข้อที่ถูก)",
-        answer: "E (ตาม context ของข้อ 26 — ชาย 35 ปี)",
-        explanation: "ต้องดู case detail เพิ่มเติม แต่คำตอบคือ E",
+        question: "ชาย 35 ปี — ข้อใดถูก?",
+        answer: "E",
+        explanation: "ตาม context ของข้อ 26 — ชาย 35 ปี คำตอบคือ E",
         options: [
             "A. A",
             "B. B",
@@ -75,8 +75,8 @@ const questions = [
         id: 6,
         category: "emc",
         number: "28",
-        question: "ข้อ 28 ควรให้อะไร?",
-        answer: "ASA (Aspirin / มาตรฐานการปฐมพยาบาล)",
+        question: "ข้อ 28 — ควรให้อะไร?",
+        answer: "ASA (Aspirin)",
         explanation: "ในกรณี chest pain / suspected ACS ให้ ASA ทันที",
         options: [
             "A. Oxygen",
@@ -89,7 +89,7 @@ const questions = [
         id: 7,
         category: "emc",
         number: "30",
-        question: "SpO2 < 94% ต้องทำอะไร?",
+        question: "SpO2 < 94% ต้องทำอย่างไร?",
         answer: "ให้ O2 / ตรวจสอบ airway",
         explanation: "SpO2 ต่ำกว่าปกติ ต้องให้ O2 และตรวจสอบการหายใจ",
         options: [
@@ -103,11 +103,11 @@ const questions = [
         id: 8,
         category: "emc",
         number: "38",
-        question: "Permissive Hypertension คืออะไร?",
+        question: "Permissive Hypertension เกี่ยวข้องกับอะไร?",
         answer: " deliberately allows elevated BP to maintain perfusion",
         explanation: "ใน stroke/trauma บางกรณี ไม่อยู่ให้ BP ต่ำมาก เพื่อให้เลือด courantric",
         options: [
-            "A. aggressively lower BP",
+            "A. Aggressively lower BP",
             "B. Maintain normal BP",
             "C. Allow mild HTN for perfusion",
             "D. Give fluids only"
@@ -117,7 +117,7 @@ const questions = [
         id: 9,
         category: "emc",
         number: "41",
-        question: "ข้อ 41 ส่งต่อ รพ จี้ ต้องทำอย่างไร?",
+        question: "ข้อ 41 — ส่งต่อ รพ จี้ ต้องทำอย่างไร?",
         answer: "E (ส่งต่อ รพ จี้)",
         explanation: "กรณีที่ต้องส่งต่อ รพ จี้ per protocol",
         options: [
@@ -135,7 +135,7 @@ const questions = [
         category: "disaster",
         number: "3",
         question: "ข้อใดถูกต้องเกี่ยวกับ disaster?",
-        answer: "D. สามารถบรรเทาได้ ( mitigable )",
+        answer: "D. สามารถบรรเทาได้ (mitigable)",
         explanation: "Mitigation เป็น phase ที่สามารถบรรเทาผลกระทบได้",
         options: [
             "A. ไม่สามารถป้องกัน",
@@ -192,7 +192,7 @@ const questions = [
         number: "54",
         question: "ข้อใดถูกต้องตาม OHCA?",
         answer: "High quality CPR",
-        explanation: "OHCA protocol คยอดคือ high quality CPR",
+        explanation: "OHCA protocol คอยอดคือ high quality CPR",
         options: [
             "A. Defibrillate immediately",
             "B. High quality CPR",
@@ -206,7 +206,7 @@ const questions = [
         id: 15,
         category: "etc",
         number: "14",
-        question: "SCBA ถึงอุโมงค์ ผู้ป่วยหายใจตื้น ควรทำอันดับแรก?",
+        question: "SCBA ถึงอุโมงค์ — ผู้ป่วยหายใจตื้น ควรทำอันดับแรก?",
         answer: "Assess airway + give O2",
         explanation: "ก่อนอื่น assess airway และให้ O2",
         options: [
@@ -221,7 +221,7 @@ const questions = [
         category: "etc",
         number: "15",
         question: "Pt. ติดในถ้ำมืดแคบ หลังเคลื่อนย้ายออกมา: หนาวสั่น ซีด ตัวเย็น ควรทำอย่างไรเป็นอันดับแรก?",
-        answer: "Warm pt / prevent hypothermia",
+        answer: "Warm the patient",
         explanation: "Hypothermia in cave rescue เป็นอันตราย ต้อง warmth ก่อน",
         options: [
             "A. Give fluids",
@@ -250,7 +250,7 @@ const questions = [
         number: "32",
         question: "จักยานยนต์ ล้ม: cool clammy skin, BP 92/60, PR 128, RR 22 — เป็นภาวะช็อคแบบใด?",
         answer: "Hemorrhagic Shock (Hypovolemic Shock)",
-        explanation: " cooled clammy skin + hypotension + tachycardia = hypovolemic shock",
+        explanation: "Cool clammy skin + hypotension + tachycardia = hypovolemic shock",
         options: [
             "A. Cardiogenic Shock",
             "B. Neurogenic Shock",

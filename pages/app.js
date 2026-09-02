@@ -36,7 +36,9 @@ function renderQuestion() {
     let html = `
         <div class="question-card">
             <span class="category-badge ${question.category}">${categoryLabels[question.category] || question.category}</span>
-            <div class="question-number">ข้อ ${question.number} / ${filteredQuestions.length}</div>
+            <div class="question-header">
+                <div class="question-number">ข้อ ${question.number}</div>
+            </div>
             <div class="question-text">${question.question}</div>
     `;
 

@@ -122,9 +122,9 @@ header h1 {
 
 .category-badge {
     display: inline-block;
-    padding: 5px 15px;
+    padding: 6px 18px;
     border-radius: 20px;
-    font-size: 0.85em;
+    font-size: 0.95em;
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -144,17 +144,31 @@ header h1 {
     color: #065f46;
 }
 
+.question-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
 .question-number {
-    color: #666;
-    font-size: 0.9em;
-    margin-bottom: 10px;
+    font-size: 1.6em;
+    font-weight: 800;
+    color: #111827;
+    background: #f3f4f6;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 2px solid #e5e7eb;
+    letter-spacing: 0.02em;
 }
 
 .question-text {
     font-size: 1.2em;
-    color: #333;
+    color: #1f2937;
     margin-bottom: 20px;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 500;
 }
 
 .answer-section {
