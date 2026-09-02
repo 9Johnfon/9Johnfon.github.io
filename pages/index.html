@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMC/Disaster/ETC Quiz Review</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Quiz Review</h1>
+            <p class="subtitle">EMC / Disaster / ETC — เตรียมสอบแก้</p>
+        </header>
+
+        <div class="controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="emc">EMC</button>
+                <button class="filter-btn" data-filter="disaster">Disaster</button>
+                <button class="filter-btn" data-filter="etc">ETC</button>
+            </div>
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="study">📖  STUDY</button>
+                <button class="mode-btn" data-mode="quiz">✏️  QUIZ</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <span id="question-count">0 ข้อ</span>
+            <span id="score-display" class="hidden">คะแนน: 0/0</span>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="nav-buttons">
+            <button id="prev-btn" disabled>◀ ก่อนหน้า</button>
+            <button id="next-btn" disabled>ถัดไป ▶</button>
+            <button id="check-btn" class="hidden">ตรวจสอบ</button>
+        </div>
+
+        <div id="result-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>ผลลัพธ์</h2>
+                <p id="result-text"></p>
+                <button id="close-modal">ปิด</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
