@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>EMC</title>
+</head>
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">Dev ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40" height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button" style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;" onclick="goBack()">Back</button>
+ </div>
+
+ <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./index2.html" style="color: #4CAF50;">EMC</a></li>
+            <li><a href="./index3.html">Disaster</a></li>
+            <li><a href="./index4.html">ETC</a></li>
+        </ul>
+    </div> 
+
+<!-- ... (HTML และ CSS เดิม) ... -->
+<script>
+    const questions = [
+    { question: "<b><h1>3</h1></b>", options: ["Crash Airway Algorithm", "Primary Survey Algorithm", "Difficult Airway Algorithm", "Rapid Sequence Intubation Algorithm", "Basic Airway Algorithm"], correctAnswer: "Crash Airway Algorithm" },
+
+    { question: "<b><h1>4</h1></b>", options: ["Supine Position", "Trendelenburg Position", "Sniffing Position", "Recovery Position", "Ramped Position"], correctAnswer: "Ramped Position" },
+
+    { question: "<b><h1>6</h1></b>", options: ["Influenza", "Meningococcal meningitis", "Pertussis", "COVID-19", "Hepatitis"], correctAnswer: "Hepatitis" },
+
+    { question: "<b><h1>16</h1></b>", options: ["Primary – Secondary – Tertiary – Ongoing", "First – Initial – Detailed – Ongoing", "Initial – Detailed – First – Refine – Ongoing", "First – Detailed – Initial – Ongoing – Differential", "Initial – First – Detailed – Refine the Differential Diagnosis – Ongoing (IFDRO)"], correctAnswer: "Initial – First – Detailed – Refine the Differential Diagnosis – Ongoing (IFDRO)" },
+
+    { question: "<b><h1>26</h1></b>", options: ["D หญิง 25 ปี", "C ชาย 20 ปี", "B หญิง 30 ปี", "A ชาย 50 ปี", "E ชาย 35 ปี"], correctAnswer: "E ชาย 35 ปี" },
+
+    { question: "<b><h1>28</h1></b>", options: ["ให้ Nitroglycerin", "ให้ Morphine", "ให้ Clopidogrel", "ทำ EKG", "ให้ ASA"], correctAnswer: "ให้ ASA" },
+
+    { question: "<b><h1>30</h1></b>", options: ["SpO2 < 85%", "SpO2 < 88%", "SpO2 < 90%", "SpO2 < 92%", "SpO2 < 94%"], correctAnswer: "SpO2 < 94%" },
+
+    { question: "<b><h1>38</h1></b>", options: ["Controlled Hypotension", "Absolute Hypertension", "Normotensive Resuscitation", "Aggressive Fluid Resuscitation", "Permissive Hypertension"], correctAnswer: "Permissive Hypertension" },
+
+    { question: "<b><h1>41</h1></b>", options: ["D ให้ผู้ป่วยกลับบ้านและติดตามอาการ", "C ให้ยารับประทานและสังเกตอาการ", "B รอดูอาการที่จุดเกิดเหตุ", "A นัดตรวจติดตามในวันถัดไป", "E ส่งต่อ รพ จี้"], correctAnswer: "E ส่งต่อ รพ จี้" },
+    ];
+</script>
+
+<script src="./core/script.js"></script>
+
+
+</body>
+</html>

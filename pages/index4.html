@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>EMC</title>
+</head>
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">Dev ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40" height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button" style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;" onclick="goBack()">Back</button>
+ </div>
+
+ <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./index2.html">EMC</a></li>
+            <li><a href="./index3.html">Disaster</a></li>
+            <li><a href="./index4.html" style="color: #4CAF50;">ETC</a></li>
+        </ul>
+    </div> 
+
+<!-- ... (HTML และ CSS เดิม) ... -->
+<script>
+    const questions = [
+     { question: "<b>14) ควรทำอันดับแรกเมื่อ SCBA ถึงอุโมงค์ Pt. หายใจตื้น</b>", options: ["Assess airway and give O2", "ตรวจวัดความดันโลหิต", "ทำ Secondary Survey", "เคลื่อนย้ายผู้ป่วยออกจากอุโมงค์ทันที", "ให้สารน้ำทางหลอดเลือดดำ"], correctAnswer: "Assess airway and give O2" },
+
+    { question: "<b>15) ออกรับ Pt. ติดในถ้ำมืดแคบ หลังเคลื่อนย้ายออกมา Pt. หนาวสั่น ซีด ตัวเย็น ควรทำอย่างไรเป็นอันดับแรก</b>", options: ["ให้ดื่มน้ำอุ่นทันที", "ถอดเสื้อผ้าที่เปียกออก เช็ดตัวให้แห้ง และห่มผ้า", "ให้ Oxygen อย่างเดียว", "รีบนวดแขนขาเพื่อเพิ่มการไหลเวียน", "ให้ผู้ป่วยออกกำลังกายเพื่อเพิ่มความอบอุ่น"], correctAnswer: "ถอดเสื้อผ้าที่เปียกออก เช็ดตัวให้แห้ง และห่มผ้า" },
+
+    { question: "<b>24) แนวแรงข้อใดทำให้เกิดการบาดเจ็บรุนแรง</b>", options: ["Frontal Impact", "Rear Impact", "Side Impact", "Rollover", "Low-speed Impact"], correctAnswer: "Rollover" },
+
+    { question: "<b>32) จักรยานยนต์ล้ม ตรวจร่างกายพบ Cool Clammy Skin, BP 92/60, PR 128, RR 22 ผู้ป่วยรายนี้น่าจะเป็นภาวะช็อคแบบใด</b>", options: ["Cardiogenic Shock", "Neurogenic Shock", "Septic Shock", "Anaphylactic Shock", "Hemorrhagic Shock (Hypovolemic Shock)"], correctAnswer: "Hemorrhagic Shock (Hypovolemic Shock)" },
+
+    { question: "<b>41) แนวแรงที่ทำให้เกิดการบาดเจ็บของ Pelvis</b>", options: ["A Anterior-Posterior Compression", "B Lateral Compression", "C Vertical Shear", "D Rotation", "E Axial Loading"], correctAnswer: "B Lateral Compression" },
+    ];
+</script>
+
+<script src="./core/script.js"></script>
+
+
+</body>
+</html>

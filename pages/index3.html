@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./core/style.css">
+    <title>EMC</title>
+</head>
+<body>
+    <h4 style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px;">Dev ByTanaTherd</h4>
+    <h4 style="font-family: 'Prompt';position: absolute; bottom: 0; left: 0; margin: 10px;"><a href="https://tipme.in.th/hyorick" target="_blank"><img src='./images/coffee.PNG' width="40" height="40"></a></h4>
+    <div id="question-container" class="switch-container">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="toggleBackground()">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div style="font-family: 'Prompt'; position: absolute; bottom: 0; right: 0; margin: 10px; color: rgb(0, 0, 0);">
+            <span id="current-question-number">0</span> / <span id="total-questions">0</span>
+        </div>
+
+        <p id="question-title">TEST</p>
+        <div id="options-container" class="options-container"></div>
+        <div id="result" class="result"></div>
+        <button id="back-button" style="font-family: 'Prompt'; position: absolute; bottom: 0; left: 10px; margin: 10px; display: none; font-size: 17.25px;" onclick="goBack()">Back</button>
+ </div>
+
+ <div class="nav-menu">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./index2.html">EMC</a></li>
+            <li><a href="./index3.html">Disaster</a></li>
+            <li><a href="./index4.html" style="color: #4CAF50;">ETC</a></li>
+        </ul>
+    </div> 
+
+<!-- ... (HTML และ CSS เดิม) ... -->
+<script>
+    const questions = [
+    { question: "<b>3) ข้อใดถุกต้อง disaster</b>", options: ["A ไม่สามารถป้องกันได้", "B เกิดขึ้นโดยไม่มีการเตือนเสมอ", "C ต้องเกิดจากภัยธรรมชาติเท่านั้น", "D สามารถบรรเทาได้", "ไม่สามารถควบคุมผลกระทบได้"], correctAnswer: "D สามารถบรรเทาได้" },
+
+    { question: "<b>14) ถูกต้องตาม scene design ของ MMIMS ใน MCI</b>", options: ["Triage in Outer Cordon", "Triage in Inner Cordon", "Treatment in Outer Cordon", "Transport in Inner Cordon", "Command in Inner Cordon"], correctAnswer: "Triage in Inner Cordon" },
+
+    { question: "<b>16) รักษาตามหลักการMIMMS</b>", options: ["A สีแดงนำส่งก่อน", "B สีเหลืองนำส่งก่อน", "C สีเขียวนำส่งก่อน", "D สีดำต้องรักษาก่อน", "E นำส่งตามลำดับที่มาถึง"], correctAnswer: "A สีแดงนำส่งก่อน" },
+
+    { question: "<b><h1>24) ข้อใดถูกต้องเกี่ยวกับ Triage Sort</h1></b>", options: ["GCS, HR, SpO2", "GCS, SBP, RR", "SBP, HR, SpO2", "RR, HR, Temperature", "GCS, Temperature, HR"], correctAnswer: "GCS, SBP, RR" },
+
+    { question: "<b><h1>54) ถูกต้องตาม OHCA</h1></b>", options: ["การหยุด CPR เมื่อไม่มีชีพจรทันที", "High Quality CPR", "ให้ผู้ป่วยนอนราบโดยไม่ทำ CPR", "ตรวจชีพจรทุก 10 วินาที", "ให้ Oxygen อย่างเดียวก่อนทำ CPR"], correctAnswer: "High Quality CPR" },
+    ];
+</script>
+
+<script src="./core/script.js"></script>
+
+
+</body>
+</html>
