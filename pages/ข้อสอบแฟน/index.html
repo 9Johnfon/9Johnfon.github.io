@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ข้อสอบแฟน — สรุปเนื้อหา & ข้อสอบพยาบาล</title>
+<meta name="description" content="สรุปเนื้อหาเตรียมสอบพยาบาล 5 บท + ข้อสอบออนไลน์พร้อมเฉลยอธิบาย">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="badge">🩺</span> ข้อสอบแฟน</a>
+    <nav class="nav">
+      <a href="index.html" class="active">หน้าแรก</a>
+      <a href="summary.html">📖 อ่านสรุป</a>
+      <a href="exam.html">✍️ ทำข้อสอบ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <h1>อ่านสรุปให้เข้าใจ<br><span class="grad">แล้ววัดผลด้วยข้อสอบจริง</span></h1>
+  <p>สรุปเนื้อหา 5 บทจากเอกสารบรรยายพยาบาล ย่อยเป็น bullet อ่านง่าย มีเคล็ดลับจำ + ข้อสอบ choice พร้อมเฉลยอธิบายทุกข้อ</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="summary.html">📖 เริ่มอ่านสรุป</a>
+    <a class="btn btn-ghost" href="exam.html?all=1">✍️ ทำข้อสอบรวมทุกบท</a>
+  </div>
+</section>
+
+<section class="section wrap">
+  <h2>📚 บทเรียนทั้งหมด</h2>
+  <p class="sub">เลือกอ่านอย่างเดียว หรืออ่านเสร็จแล้วไปทำข้อสอบวัดผลได้ทันที</p>
+  <div class="grid" id="book-grid"><!-- ใส่จาก data.js --></div>
+</section>
+
+<section class="section wrap">
+  <h2>🎯 วิธีใช้ให้ได้ผล</h2>
+  <div class="grid">
+    <div class="card"><span class="tag">ขั้นที่ 1</span><h3>อ่านสรุปทั้งบท</h3><p>อ่าน bullet สั้น ๆ เน้นหัวข้อหลัก + ตารางเปรียบเทียบ แล้วปิดท้ายด้วย "เคล็ดลับจำ"</p></div>
+    <div class="card"><span class="tag">ขั้นที่ 2</span><h3>ทำข้อสอบทันที</h3><p>ทำทันทีหลังอ่านเพื่อทดสอบความจำระยะสั้น เลือกโหมด "เฉลยทันที" เพื่อเห็นเหตุผลทุกข้อ</p></div>
+    <div class="card"><span class="tag">ขั้นที่ 3</span><h3>ทบทวนเฉพาะข้อที่พลาด</h3><p>ดูสรุปผลหลังทำ ข้อที่ผิดจะสรุปให้ตอนท้าย กลับไปอ่านหัวข้อนั้นแล้วทำใหม่จนเหลือ 0 ข้อผิด</p></div>
+  </div>
+</section>
+
+<footer>🩺 ข้อสอบแฟน — เตรียมสอบพยาบาล | สรุปจากเอกสารบรรยายจริง 5 ฉบับ</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('book-grid');
+  grid.innerHTML = BOOKS.map((b, i) => `
+    <div class="card">
+      <span class="tag">บทที่ ${b.no}</span>
+      <h3>${b.title}</h3>
+      <p>${b.desc || ''}</p>
+      <div class="stats">
+        <span>📝 <b>${b.questions.length}</b> ข้อสอบ</span>
+        <span>📖 <b>${countSections(b.summary)}</b> หัวข้อ</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-ghost" href="summary.html?r=${b.id}">อ่านสรุป</a>
+        <a class="btn btn-primary" href="exam.html?r=${b.id}">ทำข้อสอบ</a>
+      </div>
+    </div>`).join('');
+});
+</script>
+</body>
+</html>

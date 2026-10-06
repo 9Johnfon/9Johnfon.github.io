@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>อ่านสรุปเนื้อหา — ข้อสอบแฟน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="badge">🩺</span> ข้อสอบแฟน</a>
+    <nav class="nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="summary.html" class="active">📖 อ่านสรุป</a>
+      <a href="exam.html">✍️ ทำข้อสอบ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <aside class="side" id="side">
+    <h4>เลือกบท</h4>
+    <!-- ใส่จาก data.js -->
+  </aside>
+
+  <main class="content">
+    <div class="progress-read"><i id="readbar" style="width:0%"></i></div>
+    <article class="md" id="summary-body">
+      <p style="color:#5a6478">กำลังโหลด...</p>
+    </article>
+    <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap" id="summary-actions"></div>
+  </main>
+</div>
+
+<footer>🩺 ข้อสอบแฟน — สรุปเนื้อหาสำหรับอ่านสอบ</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => initSummary());
+</script>
+</body>
+</html>
