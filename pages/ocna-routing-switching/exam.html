@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ทำข้อสอบ — OCNA Routing & Switching (40 ข้อ / 60 นาที)</title>
+<meta name="description" content="ข้อสอบจำลอง OCNA Routing & Switching 40 ข้อ 60 นาที เกณฑ์ผ่าน 65% พร้อมเฉลยอธิบายอังกฤษ-ไทย">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="badge">🌐</span> OCNA R&amp;S</a>
+    <nav class="nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="summary.html">📖 อ่านสรุป</a>
+      <a href="exam.html" class="active">✍️ ทำข้อสอบ</a>
+      <button class="lang-btn">🇹🇭 คำแปล</button>
+    </nav>
+  </div>
+</header>
+
+<!-- START SCREEN -->
+<section class="section wrap" id="start-screen">
+  <div class="q-card start-screen">
+    <h2>✍️ ข้อสอบจำลอง OCNA — Routing &amp; Switching</h2>
+    <p style="color:var(--mut);margin-top:10px">เงื่อนไขเหมือนข้อสอบจริง: <b>40 ข้อ · 60 นาที · เกณฑ์ผ่าน 65% · ภาษาอังกฤษ</b><br>
+      เมื่อเริ่มแล้ว <b>ย้อนกลับข้อก่อนหน้าไม่ได้</b> (เหมือนข้อสอบจริง) และเวลารันต่อเนื่องจนครบกำหนด</p>
+    <div class="mode-row">
+      <label class="switch"><input type="checkbox" id="instant-chk" checked> ⚡ เฉลยทันทีระหว่างทำ</label>
+      <button class="lang-btn">🇹🇭 คำแปล</button>
+    </div>
+    <div class="note" style="text-align:left">📖 แนะนำให้อ่านสรุปก่อนทำ — <a href="summary.html" style="color:#9ec1ff;font-weight:700">เปิดหน้าสรุปเนื้อหา 8 บท →</a></div>
+    <div class="mode-row">
+      <button class="btn btn-primary" id="start-btn">🚀 เริ่มทำข้อสอบ</button>
+      <a class="btn btn-ghost" href="index.html">หน้าแรก</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXAM SCREEN -->
+<section class="section wrap" id="exam-screen" style="display:none">
+  <div class="exam-top">
+    <span class="pill" id="q-pos">ข้อ 1 / 40</span>
+    <span id="q-topic"></span>
+    <span class="pill time" id="timer">⏱ 60:00</span>
+  </div>
+  <div class="progress"><i id="progress-bar" style="width:0%"></i></div>
+
+  <div class="q-card">
+    <div class="q-meta"><span>เลือกคำตอบที่ถูกที่สุด 1 ข้อ</span><span> answering cannot be changed after moving on</span></div>
+    <div class="q-text" id="q-text"></div>
+    <div class="q-text-th" id="q-text-th"></div>
+    <div class="opts" id="opts"></div>
+    <div class="explain" id="explain"></div>
+    <div class="q-nav">
+      <button class="btn btn-ghost" onclick="if(confirm('ออกจากข้อสอบ? คำตอบจะไม่ถูกบันทึก')) location.reload()">✖ ออกจากข้อสอบ</button>
+      <button class="btn btn-primary" id="next-btn" disabled>ข้อต่อไป →</button>
+    </div>
+    <div class="q-dots" id="q-dots"></div>
+  </div>
+</section>
+
+<!-- RESULT SCREEN -->
+<section class="section wrap" id="result-screen" style="display:none"></section>
+
+<footer>🌐 OCNA Routing &amp; Switching — ข้อสอบจาก TP-Link OCNA R&amp;S Training Slides v1.1.0</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/questions.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/exam.js"></script>
+</body>
+</html>
