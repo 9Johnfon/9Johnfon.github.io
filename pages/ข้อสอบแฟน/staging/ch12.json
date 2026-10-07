@@ -1,0 +1,176 @@
+{
+ "id": "ch12",
+ "no": "12",
+ "icon": "🧬",
+ "title": "ยาต้านมะเร็ง (Anti-Cancer Drugs)",
+ "desc": "พื้นฐานมะเร็ง การจัดระยะ TNM ยาเคมีบำบัดแบ่งตามวงจรเซลล์ และการจัดการภาวะแทรกซ้อน",
+ "source": "บท12.pdf",
+ "summary": "## การแนะนำมะเร็ง (Introduction of Cancer)\n- **มะเร็ง (Cancer)**: กลุ่มโรคจากความเสียหายทางพันธุกรรม ทำให้เซลล์แบ่งตัวผิดปกติและโตเร็วจนควบคุมไม่ได้\n- **Benign (เนื้องอกไม่ร้าย)**: โตช้า อยู่เป็นกลุ่ม/มีขอบเขต ไม่ลุกลาม ไม่แพร่กระจาย; **Malignant (มะเร็ง)**: โตเร็ว ลุกลามเนื้อเยื่อข้างเคียง และแพร่กระจาย (metastasis) ผ่านเลือด/น้ำเหลือง\n- **สาเหตุ**: สารชีวภาพ, การกลายพันธุ์ทางพันธุกรรม, สารก่อมะเร็ง, การอักเสบ\n- **Hallmarks of Cancer 14 ข้อ** เช่น Sustaining proliferative signaling, Resisting cell death, Inducing angiogenesis, Activating invasion & metastasis, Avoiding immune destruction, Genome instability, Tumor heterogeneity\n- **ชนิด**: Hematologic (มะเร็งเลือด เช่น leukemia, lymphoma) กับ Solid (เช่น breast, lung)\n\n## การจัดระยะมะเร็ง (Staging)\n- **ระบบ TNM**: T = ขนาดเนื้องอก/การลุกลามเฉพาะที่, N = การแพร่กระจายต่อมน้ำเหลือง, M = การแพร่กระจายไกล; เพิ่ม ER, PR, HER2, Grade\n- มะเร็งเต้านม: Stage 0–1 อัตรารอด ~100% ลดลงตามระยะจน Stage 4 ~20%\n- **เป้าหมายการรักษา 3 อย่าง**: Cure (หายขาด), Extend life (ยืดอายุ), Palliation (ประคับประคอง)\n\n## หลักการรักษามะเร็ง\n- วิวัฒนาการ: ผ่าตัด (3000 BC–1890) → รังสี (1900) → เคมีบำบัด (1940) → มุ่งเป้า Targeted (1980, TKI/mAb) → Checkpoint/ภูมิคุ้มกัน (2010)\n- 5 วิธี: Surgery, Radiation, Chemotherapy, Targeted therapy, Immunotherapy — **การรักษาแบบผสม (combination) ให้ผลรอดชีวิตดีที่สุด**\n- เคมีบำบัดแบบผสม: ลดผลข้างเคียง เพิ่มประสิทธิภาพ ลดการดื้อยา; ยาทำลายเซลล์ที่แบ่งตัวเร็ว (ผม เยื่อบุปาก ไขกระดูก) → ต้องตรวจ **CBC ก่อนให้ยา** และรายงานแพทย์ถ้าค่าต่ำ\n\n## ยาต้านมะเร็ง (แบ่งตามวงจรเซลล์)\n- **Cell cycle**: G0 → G1 → S → G2 → M (Cytokinesis)\n- **Cycle specific – phase non specific**: Alkylating agents (ทำทุกเฟส)\n- **Cycle & phase specific**: G0–G1 (L-asparaginase, ฮอร์โมน), S (Antimetabolites, Topo I inhibitors, Hydroxyurea), G2 (Topo II inhibitors, Plant alkaloids), M (Plant alkaloids)\n- **Cycle nonspecific – phase nonspecific**: Antitumor antibiotics\n- **Alkylating agents**: ใส่ alkyl หมู่ที่ตำแหน่ง N7 ของ guanine → DNA cross-link/miscoding → เซลล์มะเร็งตาย; กลุ่มย่อย: 1) Nitrogen mustard (Cyclophosphamide, Ifosfamide), 2) Nitrosoureas (Lomustine, Carmustine – ข้าม BBB ได้), 3) Platinum (Cisplatin, Carboplatin, Oxaliplatin)\n- **Antimetabolites** (ออกฤทธิ์ระยะ S): เลียนแบบ folate/pyrimidine/purine ขวางการสร้าง DNA/RNA\n  - **Methotrexate** (antifolate) ยับยั้ง DHFR, ขับทางปัสสาวะ ระวังพิษไต, ยาแก้พิษ = folic acid/leucovorin\n  - **5-FU, Capecitabine, Tegafur** (pyrimidine) ยับยั้ง thymidylate synthase → hand-foot syndrome, ปากอักเสบ, neuro/cardiotoxicity\n  - **6-MP, 6-TG** (purine) เป็น prodrug ถูก HGPRT กระตุ้น → กดไขกระดูก, พิษตับ\n- **Topoisomerase inhibitors** (ระยะ S): Topo I (ตัดสายเดียว) → Camptothecins (Topotecan, Irinotecan); Topo II (ตัดสองสาย) → Podophyllotoxins (Etoposide, Teniposide)\n- **Cytotoxic antibiotics**: intercalation → free radical → DNA แตก (mitomycin ทำ cross-link แบบ alkylating); กลุ่ม Anthracyclines (Doxorubicin, Daunorubicin, Epirubicin, Idarubicin) → **cardiotoxicity (หัวใจ)**, ไม่ใช่ anthracycline (Bleomycin → พังผืดปอด, Mitoxantrone, Actinomycin D, Mitomycin)\n- **L-asparaginase**: เปลี่ยน asparagine → aspartate; เซลล์ ALL ผลิต asparagine เองไม่ได้ → เซลล์ตาย; ใช้กับ prednisone + vincristine; ผลข้างเคียง: พิษตับ, แพ้รุนแรง, ตับอ่อนอักเสบ, หลอดเลือดดำอุดตัน\n\n## ภาวะแทรกซ้อนและการจัดการ\n- **CINV (คลื่นไส้อาเจียนจากเคมีบำบัด)**: Acute (1–6 ชม., <24 ชม.), Delayed; ปัจจัยเสี่ยง: อายุน้อย, เพศหญิง, ไม่ดื่มแอลกอฮอล์, ไม่สูบบุหรี่; **Emetogenic risk สูง >90%**: cisplatin, dacarbazine, lomustine, doxorubicin+cyclophosphamide; ปานกลาง 30–90%: oxaliplatin, doxorubicin, carboplatin; ต่ำ: capecitabine, gemcitabine; ยา: NK1RA, 5HT3RA, dexamethasone, olanzapine, aprepitant\n- **Oral Mucositis (แผลในปาก)**: อนามัยช่องปากด้วย NSS, แปรงขนนุ่มพิเศษ, อาหารนุ่ม; น้ำยาบ้วนปาก Lidocaine viscous + Chlorhexidine; Prednisolone; **Cryotherapy (อมน้ำแข็ง)** ช่วยผู้ป่วย 5-FU แต่ **ห้ามในผู้ที่ได้ Oxaliplatin (FOLFOX)**\n- **Bone marrow suppression (กดไขกระดูก)**: เสี่ยงติดเชื้อ+เลือดออก; ป้องกัน: อาหารสุกสะอาด, ใส่หน้ากาก, แปรงฟันเบา ๆ, ห้ามสวนอุจจาระ, ห้ามกินยาลดไข้เอง, รายงานแพทย์เมื่อมีไข้\n- **Alopecia (ผมร่วง)**: เริ่มหลังให้ยา 2–3 สัปดาห์; กลุ่ม often: MTX, Paclitaxel; common: Cyclophosphamide, Doxorubicin, Docetaxel; ผมงอกใหม่ใน 3–6 เดือน\n- **Hyperpigmentation (ผิวคล้ำ)**: ยากลุ่ม Bleomycin, Busulfan, Doxorubicin, 5-FU, Cyclophosphamide; Serpentine supravenous hyperpigmentation ตามแนวเส้นเลือดจาก extravasation หายได้เองเมื่อหยุดยา\n- **Hand-foot syndrome**: 5-FU, Capecitabine, liposomal Doxorubicin (กลไก COX-2 เกิน) → ชา บวม แดง ลอก; ลดด้วย vitamin B6 (pyridoxine), Celecoxib\n- **Hypersensitivity reaction**: เกิดจากตัวยาหรือตัวทำละลาย (Cremophor EL ของ Paclitaxel); ป้องกันด้วย pre-medication (dexamethasone, H1/H2 blockers); รักษาด้วย epinephrine, hydrocortisone, antihistamine + ติดตาม BP\n- **Phlebitis (หลอดเลือดดำอักเสบ)**: จาก extravasation/ระคายเคือง, เริ่มใน 48 ชม.; อาการ ปวด–บวม–แดง; ระดับ Grade 0–4 โดย Grade 2+ พิจารณาหยุดยา, Grade 3+ ส่งต่อแพทย์\n- **CINP (ปลายประสาทอักเสบจากเคมีบำบัด)**: อาการแบบถุงเท้า–ถุงมือ (stocking-glove, distal → proximal); ยากลุ่ม platinum, vinca alkaloid, taxane\n- **Hypercalcemia of malignancy**: พบในเต้านม 30–40%, multiple myeloma 20–40%, ปอด 12.5–35%; กลไก: bone metastasis, PTHrP, vitamin D analogue; อาการ: ซึม สับสน, เบื่ออาหาร คลื่นไส้ ท้องผูก, ปัสสาวะมาก; จัดการ: ให้สารน้ำ, จำกัดการเคลื่อนไหว\n- **ข้อสอบแนว (จากแบบฝึก)**: ยาที่ออกฤทธิ์นอก cell cycle/G0 phase = **Cytotoxic antibiotics**; ยายับยั้ง microtubule/spindle ในระยะ M = **Plant alkaloids**; อาการฉุกเฉินของ Doxorubicin ในสูตร AC (Adriamycin+Cyclophosphamide) = **สารคัดหลั่งเป็นสีแดง** (ปัสสาวะ/น้ำลาย/น้ำตา)\n\n### เคล็ดลับจำ\n- **จำระยะ S = ยาสร้าง DNA**: Antimetabolites, Topo inhibitors, Hydroxyurea (\"S = สร้างดีเอ็นเอ\")\n- **Alkylating ไปที่ guanine N7** → cross-link DNA \"มัสตาร์ดชี้เป้ากัวนีน\"\n- **Anthracycline ระวังหัวใจ / Bleomycin ระวังปอด (พังผืด)**\n- **Methotrexate → แก้พิษด้วย leucovorin (folic acid) และต้องระวังไต**\n- **ก่อนให้เคมีบำบัดทุกครั้ง = ตรวจ CBC ก่อน** แล้วรายงานแพทย์\n- **Oxaliplatin (FOLFOX) ห้ามอมน้ำแข็ง** (cold sensitivity) แต่ 5-FU ช่วยได้\n- **Emetogenic สูงสุดจำ \"Cisplatin, Dacarbazine\"** → ต้อง antiemetic ครอบคลุมทั้ง acute+delayed\n- **Doxorubicin ในสูตร AC → เฝ้าดูสารคัดหลั่งสีแดง** (สัญญาณฉุกเฉิน)",
+ "questions": [
+  {
+   "q": "ข้อใดคือความแตกต่างของเนื้องอกไม่ร้ายแรง (Benign) กับมะเร็ง (Malignant) ตามสไลด์",
+   "choices": [
+    "Benign โตช้า ไม่ลุกลาม ส่วน Malignant โตเร็ว ลุกลามและแพร่กระจายได้",
+    "Benign โตเร็วกว่าและลุกลามมากกว่า",
+    "Malignant ไม่แพร่กระจาย",
+    "Benign แพร่กระจายผ่านกระแสเลือด"
+   ],
+   "answer": 0,
+   "explain": "สไลด์นิยาม: benign มักอยู่เป็นกลุ่ม ไม่ลุกลาม โตช้า; malignant เจริญโตเร็ว ลุกลามเนื้อเยื่อข้างเคียงและกระจายไปอวัยวะอื่น"
+  },
+  {
+   "q": "ระบบ TNM ในการจัดระยะมะเร็ง ตัว T หมายถึงอะไร",
+   "choices": [
+    "การแพร่กระจายไปอวัยวะไกล",
+    "ขนาดของเนื้องอกและการลุกลามเฉพาะที่",
+    "จำนวนต่อมน้ำเหลือง",
+    "ระดับฮอร์โมน"
+   ],
+   "answer": 1,
+   "explain": "ตาราง staging ระบุ T = tumor size/การเจริญเข้าใกล้เคียง, N = lymph node involvement, M = distant metastasis"
+  },
+  {
+   "q": "ยาต้านเมทาบอไลต์ (Antimetabolites) ออกฤทธิ์ยับยั้งการสร้าง DNA/RNA ในระยะใดของวงจรเซลล์",
+   "choices": [
+    "ระยะ G0",
+    "ระยะ M",
+    "ระยะ S",
+    "ระยะ G2"
+   ],
+   "answer": 2,
+   "explain": "สไลด์ระบุ antimetabolites ขวาง metabolic process ของ DNA/RNA และมีผลใน S-phase (replication)"
+  },
+  {
+   "q": "กลไกการออกฤทธิ์ของ Alkylating agents คือข้อใด",
+   "choices": [
+    "ยับยั้งเอนไซม์ topoisomerase",
+    "ขวางการสร้าง microtubule",
+    "ยับยั้ง aromatase",
+    "ใส่หมู่ alkyl ที่ตำแหน่ง N7 ของ guanine ทำให้ DNA cross-link"
+   ],
+   "answer": 3,
+   "explain": "กลไก alkylating: เพิ่มหมู่ alkyl ไปที่ N7 ของ guanine → DNA แยก/ถอดรหัสผิด (cross-link) → เซลล์มะเร็งแบ่งตัวไม่ได้"
+  },
+  {
+   "q": "ยา Methotrexate ยับยั้งเอนไซม์ใด และยาแก้พิษคืออะไร",
+   "choices": [
+    "ยับยั้ง DHFR แก้พิษด้วย folic acid/leucovorin",
+    "ยับยั้ง thymidylate synthase แก้พิษด้วยวิตามินบี 6",
+    "ยับยั้ง topoisomerase แก้พิษด้วย N-acetylcysteine",
+    "ยับยั้ง HGPRT แก้พิษด้วย allopurinol"
+   ],
+   "answer": 0,
+   "explain": "สไลด์ระบุ MTX ยับยั้ง dihydrofolate reductase (DHFR) → สร้าง folic acid ไม่ได้ ผลข้างเคียงกดไขกระดูก ต้องแก้ด้วย folic acid (leucovorin rescue)"
+  },
+  {
+   "q": "ยากลุ่ม Anthracyclines (เช่น Doxorubicin, Daunorubicin) ต้องเฝ้าระวังผลกระทบต่ออวัยวะใดเป็นพิเศษ",
+   "choices": [
+    "ปอด (พังผืด)",
+    "หัวใจ (cardiotoxicity)",
+    "ไต บริสุทธิ์",
+    "สมอง"
+   ],
+   "answer": 1,
+   "explain": "สไลด์ cytotoxic antibiotics แยกกลุ่ม 5.1 Anthracyclines เน้น cardiotoxicity ส่วน Bleomycin กลุ่ม non-anthracycline ทำให้ปอดพังผืด"
+  },
+  {
+   "q": "ยาเคมีบำบัดกลุ่มใดออกฤทธิ์ยับยั้งการสร้าง microtubule และ spindle fiber ในระยะ M",
+   "choices": [
+    "Plant alkaloids",
+    "Alkylating agents",
+    "Antimetabolites",
+    "Cytotoxic antibiotics"
+   ],
+   "answer": 2,
+   "explain": "จากแบบฝึกในสไลด์ ข้อ 3 เฉลยว่า Plant alkaloids ยับยั้ง microtubule/spindle ใน M phase"
+  },
+  {
+   "q": "ก่อนให้ยาเคมีบำบัด พยาบาลต้องตรวจค่าอะไรเป็นประจำทุกครั้ง",
+   "choices": [
+    "ระดับน้ำตาล",
+    "คลื่นไฟฟ้าหัวใจ",
+    "ระดับแคลเซียม",
+    "CBC (เม็ดเลือด)"
+   ],
+   "answer": 3,
+   "explain": "สไลด์ chemotherapeutic properties ระบุขั้นตอนสำคัญคือตรวจ CBC ก่อนให้ยา ถ้าค่าต่ำต้องรายงานแพทย์ก่อนให้"
+  },
+  {
+   "q": "กลุ่มยาที่มีความเสี่ยงทำให้อาเจียนสูง (>90%) คือกลุ่มใด",
+   "choices": [
+    "Cisplatin, Dacarbazine",
+    "Bevacizumab, Bleomycin",
+    "Vincristine, Trastuzumab",
+    "Capecitabine, Gemcitabine"
+   ],
+   "answer": 0,
+   "explain": "ตาราง emetogenic risk ระดับ High >90% ได้แก่ cisplatin, dacarbazine, lomustine, doxorubicin/epirubicin+cyclophosphamide ส่วน bevacizumab/vincristine อยู่ใน minimal <10%"
+  },
+  {
+   "q": "ผู้ป่วยมะเร็งที่ได้รับยา Oxaliplatin (FOLFOX) ควรหลีกเลี่ยงการทำ Cryotherapy เพราะเหตุใด",
+   "choices": [
+    "เพราะทำให้ยาเสื่อมฤทธิ์",
+    "เพราะเพิ่มอาการชาและเจ็บเมื่อสัมผัสความเย็น",
+    "เพราะทำให้ไข้สูงขึ้น",
+    "เพราะทำให้เกิดเลือดออก"
+   ],
+   "answer": 1,
+   "explain": "สไลด์ cryotherapy ระบุห้ามใช้ในผู้ป่วย Folfox-6/Oxaliplatin เนื่องจากความไวต่อความเย็นทำให้ชาและปวดมากขึ้น"
+  },
+  {
+   "q": "ภาวะผมร่วง (Alopecia) จากเคมีบำบัดเริ่มสังเกตได้หลังให้ยาครั้งแรกประมาณกี่สัปดาห์ และผมงอกใหม่เมื่อใด",
+   "choices": [
+    "เริ่ม 1 วัน งอกใหม่ 1 สัปดาห์",
+    "เริ่ม 6 เดือน งอกใหม่ 2 ปี",
+    "เริ่ม 2–3 สัปดาห์ งอกใหม่ 3–6 เดือนหลังหยุดยา",
+    "ไม่เคยงอกใหม่"
+   ],
+   "answer": 2,
+   "explain": "สไลด์ alopecia: onset 2–3 สัปดาห์หลังให้ยา และผมงอกใหม่ชัดเจนภายใน 3–6 เดือนหลังหยุดยา"
+  },
+  {
+   "q": "Hand-foot syndrome (มือเท้าแสบแดง) พบมากในผู้ป่วยที่ได้รับยาใด",
+   "choices": [
+    "Vincristine",
+    "Bleomycin",
+    "Cyclophosphamide",
+    "Capecitabine, 5-FU, Liposomal doxorubicin"
+   ],
+   "answer": 3,
+   "explain": "สไลด์ HFS ระบุเกิดในผู้ป่วยที่ได้ fluorouracil, capecitabine (รับประทาน) หรือ liposomal doxorubicin"
+  },
+  {
+   "q": "ข้อใดเป็นอาการฉุกเฉินของยา Doxorubicin ในสูตร AC (Adriamycin+Cyclophosphamide) รักษามะเร็งเต้านมที่พยาบาลต้องเฝ้าระวัง",
+   "choices": [
+    "สารคัดหลั่งเป็นสีแดง (ปัสสาวะ/น้ำลาย/น้ำตา)",
+    "น้ำหนักเพิ่ม",
+    "น้ำตาไหลตลอด",
+    "ปวดท้องจุกแน่น"
+   ],
+   "answer": 0,
+   "explain": "แบบฝึกสไลด์ข้อ 5 เฉลย: สัญญาณฉุกเฉินของ doxorubicin คือสารคัดหลั่งเป็นสีแดง"
+  },
+  {
+   "q": "L-asparaginase ใช้รักษามะเร็งเม็ดเลือดขาวชนิดใด และกลไกคืออะไร",
+   "choices": [
+    "AML ในผู้ใหญ่ เพิ่มการสร้างเม็ดเลือด",
+    "ALL ในเด็ก เปลี่ยน asparagine → aspartate ทำให้เซลล์มะเร็งขาดสารอาหาร",
+    "มะเร็งต่อมน้ำเหลือง ยับยั้ง topoisomerase",
+    "มะเร็งปอด ยับยั้ง EGFR"
+   ],
+   "answer": 1,
+   "explain": "สไลด์ L-asparaginase: เปลี่ยน asparagine เป็น aspartate, เซลล์ ALL สังเคราะห์ asparagine เองไม่ได้จึงตาย, ใช้ในเด็ก ALL ร่วมกับ prednisone+vincristine"
+  },
+  {
+   "q": "การจัดการภาวะแผลในช่องปากจากเคมีบำบัด (Oral Mucositis) ข้อใดถูกต้อง",
+   "choices": [
+    "งดแปรงฟันจนกว่าจะหาย",
+    "อมน้ำแข็งห้ามทำในผู้ป่วย 5-FU",
+    "บ้วนด้วย NSS แปรงขนนุ่มพิเศษ ใช้ยาชา Lidocaine + Chlorhexidine",
+    "ใช้ยาปฏิชีวนะทุกกรณี"
+   ],
+   "answer": 2,
+   "explain": "สไลด์ OM management: oral hygiene NSS + ultra soft brush, combination mouthwash (lidocaine viscous + chlorhexidine), cryotherapy (ice chips) ช่วย 5-FU แต่ห้ามใน oxaliplatin"
+  }
+ ]
+}
