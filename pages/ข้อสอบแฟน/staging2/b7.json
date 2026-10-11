@@ -1,0 +1,102 @@
+{
+  "id": "b7",
+  "set": "แนวคิด",
+  "no": "6.4",
+  "icon": "💉",
+  "title": "การให้ยาและเทคนิคปฏิบัติเพื่อความปลอดภัย (ยา สารน้ำ เลือด)",
+  "desc": "เทคนิคการให้ยาโดยปลอดภัย การบริหารยาชนิดต่าง ๆ ยาฉีด การให้สารน้ำทางหลอดเลือดดำ และการให้เลือด",
+  "source": "แนวคิด__บท6_4.txt",
+  "summary": "## ภาพรวม\n- บทนี้ (ลำดับ 6.4) ต่อเนื่องจาก 6.3 สาระเดียวกัน: การบริหารจัดการยา, แนวคิด/เทคนิคการให้ยาเพื่อความปลอดภัย, การให้ยาชนิดต่าง ๆ, การให้สารน้ำ และการให้เลือด\n- วงจรจัดการยา: ประวัติแพ้ยา → รับคำสั่ง → คัดลอก → ตรวจรับยา → จัดเตรียม → ตรวจทานซ้ำ → ให้ยา → บันทึก → ติดตามอาการไม่พึงประสงค์ → เก็บรักษายา (2-8°C)\n\n## การรับคำสั่งการรักษา\n- ตรวจสอบ: ชื่อ-สกุล, HN, ชนิดยา ขนาด เวลา วิถีทาง วิธีผสมยา ข้อมูลผู้ป่วย (ผล LAB, ประวัติแพ้ยา)\n- **โทรศัพท์**: open speaker phone + พยาบาล 2 คนฟัง + บันทึก/อ่านทวน + ตามเซ็นภายใน 24 ชม.; Emergency รับทางวาจาได้แล้วลงมือทีหลัง\n- **Stat**: ยาเร่งด่วนต้องการผลทันที ควรได้ภายใน 30 นาที-1 ชั่วโมง\n\n## ชนิดของคำสั่งการรักษา (6 ชนิด)\n1. **Routine order / Order for continuation**: ให้ต่อเนื่องทุกวัน เช่น Aspirin 81 mg PO OD PC\n2. **One-time order**: ให้ครั้งเดียว เช่น Cefazolin 2 g IV × 1 dose before surgery\n3. **Standing order**: ตาม protocol เช่น Surgical procedures, Sepsis protocol, Stroke protocol\n4. **STAT order**: เร่งด่วน เช่น Lorazepam 1 mg PO STAT\n5. **PRN order**: ให้เมื่อมีอาการ เช่น Diphenhydramine 25 mg PO Q 4 hr PRN for itching\n6. **Titration order**: ปรับขนาดตามการตอบสนอง เช่น Norepinephrine เริ่ม 2 mcg/min titrate เพิ่ม 1 mcg/min ทุก 5 นาที ติด BP จน SBP > 90 mmHg\n\n## องค์ประกอบคำสั่งยา / หน่วย/ชื่อยา\n- องค์ประกอบ: ชื่อ-นามสกุล+วันเกิด, HN, ชื่อยา, ขนาด, route, เวลา/ความถี่, วันที่สั่ง, ลายเซ็นผู้สั่ง + น้ำหนัก/ความเข้มข้นยา\n- ชื่อยา 3 แบบ: Chemical (N-acetyl-para-aminophenol), Generic (Acetaminophen), Brand (Tylenol)\n- หน่วย: gm, L, mcg, mg, mL, Units, **tsp = 5 ml, Tbsp = 15 ml**; ต้องระบุให้ชัดเจน เช่น กี่ช้อนชา\n- Route: ID, SC, IM, IV, IT, NG, PO, SL, TD, PR, PV\n\n## การป้องกันการติดเชื้อขณะฉีดและ 10 Rights\n- ล้างมือ, ป้องกันเข็ม/ไซริงจ์ปนเปื้อน, เตรียมผิวหนัง (เช็ดจากศูนย์กลางออก 5 ซม. 2 นิ้ว, ขัด 15 วินาที, รอแห้ง 30 วินาที), ใช้ single-dose vial/ampule, ตรวจ packaging ไม่ฉีก/ครบกำหนด\n- **10 Rights** + Check MAR กับคำสั่งแพทย์; ยาที่ต้อง pre-assessment (BP/ชีพจร) แยกไม่อยู่ในถ้วยเดียวกัน; มือไม่สวมถุงมือไม่แตะยา\n\n## การคำนวณยา\n- ยาเม็ด: 750 mg ÷ 500 mg = 1.5 เม็ด; ยาเหลว: (500 mg × 5 ml) ÷ 125 mg = 20 ml = **4 tsp**; ยาผง Streptomycin 750 mg (vial 1000 mg, ผสม sterile water 3.2 ml ได้ 4 ml) = ฉีด 3 ml\n- เทคนิค: หน่วยอยากรู้ไว้ขวา, คูณไขว้ ÷ หาร\n\n## การให้ยาชนิดต่าง ๆ\n- **ทางปาก**: tablet กลืน; SL ใต้ลิ้นละลายไม่กลืน; Buccal กระพุ้งแก้ม-เหงือกละลายไม่กลืน; จัดท่านั่ง/นอนตะแคง 30 นาทีแล้วจิบน้ำ\n- **ยาพ่น**: ล้างมือ → ตรวจยา → เตรียมอุปกรณ์ → เทยาลง nebulizer cup → นั่งพักผ่อน → ล้างมือ\n- ยาหยอด, ยาเหน็บ (ทวาร/ช่องคลอด), ยาสวน\n- **ยาฉีด**: ID ชั้นหนังแท้ เข็ม 25-27 G, 0.5-0.75 นิ้ว, **<0.5 ml**; SC ชั้นไขมัน 24-26 G, 1 นิ้ว, **1-2 ml**; IM 23-27 G, 1-1.5 นิ้ว, **Deltoid 1 ml / Ventrogluteal & Vastus lateralis 3 ml**; IV 20-24 G, 1-1.5 นิ้ว (inject plug ใช้ 27 G)\n- ตำแหน่ง IV: Cephalic/Basilic/Accessory cephalic (แขน), Metacarpal (หลังมือ), Scalp (ศีรษะเด็กเล็ก)\n\n## การให้สารน้ำทางหลอดเลือดดำ\n- ความหมาย: สอดเข็มเข้าหลอดเลือดดำโดยตรงให้สารน้ำเข้าสู่ร่างกายต่อเนื่อง; หลัก: aseptic, ตรวจสารน้ำ/set/pump, ตำแหน่งหลอดเลือด, อัตราหยด/เวลา, บันทึก Intake/Output; **Serum osmo ปกติ 275-295 mOsm/kg**\n- Indications: Resuscitation (Hypovolemia, Sepsis, Septic shock), Maintenance (น้ำ 1 ml/kg/hr หรือ 25-30 ml/kg/day), Replacement (เสียทาง drain/stoma, อาเจียน, แผลไฟไหม้, ท้องเสีย, Hyperthermia, polyuria), Nutrition (oral intake deficit)\n- หยด: **Macro 1 ml = 15 หรือ 20 drop, Micro = 60 drop, KVO = 10 ml/hr**\n- คำนวณ: 5% D/N/2 1000 ml ใน 10 hr → 100 ml/hr → 15 drop/ml → **25 drop/min**\n- สารละลาย: 0.9% NaCl 100 ml = Na 0.9 g (1000 ml = 9 g); 5% D/N/2 = ½ sodium (0.45% NaCl) Dextrose 100 ml = 5 g (1000 ml = 50 g)\n- ขั้นตอน: ตรวจคำสั่ง → แนะนำตัว/เช็คชื่อ → อธิบาย → ล้างมือ → เตรียม IV set → ใส่ถุงมือ → เลือกเส้นเลือด → ทำความสะอาด/แทงเส้น → ต่อ set → ปรับอัตราไหล → เก็บอุปกรณ์ → แนะนำตัว → ล้างมือ\n- **ภาวะแทรกซ้อน: Infiltration, Ecchymosis/Hematoma**\n\n## การให้เลือด (Blood transfusion)\n- Indications: Acute blood loss >20% ปริมาตร (~1000 ml; ร่างกายมีเลือด 70-75 ml/kg), ผ่าตัด, โลหิตจาง (Hb <8 ให้เลือดถึง 8-10; Hb <7 พิจารณา; Hb 7-9 ให้เฉพาะมีอาการ)\n- องค์ประกอบ Plasma: น้ำ 90-92%, Albumin/Globulin/Fibrinogen, อิเล็กโทรไลต์, สารอาหาร, ฮอร์โมน, ก๊าซ, ของเสีย\n- ชนิดเลือด 9 ชนิด: Whole blood, Fresh blood, PRC, Leucocyte-deficient RBC, Reconstituted frozen RBC, Fresh frozen plasma, Cryoprecipitate, SDP (รายเดียว), Pooled platelets (4-6 คน หมู่เดียวกัน)\n- **PRC 1 unit ≈ 250 ml เพิ่ม Hct 3% (ผู้ใหญ่); เด็ก 10-15 ml/kg เพิ่ม Hct 6-9%**\n- เกล็ดเลือด: single-donor 1 unit (5 ml/kg) หรือ pooled 6 units (5 ml/kg) เพิ่ม ~**50,000/mm³** ตรวจซ้ำ 1 และ 24 ชม.\n- **หลัก 7 SEE + double check**: ชื่อ-สกุล, HN, ชนิดเลือด, หมู่เลือด+Rh, Blood number, ปริมาณ, วันหมดอายุ\n- การคำนวณเหมือน IV hydration (รู้ ml/unit + หยดของ Blood set)\n- **วัดสัญญาณชีพ: ก่อนให้ไม่เกิน 60 นาที, หลังให้แต่ละถุง 15 นาที**\n- Warnings: เลือดเก็บ 4°C ห้ามแช่แข็ง/อุ่น (เม็ดเลือดแดงแตก), ห้ามฉีดยาทางสายให้เลือด, ห้ามให้สารน้ำทางเดียวกันกับที่ให้เลือด\n\n### เคล็ดลับจำ\n- **6 ชนิด order**: Routine=ทุกวัน, One-time=ครั้งเดียว, Standing=protocol, STAT=เร่งด่วน 30 นาที-1 ชม., PRN=ตามอาการ, Titration=ปรับตาม vital\n- **โทรสั่งยา**: speaker + 2 คน + ทวน + เซ็น 24 ชม.\n- **ยาฉีดจำเลข**: ID <0.5 ml (25-27G) / SC 1-2 ml (24-26G) / IM Deltoid 1 ml, อื่น 3 ml (23-27G) / IV 20-24G\n- **หยด**: Macro 15-20, Micro 60, KVO 10 ml/hr; สารน้ำ 0.9% NaCl 100 ml = 0.9 g Na\n- **เลือด**: PRC 250 ml + Hct 3%; platelet +50,000 ตรวจ 1/24 ชม.; 7 SEE; VS ก่อนให้ 60 นาที หลังให้ 15 นาที; เก็บ 4°C ห้ามอุ่น",
+  "questions": [
+    {
+      "q": "คำสั่งยา Diphenhydramine 25 mg PO Q 4 hr PRN for itching เป็นคำสั่งชนิดใด",
+      "choices": ["PRN order (ให้เมื่อมีอาการ)", "Routine order", "STAT order", "Titration order"],
+      "answer": 0,
+      "explain": "PRN order คือให้ยาเมื่อมีอาการตามต้องการ เช่น Q 4 hr PRN for itching (มีอาการคันจึงให้) ส่วน STAT ใช้กับยาเร่งด่วน"
+    },
+    {
+      "q": "Norepinephrine เริ่ม 2 mcg/min ปรับเพิ่ม 1 mcg/min ทุก 5 นาที จน SBP > 90 mmHg เป็นคำสั่งชนิดใด",
+      "choices": ["Titration order", "One-time order", "PRN order", "Routine order"],
+      "answer": 0,
+      "explain": "Titration order คือคำสั่งปรับขนาดยาขึ้น/ลงตามการตอบสนองของผู้ป่วย โดยมีการเฝ้าติดตามอย่างต่อเนื่อง เช่น ปรับตาม BP"
+    },
+    {
+      "q": "Cefazolin 2 g IV × 1 dose before surgery จัดเป็นคำสั่งประเภทใด",
+      "choices": ["One-time order (ครั้งเดียว)", "Standing order", "STAT order", "PRN order"],
+      "answer": 0,
+      "explain": "One-time order คือคำสั่งให้ยาเพียงครั้งเดียวตามเวลาที่กำหนด เช่น ยาปฏิชีวนะ 1 dose ก่อนผ่าตัด"
+    },
+    {
+      "q": "การเตรียมผิวหนังก่อนฉีดยา ข้อใดให้ระยะเวลาที่ถูกต้อง",
+      "choices": ["เช็ดรัศมี 5 ซม. ขัด 15 วินาที รอแห้ง 30 วินาที", "เช็ดรัศมี 1 ซม. ขัด 5 วินาที รอแห้ง 10 วินาที", "เช็ดวนผิดทิศทางขัด 30 วินาที รอแห้ง 15 วินาที", "เช็ดเบา ๆ รอแห้ง 2 นาที"],
+      "answer": 0,
+      "explain": "Prevent infection: move from centre outward in a 5 cm (2 in.) radius, rub 15 seconds, let dry 30 seconds"
+    },
+    {
+      "q": "ข้อใดเป็นหลักการให้ยาทางปากที่ถูกต้อง",
+      "choices": ["ยาที่ต้องประเมินก่อนให้ เช่น ยาลดความดัน/ยาชีพจร ต้องแยกต่างหาก ไม่รวมในถ้วยเดียวกัน", "เทยาทั้งหมดรวมกันในถ้วยเดียวเสมอ", "หยิบยาด้วยมือเปล่าได้", "ไม่ต้องเช็ค MAR เทียบคำสั่งแพทย์"],
+      "answer": 0,
+      "explain": "ให้วางยาทั้งหมดในถ้วยเดียว ยกเว้นยาที่ต้อง pre-assessment (BP/ชีพจร) ต้องแยก; ต้อง Check MAR + 10 Rights และไม่สัมผัสยาด้วยมือเปล่า"
+    },
+    {
+      "q": "ข้อใดคือการให้ยาแบบ Buccal ที่ถูกต้อง",
+      "choices": ["วางยาระหว่างกระพุ้งแก้มกับเหงือกให้ละลายโดยไม่กลืน", "วางใต้ลิ้นให้ละลาย", "กลืนทันทีพร้อมน้ำ", "เคี้ยวแล้วกลืน"],
+      "answer": 0,
+      "explain": "Buccal: place in mouth against inner cheek and gums, allow to dissolve not swallowing; Sublingual อยู่ใต้ลิ้น"
+    },
+    {
+      "q": "ปริมาตรยาสูงสุดที่ฉีดเข้ากล้ามเนื้อ Ventrogluteal ได้คือเท่าใด",
+      "choices": ["3 ml", "1 ml", "0.5 ml", "5 ml"],
+      "answer": 0,
+      "explain": "IM: Deltoid muscle 1 ml, Ventrogluteal และ Vastus lateralis ฉีดได้ 3 ml"
+    },
+    {
+      "q": "ผู้ป่วยเด็กเล็กต้องให้สารน้ำทางหลอดเลือดดำ นิยมแทงเส้นบริเวณใด",
+      "choices": ["Scalp vein บริเวณศีรษะ", "Metacarpal vein หลังมือ", "Cephalic vein แขน", "Popliteal vein หลังเข่า"],
+      "answer": 0,
+      "explain": "แหล่งหลอดเลือดดำ IV: แขน (Cephalic, Basilic, Accessory cephalic), หลังมือ (Metacarpal), และ Scalp vein บริเวณศีรษะในเด็กเล็ก"
+    },
+    {
+      "q": "ความต้องการน้ำขั้นพื้นฐานรายวัน (Maintenance) ที่ถูกต้องคือข้อใด",
+      "choices": ["1 ml/kg/hr หรือ 25-30 ml/kg/day", "5 ml/kg/hr", "0.5 ml/kg/hr", "50 ml/kg/day"],
+      "answer": 0,
+      "explain": "Maintenance: cover daily basal requirements น้ำ 1 ml/kg/hr หรือ 25-30 mL/kg/day"
+    },
+    {
+      "q": "เซ็ตหยดแบบ Macro set 1 ml มีกี่หยด",
+      "choices": ["15 หรือ 20 drop", "60 drop", "10 drop", "5 drop"],
+      "answer": 0,
+      "explain": "Macro set 1 ml = 15 หรือ 20 drop, Micro set 1 ml = 60 drop, KVO = 10 ml/hr"
+    },
+    {
+      "q": "แพทย์สั่ง NSS 1000 ml ให้ใน 20 ชั่วโมง ใช้ IV set 20 drop/ml คิดเป็นกี่ drop/min",
+      "choices": ["ประมาณ 17 drop/min", "25 drop/min", "33 drop/min", "10 drop/min"],
+      "answer": 0,
+      "explain": "1000 ml ใน 20 ชม. = 50 ml/hr; 50 ml/hr × 20 drop/ml ÷ 60 = 1000 ÷ 60 ≈ 16.7 ≈ 17 drop/min"
+    },
+    {
+      "q": "0.9% NaCl จำนวน 1000 ml มีโซเดียมเท่าใด",
+      "choices": ["9 กรัม", "0.9 กรัม", "90 กรัม", "5 กรัม"],
+      "answer": 0,
+      "explain": "0.9% NaCl 100 ml = sodium 0.9 กรัม ดังนั้น 1000 ml = 9 กรัม"
+    },
+    {
+      "q": "ความหมายของ Single Donor Platelet (SDP) คือข้อใด",
+      "choices": ["เกล็ดเลือดจากผู้บริจาครายเดียว แยกด้วยเครื่องอัตโนมัติ แล้วส่งส่วนประกอบอื่นกลับคืนผู้บริจาค", "เกล็ดเลือดรวมจากผู้บริจาค 4-6 คน", "เม็ดเลือดแดงเข้มข้น", "พลาสมาแช่แข็งสด"],
+      "answer": 0,
+      "explain": "SDP คือเกล็ดเลือดจากผู้บริจาคเพียงรายเดียว ใช้เครื่องแยกส่วนประกอบโลหิตอัตโนมัติ แยกเฉพาะเกล็ดเลือดและส่งส่วนประกอบอื่นกลับคืนสู่ผู้บริจาค"
+    },
+    {
+      "q": "หลักการตรวจสอบก่อนให้เลือด 7 SEE ข้อใดเป็นข้อมูลที่ต้องตรวจ",
+      "choices": ["ชื่อ-สกุล, HN, ชนิดเลือด, หมู่เลือด+Rh, Blood number, ปริมาณ, วันหมดอายุ", "เฉพาะหมู่เลือดและ Rh", "เฉพาะชื่อและชนิดเลือด", "เฉพาะวันหมดอายุ"],
+      "answer": 0,
+      "explain": "หลัก 7 SEE: ชื่อ-สกุล, HN, ชนิดเลือด (PRC, SDP ฯลฯ), หมู่เลือด (O/A/B/AB)+Rh, Blood number, ปริมาณ, วัน expired โดยทำ double check"
+    },
+    {
+      "q": "เลือดที่ยังไม่ได้ใช้ควรเก็บในอุณหภูมิใด และข้อใดคือข้อห้าม",
+      "choices": ["เก็บ 4 องศา ห้ามแช่ช่องแข็งและห้ามอุ่นเลือด", "เก็บ -20 องศาและอุ่นก่อนให้", "เก็บ 15 องศา", "เก็บอุณหภูมิห้อง อุ่นได้"],
+      "answer": 0,
+      "explain": "เลือดที่ยังไม่ใช้เก็บ 4 องศา ห้ามแช่ช่องแข็ง ห้ามอุ่นเลือด (เม็ดเลือดแดงแตก), ห้ามฉีดยาทางสายให้เลือด และห้ามให้สารน้ำทางเดียวกัน"
+    }
+  ]
+}

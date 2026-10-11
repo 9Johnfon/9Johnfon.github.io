@@ -74,10 +74,16 @@ function initSummary(){
   const want=getParam('r');
   const cur = bookById(want) ? want : BOOKS[0].id;
 
-  side.insertAdjacentHTML('beforeend', BOOKS.map(b=>`
-    <a href="summary.html?r=${b.id}" class="${b.id===cur?'active':''}">
-      <span>${b.icon||'📄'}</span> ${b.title}<span class="n">${b.questions.length}</span>
-    </a>`).join(''));
+  const setOf = b => b.set || 'ชุดเดิม';
+  const SETMETA = (typeof SETS !== 'undefined') ? SETS : [{ id: 'ชุดเดิม', name: 'บทเรียน', icon: '📚' }];
+  side.insertAdjacentHTML('beforeend', SETMETA.map(s=>{
+    const bs = BOOKS.filter(b=>setOf(b)===s.id);
+    if(!bs.length) return '';
+    return `<div class="side-set">${s.icon||'📚'} ${s.name}</div>` + bs.map(b=>`
+      <a href="summary.html?r=${b.id}" class="${b.id===cur?'active':''}">
+        <span>${b.icon||'📄'}</span> ${b.title}<span class="n">${b.questions.length}</span>
+      </a>`).join('');
+  }).join(''));
 
   const b=bookById(cur);
   document.title = b.title + ' — สรุปเนื้อหา';
@@ -116,7 +122,13 @@ function initExam(){
 
       <div class="field-label">📚 บทที่ต้องการ</div>
       <div class="opt-group" id="pick">
-        ${BOOKS.map(b=>`<button class="chip ${preset===b.id?'on':''}" data-id="${b.id}">${b.icon||'📄'} ${b.title} <span style="opacity:.7">(${b.questions.length})</span></button>`).join('')}
+        ${((typeof SETS !== 'undefined') ? SETS : [{ id: 'ชุดเดิม', name: 'บทเรียน', icon: '📚' }]).map(s=>{
+          const bs = BOOKS.filter(b=>(b.set || 'ชุดเดิม')===s.id);
+          if(!bs.length) return '';
+          return `<div class="pick-set">${s.icon||'📚'} ${s.name}</div>` +
+            bs.map(b=>`<button class="chip ${preset===b.id?'on':''}" data-id="${b.id}">${b.icon||'📄'} ${b.title} <span style="opacity:.7">(${b.questions.length})</span></button>`).join('');
+        }).join('')}
+        <div class="pick-set">🎯 รวมทุกชุด</div>
         <button class="chip" data-id="__all__">🔥 ทุกบท (${totalQ()})</button>
       </div>
 

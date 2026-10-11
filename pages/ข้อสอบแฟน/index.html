@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ข้อสอบแฟน — สรุปเนื้อหา & ข้อสอบพยาบาล</title>
-<meta name="description" content="สรุปเนื้อหาเตรียมสอบพยาบาล 5 บท + ข้อสอบออนไลน์พร้อมเฉลยอธิบาย">
+<meta name="description" content="สรุปเนื้อหาเตรียมสอบพยาบาล 27 บท (3 ชุด) + ข้อสอบออนไลน์พร้อมเฉลยอธิบาย">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
 
 <section class="hero wrap">
   <h1>อ่านสรุปให้เข้าใจ<br><span class="grad">แล้ววัดผลด้วยข้อสอบจริง</span></h1>
-  <p>สรุปเนื้อหา 5 บทจากเอกสารบรรยายพยาบาล ย่อยเป็น bullet อ่านง่าย มีเคล็ดลับจำ + ข้อสอบ choice พร้อมเฉลยอธิบายทุกข้อ</p>
+  <p>สรุปเนื้อหาพยาบาล 27 บท ใน 3 ชุด (เภสัชศาสตร์ + การประเมินภาวะสุขภาพ + แนวคิดการพยาบาล) ย่อยเป็น bullet อ่านง่าย มีเคล็ดลับจำ + ข้อสอบ choice พร้อมเฉลยอธิบายทุกข้อ</p>
   <div class="cta">
     <a class="btn btn-primary" href="summary.html">📖 เริ่มอ่านสรุป</a>
     <a class="btn btn-ghost" href="exam.html?all=1">✍️ ทำข้อสอบรวมทุกบท</a>
@@ -34,8 +34,8 @@
 
 <section class="section wrap">
   <h2>📚 บทเรียนทั้งหมด</h2>
-  <p class="sub">เลือกอ่านอย่างเดียว หรืออ่านเสร็จแล้วไปทำข้อสอบวัดผลได้ทันที</p>
-  <div class="grid" id="book-grid"><!-- ใส่จาก data.js --></div>
+  <p class="sub">แยกเป็น 3 ชุดตามเอกสารต้นฉบับ — เลือกอ่านอย่างเดียว หรืออ่านเสร็จแล้วไปทำข้อสอบวัดผลได้ทันที</p>
+  <div id="book-grid"><!-- ใส่จาก data.js --></div>
 </section>
 
 <section class="section wrap">
@@ -47,27 +47,43 @@
   </div>
 </section>
 
-<footer>🩺 ข้อสอบแฟน — เตรียมสอบพยาบาล | สรุปจากเอกสารบรรยายจริง 5 ฉบับ</footer>
+<footer>🩺 ข้อสอบแฟน — เตรียมสอบพยาบาล | สรุปจากเอกสารบรรยายจริง 27 บท (3 ชุด)</footer>
 
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('book-grid');
-  grid.innerHTML = BOOKS.map((b, i) => `
-    <div class="card">
-      <span class="tag">บทที่ ${b.no}</span>
-      <h3>${b.title}</h3>
-      <p>${b.desc || ''}</p>
-      <div class="stats">
-        <span>📝 <b>${b.questions.length}</b> ข้อสอบ</span>
-        <span>📖 <b>${countSections(b.summary)}</b> หัวข้อ</span>
+  const totalQ = BOOKS.reduce((n, b) => n + b.questions.length, 0);
+  grid.innerHTML = (typeof SETS !== 'undefined' ? SETS : [{ id: 'ชุดเดิม', name: 'บทเรียน' }]).map(s => {
+    const bs = BOOKS.filter(b => (b.set || 'ชุดเดิม') === s.id);
+    if (!bs.length) return '';
+    const q = bs.reduce((n, b) => n + b.questions.length, 0);
+    return `
+    <section class="set-block">
+      <div class="set-head">
+        <h3>${s.icon || '📚'} ${s.name}</h3>
+        <span class="set-meta">${bs.length} บท · ${q} ข้อสอบ</span>
       </div>
-      <div class="actions">
-        <a class="btn btn-ghost" href="summary.html?r=${b.id}">อ่านสรุป</a>
-        <a class="btn btn-primary" href="exam.html?r=${b.id}">ทำข้อสอบ</a>
+      ${s.desc ? `<p class="sub">${s.desc}</p>` : ''}
+      <div class="grid">
+        ${bs.map(b => `
+          <div class="card">
+            <span class="tag">บทที่ ${b.no}</span>
+            <h3>${b.icon || '📄'} ${b.title}</h3>
+            <p>${b.desc || ''}</p>
+            <div class="stats">
+              <span>📝 <b>${b.questions.length}</b> ข้อสอบ</span>
+              <span>📖 <b>${countSections(b.summary)}</b> หัวข้อ</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn-ghost" href="summary.html?r=${b.id}">อ่านสรุป</a>
+              <a class="btn btn-primary" href="exam.html?r=${b.id}">ทำข้อสอบ</a>
+            </div>
+          </div>`).join('')}
       </div>
-    </div>`).join('');
+    </section>`;
+  }).join('');
 });
 </script>
 </body>

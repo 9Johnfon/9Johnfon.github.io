@@ -247,8 +247,22 @@ footer{border-top:1px solid var(--line);background:#fff;padding:20px 0;color:var
 .kbd{background:#eef1f7;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px;font-size:13.5px;font-weight:700}
 @keyframes pop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
+/* ===== Multi-set grouping ===== */
+.set-block{margin:0 0 30px;padding:20px 20px 6px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow)}
+.set-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.set-head h3{margin:0;font-size:21px}
+.set-meta{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--brand);background:var(--brand-soft);padding:3px 11px;border-radius:999px}
+.set-block .sub{margin:2px 0 16px;font-size:14.5px}
+.side-set{margin:12px 6px 4px;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--ink-soft);text-transform:none}
+.side .side-set:first-child{margin-top:2px}
+.pick-set{width:100%;font-size:13px;font-weight:800;color:var(--ink-soft);margin:10px 0 0;letter-spacing:.03em}
+.pick-set:first-child{margin-top:0}
+
 /* ===== Responsive ===== */
 @media(max-width:900px){
+  .side-set{margin:8px 6px 2px;white-space:nowrap}
+  .set-head h3{font-size:18px}
+  .set-block{padding:14px 12px 2px}
   .layout{grid-template-columns:1fr}
   .side{position:static;display:flex;gap:6px;overflow-x:auto}
   .side h4{display:none}
