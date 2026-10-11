@@ -1,0 +1,166 @@
+{
+  "id": "e1",
+  "set": "en",
+  "no": 1,
+  "icon": "📘",
+  "title": "Grammar พื้นฐาน",
+  "desc": "tense หลัก, ชนิดของคำ, การผันกริยาให้ตรงประธาน, articles และ prepositions ที่ออกสอบบ่อย",
+  "source": "เกร็งจากแนวข้อสอบนายสิบตำรวจ (สายอำนวยการ)",
+  "summary": "## Grammar พื้นฐาน (EN1)\n\n### 1) Tense ที่ออกสอบบ่อย\n- **Present Simple** = ประธาน + V1 (เอกพจน์เติม -s/-es) → ใช้กับกิจวัตร/ความจริงทั่วไป\n  - *She **goes** to work by bus every day.*\n- **Present Continuous** = am/is/are + V-ing → กำลังเกิดตอนพูด (มักมี now, Listen!, Look!)\n  - *Listen! The baby **is crying**.*\n- **Present Perfect** = have/has + V3 → เกิดแล้วแต่ยังเกี่ยวข้อง/ไม่ระบุเวลา (since, for, already, ever)\n  - *They **have lived** in this city since 2010.*\n- **Past Simple** = V2 → จบในอดีต มีเวลาระบุ (yesterday, last week, ago)\n  - *The police **arrested** the suspect yesterday.*\n- **Past Continuous** = was/were + V-ing → กำลังเกิดแล้วมีเหตุการณ์อื่นแทรก (when + Past Simple)\n  - *They **were playing** football when it started to rain.*\n- **Future Simple** = will + V1 → อนาคต; ใน if-clause ใช้ present ไม่ใช้ will\n  - *If it rains, we **will** stay home.*\n\n### 2) Subject–Verb Agreement (กริยาต้องตรงประธาน)\n- ประธาน **เอกพจน์** → กริยาเติม s ; ประธาน **พหูพจน์** → กริยาไม่เติม s\n- จำนวน/ระยะเวลา/เงิน มองเป็นเอกพจน์: *Ten years **is** a long time.*\n- **Neither...nor / Either...or** → ใช้กริยาตามประธานตัวหลังสุด: *Neither the teacher nor the students **are** ready.*\n- **some/most/half of + นาม** → ใช้กริยาตามนามหลัง of: *Most of the water **is** clean.*\n\n### 3) Articles: a / an / the / ไม่ใส่\n- **a** นำหน้าเสียงพยัญชนะ, **an** นำหน้าเสียงสระ (ดูที่เสียง ไม่ใช่ตัวอักษร)\n  - an **h**onest man (h เงียบ ออกเสียงสระ), a **u**niversity (ออกเสียง /juː/ = พยัญชนะ)\n- **the** ใช้กับสิ่งที่ชี้เฉพาะ/มีหนึ่งเดียว: the sun, the police\n- ปกติไม่ใส่ article กับนามนับไม่ได้หรือนามพหูพจน์ที่พูดรวม ๆ (dogs, water, information)\n\n### 4) Part of Speech (ชนิดของคำ)\n- Noun=คำนาม, Verb=กริยา, Adjective=ขยายนาม, Adverb=ขยายกริยา/คุณศัพท์\n- Adjective + ly มักเป็น Adverb: quick → quick**ly**; careful → careful**ly**\n- Comparative/Superlative: tall–taller–tallest; good–better–best; เปรียบเทียบขั้นกว่าใช้ **than** (ไม่ใช้ then)\n\n### 5) Preposition ที่เจอบ่อย\n- interested **in**, good **at**, afraid **of**, depend **on**, apologize **for**, listen **to**, married **to**\n- Passive ใช้ by + ผู้กระทำ: *The book was written **by** Shakespeare.*\n\n### 6) Passive Voice\n- สูตร: S + be + V3 (+ by ...) → *The homework **is done** by the students every day.*\n\n### เคล็ดลับจำ\n- จับ **คำบอกเวลา** เลือก tense: every day→Present Simple, now/Listen!→Continuous, since/for/already→Present Perfect, yesterday→Past Simple\n- ประธานเอกพจน์ + s ; เจอ neither...nor ให้ดูประธาน **ตัวหลัง**\n- **an** นำหน้าคำที่ *ออกเสียง* สระ (honest, hour, MBA)\n- เปรียบเทียบขั้นกว่าใช้ **than** ; ขั้นสูงสุดใช้ the + est / most\n",
+  "questions": [
+    {
+      "q": "She ______ to work by bus every day.",
+      "choices": [
+        "goes",
+        "go",
+        "going",
+        "gone"
+      ],
+      "answer": 0,
+      "explain": "มี every day = กิจวัตร ใช้ Present Simple และประธาน She เป็นเอกพจน์ กริยาต้องเติม -s → goes"
+    },
+    {
+      "q": "Listen! The baby ______ right now.",
+      "choices": [
+        "cries",
+        "is crying",
+        "cry",
+        "cried"
+      ],
+      "answer": 1,
+      "explain": "Listen!/right now บอกเหตุการณ์กำลังเกิด ใช้ Present Continuous = is/am/are + V-ing → is crying"
+    },
+    {
+      "q": "They ______ in this city since 2010.",
+      "choices": [
+        "live",
+        "lived",
+        "are living",
+        "have lived"
+      ],
+      "answer": 3,
+      "explain": "มี since + จุดเวลา ใช้ Present Perfect = have/has + V3 และประธาน They ใช้ have → have lived"
+    },
+    {
+      "q": "If it ______ tomorrow, we will stay home.",
+      "choices": [
+        "rains",
+        "will rain",
+        "rained",
+        "raining"
+      ],
+      "answer": 0,
+      "explain": "เงื่อนไขแบบที่ 1 (If + present, will + V1) ห้ามใช้ will ใน if-clause → rains"
+    },
+    {
+      "q": "The police officer ______ the suspect yesterday.",
+      "choices": [
+        "arrest",
+        "arrests",
+        "arrested",
+        "are arresting"
+      ],
+      "answer": 2,
+      "explain": "มี yesterday = อดีตจบแล้ว ใช้ Past Simple (V2) → arrested"
+    },
+    {
+      "q": "Neither the teacher nor the students ______ ready.",
+      "choices": [
+        "is",
+        "was",
+        "am",
+        "are"
+      ],
+      "answer": 3,
+      "explain": "Neither...nor ใช้กริยาตามประธานตัวหลังสุด คือ students (พหูพจน์) → are"
+    },
+    {
+      "q": "He is taller ______ his brother.",
+      "choices": [
+        "then",
+        "than",
+        "as",
+        "like"
+      ],
+      "answer": 1,
+      "explain": "การเปรียบเทียบขั้นกว่า (taller) ใช้ than ส่วน then แปลว่า 'แล้ว/จากนั้น' ไม่ใช่การเปรียบเทียบ → than"
+    },
+    {
+      "q": "I am interested ______ learning English.",
+      "choices": [
+        "on",
+        "at",
+        "in",
+        "of"
+      ],
+      "answer": 2,
+      "explain": "คำที่ตามด้วย in คือ interested in (สนใจใน) เป็น collocation ต้องจำ → in"
+    },
+    {
+      "q": "Choose the correct sentence.",
+      "choices": [
+        "She doesn't like coffee.",
+        "She don't like coffee.",
+        "She doesn't likes coffee.",
+        "She not likes coffee."
+      ],
+      "answer": 0,
+      "explain": "ประธาน She เอกพจน์ ใช้ doesn't + V1 (ไม่เติม s ที่กริยาหลัง doesn't) → She doesn't like coffee."
+    },
+    {
+      "q": "This is ______ honest man.",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "answer": 1,
+      "explain": "honest ออกเสียง h เงียบ เริ่มด้วยเสียงสระ จึงใช้ an (ดูที่เสียง ไม่ใช่ตัวอักษร) → an"
+    },
+    {
+      "q": "The book ______ by Shakespeare is famous.",
+      "choices": [
+        "write",
+        "wrote",
+        "written",
+        "writing"
+      ],
+      "answer": 2,
+      "explain": "เป็น passive ที่ย่อเป็นวลีขยายนาม ใช้ V3 (past participle) → written (the book written by...)"
+    },
+    {
+      "q": "He apologized ______ being late.",
+      "choices": [
+        "for",
+        "of",
+        "to",
+        "with"
+      ],
+      "answer": 0,
+      "explain": "apologize for + สิ่งที่ขอโทษ เป็นสำนวนตายตัว → apologized for being late"
+    },
+    {
+      "q": "My brother and I ______ to the same school.",
+      "choices": [
+        "goes",
+        "go",
+        "going",
+        "went"
+      ],
+      "answer": 1,
+      "explain": "ประธาน My brother and I = พหูพจน์ (I) จึงใช้กริยาช่อง 1 ไม่เติม s → go"
+    },
+    {
+      "q": "The homework ______ by the students every day.",
+      "choices": [
+        "do",
+        "does",
+        "are doing",
+        "is done"
+      ],
+      "answer": 3,
+      "explain": "ประธาน homework ถูกกระทำ (passive) = be + V3 และเป็นเอกพจน์ → is done"
+    }
+  ]
+}

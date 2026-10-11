@@ -1,0 +1,155 @@
+{
+  "id": "e3",
+  "set": "en",
+  "no": 3,
+  "icon": "📖",
+  "title": "Reading Comprehension",
+  "desc": "การอ่านจับใจความสำคัญ รายละเอียด การอนุมาน (inference) และท่าที (tone) ของผู้เขียน",
+  "source": "เกร็งจากแนวข้อสอบนายสิบตำรวจ (สายอำนวยการ)",
+  "summary": "## Reading Comprehension (EN3)\n\n### 1) อ่านเร็วแบบจับโครงเรื่อง (Skimming & Scanning)\n- **Skimming** = อ่านผ่าน ๆ เอาประเด็นหลัก อ่าน **ประโยคแรก/ประโยคสุดท้ายของแต่ละย่อหน้า**\n- **Scanning** = กวาดหาคำสำคัญ/ตัวเลข/ชื่อ โดยไม่ต้องอ่านทุกคำ\n- **Topic sentence** มักอยู่ประโยคแรกของย่อหน้า = ใจความหลักของย่อหน้านั้น\n\n### 2) ประเภทคำถามที่ออกสอบ\n- **Main idea** = ใจความสำคัญ (มักถาม What is the main idea? / The passage is mainly about...)\n- **Detail** = รายละเอียด (ถาม WHO, WHAT, WHEN, WHERE, HOW MUCH) → กลับไปหาคำตอบในเรื่อง ห้ามเดา\n- **Inference** = ตีความสิ่งที่ **ไม่ได้พูดตรง ๆ** แต่บอกเป็นนัย (คำถามแสดงเหตุถึงผล/คาดเดา)\n- **Vocabulary in context** = ความหมายของคำตามบริบท → อ่านประโยครอบ ๆ คำนั้น\n- **Tone/Purpose** = ท่าที/เจตนาผู้เขียน (informative, persuasive, humorous, critical)\n\n### 3) โทนผู้เขียน (Tone) ที่เจอบ่อย\n- **Informative/Objective** = ให้ข้อมูลตรง ๆ ไม่เข้าข้าง\n- **Persuasive** = ชักชวนให้คล้อยตาม\n- **Critical** = วิพากษ์/ตำหนิ\n- **Humorous** = ตลกขบขัน ; **Sympathetic** = เห็นอกเห็นใจ\n\n### 4) กลยุทธ์ตอบคำถามอ่านจับใจความ\n1. อ่านคำถามก่อน แล้วค่อยอ่านเรื่อง → รู้ว่าต้องหาอะไร\n2. หา **คำหลัก (keyword)** ในตัวเลือก แล้วเทียบกับในเรื่อง\n3. ตัดตัวเลือกที่ **ผิดชัดเจน/ไม่มีในเรื่อง** ออกก่อน\n4. ระวัง **ตัวเลือกหลอก** ที่ใช้คำในเรื่องแต่ใจความผิด\n\n### 5) ตัวอย่างบทอ่านสั้น\n> *Traffic police stand on busy roads every morning. They direct cars when the lights fail and help children cross the street safely. Although the job is tiring, they do it to protect the public.*\n- Main idea = หน้าที่ของตำรวจจราจรคือดูแลความปลอดภัยบนถนน\n- ทำไมต้องยืนตีหนึ่งตีสอง? เพื่อช่วยเหลือประชาชน (inference)\n\n### เคล็ดลับจำ\n- **Main idea** = คิดว่า 'ทั้งเรื่องพูดถึงอะไรเป็นหลัก' (กว้างกว่า detail)\n- คำถาม detail ให้ **กลับไปหาประโยคจริง** ในเรื่องเสมอ อย่าตอบจากความจำ\n- **Inference** = คำตอบต้อง *อนุมานได้* จากเรื่อง แต่ต้องไม่มีคำตอบที่เรื่องบอกตรง ๆ\n- คำถาม **NOT / EXCEPT** = ต้องหาตัวที่ *ผิด* หรือ *ไม่มีในเรื่อง*\n- ดู adjective บ่งโทน: great, amazing → ชื่นชม ; terrible, sadly → วิพากษ์/เศร้า\n",
+  "questions": [
+    {
+      "q": "(Passage) Police officers in the community work long hours. They not only enforce the law but also help citizens in emergencies. Many people do not realize how much officers sacrifice to keep the streets safe.\\nWhat is the main idea of the passage?",
+      "choices": [
+        "Police officers rarely work.",
+        "Only police officers face emergencies.",
+        "Citizens never need help.",
+        "Police officers work hard and make sacrifices for the community."
+      ],
+      "answer": 3,
+      "explain": "ทั้งย่อหน้าพูดถึงเจ้าหน้าที่ยอมทำงานหนัก-เสียสละเพื่อชุมชน จึงเป็นใจความหลัก (Main idea) ที่กว้างครอบคลุมทุกประโยค"
+    },
+    {
+      "q": "(Passage from above) According to the passage, what else do police officers do besides enforcing the law?",
+      "choices": [
+        "They collect taxes.",
+        "They teach at schools.",
+        "They help citizens in emergencies.",
+        "They sell security equipment."
+      ],
+      "answer": 2,
+      "explain": "เป็นคำถาม Detail หาได้ตรง ๆ ในเรื่อง: 'help citizens in emergencies' จึงตอบข้อนี้ ; ตัวเลือกอื่นไม่มีในเรื่อง"
+    },
+    {
+      "q": "(Passage from above) What can be inferred about police officers from the passage?",
+      "choices": [
+        "Their work is often not fully appreciated.",
+        "They want higher pay.",
+        "They dislike helping people.",
+        "They only work at night."
+      ],
+      "answer": 0,
+      "explain": "'Many people do not realize how much officers sacrifice' สื่อเป็นนัยว่างานของตำรวจยังไม่ได้รับการเห็นคุณค่า — เป็นการอนุมาน (Inference)"
+    },
+    {
+      "q": "A well-written passage usually has its topic sentence in the ______.",
+      "choices": [
+        "last sentence only",
+        "title",
+        "first sentence of a paragraph",
+        "footnote"
+      ],
+      "answer": 2,
+      "explain": "Topic sentence (ประโยคหัวเรื่อง) มักอยู่ประโยคแรกของย่อหน้า เป็นหลักการอ่านจับใจความทั่วไป"
+    },
+    {
+      "q": "(Passage) Dogs can be trained to detect drugs and explosives. Their strong sense of smell is far better than a human's. For this reason, police often use dogs at airports and crime scenes.\\nThe passage is mainly about ______.",
+      "choices": [
+        "how dogs help police with their sense of smell",
+        "why dogs are popular pets",
+        "how dogs are trained to run fast",
+        "the cost of keeping police dogs"
+      ],
+      "answer": 0,
+      "explain": "ย่อหน้าอธิบายว่าสุนัขมีประสาทรับกลิ่นดีจึงถูกใช้ช่วยตำรวจ เป็นใจความหลักของเรื่อง"
+    },
+    {
+      "q": "(Passage from above) According to the passage, police use dogs because ______.",
+      "choices": [
+        "dogs are cheap",
+        "dogs have a very strong sense of smell",
+        "dogs can speak to officers",
+        "dogs like airports"
+      ],
+      "answer": 1,
+      "explain": "เรื่องบอกชัดว่า 'their strong sense of smell is far better than a human's' จึงเป็นเหตุผลที่ตำรวจใช้สุนัข (Detail)"
+    },
+    {
+      "q": "When a question asks about the writer's tone, it asks about the writer's ______.",
+      "choices": [
+        "grammar mistakes",
+        "attitude or feeling",
+        "handwriting",
+        "word count"
+      ],
+      "answer": 1,
+      "explain": "Tone = ท่าที/ความรู้สึกของผู้เขียนต่องาน (เช่น informative, critical) ไม่ใช่ไวยากรณ์หรือจำนวนคำ"
+    },
+    {
+      "q": "(Passage) Traffic police stand on busy roads every morning. They direct cars when the lights fail and help children cross the street. Although the job is tiring, they do it to protect the public.\\nWhich word best describes the writer's tone?",
+      "choices": [
+        "Angry",
+        "Humorous",
+        "Respectful",
+        "Sarcastic"
+      ],
+      "answer": 2,
+      "explain": "ผู้เขียนพูดถึงการทำงานที่เหนื่อยแต่เพื่อความปลอดภัยของประชาชน → โทนชื่นชม/ให้ความนับถือ (Respectful) ไม่ใช่โกรธหรือเสียดสี"
+    },
+    {
+      "q": "(Passage from above) What do traffic police do when the traffic lights fail?",
+      "choices": [
+        "They go home early.",
+        "They call a mechanic.",
+        "They stop working.",
+        "They direct the cars."
+      ],
+      "answer": 3,
+      "explain": "คำถาม Detail หาได้ตรง ๆ ในเรื่อง: 'They direct cars when the lights fail' จึงตอบ 'They direct the cars.'"
+    },
+    {
+      "q": "A question that asks what CANNOT be found in the passage is testing your ability to ______.",
+      "choices": [
+        "spot information that is NOT in the text",
+        "translate the text",
+        "spell words",
+        "count words"
+      ],
+      "answer": 0,
+      "explain": "คำถาม NOT/EXCEPT ต้องการหาตัวเลือกที่ไม่มีในเรื่องหรือผิด (Negative detail) ต้องอ่านเรื่องให้ครบก่อนตอบ"
+    },
+    {
+      "q": "(Passage) The village school had only one teacher. She taught every subject and stayed late to help slow learners. Her students loved her, and many went on to study at university.\\nWhat can be inferred about the teacher?",
+      "choices": [
+        "She was lazy.",
+        "She disliked teaching.",
+        "She wanted to close the school.",
+        "She was dedicated and hardworking."
+      ],
+      "answer": 3,
+      "explain": "การ 'สอนทุกวิชา' และ 'อยู่ดึกเพื่อช่วยเด็ก' สื่อเป็นนัยว่าครูขยันและทุ่มเท (Inference) แม้เรื่องไม่บอกคำว่า dedicated ตรง ๆ"
+    },
+    {
+      "q": "(Passage from above) What is the main idea of the passage?",
+      "choices": [
+        "A dedicated teacher helped her students succeed.",
+        "Villages have no schools.",
+        "University is easy to enter.",
+        "One teacher is better than many."
+      ],
+      "answer": 0,
+      "explain": "ทั้งเรื่องเล่าครูคนเดียวที่ทุ่มเทจนนักเรียนได้เรียนต่อ จึงเป็นใจความหลัก ; ตัวเลือกอื่นเกินเลยหรือไม่ตรงเรื่อง"
+    },
+    {
+      "q": "The best strategy when answering a detail question is to ______.",
+      "choices": [
+        "guess quickly",
+        "find the exact information in the passage",
+        "translate every word",
+        "ignore the passage"
+      ],
+      "answer": 1,
+      "explain": "คำถามรายละเอียด (Detail) ต้องกลับไปหาข้อความจริงในเรื่อง อย่าเดา เพื่อความแม่นยำ"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "id": "e2",
+  "set": "en",
+  "no": 2,
+  "icon": "💬",
+  "title": "Vocabulary & Conversation",
+  "desc": "คำศัพท์ที่ออกบ่อย synonym/antonym บทสนทนาในสถานการณ์ต่าง ๆ และสำนวน (idioms) พื้นฐาน",
+  "source": "เกร็งจากแนวข้อสอบนายสิบตำรวจ (สายอำนวยการ)",
+  "summary": "## Vocabulary & Conversation (EN2)\n\n### 1) คำศัพท์ที่ออกบ่อย (ต้องรู้ความหมาย)\n- **achievement** = ความสำเร็จ, **opportunity** = โอกาส, **responsibility** = ความรับผิดชอบ\n- **determine** = ตัดสินใจ/กำหนด, **assist** = ช่วยเหลือ, **require** = ต้องการ/กำหนดให้\n- **approximately** = ประมาณ, **frequently** = บ่อยครั้ง, **immediately** = ทันที\n- **reduce** = ลดลง, **increase** = เพิ่มขึ้น, **similar** = คล้ายกัน, **different** = แตกต่าง\n- **efficient** = มีประสิทธิภาพ, **reliable** = เชื่อถือได้, **available** = มีให้ใช้\n\n### 2) Synonym (คำเหมือน) / Antonym (คำตรงข้าม)\n- happy ≈ glad, cheerful | sad ≈ unhappy, sorrowful\n- begin ≈ start, commence | finish ≈ end, complete\n- big ≈ large, huge | small ≈ little, tiny\n- difficult ≈ hard, tough | easy ≈ simple\n- cheap ≈ inexpensive (ถูก) ≠ expensive (แพง)\n- always ≠ never ; often ≠ seldom/rarely ; accept ≠ refuse\n\n### 3) บทสนทนา/สถานการณ์ที่เจอบ่อย\n- ทักทาย: *How are you?* → *I'm fine, thank you. And you?*\n- ขอโทษ: *I'm sorry for being late.* / *Excuse me.* → *That's all right. / No problem.*\n- ขอบคุณ: *Thank you very much.* → *You're welcome. / My pleasure.*\n- ขอความช่วยเหลือ: *Could you help me, please?* → *Sure, I'd be glad to.*\n- สอบถามทาง: *Excuse me, how can I get to the station?* → *Go straight and turn left.*\n- ขอโทษที่รบกวน/ขอผ่าน: *Excuse me, may I pass?*\n\n### 4) Idioms / สำนวนพื้นฐาน\n- **give up** = ยอมแพ้/เลิก ; **look after** = ดูแล ; **look for** = ค้นหา\n- **take care of** = ดูแล ; **put off** = เลื่อนออกไป ; **get along with** = เข้ากันได้\n- **once in a while** = นาน ๆ ครั้ง ; **in a hurry** = รีบร้อน ; **by heart** = ขึ้นใจ\n- **on time** = ตรงเวลา ; **at last** = ในที่สุด\n\n### 5) หลักเลือกคำให้ถูกบริบท\n- **make** = ทำ/สร้าง (make a decision, make a mistake)\n- **do** = ทำ (do homework, do a favor)\n- **say** + คำพูด ; **tell** + คน (tell me)\n- **borrow** = ยืมเข้า (borrow from) ; **lend** = ให้ยืม (lend to)\n- **affected** (ได้รับผลกระทบ) ≠ **effected** (ทำให้เกิด)\n\n### เคล็ดลับจำ\n- Synonym/antonym ให้ดู **ความหมายตรงกันข้าม** ก่อน แล้วค่อยเลือกคำที่ register ใกล้ที่สุด\n- ตอบบทสนทนาให้ **ตรงคำถาม**: ถามความรู้สึก → ตอบความรู้สึก, ถามทาง → บอกทาง\n- Idiom ต้องจำเป็นวลีทั้งก้อน เช่น give up (ไม่ใช่ยกให้) เพราะความหมายไม่ตรงตัว\n- ระวังคำหลอกเสียงคล้าย: borrow/lend, say/tell, a lot/allot\n",
+  "questions": [
+    {
+      "q": "Choose the word closest in meaning to \"assist\".",
+      "choices": [
+        "ignore",
+        "refuse",
+        "prevent",
+        "help"
+      ],
+      "answer": 3,
+      "explain": "assist = ช่วยเหลือ ตรงกับ help ; ignore=เพิกเฉย, refuse=ปฏิเสธ, prevent=ป้องกัน ไม่ตรงความหมาย"
+    },
+    {
+      "q": "Choose the word OPPOSITE in meaning to \"expensive\".",
+      "choices": [
+        "costly",
+        "valuable",
+        "cheap",
+        "pricey"
+      ],
+      "answer": 2,
+      "explain": "expensive = แพง คำตรงข้ามคือ cheap = ถูก ; costly/valuable/pricey ล้วนแปลว่าแพง/มีค่า จึงเป็นคำเหมือน"
+    },
+    {
+      "q": "\"Thank you very much.\" — The best response is:",
+      "choices": [
+        "You're welcome.",
+        "I'm sorry.",
+        "Never mind.",
+        "Excuse me."
+      ],
+      "answer": 0,
+      "explain": "ตอบคำขอบคุณด้วย You're welcome. (ด้วยความยินดี) ; Never mind=ไม่เป็นไร(ตอบขอโทษ), Excuse me=ขอโทษที่รบกวน"
+    },
+    {
+      "q": "A: \"How are you?\"  B: ______",
+      "choices": [
+        "Yes, I do.",
+        "I'm fine, thank you.",
+        "Here you are.",
+        "That's too bad."
+      ],
+      "answer": 1,
+      "explain": "คำถามถามสารทุกข์สุกดิบ ตอบด้วย I'm fine, thank you. ; Yes I do ใช้ตอบคำถาม Yes/No ; Here you are ใช้ยื่นของให้"
+    },
+    {
+      "q": "I'm sorry ______ being late.",
+      "choices": [
+        "to",
+        "of",
+        "on",
+        "for"
+      ],
+      "answer": 3,
+      "explain": "สำนวนขอโทษคือ sorry for + วลี/คำกริยา-ing → sorry for being late"
+    },
+    {
+      "q": "Please ______ me to the post office.",
+      "choices": [
+        "say",
+        "tell",
+        "speak",
+        "talk"
+      ],
+      "answer": 1,
+      "explain": "tell ต้องมีกรรมเป็น 'คน' (tell + someone) ; say ไม่มีกรรมคนโดยตรง ; speak/talk ไม่ตามด้วยคนแบบนี้"
+    },
+    {
+      "q": "If I want to look up a word, I need a ______.",
+      "choices": [
+        "calendar",
+        "timetable",
+        "receipt",
+        "dictionary"
+      ],
+      "answer": 3,
+      "explain": "look up a word = ค้นหาคำศัพท์ ต้องใช้ dictionary (พจนานุกรม) ; calendar=ปฏิทิน, timetable=ตารางเวลา, receipt=ใบเสร็จ"
+    },
+    {
+      "q": "She ______ her keys everywhere but could not find them.",
+      "choices": [
+        "looked after",
+        "gave up",
+        "looked for",
+        "put off"
+      ],
+      "answer": 2,
+      "explain": "look for = ค้นหา ตรงกับบริบท 'หาลูกกุญแจ' ; look after=ดูแล, give up=ยอมแพ้, put off=เลื่อน"
+    },
+    {
+      "q": "Excuse me, could you ______ me the way to the station?",
+      "choices": [
+        "speak",
+        "say",
+        "tell",
+        "talk"
+      ],
+      "answer": 2,
+      "explain": "tell someone the way = บอกทางให้ใคร ต้องใช้ tell + คน ; speak/say/talk ไม่เข้าโครงสร้างนี้"
+    },
+    {
+      "q": "He is a very ______ worker; he never makes mistakes.",
+      "choices": [
+        "careless",
+        "careful",
+        "carefully",
+        "care"
+      ],
+      "answer": 1,
+      "explain": "ขยายคำนาม worker ต้องใช้ adjective; ความหมายบอกว่าไม่เคยผิด จึงเป็น careful (ละเอียดรอบคอบ)"
+    },
+    {
+      "q": "May I ______ your pen? I left mine at home.",
+      "choices": [
+        "borrow",
+        "lend",
+        "give",
+        "buy"
+      ],
+      "answer": 0,
+      "explain": "borrow = ขอยืม (เข้า) ตรงกับ 'ขอยืมปากกาคนอื่น' ; lend = ให้ยืม (ออก) เป็นทิศทางตรงข้าม"
+    },
+    {
+      "q": "They were in a ______, so they took a taxi.",
+      "choices": [
+        "worry",
+        "sorry",
+        "hurry",
+        "waste"
+      ],
+      "answer": 2,
+      "explain": "in a hurry = รีบร้อน เป็นสำนวน เหมาะกับบริบทต้องรีบจึงเรียกแท็กซี่"
+    },
+    {
+      "q": "The opposite of \"increase\" is ______.",
+      "choices": [
+        "reduce",
+        "raise",
+        "grow",
+        "expand"
+      ],
+      "answer": 0,
+      "explain": "increase = เพิ่มขึ้น คำตรงข้ามคือ reduce = ลดลง ; raise/grow/expand ล้วนแปลว่าเพิ่มขึ้น"
+    },
+    {
+      "q": "Choose the word closest in meaning to \"reliable\".",
+      "choices": [
+        "ordinary",
+        "dependable",
+        "careless",
+        "temporary"
+      ],
+      "answer": 1,
+      "explain": "reliable = เชื่อถือได้ ตรงกับ dependable ; ordinary=ธรรมดา, careless=ประมาท, temporary=ชั่วคราว"
+    }
+  ]
+}
