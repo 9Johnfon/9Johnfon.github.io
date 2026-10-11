@@ -113,24 +113,36 @@ function initExam(){
 
   if(allMode) setTimeout(()=>startQuiz(BOOKS.map(b=>b.id),'all',true,true),0);
 
+  const SETMETA=(typeof SETS!=='undefined')?SETS:[{id:'ชุดเดิม',name:'บทเรียน',icon:'📚'}];
+  const setOf=b=>b.set||'ชุดเดิม';
+  const presetBook=preset?bookById(preset):null;
+  const booksOf=id=>BOOKS.filter(b=>setOf(b)===id);
+  const setQ=id=>booksOf(id).reduce((n,b)=>n+b.questions.length,0);
+
+  let curSet = presetBook ? setOf(presetBook) : SETMETA[0].id;
+  let curMode = 'set'; // 'set' | 'all'
   const saved=loadHistory();
+
+  function bookChips(){
+    if(curMode==='all')
+      return `<button class="chip on" data-id="__all__">🔥 ทุกบท ทุกชุด (${totalQ()})</button>`;
+    return `<button class="chip" data-id="__setall__">🔥 ทุกบทในชุดนี้ (${setQ(curSet)})</button>`+
+      booksOf(curSet).map(b=>`<button class="chip ${preset===b.id?'on':''}" data-id="${b.id}">${b.icon||'📄'} ${b.title} <span style="opacity:.7">(${b.questions.length})</span></button>`).join('');
+  }
 
   root.innerHTML=`
     <div class="panel">
       <h2 style="margin-top:0">✍️ ตั้งค่าข้อสอบ</h2>
-      <p class="field-hint">เลือกบทที่ต้องการ (เลือกได้หลายบท) หรือกด "ข้อสอบรวมทุกบท"</p>
+      <p class="field-hint">เลือกเป็นชุด ๆ — แตะชุดที่ต้องการ แล้วเลือกบท (แตะได้หลายบท) จากนั้นกดเริ่ม</p>
 
-      <div class="field-label">📚 บทที่ต้องการ</div>
-      <div class="opt-group" id="pick">
-        ${((typeof SETS !== 'undefined') ? SETS : [{ id: 'ชุดเดิม', name: 'บทเรียน', icon: '📚' }]).map(s=>{
-          const bs = BOOKS.filter(b=>(b.set || 'ชุดเดิม')===s.id);
-          if(!bs.length) return '';
-          return `<div class="pick-set">${s.icon||'📚'} ${s.name}</div>` +
-            bs.map(b=>`<button class="chip ${preset===b.id?'on':''}" data-id="${b.id}">${b.icon||'📄'} ${b.title} <span style="opacity:.7">(${b.questions.length})</span></button>`).join('');
-        }).join('')}
-        <div class="pick-set">🎯 รวมทุกชุด</div>
-        <button class="chip" data-id="__all__">🔥 ทุกบท (${totalQ()})</button>
+      <div class="field-label">📦 เลือกชุดข้อสอบ</div>
+      <div class="opt-group" id="setpick">
+        ${SETMETA.map(s=>`<button class="chip ${s.id===curSet?'on':''}" data-set="${s.id}">${s.icon||'📚'} ${s.name} <span style="opacity:.7">(${booksOf(s.id).length} บท · ${setQ(s.id)} ข้อ)</span></button>`).join('')}
+        <button class="chip" data-set="__all__">🎯 รวมทุกชุด (${BOOKS.length} บท · ${totalQ()} ข้อ)</button>
       </div>
+
+      <div class="field-label" id="pick-label">📚 บทในชุดนี้</div>
+      <div class="opt-group" id="pick">${bookChips()}</div>
 
       <div class="field-label">🔢 จำนวนข้อ</div>
       <div class="opt-group" id="cnt">
@@ -159,27 +171,50 @@ function initExam(){
     </div>`;
 
   const pick=root.querySelector('#pick');
+  const setpick=root.querySelector('#setpick');
+
+  function paintBookChips(){
+    pick.innerHTML=bookChips();
+    root.querySelector('#pick-label').textContent =
+      curMode==='all' ? '📚 ทุกบท (รวมทุกชุด)' : '📚 บทในชุดนี้';
+  }
+
+  setpick.addEventListener('click',e=>{
+    const c=e.target.closest('.chip'); if(!c) return;
+    setpick.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on');
+    if(c.dataset.set==='__all__'){ curMode='all'; }
+    else { curMode='set'; curSet=c.dataset.set; }
+    paintBookChips();
+  });
+
   pick.addEventListener('click',e=>{
     const c=e.target.closest('.chip'); if(!c) return;
-    if(c.dataset.id==='__all__'){
+    if(c.dataset.id==='__all__') return;
+    if(c.dataset.id==='__setall__'){
       const on=!c.classList.contains('on');
-      pick.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',on&&x.dataset.id==='__all__'));
-      if(on) pick.querySelectorAll('.chip:not([data-id="__all__"])').forEach(x=>x.classList.remove('on'));
-    }else{
-      pick.querySelector('[data-id="__all__"]').classList.remove('on');
-      c.classList.toggle('on');
+      pick.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+      if(on) c.classList.add('on');
+      return;
     }
+    c.classList.toggle('on');
   });
-  const chipGroup=(id,cb)=>root.querySelector(id).addEventListener('click',e=>{
+
+  const chipGroup=id=>root.querySelector(id).addEventListener('click',e=>{
     const c=e.target.closest('.chip'); if(!c) return;
     root.querySelectorAll(id+' .chip').forEach(x=>x.classList.remove('on'));
-    c.classList.add('on'); cb&&cb(c.dataset.v);
+    c.classList.add('on');
   });
   chipGroup('#cnt'); chipGroup('#mode');
 
   root.querySelector('#go').addEventListener('click',()=>{
-    let ids=[...pick.querySelectorAll('.chip.on')].map(x=>x.dataset.id);
-    if(!ids.length||ids[0]==='__all__') ids=BOOKS.map(b=>b.id);
+    let ids;
+    if(curMode==='all'){ ids=BOOKS.map(b=>b.id); }
+    else {
+      const on=[...pick.querySelectorAll('.chip.on')].map(x=>x.dataset.id);
+      if(on.includes('__setall__')||!on.length) ids=booksOf(curSet).map(b=>b.id);
+      else ids=on;
+    }
     const cnt=root.querySelector('#cnt .chip.on').dataset.v;
     const mode=root.querySelector('#mode .chip.on').dataset.v;
     startQuiz(ids,cnt,mode==='immediate',false);
