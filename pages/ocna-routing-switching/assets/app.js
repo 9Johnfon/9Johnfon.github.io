@@ -1,21 +1,6 @@
-/* OCNA site — shared app: language toggle + summary rendering */
+/* OCNA site — fully in Thai */
+/* No language toggle — content is Thai throughout */
 
-/* ---- TH translation toggle (persisted) ---- */
-function initLangToggle() {
-  const on = localStorage.getItem('ocna_th') === '1';
-  document.body.classList.toggle('th-on', on);
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.textContent = on ? '🇹🇭 คำแปล: เปิด' : '🇹🇭 คำแปล: ปิด';
-    b.onclick = () => {
-      const now = !document.body.classList.contains('th-on');
-      document.body.classList.toggle('th-on', now);
-      localStorage.setItem('ocna_th', now ? '1' : '0');
-      b.textContent = now ? '🇹🇭 คำแปล: เปิด' : '🇹🇭 คำแปล: ปิด';
-    };
-  });
-}
-
-/* ---- Home: chapter cards ---- */
 function renderBookGrid() {
   const grid = document.getElementById('book-grid');
   if (!grid) return;
@@ -23,8 +8,7 @@ function renderBookGrid() {
     <div class="card">
       <span class="ico">${b.icon}</span>
       <span class="tag">บทที่ ${b.id.replace('ch', '')}</span>
-      <h3>${b.title_en}</h3>
-      <p>${b.title_th}</p>
+      <h3>${b.title_th}</h3>
       <div class="card-links">
         <a href="summary.html#${b.id}">📖 อ่านสรุป</a>
         <a href="exam.html">✍️ ทำข้อสอบ</a>
@@ -39,7 +23,7 @@ function renderMeta() {
   });
 }
 
-/* ---- Summary page ---- */
+/* ---- Summary page: Thai only ---- */
 function renderSummary() {
   const root = document.getElementById('summary-root');
   if (!root) return;
@@ -47,13 +31,11 @@ function renderSummary() {
     <section class="sum-chapter" id="${b.id}">
       <div class="sum-head" onclick="this.parentElement.classList.toggle('open')">
         <span class="ico">${b.icon}</span>
-        <h3>${b.title_en} <span style="color:var(--mut);font-weight:600">— ${b.title_th}</span></h3>
+        <h3>${b.title_th}</h3>
         <span class="chev">▼</span>
       </div>
       <div class="sum-body">
-        <ul>${b.body_en.map((t, i) => `
-          <li>${t}<span class="li-th">${b.body_th[i]}</span></li>`).join('')}
-        </ul>
+        <ul>${b.body_th.map(t => `<li>${t}</li>`).join('')}</ul>
       </div>
     </section>`).join('');
   // deep link
@@ -70,7 +52,6 @@ function renderSummary() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initLangToggle();
   renderMeta();
   renderBookGrid();
   renderSummary();

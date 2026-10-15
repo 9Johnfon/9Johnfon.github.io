@@ -49,12 +49,13 @@ function render() {
   const q = QUESTIONS[qi];
   document.getElementById('q-pos').textContent = `ข้อ ${cur + 1} / ${QUESTIONS.length}`;
   document.getElementById('q-topic').innerHTML = `<span class="tag-ch">${q.t}</span>`;
-  document.getElementById('q-text').textContent = q.q;
-  document.getElementById('q-text-th').textContent = q.th ? q.th : q.q_th;
+  // Thai only: show q_th for question text
+  document.getElementById('q-text').textContent = q.q_th || q.q;
+  document.getElementById('q-text-th').textContent = q.q_th || q.q;
 
   const chosen = answers[cur];
   const opts = document.getElementById('opts');
-  opts.innerHTML = q.c.map((c, i) => {
+  opts.innerHTML = q.c_th.map((c, i) => {
     let cls = 'opt';
     if (chosen >= 0) {
       if (i === q.a) cls += ' correct';
@@ -62,15 +63,13 @@ function render() {
     }
     return `<button class="${cls}" data-i="${i}" ${chosen >= 0 ? 'disabled' : ''}>
       <span class="key">${LETTERS[i]}</span>
-      <span>${c}<span class="th">${q.c_th[i]}</span></span>
+      <span>${c}</span>
     </button>`;
   }).join('');
 
-  opts.querySelectorAll('.opt').forEach(b => b.onclick = () => pick(+b.dataset.i));
-
   const ex = document.getElementById('explain');
   ex.classList.remove('show');
-  ex.innerHTML = `<b>💡 เฉลย:</b> <span class="en">${q.e}</span><span class="th">${q.e_th}</span>`;
+  ex.innerHTML = `<b>💡 เฉลย:</b> <span class="en">${q.e_th}</span>`;
 
   const nextBtn = document.getElementById('next-btn');
   nextBtn.disabled = chosen < 0;
