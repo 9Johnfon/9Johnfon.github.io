@@ -66,6 +66,11 @@ function render() {
       <span>${c}</span>
     </button>`;
   }).join('');
+  opts.addEventListener('click', (e) => {
+    const btn = e.target.closest('.opt');
+    if (!btn || btn.disabled) return;
+    pick(parseInt(btn.dataset.i, 10));
+  });
 
   const ex = document.getElementById('explain');
   ex.classList.remove('show');
